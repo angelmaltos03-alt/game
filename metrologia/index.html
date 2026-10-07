@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111f" />
+  <meta name="description" content="Laboratorio interactivo de Metrología: misiones, instrumentos virtuales y retroalimentación paso a paso." />
+  <title>METRO-LAB | Misiones de Metrología</title>
+  <style>
+:root{
+  --bg:#07101d;--bg2:#0c1728;--panel:#101d31;--panel2:#13243d;--line:#213553;
+  --text:#eef6ff;--muted:#95aac5;--cyan:#4be3ff;--green:#65f0a5;--yellow:#ffd166;
+  --red:#ff6b7a;--purple:#a78bfa;--shadow:0 24px 70px rgba(0,0,0,.34);
+  --radius:22px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0%,#122848 0,transparent 34%),linear-gradient(180deg,#07101d,#091522 52%,#07101d);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}.noise{position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(18px,4vw,64px);background:rgba(7,16,29,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(120,180,255,.12)}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,var(--cyan),#4c8dff);color:#04111d;font-weight:950;font-size:22px;box-shadow:0 0 26px rgba(75,227,255,.28)}.brand strong{display:block;letter-spacing:.08em}.brand span{display:block;font-size:12px;color:var(--muted);margin-top:2px}.top-actions{display:flex;align-items:center;gap:10px}.xp-pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:rgba(19,36,61,.75)}.xp-pill span{color:var(--yellow);font-size:11px;font-weight:900}.btn{border:0;border-radius:13px;padding:11px 16px;font:inherit;font-weight:800;cursor:pointer;transition:.18s ease}.btn:hover{transform:translateY(-1px)}.btn.primary{background:linear-gradient(135deg,var(--cyan),#4a86ff);color:#06101d;box-shadow:0 12px 28px rgba(75,227,255,.2)}.btn.secondary{background:#1b2d48;color:var(--text);border:1px solid #2a4266}.btn.ghost{background:rgba(15,30,50,.75);color:var(--text);border:1px solid var(--line)}.btn.success{background:var(--green);color:#052016}.btn.danger{background:#3c1e2a;color:#ffc5cc;border:1px solid #693040}main{width:min(1240px,92vw);margin:0 auto}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:42px;align-items:center;padding:76px 0 34px}.eyebrow,.mission-kicker{font-size:11px;letter-spacing:.18em;font-weight:900;color:var(--cyan)}h1{font-size:clamp(42px,7vw,76px);line-height:.98;margin:12px 0 22px;letter-spacing:-.05em;max-width:850px}h1 em{font-style:normal;color:var(--cyan)}.hero p{font-size:18px;line-height:1.65;color:#b9c9dc;max-width:750px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.hero-card{background:linear-gradient(180deg,rgba(20,38,64,.95),rgba(12,25,43,.95));border:1px solid #264063;border-radius:28px;padding:25px;box-shadow:var(--shadow)}.radar{height:260px;position:relative;border-radius:22px;overflow:hidden;background:radial-gradient(circle,#163a52 0,#0c1b2c 55%,#08131f 100%);border:1px solid #284764}.radar::before,.radar::after{content:"";position:absolute;background:rgba(75,227,255,.12)}.radar::before{width:1px;top:0;bottom:0;left:50%}.radar::after{height:1px;left:0;right:0;top:50%}.radar-ring{position:absolute;border:1px solid rgba(75,227,255,.18);border-radius:50%;inset:50%;transform:translate(-50%,-50%)}.r1{width:70px;height:70px}.r2{width:145px;height:145px}.r3{width:220px;height:220px}.radar-line{position:absolute;width:50%;height:2px;left:50%;top:50%;transform-origin:left center;background:linear-gradient(90deg,var(--cyan),transparent);animation:sweep 4s linear infinite}.radar-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 15px var(--green)}.d1{left:33%;top:35%}.d2{left:66%;top:60%}.d3{left:55%;top:27%}@keyframes sweep{to{transform:rotate(360deg)}}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}.hero-stats div{padding:12px;background:#0b1727;border:1px solid #1f3655;border-radius:14px;text-align:center}.hero-stats b{font-size:23px;display:block}.hero-stats span{font-size:10px;color:var(--muted)}.progress-panel{margin:24px 0 58px;padding:16px 19px;border:1px solid var(--line);background:rgba(13,27,46,.75);border-radius:18px}.progress-panel>div:first-child{display:flex;justify-content:space-between;font-size:12px;font-weight:900;letter-spacing:.08em}.progress-track{height:10px;background:#08111d;border-radius:99px;overflow:hidden;margin-top:10px}.progress-track div{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--cyan));transition:.4s}.section-heading{margin-bottom:22px}.section-heading h2{font-size:clamp(29px,4vw,45px);margin:7px 0 0;letter-spacing:-.03em}.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.mission-card{position:relative;overflow:hidden;min-height:220px;padding:20px;border:1px solid #233d60;background:linear-gradient(160deg,#12243b,#0c192b);border-radius:20px;cursor:pointer;transition:.2s}.mission-card:hover{transform:translateY(-4px);border-color:#3b6993}.mission-card.locked{opacity:.5;cursor:not-allowed;filter:saturate(.35)}.mission-card.done{border-color:rgba(101,240,165,.5);box-shadow:inset 0 0 0 1px rgba(101,240,165,.08)}.mission-number{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#0a1727;border:1px solid #274460;color:var(--cyan);font-weight:950;font-size:20px}.mission-card h3{margin:18px 0 8px;font-size:18px}.mission-card p{color:var(--muted);font-size:13px;line-height:1.5}.mission-meta{position:absolute;bottom:17px;left:20px;right:20px;display:flex;justify-content:space-between;font-size:11px;color:#7893b4}.done .mission-meta{color:var(--green)}.workspace{display:none;margin:58px 0 100px}.workspace.active{display:block}.workspace-head{display:flex;justify-content:space-between;gap:20px;align-items:start;margin-bottom:22px}.workspace-head h2{font-size:clamp(31px,5vw,52px);margin:5px 0 7px}.workspace-head p{margin:0;color:var(--muted);max-width:800px;line-height:1.6}.stage-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.lab-panel,.task-panel{background:linear-gradient(160deg,#112239,#0c1829);border:1px solid #233e61;border-radius:23px;padding:22px;box-shadow:0 16px 40px rgba(0,0,0,.2)}.panel-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.panel-title h3{margin:0;font-size:17px}.panel-title span{font-size:11px;color:var(--muted)}.instrument-bench{min-height:390px;border-radius:19px;background:radial-gradient(circle at center,#152e47,#091522 75%);border:1px solid #263f5d;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden}.instrument-bench::after{content:"LAB BENCH 05";position:absolute;right:14px;bottom:10px;color:#335274;font-size:10px;letter-spacing:.2em}.multimeter{width:min(310px,94%);background:#212936;border-radius:26px;padding:18px;border:4px solid #303b4c;box-shadow:0 20px 40px rgba(0,0,0,.5)}.meter-screen{background:#b8d9c1;color:#16311d;border-radius:8px;padding:16px 13px;text-align:right;font-family:"Courier New",monospace;font-size:40px;font-weight:900;box-shadow:inset 0 0 10px rgba(0,0,0,.2)}.meter-label{font-size:10px;color:#b7c3d4;text-align:center;margin:8px 0 12px}.dial{width:116px;height:116px;border-radius:50%;margin:12px auto;background:radial-gradient(circle,#303b49 0 43%,#121922 45% 100%);border:2px solid #49576a;position:relative}.dial::after{content:"";position:absolute;width:7px;height:43px;border-radius:7px;background:var(--yellow);left:calc(50% - 3px);top:11px;transform-origin:50% 47px;transform:rotate(var(--dial,0deg));transition:.2s}.dial-options{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.mini-btn{border:1px solid #365471;background:#0c1c2f;color:#c8d7e8;padding:7px 10px;border-radius:9px;cursor:pointer;font-size:11px}.mini-btn.active{background:var(--cyan);color:#06121c;border-color:var(--cyan)}.jacks{display:flex;justify-content:center;gap:28px;margin-top:18px}.jack{width:26px;height:26px;border-radius:50%;border:5px solid #111;background:#151515}.jack.red{box-shadow:inset 0 0 0 5px #c5424f}.jack.black{box-shadow:inset 0 0 0 5px #333}.source-box{position:absolute;left:18px;top:18px;background:#0c1929;border:1px solid #2c496a;border-radius:14px;padding:11px 13px}.source-box b{display:block;color:var(--yellow)}.formula-card{background:#0a1626;border:1px solid #223a5a;border-radius:16px;padding:15px;margin:12px 0}.formula{font-family:"Cambria Math",Georgia,serif;font-size:22px;color:#dbf8ff;text-align:center;padding:8px}.formula-vars{font-size:12px;color:var(--muted);line-height:1.7}.question{padding:16px 0;border-top:1px solid #203755}.question:first-child{border-top:0}.question h4{margin:0 0 12px;font-size:15px;line-height:1.45}.answer-row{display:flex;gap:8px;flex-wrap:wrap}.answer-row input,.calc-input,.select-control{background:#081522;border:1px solid #2c4a6d;color:var(--text);border-radius:11px;padding:11px 12px;font:inherit;min-width:120px}.calc-input{width:100%}.choice{display:block;width:100%;text-align:left;margin:7px 0;padding:12px 13px;border-radius:12px;border:1px solid #284866;background:#0b192a;color:#dce9f7;cursor:pointer}.choice:hover{border-color:#4d7598}.feedback{display:none;margin-top:10px;padding:12px 13px;border-radius:12px;font-size:13px;line-height:1.5}.feedback.show{display:block}.feedback.ok{background:rgba(101,240,165,.09);border:1px solid rgba(101,240,165,.4);color:#b9ffd7}.feedback.bad{background:rgba(255,107,122,.09);border:1px solid rgba(255,107,122,.42);color:#ffc0c8}.step-guide{counter-reset:step}.step{display:grid;grid-template-columns:34px 1fr;gap:11px;margin:12px 0}.step::before{counter-increment:step;content:counter(step);width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#173252;color:var(--cyan);font-weight:900}.step b{display:block;font-size:13px}.step span{font-size:12px;color:var(--muted);line-height:1.45}.scope{width:min(620px,100%);background:#232a31;border-radius:17px;padding:14px;border:3px solid #3c4650}.scope-screen{height:310px;position:relative;background:#03120d;border-radius:8px;overflow:hidden;border:2px solid #122d23;background-image:linear-gradient(rgba(94,240,151,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(94,240,151,.1) 1px,transparent 1px);background-size:10% 20%}.scope-screen svg{width:100%;height:100%}.scope-readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.scope-readouts div{background:#111920;padding:8px;border-radius:8px;font-family:monospace;font-size:12px;color:#9ff6bd}.knob-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:13px}.sensor-rack{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}.sensor-card{padding:16px;border:1px solid #31516f;background:#0d1b2c;border-radius:15px;cursor:grab;text-align:center}.sensor-card .sensor-icon{font-size:42px}.sensor-card b{display:block;margin:7px 0}.dropzones{display:grid;gap:9px;margin-top:16px}.dropzone{min-height:76px;border:1px dashed #486988;border-radius:14px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}.dropzone.over{border-color:var(--cyan);background:rgba(75,227,255,.06)}.dropzone span{font-size:12px;color:var(--muted)}.microscope{width:330px;max-width:95%;position:relative;text-align:center}.micro-body{font-size:140px;filter:drop-shadow(0 15px 10px rgba(0,0,0,.35))}.micro-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px}.laser{width:100%;height:260px;position:relative;overflow:hidden;border-radius:17px;background:linear-gradient(90deg,#080c14,#111727)}.laser-beam{position:absolute;top:50%;left:8%;right:8%;height:2px;background:#ff5265;box-shadow:0 0 14px #ff5265}.fringes{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 26px,rgba(255,255,255,.18) 27px 30px);mix-blend-mode:screen}.trace-chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;padding:30px 0}.trace-node{padding:13px 14px;background:#0b1b2d;border:1px solid #2b4c70;border-radius:12px;font-size:12px}.trace-arrow{color:var(--cyan);font-weight:900}.completion{margin-top:17px;padding:18px;border-radius:17px;background:linear-gradient(120deg,rgba(101,240,165,.12),rgba(75,227,255,.09));border:1px solid rgba(101,240,165,.32);display:none}.completion.show{display:block}.completion h3{margin:0 0 6px}.completion p{color:#b5d7ca;margin:0 0 13px}.theory-drawer{position:fixed;z-index:50;right:0;top:0;height:100vh;width:min(720px,94vw);background:#091522;border-left:1px solid #2a486b;transform:translateX(105%);transition:.25s ease;display:flex;flex-direction:column;box-shadow:-25px 0 65px rgba(0,0,0,.42)}.theory-drawer.open{transform:none}.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid #1f3756}.drawer-head h2{margin:4px 0 0}.icon-btn{width:40px;height:40px;border:1px solid #2d4a6b;background:#101f34;color:white;border-radius:12px;font-size:24px;cursor:pointer}.theory-search-wrap{padding:14px 20px 0}.theory-search-wrap input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a4769;background:#07121f;color:white}.theory-nav{display:flex;gap:7px;overflow:auto;padding:12px 20px}.theory-nav button{white-space:nowrap;background:#10223a;color:#aac0d9;border:1px solid #294767;padding:8px 10px;border-radius:10px;cursor:pointer;font-size:11px}.theory-nav button.active{background:var(--cyan);color:#06101c}.theory-content{overflow:auto;padding:8px 22px 45px}.theory-section{padding:14px 0 28px;border-bottom:1px solid #1d3350}.theory-section h3{font-size:23px;margin:0 0 11px}.theory-section h4{margin:17px 0 7px;color:#c9ebff}.theory-section p,.theory-section li{color:#afc1d5;line-height:1.65}.theory-section table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12px}.theory-section th,.theory-section td{border:1px solid #294565;padding:9px;text-align:left}.theory-section th{background:#10243b}.note{padding:13px 14px;border-radius:13px;background:#10243a;border-left:3px solid var(--cyan);color:#bfd7ea!important}.scrim{position:fixed;z-index:40;inset:0;background:rgba(0,0,0,.52);opacity:0;pointer-events:none;transition:.2s}.scrim.show{opacity:1;pointer-events:auto}.toast{position:fixed;z-index:70;left:50%;bottom:25px;transform:translate(-50%,30px);opacity:0;pointer-events:none;background:#11233a;border:1px solid #315477;border-radius:13px;padding:12px 17px;box-shadow:var(--shadow);transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:980px){.hero{grid-template-columns:1fr}.hero-card{max-width:600px}.mission-grid{grid-template-columns:repeat(2,1fr)}.stage-grid{grid-template-columns:1fr}.instrument-bench{min-height:330px}}@media(max-width:620px){.topbar{padding:10px 12px}.brand span{display:none}.top-actions .btn#openTheory{font-size:0}.top-actions .btn#openTheory::after{content:"📚";font-size:16px}.hero{padding-top:45px}.hero p{font-size:15px}.mission-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr}.workspace-head{display:block}.workspace-head .btn{margin-top:12px}.sensor-rack{grid-template-columns:1fr}.scope-screen{height:230px}.scope-readouts{grid-template-columns:1fr}.formula{font-size:18px}}
+
+</style>
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">μ</div>
+      <div>
+        <strong>METRO-LAB</strong>
+        <span>Clase 5 · Metrología aplicada</span>
+      </div>
+    </div>
+    <div class="top-actions">
+      <div class="xp-pill"><span>XP</span><b id="xpValue">0</b></div>
+      <button class="btn ghost" id="openTheory">📚 Consultar clase</button>
+      <button class="btn ghost" id="resetProgress" title="Reiniciar progreso">↻</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">LABORATORIO DE ENTRENAMIENTO</span>
+        <h1>Aprende metrología <em>usando</em> los instrumentos.</h1>
+        <p>No memorices fórmulas. Cumple misiones, mueve controles, mide señales, selecciona sensores y recibe retroalimentación cuando algo no cuadra.</p>
+        <div class="hero-actions">
+          <button class="btn primary" data-go="mission-1">Iniciar misión 1</button>
+          <button class="btn secondary" id="resumeBtn">Continuar progreso</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="radar">
+          <div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div>
+          <div class="radar-line"></div>
+          <div class="radar-dot d1"></div><div class="radar-dot d2"></div><div class="radar-dot d3"></div>
+        </div>
+        <div class="hero-stats">
+          <div><b id="completedCount">0</b><span>misiones completadas</span></div>
+          <div><b>8</b><span>misiones totales</span></div>
+          <div><b id="accuracyValue">—</b><span>aciertos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-panel">
+      <div>
+        <span>PROGRESO DEL CURSO</span>
+        <b id="progressLabel">0%</b>
+      </div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+    </section>
+
+    <section class="mission-map" id="missionMap">
+      <div class="section-heading">
+        <span class="eyebrow">RUTA DE ENTRENAMIENTO</span>
+        <h2>8 misiones. Una sola meta: medir con criterio.</h2>
+      </div>
+      <div class="mission-grid" id="missionGrid"></div>
+    </section>
+
+    <section class="workspace" id="workspace">
+      <div class="workspace-head">
+        <div>
+          <span class="mission-kicker" id="missionKicker">MISIÓN 1</span>
+          <h2 id="missionTitle">Diagnóstico del multímetro</h2>
+          <p id="missionIntro"></p>
+        </div>
+        <button class="btn ghost" id="backToMap">← Mapa</button>
+      </div>
+
+      <div id="missionStage"></div>
+    </section>
+  </main>
+
+  <aside class="theory-drawer" id="theoryDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><span class="eyebrow">CLASE DE APOYO</span><h2>Clase 5 · Metrología</h2></div>
+      <button class="icon-btn" id="closeTheory">×</button>
+    </div>
+    <div class="theory-search-wrap"><input id="theorySearch" placeholder="Buscar: exactitud, ADC, RMS, termopar..." /></div>
+    <nav class="theory-nav" id="theoryNav"></nav>
+    <div class="theory-content" id="theoryContent"></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+const missions = [
+  {id:1,title:'Diagnóstico del multímetro',tag:'Error · exactitud · precisión',xp:120,desc:'Usa un multímetro virtual y decide si el problema es exactitud, precisión o ambas.'},
+  {id:2,title:'El código secreto del ADC',tag:'Resolución digital',xp:120,desc:'Cambia bits y rango, observa los escalones digitales y calcula la resolución.'},
+  {id:3,title:'Captura la señal',tag:'Osciloscopio',xp:140,desc:'Ajusta tiempo/div y volts/div para medir periodo, frecuencia y amplitud.'},
+  {id:4,title:'Energía escondida',tag:'RMS',xp:100,desc:'Convierte voltaje pico a RMS y entiende qué representa físicamente.'},
+  {id:5,title:'El sensor correcto',tag:'Termopar · RTD · LDR',xp:120,desc:'Arrastra cada sensor al proceso correcto y justifica la selección.'},
+  {id:6,title:'Detective microscópico',tag:'Óptica · Abbe',xp:140,desc:'Controla objetivo, ocular, longitud de onda y apertura numérica.'},
+  {id:7,title:'Cazador de nanómetros',tag:'Interferometría',xp:120,desc:'Cuenta franjas y calcula desplazamientos por debajo del micrómetro.'},
+  {id:8,title:'Cadena de confianza',tag:'Calibración · trazabilidad',xp:140,desc:'Decide qué hacer con instrumentos dudosos y construye una cadena trazable.'}
+];
+
+const theory = [
+  {id:'fundamentos',title:'1. Medición, exactitud y precisión',html:`
+    <p>La metrología existe porque una decisión técnica solo puede ser tan confiable como los datos que la sostienen. Medir no significa simplemente “ver un número”: significa obtener un valor mediante un sistema, un método y una referencia.</p>
+    <h4>Exactitud</h4><p>Indica qué tan cerca está un valor medido del valor verdadero o de referencia. Si el patrón es 100.00 g y el instrumento indica 100.01 g, la medición es cercana al patrón.</p>
+    <h4>Precisión</h4><p>Describe qué tan próximas están entre sí mediciones repetidas. Un instrumento puede repetir 49.60, 49.61, 49.60 y ser muy preciso aunque el valor real sea 50.00.</p>
+    <table><tr><th>Exactitud</th><th>Precisión</th><th>Lectura</th></tr><tr><td>Alta</td><td>Alta</td><td>Cerca del patrón y repetible</td></tr><tr><td>Baja</td><td>Alta</td><td>Repetible, pero desplazada</td></tr><tr><td>Alta en promedio</td><td>Baja</td><td>Dispersa alrededor del valor real</td></tr><tr><td>Baja</td><td>Baja</td><td>Dispersa y alejada</td></tr></table>
+    <p class="note">Muchos decimales no significan automáticamente exactitud. Pueden indicar solamente una resolución más fina.</p>`},
+  {id:'error',title:'2. Errores de medición',html:`
+    <p>En metrología, “error” no significa necesariamente que el operador se equivocó. Es la diferencia entre el valor medido y el valor usado como referencia.</p>
+    <div class="formula-card"><div class="formula">Eₐ = |Xₘ − Xᵥ|</div><div class="formula-vars"><b>Eₐ</b>: error absoluto · <b>Xₘ</b>: valor medido · <b>Xᵥ</b>: valor verdadero o patrón.</div></div>
+    <div class="formula-card"><div class="formula">Eᵣ = Eₐ / Xᵥ</div><div class="formula-vars"><b>Eᵣ</b>: error relativo. Compara el tamaño del error con la magnitud medida.</div></div>
+    <div class="formula-card"><div class="formula">E% = Eᵣ × 100</div></div>
+    <h4>Cómo resolverlo</h4><ol><li>Identifica patrón y valor medido.</li><li>Resta y usa valor absoluto para Eₐ.</li><li>Divide Eₐ entre el patrón para Eᵣ.</li><li>Multiplica por 100 para obtener porcentaje.</li><li>Interpreta si ese error es aceptable para la aplicación.</li></ol>`},
+  {id:'multimetro',title:'3. Multímetro y conversión digital',html:`
+    <p>Un multímetro digital acondiciona la señal antes de mostrarla. En voltaje, una entrada puede pasar por protección, divisor de voltaje, ADC, procesamiento y pantalla. En corriente puede utilizar una resistencia shunt; en resistencia aplica una excitación y usa la ley de Ohm.</p>
+    <p class="note">La pantalla es la salida de una cadena de medición; no es “la realidad” directamente.</p>`},
+  {id:'adc',title:'4. ADC y resolución',html:`
+    <p>Un ADC convierte una señal analógica en códigos digitales. Con <b>n</b> bits existen <b>2ⁿ</b> niveles.</p>
+    <div class="formula-card"><div class="formula">N = 2ⁿ</div><div class="formula-vars"><b>N</b>: niveles digitales · <b>n</b>: número de bits.</div></div>
+    <div class="formula-card"><div class="formula">Resolución = (Vmax − Vmin) / 2ⁿ</div><div class="formula-vars">La resolución es el ancho aproximado de cada escalón digital.</div></div>
+    <p>Ejemplo: 12 bits en 0–20 V → 4096 niveles → 20/4096 = 0.00488 V ≈ 4.88 mV.</p>
+    <p class="note">Más bits mejoran la resolución ideal, pero no eliminan ruido, offset, error de ganancia o mala calibración.</p>`},
+  {id:'osciloscopio',title:'5. Osciloscopio, periodo y frecuencia',html:`
+    <p>El osciloscopio representa voltaje en el eje vertical y tiempo en el horizontal. El control <b>V/div</b> define cuánto voltaje representa cada división vertical y <b>time/div</b> cuánto tiempo representa cada división horizontal.</p>
+    <div class="formula-card"><div class="formula">T = divisiones × tiempo/div</div><div class="formula-vars"><b>T</b>: periodo en segundos.</div></div>
+    <div class="formula-card"><div class="formula">f = 1 / T</div><div class="formula-vars"><b>f</b>: frecuencia en hertz · <b>T</b>: periodo en segundos.</div></div>
+    <p>Si un ciclo ocupa 4 divisiones a 5 ms/div: T = 20 ms = 0.020 s; f = 50 Hz.</p>`},
+  {id:'rms',title:'6. Valor RMS',html:`
+    <p>Para una onda sinusoidal ideal, el valor RMS permite expresar el valor alterno en términos de su efecto energético equivalente sobre una resistencia.</p>
+    <div class="formula-card"><div class="formula">Vᵣₘₛ = Vₚ / √2</div><div class="formula-vars"><b>Vₚ</b>: voltaje pico · <b>Vᵣₘₛ</b>: valor eficaz.</div></div>`},
+  {id:'sensores',title:'7. Sensores electrónicos',html:`
+    <p>Un sensor convierte una magnitud física en una señal utilizable por un sistema de control.</p>
+    <table><tr><th>Sensor</th><th>Fortaleza</th><th>Uso típico</th></tr><tr><td>Termopar</td><td>Temperaturas elevadas, robustez</td><td>Hornos y fundición</td></tr><tr><td>RTD</td><td>Exactitud y estabilidad</td><td>Laboratorio y procesos térmicos controlados</td></tr><tr><td>LDR</td><td>Bajo costo, detecta luz</td><td>Iluminación automática</td></tr></table>
+    <p class="note">No existe “el mejor sensor”. Existe el sensor adecuado para el rango, ambiente, exactitud, respuesta y costo de una aplicación.</p>`},
+  {id:'optica',title:'8. Microscopía y resolución',html:`
+    <div class="formula-card"><div class="formula">A = Aₒ × Aₑ</div><div class="formula-vars"><b>A</b>: aumento total · <b>Aₒ</b>: objetivo · <b>Aₑ</b>: ocular.</div></div>
+    <p>Aumentar una imagen no crea información nueva. La capacidad para separar detalles cercanos depende de la resolución.</p>
+    <div class="formula-card"><div class="formula">d = λ / (2NA)</div><div class="formula-vars"><b>d</b>: separación mínima aproximada · <b>λ</b>: longitud de onda · <b>NA</b>: apertura numérica.</div></div>
+    <p>Un valor de <b>d</b> más pequeño significa mejor capacidad de resolución.</p>`},
+  {id:'interferometria',title:'9. Interferometría',html:`
+    <p>La interferometría aprovecha franjas producidas por ondas de luz para medir desplazamientos muy pequeños.</p>
+    <div class="formula-card"><div class="formula">2d = mλ</div><div class="formula-vars"><b>d</b>: desplazamiento · <b>m</b>: número de franjas · <b>λ</b>: longitud de onda.</div></div>
+    <p>Despejando: <b>d = mλ/2</b>.</p>`},
+  {id:'si',title:'10. Constantes fundamentales y SI',html:`
+    <p>Desde 2019, el SI moderno se apoya en valores fijos de constantes fundamentales. Entre las más conocidas están la velocidad de la luz <b>c = 299 792 458 m/s</b>, la constante de Planck <b>h</b> y la carga elemental <b>e</b>.</p>
+    <p>La idea central es abandonar la dependencia de un objeto físico único que puede degradarse y relacionar las unidades con propiedades fundamentales de la naturaleza.</p>
+    <div class="formula-card"><div class="formula">E = hf</div><div class="formula-vars"><b>E</b>: energía · <b>h</b>: constante de Planck · <b>f</b>: frecuencia.</div></div>`},
+  {id:'calibracion',title:'11. Calibración y trazabilidad',html:`
+    <p><b>Calibrar</b> establece la relación entre las indicaciones de un instrumento y valores de referencia. <b>Ajustar</b> modifica el instrumento para cambiar su respuesta; no son lo mismo.</p>
+    <p>La trazabilidad metrológica permite relacionar un resultado con una referencia mediante una cadena documentada de calibraciones, donde cada etapa aporta información sobre la incertidumbre.</p>
+    <p class="note">Una etiqueta de calibración por sí sola no garantiza que cualquier medición posterior sea correcta: también importan método, condiciones, uso, incertidumbre y competencia.</p>`}
+];
+
+const state = JSON.parse(localStorage.getItem('metroLabState')||'null') || {done:[],xp:0,attempts:0,correct:0,last:1};
+let currentMission = state.last || 1;
+let missionScore = {};
+
+const $ = s=>document.querySelector(s);
+const $$ = s=>[...document.querySelectorAll(s)];
+function save(){ localStorage.setItem('metroLabState',JSON.stringify(state)); updateHUD(); }
+function updateHUD(){
+  $('#xpValue').textContent=state.xp;
+  $('#completedCount').textContent=state.done.length;
+  const p=Math.round(state.done.length/missions.length*100); $('#progressBar').style.width=p+'%'; $('#progressLabel').textContent=p+'%';
+  $('#accuracyValue').textContent=state.attempts?Math.round(state.correct/state.attempts*100)+'%':'—';
+}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function renderMap(){
+  $('#missionGrid').innerHTML=missions.map((m,i)=>{
+    const unlocked = i===0 || state.done.includes(i) || state.done.includes(i+1) || state.done.includes(m.id-1);
+    const done=state.done.includes(m.id);
+    return `<article class="mission-card ${done?'done':''} ${!unlocked?'locked':''}" data-mid="${m.id}">
+      <div class="mission-number">${done?'✓':m.id}</div><h3>${m.title}</h3><p>${m.desc}</p>
+      <div class="mission-meta"><span>${m.tag}</span><span>${m.xp} XP</span></div></article>`}).join('');
+  $$('.mission-card').forEach(c=>c.addEventListener('click',()=>{if(c.classList.contains('locked'))return toast('Completa la misión anterior para desbloquearla.');openMission(+c.dataset.mid)}));
+}
+function openMission(id){currentMission=id;state.last=id;save();const m=missions[id-1];$('#missionKicker').textContent=`MISIÓN ${id} · ${m.xp} XP`;$('#missionTitle').textContent=m.title;$('#missionIntro').textContent=m.desc;$('#missionMap').style.display='none';$('#workspace').classList.add('active');renderMission(id);window.scrollTo({top:$('#workspace').offsetTop-85,behavior:'smooth'});}
+function backToMap(){ $('#workspace').classList.remove('active');$('#missionMap').style.display='block';renderMap();window.scrollTo({top:$('#missionMap').offsetTop-75,behavior:'smooth'}); }
+function attempt(ok,feedbackEl,okMsg,badMsg){state.attempts++;if(ok){state.correct++;feedbackEl.className='feedback show ok';feedbackEl.innerHTML='✓ '+okMsg;}else{feedbackEl.className='feedback show bad';feedbackEl.innerHTML='✕ '+badMsg;}save();return ok;}
+function completeMission(id){if(state.done.includes(id))return;const m=missions[id-1];state.done.push(id);state.xp+=m.xp;save();renderMap();const box=$('#completion');if(box){box.classList.add('show');box.innerHTML=`<h3>✓ Misión completada</h3><p>Ganaste <b>${m.xp} XP</b>. La siguiente misión ya está desbloqueada.</p>${id<8?`<button class="btn success" onclick="openMission(${id+1})">Continuar a misión ${id+1} →</button>`:'<button class="btn success" onclick="backToMap()">Ver resultado final</button>'}`;}toast(`+${m.xp} XP · misión completada`)}
+
+function commonCompletion(id){return `<div class="completion" id="completion"></div>`}
+
+function renderMission(id){ missionScore={}; const stage=$('#missionStage');
+  if(id===1) stage.innerHTML=mission1();
+  if(id===2) stage.innerHTML=mission2();
+  if(id===3) stage.innerHTML=mission3();
+  if(id===4) stage.innerHTML=mission4();
+  if(id===5) stage.innerHTML=mission5();
+  if(id===6) stage.innerHTML=mission6();
+  if(id===7) stage.innerHTML=mission7();
+  if(id===8) stage.innerHTML=mission8();
+  bindMission(id);
+}
+
+function mission1(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Banco de medición</h3><span>Patrón certificado: 24.000 V</span></div><div class="instrument-bench"><div class="source-box"><small>FUENTE PATRÓN</small><b>24.000 V DC</b></div><div class="multimeter"><div class="meter-screen" id="meterScreen">OL</div><div class="meter-label">MULTÍMETRO DIGITAL · SIMULADOR</div><div class="dial" id="dial"></div><div class="dial-options"><button class="mini-btn" data-mode="OFF">OFF</button><button class="mini-btn" data-mode="Ω">Ω</button><button class="mini-btn" data-mode="V~">V~</button><button class="mini-btn" data-mode="V⎓">V⎓</button></div><div class="jacks"><div class="jack black"></div><div class="jack red"></div></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Objetivos</h3><span>3 comprobaciones</span></div><div class="question"><h4>1. Selecciona el modo correcto para medir una fuente de 24 V de corriente directa.</h4><div id="fb11" class="feedback"></div></div><div class="question"><h4>2. Con el instrumento en V⎓, la lectura estable es 23.760 V. Calcula el error absoluto.</h4><div class="answer-row"><input id="q12" type="number" step="0.001" placeholder="Resultado"><span>V</span><button class="btn primary" id="check12">Comprobar</button></div><div id="fb12" class="feedback"></div></div><div class="question"><h4>3. Cinco lecturas son 23.761, 23.759, 23.760, 23.761 y 23.760 V. ¿Cuál diagnóstico es correcto?</h4><button class="choice" data-q13="a">Baja precisión y alta exactitud</button><button class="choice" data-q13="b">Alta precisión y baja exactitud</button><button class="choice" data-q13="c">Alta precisión y alta exactitud</button><div id="fb13" class="feedback"></div></div>${commonCompletion(1)}</section></div>`}
+
+function mission2(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Convertidor A/D virtual</h3><span>Observa cómo cambia el escalón</span></div><div class="instrument-bench"><div style="width:min(650px,100%)"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><label>Bits <input id="adcBits" type="range" min="4" max="16" value="12" step="1" style="width:100%"><b id="adcBitsV">12 bits</b></label><label>Rango máximo <input id="adcRange" type="range" min="1" max="20" value="10" step="1" style="width:100%"><b id="adcRangeV">10 V</b></label></div><div class="formula-card"><div class="formula" id="adcReadout">4096 niveles · 2.441 mV/código</div></div><div id="adcBars" style="height:170px;display:flex;align-items:end;gap:2px;overflow:hidden"></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Objetivos</h3><span>Experimenta primero</span></div><div class="question"><h4>1. Con 12 bits, ¿cuántos niveles digitales existen?</h4><div class="answer-row"><input id="q21" type="number"><button class="btn primary" id="check21">Comprobar</button></div><div id="fb21" class="feedback"></div></div><div class="question"><h4>2. Para 12 bits y 0–10 V, calcula la resolución en mV.</h4><div class="answer-row"><input id="q22" type="number" step="0.001"><span>mV</span><button class="btn primary" id="check22">Comprobar</button></div><div id="fb22" class="feedback"></div></div><div class="question"><h4>3. Si pasas de 12 a 16 bits, ¿qué mejora directamente?</h4><button class="choice" data-q23="a">La exactitud, garantizada</button><button class="choice" data-q23="b">La resolución digital ideal</button><button class="choice" data-q23="c">La calibración del sensor</button><div id="fb23" class="feedback"></div></div>${commonCompletion(2)}</section></div>`}
+
+function scopeSVG(periodDiv=4,ampDiv=2.5){let pts=[];for(let x=0;x<=600;x+=3){const cycles=10/periodDiv;const y=155-Math.sin((x/600)*Math.PI*2*cycles)*(ampDiv/5)*145;pts.push(`${x},${y}`)}return `<svg viewBox="0 0 600 310" preserveAspectRatio="none"><polyline points="${pts.join(' ')}" fill="none" stroke="#65f0a5" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>`}
+function mission3(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Osciloscopio digital</h3><span>Señal sinusoidal</span></div><div class="instrument-bench"><div class="scope"><div class="scope-screen" id="scopeScreen">${scopeSVG()}</div><div class="scope-readouts"><div>TIME/DIV: <b id="timeDivRead">5 ms</b></div><div>VOLTS/DIV: <b id="voltDivRead">2 V</b></div><div>1 CICLO: <b id="cycleRead">4 div</b></div></div><div class="knob-row"><button class="mini-btn" data-time="2">2 ms/div</button><button class="mini-btn active" data-time="5">5 ms/div</button><button class="mini-btn" data-time="10">10 ms/div</button><button class="mini-btn active" data-volt="2">2 V/div</button><button class="mini-btn" data-volt="5">5 V/div</button></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Objetivos</h3><span>Lee la retícula</span></div><div class="question"><h4>1. Si un ciclo ocupa 4 divisiones a 5 ms/div, ¿cuál es el periodo?</h4><div class="answer-row"><input id="q31" type="number" step="0.1"><span>ms</span><button class="btn primary" id="check31">Comprobar</button></div><div id="fb31" class="feedback"></div></div><div class="question"><h4>2. Convierte el periodo a segundos y calcula la frecuencia.</h4><div class="answer-row"><input id="q32" type="number" step="0.1"><span>Hz</span><button class="btn primary" id="check32">Comprobar</button></div><div id="fb32" class="feedback"></div></div><div class="question"><h4>3. Si cambias TIME/DIV, ¿cambia la frecuencia real de la señal?</h4><button class="choice" data-q33="a">Sí, porque la onda se estira</button><button class="choice" data-q33="b">No; solo cambia la escala de visualización</button><div id="fb33" class="feedback"></div></div>${commonCompletion(3)}</section></div>`}
+
+function mission4(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Analizador RMS</h3><span>Señal sinusoidal ideal</span></div><div class="instrument-bench"><div style="width:min(600px,100%)"><div class="scope-screen">${scopeSVG(4,3.2)}</div><div class="formula-card"><div class="formula">Vᵣₘₛ = Vₚ / √2</div><div class="formula-vars">La pantalla muestra Vₚ = <b>170 V</b>. Para una sinusoide, divide el valor pico entre √2 ≈ 1.4142.</div></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Objetivos</h3><span>2 retos</span></div><div class="question"><h4>1. Calcula el valor RMS de una sinusoide con Vp = 170 V.</h4><div class="answer-row"><input id="q41" type="number" step="0.1"><span>V RMS</span><button class="btn primary" id="check41">Comprobar</button></div><div id="fb41" class="feedback"></div></div><div class="question"><h4>2. ¿Qué representa físicamente el valor RMS?</h4><button class="choice" data-q42="a">El máximo instantáneo de la onda</button><button class="choice" data-q42="b">Un valor equivalente por efecto energético/térmico en una carga resistiva</button><button class="choice" data-q42="c">La frecuencia de muestreo</button><div id="fb42" class="feedback"></div></div>${commonCompletion(4)}</section></div>`}
+
+function mission5(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Almacén de sensores</h3><span>Arrastra o toca</span></div><div class="instrument-bench" style="align-items:start"><div style="width:100%"><div class="sensor-rack"><div class="sensor-card" draggable="true" data-sensor="termopar"><div class="sensor-icon">🌡️</div><b>Termopar</b><small>Robusto · alta temperatura</small></div><div class="sensor-card" draggable="true" data-sensor="rtd"><div class="sensor-icon">♨️</div><b>RTD Pt100</b><small>Estabilidad · precisión térmica</small></div><div class="sensor-card" draggable="true" data-sensor="ldr"><div class="sensor-icon">☀️</div><b>LDR</b><small>Luz · bajo costo</small></div></div><div class="dropzones"><div class="dropzone" data-accept="termopar"><b>🔥 Horno industrial · 850 °C</b><span>Suelta aquí</span></div><div class="dropzone" data-accept="rtd"><b>🧪 Laboratorio · 20–30 °C, alta precisión</b><span>Suelta aquí</span></div><div class="dropzone" data-accept="ldr"><b>💡 Encendido automático por luz ambiente</b><span>Suelta aquí</span></div></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Criterio de ingeniería</h3><span>3 asignaciones</span></div><p style="color:var(--muted);line-height:1.6">Selecciona un sensor y después una aplicación. No basta con “el más preciso”: piensa en rango, ambiente, estabilidad, respuesta y costo.</p><div id="sensorFeedback" class="feedback"></div><div class="question"><h4>Cuando un RTD es más preciso que un termopar, ¿debo elegirlo siempre?</h4><button class="choice" data-q52="a">Sí, precisión manda en todos los casos</button><button class="choice" data-q52="b">No; el rango y el ambiente pueden volverlo inadecuado</button><div id="fb52" class="feedback"></div></div>${commonCompletion(5)}</section></div>`}
+
+function mission6(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Microscopio virtual</h3><span>Aumento vs. resolución</span></div><div class="instrument-bench"><div class="microscope"><div class="micro-body">🔬</div><div class="micro-controls"><label>Objetivo<select id="objSel" class="select-control"><option>10</option><option selected>40</option><option>100</option></select></label><label>Ocular<select id="ocuSel" class="select-control"><option selected>10</option><option>15</option></select></label><label>λ (nm)<input id="lambda" class="calc-input" type="number" value="550"></label><label>NA<input id="na" class="calc-input" type="number" step="0.05" value="0.50"></label></div><div class="formula-card"><div class="formula" id="microRead">400× · d ≈ 550 nm</div></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Objetivos</h3><span>2 cálculos + concepto</span></div><div class="question"><h4>1. Con objetivo 40× y ocular 10×, calcula el aumento total.</h4><div class="answer-row"><input id="q61" type="number"><span>×</span><button class="btn primary" id="check61">Comprobar</button></div><div id="fb61" class="feedback"></div></div><div class="question"><h4>2. Para λ = 550 nm y NA = 0.50, calcula d = λ/(2NA).</h4><div class="answer-row"><input id="q62" type="number"><span>nm</span><button class="btn primary" id="check62">Comprobar</button></div><div id="fb62" class="feedback"></div></div><div class="question"><h4>3. ¿Un aumento mayor garantiza ver detalles cada vez más pequeños?</h4><button class="choice" data-q63="a">Sí, siempre</button><button class="choice" data-q63="b">No; existe un límite de resolución</button><div id="fb63" class="feedback"></div></div>${commonCompletion(6)}</section></div>`}
+
+function mission7(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Interferómetro virtual</h3><span>Cuenta las franjas</span></div><div class="instrument-bench"><div style="width:min(650px,100%)"><div class="laser"><div class="laser-beam"></div><div class="fringes" id="fringes"></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px"><label>Franjas m<input id="fringeCount" type="range" min="1" max="15" value="8" style="width:100%"><b id="fringeVal">8</b></label><label>λ<input id="waveSelect" class="calc-input" value="632.8" type="number" step="0.1"><b>nm</b></label></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Objetivos</h3><span>2 retos</span></div><div class="formula-card"><div class="formula">2d = mλ &nbsp;→&nbsp; d = mλ/2</div><div class="formula-vars">m: número de franjas · λ: longitud de onda · d: desplazamiento.</div></div><div class="question"><h4>1. Con m = 8 y λ = 632.8 nm, calcula d en nanómetros.</h4><div class="answer-row"><input id="q71" type="number" step="0.1"><span>nm</span><button class="btn primary" id="check71">Comprobar</button></div><div id="fb71" class="feedback"></div></div><div class="question"><h4>2. Convierte el resultado anterior a micrómetros.</h4><div class="answer-row"><input id="q72" type="number" step="0.0001"><span>μm</span><button class="btn primary" id="check72">Comprobar</button></div><div id="fb72" class="feedback"></div></div>${commonCompletion(7)}</section></div>`}
+
+function mission8(){return `<div class="stage-grid"><section class="lab-panel"><div class="panel-title"><h3>Cadena de trazabilidad</h3><span>Del piso de producción al SI</span></div><div class="instrument-bench"><div style="width:100%"><div class="trace-chain"><div class="trace-node">📏 Medición en producción</div><div class="trace-arrow">→</div><div class="trace-node">🧰 Instrumento de planta</div><div class="trace-arrow">→</div><div class="trace-node">🧪 Laboratorio / patrón</div><div class="trace-arrow">→</div><div class="trace-node">🏛️ Referencia superior</div><div class="trace-arrow">→</div><div class="trace-node">⚛️ SI</div></div><div class="formula-card"><div class="formula">D = Xₘ − Xₚ</div><div class="formula-vars">D: desviación · Xₘ: indicación del instrumento · Xₚ: valor del patrón.</div></div></div></div></section><section class="task-panel"><div class="panel-title"><h3>Decisión final</h3><span>Ingeniería, no memoria</span></div><div class="question"><h4>1. Patrón = 100.000 V; instrumento = 99.700 V. ¿Cuál es la desviación con signo?</h4><div class="answer-row"><input id="q81" type="number" step="0.001"><span>V</span><button class="btn primary" id="check81">Comprobar</button></div><div id="fb81" class="feedback"></div></div><div class="question"><h4>2. ¿Calibrar y ajustar significan lo mismo?</h4><button class="choice" data-q82="a">Sí, calibrar siempre modifica el instrumento</button><button class="choice" data-q82="b">No. Calibrar caracteriza; ajustar modifica la respuesta</button><div id="fb82" class="feedback"></div></div><div class="question"><h4>3. Un instrumento tiene etiqueta vigente de calibración. ¿Eso garantiza automáticamente cualquier medición que realice?</h4><button class="choice" data-q83="a">Sí, la etiqueta garantiza todo</button><button class="choice" data-q83="b">No; también importan método, condiciones, incertidumbre y uso</button><div id="fb83" class="feedback"></div></div>${commonCompletion(8)}</section></div>`}
+
+function bindMission(id){
+  if(id===1){
+    $$('.dial-options .mini-btn').forEach((b,i)=>b.onclick=()=>{$$('.dial-options .mini-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#dial').style.setProperty('--dial',`${-120+i*80}deg`);const ok=b.dataset.mode==='V⎓';$('#meterScreen').textContent=ok?'23.760':b.dataset.mode==='OFF'?'OFF':'OL';missionScore.a=attempt(ok,$('#fb11'), 'Correcto: una fuente de 24 V DC se mide en V⎓. El símbolo ⎓ identifica tensión continua.', 'Seleccionaste un modo que no corresponde. Ω es resistencia, V~ es tensión alterna y V⎓ es tensión continua.');checkComplete(1,['a','b','c']);});
+    $('#check12').onclick=()=>{const v=parseFloat($('#q12').value);missionScore.b=attempt(Math.abs(v-.24)<.001,$('#fb12'),'Correcto: Eₐ = |23.760 − 24.000| = 0.240 V. Primero identifica patrón y lectura; luego resta y toma valor absoluto.','Revisa la fórmula Eₐ = |Xₘ − Xᵥ|. El patrón es 24.000 V y el multímetro indica 23.760 V. La diferencia no es 23.760/24; eso sería otra comparación.');checkComplete(1,['a','b','c'])};
+    $$('[data-q13]').forEach(b=>b.onclick=()=>{missionScore.c=attempt(b.dataset.q13==='b',$('#fb13'),'Exacto. Las lecturas casi no cambian entre sí (alta precisión), pero están alrededor de 0.24 V por debajo del patrón (baja exactitud).','Fíjate en dos preguntas distintas: ¿las lecturas están juntas? Sí → precisión alta. ¿están cerca de 24.000 V? No → exactitud baja.');checkComplete(1,['a','b','c'])});
+  }
+  if(id===2){
+    const update=()=>{const bits=+$('#adcBits').value,range=+$('#adcRange').value,levels=2**bits,res=range/levels*1000;$('#adcBitsV').textContent=bits+' bits';$('#adcRangeV').textContent=range+' V';$('#adcReadout').textContent=`${levels.toLocaleString()} niveles · ${res.toFixed(3)} mV/código`;const bars=Math.min(levels,90);$('#adcBars').innerHTML=Array.from({length:bars},(_,i)=>`<i style="display:block;flex:1;height:${15+(i/bars)*145}px;background:hsl(${185+i*.35} 75% 58% / .65);border-radius:2px 2px 0 0"></i>`).join('')};$('#adcBits').oninput=update;$('#adcRange').oninput=update;update();
+    $('#check21').onclick=()=>{missionScore.a=attempt(+$('#q21').value===4096,$('#fb21'),'Correcto: N = 2¹² = 4096 niveles.','Usa N = 2ⁿ. Aquí n = 12; no multipliques 2×12. Eleva 2 a la potencia 12.');checkComplete(2,['a','b','c'])};
+    $('#check22').onclick=()=>{missionScore.b=attempt(Math.abs(+$('#q22').value-2.441)<.01,$('#fb22'),'Correcto: 10/4096 = 0.002441 V = 2.441 mV por código.','Primero calcula 2¹² = 4096. Después 10 V / 4096. Finalmente convierte V a mV multiplicando por 1000.');checkComplete(2,['a','b','c'])};
+    $$('[data-q23]').forEach(b=>b.onclick=()=>{missionScore.c=attempt(b.dataset.q23==='b',$('#fb23'),'Correcto. Más bits crean más niveles y un escalón ideal más pequeño: mejora la resolución.','Más bits no recalibran el equipo ni garantizan exactitud. Reducen el tamaño del escalón digital ideal.');checkComplete(2,['a','b','c'])});
+  }
+  if(id===3){
+    $$('[data-time]').forEach(b=>b.onclick=()=>{$$('[data-time]').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#timeDivRead').textContent=b.dataset.time+' ms';});$$('[data-volt]').forEach(b=>b.onclick=()=>{$$('[data-volt]').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#voltDivRead').textContent=b.dataset.volt+' V'});
+    $('#check31').onclick=()=>{missionScore.a=attempt(Math.abs(+$('#q31').value-20)<.1,$('#fb31'),'Correcto: T = 4 div × 5 ms/div = 20 ms. Las “div” se cancelan y quedan milisegundos.','Multiplica las divisiones que ocupa un ciclo por el tiempo que vale cada división: 4 × 5 ms/div.');checkComplete(3,['a','b','c'])};
+    $('#check32').onclick=()=>{missionScore.b=attempt(Math.abs(+$('#q32').value-50)<.2,$('#fb32'),'Correcto: 20 ms = 0.020 s y f = 1/0.020 = 50 Hz.','Antes de usar f = 1/T convierte 20 ms a segundos: 20/1000 = 0.020 s.');checkComplete(3,['a','b','c'])};
+    $$('[data-q33]').forEach(b=>b.onclick=()=>{missionScore.c=attempt(b.dataset.q33==='b',$('#fb33'),'Exacto. TIME/DIV cambia la escala horizontal; no cambia la fuente que estás observando.','El control modifica cómo se dibuja la señal en pantalla. No cambia físicamente la frecuencia de la señal conectada.');checkComplete(3,['a','b','c'])});
+  }
+  if(id===4){
+    $('#check41').onclick=()=>{missionScore.a=attempt(Math.abs(+$('#q41').value-120.2)<.3,$('#fb41'),'Correcto: 170/√2 ≈ 120.2 V RMS.','Para una sinusoide usa Vᵣₘₛ = Vₚ/√2. Divide 170 entre aproximadamente 1.4142.');checkComplete(4,['a','b'])};
+    $$('[data-q42]').forEach(b=>b.onclick=()=>{missionScore.b=attempt(b.dataset.q42==='b',$('#fb42'),'Correcto. RMS permite comparar el efecto energético/térmico de una señal alterna con un valor continuo equivalente en una carga resistiva.','RMS no es el pico y tampoco describe la frecuencia. Piensa en “valor eficaz” de la señal.');checkComplete(4,['a','b'])});
+  }
+  if(id===5){let selected=null,placed=0;const cards=$$('.sensor-card'),zones=$$('.dropzone');cards.forEach(c=>{c.onclick=()=>{selected=c.dataset.sensor;cards.forEach(x=>x.style.outline='');c.style.outline='2px solid var(--cyan)'};c.ondragstart=e=>e.dataTransfer.setData('text/plain',c.dataset.sensor)});zones.forEach(z=>{z.onclick=()=>{if(selected)drop(selected,z)};z.ondragover=e=>{e.preventDefault();z.classList.add('over')};z.ondragleave=()=>z.classList.remove('over');z.ondrop=e=>{e.preventDefault();z.classList.remove('over');drop(e.dataTransfer.getData('text/plain'),z)}});function drop(sensor,z){if(z.dataset.done)return;const ok=sensor===z.dataset.accept;const fb=$('#sensorFeedback');state.attempts++;if(ok){state.correct++;z.dataset.done=1;z.style.borderStyle='solid';z.style.borderColor='var(--green)';z.querySelector('span').textContent='✓ Asignación correcta';placed++;fb.className='feedback show ok';fb.textContent='Correcto: la selección coincide con la necesidad principal de esa aplicación.';}else{fb.className='feedback show bad';fb.textContent=sensor==='rtd'&&z.dataset.accept==='termopar'?'El RTD puede ser muy preciso, pero para un horno de 850 °C debes valorar primero rango térmico y robustez.':'Revisa qué magnitud mide el sensor y cuál es la necesidad principal del proceso.';}save();missionScore.a=placed===3;checkComplete(5,['a','b'])}
+    $$('[data-q52]').forEach(b=>b.onclick=()=>{missionScore.b=attempt(b.dataset.q52==='b',$('#fb52'),'Correcto. La precisión es solo un criterio; un sensor fuera de su rango o incompatible con el ambiente es una mala selección.','La ingeniería exige compatibilidad con rango, ambiente, respuesta, mantenimiento y costo; no solo precisión.');checkComplete(5,['a','b'])});
+  }
+  if(id===6){const up=()=>{const a=+$('#objSel').value*+$('#ocuSel').value,d=+$('#lambda').value/(2*+$('#na').value);$('#microRead').textContent=`${a}× · d ≈ ${d.toFixed(1)} nm`};$('#objSel').onchange=up;$('#ocuSel').onchange=up;$('#lambda').oninput=up;$('#na').oninput=up;up();
+    $('#check61').onclick=()=>{missionScore.a=attempt(+$('#q61').value===400,$('#fb61'),'Correcto: A = 40 × 10 = 400×.','El aumento total se obtiene multiplicando el aumento del objetivo por el del ocular.');checkComplete(6,['a','b','c'])};
+    $('#check62').onclick=()=>{missionScore.b=attempt(Math.abs(+$('#q62').value-550)<.5,$('#fb62'),'Correcto: d = 550/(2×0.50) = 550 nm.','Calcula primero el denominador 2×NA. Con NA=0.50, el denominador vale 1.');checkComplete(6,['a','b','c'])};
+    $$('[data-q63]').forEach(b=>b.onclick=()=>{missionScore.c=attempt(b.dataset.q63==='b',$('#fb63'),'Correcto. Más aumento puede agrandar una imagen sin revelar información nueva si el sistema ya alcanzó su límite de resolución.','Aumento y resolución son conceptos distintos. La resolución depende, entre otros factores, de λ y NA.');checkComplete(6,['a','b','c'])});
+  }
+  if(id===7){$('#fringeCount').oninput=()=>{$('#fringeVal').textContent=$('#fringeCount').value;$('#fringes').style.backgroundSize=`${360/+$('#fringeCount').value}px 100%`};
+    $('#check71').onclick=()=>{missionScore.a=attempt(Math.abs(+$('#q71').value-2531.2)<.2,$('#fb71'),'Correcto: d = (8×632.8)/2 = 2531.2 nm.','Despeja primero d: d = mλ/2. Multiplica 8×632.8 y divide el resultado entre 2.');checkComplete(7,['a','b'])};
+    $('#check72').onclick=()=>{missionScore.b=attempt(Math.abs(+$('#q72').value-2.5312)<.002,$('#fb72'),'Correcto: 2531.2 nm / 1000 = 2.5312 μm.','Recuerda: 1000 nm = 1 μm. Para pasar de nm a μm divide entre 1000.');checkComplete(7,['a','b'])};
+  }
+  if(id===8){
+    $('#check81').onclick=()=>{missionScore.a=attempt(Math.abs(+$('#q81').value+0.3)<.001,$('#fb81'),'Correcto: D = 99.700 − 100.000 = −0.300 V. El signo indica que la indicación está por debajo del patrón.','Aquí se pidió desviación con signo, no error absoluto. Usa Xₘ − Xₚ: 99.700 − 100.000.');checkComplete(8,['a','b','c'])};
+    $$('[data-q82]').forEach(b=>b.onclick=()=>{missionScore.b=attempt(b.dataset.q82==='b',$('#fb82'),'Correcto. Calibrar establece una relación metrológica; ajustar cambia la respuesta del instrumento.','No son sinónimos. Puede calibrarse, detectarse una desviación, ajustarse y después calibrarse nuevamente.');checkComplete(8,['a','b','c'])});
+    $$('[data-q83]').forEach(b=>b.onclick=()=>{missionScore.c=attempt(b.dataset.q83==='b',$('#fb83'),'Exacto. La trazabilidad de un resultado depende también del procedimiento, condiciones, referencias e incertidumbre, no de una etiqueta aislada.','Una calibración vigente es importante, pero no convierte automáticamente cualquier medición en confiable.');checkComplete(8,['a','b','c'])});
+  }
+}
+function checkComplete(id,keys){if(keys.every(k=>missionScore[k])) completeMission(id)}
+
+function renderTheory(){
+  $('#theoryNav').innerHTML=theory.map((s,i)=>`<button data-theory="${s.id}" class="${i===0?'active':''}">${s.title.replace(/^\d+\.\s*/,'')}</button>`).join('');
+  $('#theoryContent').innerHTML=theory.map(s=>`<section class="theory-section" id="th-${s.id}"><h3>${s.title}</h3>${s.html}</section>`).join('');
+  $$('[data-theory]').forEach(b=>b.onclick=()=>{const id=b.dataset.theory;$$('[data-theory]').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#th-'+id).scrollIntoView({behavior:'smooth',block:'start'})});
+}
+function openTheory(){ $('#theoryDrawer').classList.add('open');$('#scrim').classList.add('show');$('#theoryDrawer').setAttribute('aria-hidden','false') }
+function closeTheory(){ $('#theoryDrawer').classList.remove('open');$('#scrim').classList.remove('show');$('#theoryDrawer').setAttribute('aria-hidden','true') }
+$('#theorySearch').oninput=e=>{const q=e.target.value.toLowerCase().trim();$$('.theory-section').forEach(s=>s.style.display=!q||s.innerText.toLowerCase().includes(q)?'block':'none')}
+
+$('#openTheory').onclick=openTheory;$('#closeTheory').onclick=closeTheory;$('#scrim').onclick=closeTheory;$('#backToMap').onclick=backToMap;$('#resetProgress').onclick=()=>{if(confirm('¿Reiniciar todo el progreso de METRO-LAB?')){localStorage.removeItem('metroLabState');location.reload()}};$('#resumeBtn').onclick=()=>openMission(state.last||1);$$('[data-go]').forEach(b=>b.onclick=()=>openMission(1));
+renderTheory();renderMap();updateHUD();
+window.openMission=openMission;window.backToMap=backToMap;
+
+</script>
+</body>
+</html>
