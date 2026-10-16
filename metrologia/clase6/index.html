@@ -12,13 +12,18 @@
 @media(max-width:1060px){.nav{display:none}.hero{grid-template-columns:1fr .8fr;gap:18px}.concept-grid{grid-template-columns:repeat(2,1fr)}.workspace-grid{grid-template-columns:1fr}.simulator{grid-template-columns:1fr}.sim-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:0 14px}.sim-controls h4,.sim-controls .mini-label,.sim-controls .stage-note{grid-column:1/-1}.sim-controls .field{margin-top:8px}.exercise-grid{grid-template-columns:repeat(2,1fr)}.source-list{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.top-inner{min-height:64px}.brand-sub{display:none}.topright .pill{display:none}.topright .btn{padding:10px 11px;font-size:11px}.hero{grid-template-columns:1fr;padding-top:48px;min-height:auto}.hero-visual{min-height:360px;margin-top:0}.hero-panel{width:min(370px,90%)}.tag-a{left:0}.tag-b{right:0}.stats-row{grid-template-columns:repeat(2,1fr);margin-bottom:45px}.stat{padding:15px}.stat b{font-size:21px}.section{padding-bottom:48px}.section-title{display:block}.section-title p{margin-top:12px}.formula-grid{grid-template-columns:1fr 1fr}.concept-grid{grid-template-columns:1fr 1fr;gap:10px}.concept{padding:16px;min-height:225px}.concept h3{font-size:14px}.panel{padding:16px}.field-grid{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:1fr 1fr}.results-grid .result-box:last-child{grid-column:1/-1}.sim-stage,.sim-stage canvas{min-height:285px;height:285px}.sim-controls{display:block}.sim-result{grid-template-columns:1fr}.exercise-grid{grid-template-columns:1fr}.exercise-desc{min-height:0}.checkpoint-grid{grid-template-columns:1fr}.source-list{grid-template-columns:1fr 1fr}.footer-inner{display:block}.footer-inner div+div{margin-top:15px}.section-title h2{font-size:34px}}
 @media(max-width:400px){.shell{width:92vw}.brand-name{font-size:12px}.brand-mark{width:37px;height:37px}.concept-grid,.formula-grid,.source-list{grid-template-columns:1fr}.concept{min-height:auto}.field-grid{grid-template-columns:1fr}.hero-actions .btn{width:100%}.hero-visual{min-height:320px}.hero-panel{padding:15px}.hero-graphic{height:190px}}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.info-card,.tool-card{padding:23px;border-radius:22px;min-width:0}.info-card h3,.tool-card h3,.decision-flow h3{font-size:21px;margin:10px 0}.info-card p,.tool-card p,.decision-flow p{color:var(--muted);font-size:13px;line-height:1.7}.formula{padding:12px 13px;margin:15px 0;border-radius:12px;background:rgba(3,15,23,.62);border:1px solid var(--line);font:700 12px ui-monospace,monospace;color:var(--cyan);line-height:1.6}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:17px 0}.field-grid label{display:grid;gap:7px;color:var(--muted);font-size:12px}.field-grid input{width:100%;min-width:0;border:1px solid var(--line);border-radius:11px;background:rgba(2,13,21,.7);color:var(--text);padding:12px}.result-box{margin-top:14px;padding:14px;border-radius:13px;background:rgba(5,19,29,.72);border:1px solid var(--line);font-size:13px;line-height:1.65}.result-box.pass{border-color:rgba(141,245,193,.55);color:var(--green)}.result-box.fail{border-color:rgba(255,142,171,.55);color:var(--red)}.fine-print{font-size:11px!important}.checklist{display:grid;gap:12px;margin:17px 0}.checklist label{display:flex;gap:10px;align-items:flex-start;color:#c8dce6;font-size:12px;line-height:1.5}.checklist input{accent-color:var(--cyan);margin-top:3px}.check-progress{font-size:11px;color:var(--muted)}.check-progress .progress-track{margin-top:8px}.decision-flow{padding:25px;border-radius:22px;margin-top:16px}.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.flow-steps>div{padding:15px;border:1px solid var(--line);border-radius:14px;background:rgba(3,15,23,.42)}.flow-steps b{display:block;color:var(--magenta);font-size:11px;letter-spacing:.1em}.flow-steps strong{display:block;margin:9px 0 5px}.flow-steps span{font-size:11px;color:var(--muted);line-height:1.5;display:block}
+@media(max-width:850px){.grid-3{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}.flow-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid-3{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr}.flow-steps{grid-template-columns:1fr 1fr}.info-card,.tool-card{padding:18px}}
+
 </style>
 </head>
 <body>
 <header class="topbar">
  <div class="top-inner">
   <a class="brand" href="#inicio" aria-label="METRO-LAB inicio"><span class="brand-mark">M</span><span><span class="brand-name">METRO-LAB</span><span class="brand-sub">LABORATORIO DIGITAL · CLASE 06</span></span></a>
-  <nav class="nav" aria-label="Navegación principal"><a href="#conceptos">Fundamentos</a><a href="#calculadora">Calcular</a><a href="#laboratorio3d">Calibrador 3D</a><a href="#ejercicios">12 ejercicios</a><a href="#fuentes">Fuentes</a></nav>
+  <nav class="nav" aria-label="Navegación principal"><a href="#conceptos">Fundamentos</a><a href="#calculadora">Calcular</a><a href="#laboratorio3d">Calibrador 3D</a><a href="#ejercicios">12 ejercicios</a><a href="#casos-extra">Casos extra</a><a href="#fuentes">Fuentes</a></nav>
   <div class="topright"><span class="pill">XP <strong id="xp">0</strong></span><a class="btn btn-soft btn-small" href="../">Clase 5 ↗</a></div>
  </div>
 </header>
@@ -124,6 +129,41 @@
  <div class="actions" style="justify-content:center;margin-top:20px"><button class="btn btn-soft" id="checkAllBtn">Ver resumen de ejercicios</button><button class="btn btn-pink" id="downloadSummaryBtn">Descargar mi reporte CSV ↓</button></div>
  <div class="results glass" id="summaryPanel" hidden><div class="panel-head"><div><span class="mini-label">TU SESIÓN</span><h3>Resumen de respuestas</h3><p id="summaryText"></p></div></div><div id="summaryDetails" style="font-size:12px;line-height:1.8;color:var(--muted)"></div></div>
 </section>
+
+<section class="section" id="casos-extra">
+  <div class="section-head"><div><div class="eyebrow">MÁS PRÁCTICA · NIVEL INDUSTRIAL</div><h2>Del cálculo a la decisión.</h2></div><p class="section-intro">No basta con obtener un error: hay que documentarlo, valorar el criterio de aceptación y decidir qué hacer con el instrumento.</p></div>
+  <div class="grid-3">
+    <article class="glass info-card"><div class="mini-label">CASO 01 · TALLER</div><h3>Eje mecanizado</h3><p>El patrón de referencia es <strong>25.000 mm</strong> y el calibrador indica <strong>25.035 mm</strong>.</p><div class="formula">E = I − Xref = 25.035 − 25.000 = +0.035 mm</div><p>El instrumento indica por encima de la referencia. Si el límite del ejercicio es ±0.030 mm, el error excede el límite.</p></article>
+    <article class="glass info-card"><div class="mini-label">CASO 02 · INSPECCIÓN</div><h3>Bloque patrón</h3><p>Referencia: <strong>10.000 mm</strong>. Indicación: <strong>9.988 mm</strong>.</p><div class="formula">E = 9.988 − 10.000 = −0.012 mm</div><p>El signo negativo indica una lectura inferior. La corrección estimada es <strong>C = −E = +0.012 mm</strong>, siempre bajo esta convención.</p></article>
+    <article class="glass info-card"><div class="mini-label">CASO 03 · CALIDAD</div><h3>Repetibilidad</h3><p>Lecturas: 20.012, 20.013, 20.012 y 20.013 mm.</p><div class="formula">Promedio = 20.0125 mm</div><p>Las lecturas están agrupadas, pero eso no demuestra por sí solo exactitud. Compáralas con la referencia y considera la incertidumbre.</p></article>
+  </div>
+  <div class="grid-2 extra-tools">
+    <article class="glass tool-card">
+      <div class="eyebrow">HERRAMIENTA 01</div><h3>Decisión de aceptación</h3>
+      <p>Introduce el error y el límite permitido para analizar un punto de calibración simulado.</p>
+      <div class="field-grid"><label>Error con signo (mm)<input id="extraError" type="number" step="0.001" value="-0.018"></label><label>Límite permitido (mm)<input id="extraLimit" type="number" min="0" step="0.001" value="0.030"></label></div>
+      <button class="btn btn-primary" id="extraDecisionBtn" type="button">Evaluar el punto</button>
+      <div class="result-box" id="extraDecisionResult" aria-live="polite">Introduce los valores y evalúa.</div>
+      <p class="fine-print">Este criterio es didáctico y no sustituye una regla de decisión acordada ni un certificado de calibración.</p>
+    </article>
+    <article class="glass tool-card">
+      <div class="eyebrow">HERRAMIENTA 02</div><h3>Lista de revisión del certificado</h3>
+      <p>Marca los elementos que verificarías antes de usar el resultado para una decisión de calidad.</p>
+      <div class="checklist" id="certificateChecklist">
+        <label><input type="checkbox"> Identificación del instrumento, modelo y número de serie</label>
+        <label><input type="checkbox"> Patrón o referencia y trazabilidad documentada</label>
+        <label><input type="checkbox"> Puntos calibrados, indicaciones, errores y correcciones</label>
+        <label><input type="checkbox"> Incertidumbre asociada a los resultados</label>
+        <label><input type="checkbox"> Condiciones ambientales y método empleado</label>
+        <label><input type="checkbox"> Fecha, responsable y alcance de la calibración</label>
+        <label><input type="checkbox"> Requisitos de uso y criterio de aceptación aplicable</label>
+      </div>
+      <div class="check-progress"><span id="checkCount">0 de 7 revisados</span><div class="progress-track"><div id="checkBar" style="width:0%"></div></div></div>
+    </article>
+  </div>
+  <div class="glass decision-flow"><div><div class="eyebrow">RUTA DE TRABAJO</div><h3>¿Qué hacer después de calibrar?</h3><p>Una desviación no conduce automáticamente a reparar el instrumento. Primero se documenta el resultado; después se compara con requisitos definidos para el uso previsto.</p></div><div class="flow-steps"><div><b>01</b><strong>Medir</strong><span>Comparar con patrones adecuados.</span></div><div><b>02</b><strong>Calcular</strong><span>Error, corrección e incertidumbre.</span></div><div><b>03</b><strong>Evaluar</strong><span>Aplicar el criterio acordado.</span></div><div><b>04</b><strong>Decidir</strong><span>Usar, ajustar, restringir o retirar.</span></div></div></div>
+</section>
+
 <section class="section" id="cierre">
  <div class="section-title"><div><span class="kicker">06 / COMPROBACIÓN FINAL</span><h2>¿Ya puedes interpretar el resultado?</h2></div><p>Selecciona una respuesta en cada tarjeta. No basta con obtener una cifra: debes decir qué significa y qué evidencia todavía falta.</p></div>
  <div class="checkpoint-grid" id="quizGrid"></div>
@@ -296,6 +336,19 @@ $("quizGrid").innerHTML=quizData.map((q,i)=>'<article class="checkpoint glass" d
 $("quizGrid").querySelectorAll("[data-ai]").forEach(b=>b.addEventListener("click",()=>{const i=+b.dataset.qi;quizAnswers[i]=+b.dataset.ai;document.querySelectorAll('[data-quiz="'+i+'"] button').forEach(x=>x.classList.toggle("selected",x===b));$("quizScore").textContent=Object.keys(quizAnswers).length+" / 5 respondidas"}));
 $("gradeQuiz").addEventListener("click",()=>{const n=Object.keys(quizAnswers).length;if(n<5){$("quizResult").hidden=false;$("quizResult").innerHTML="<b>Faltan respuestas.</b> Responde las cinco preguntas y vuelve a evaluar.";return}let score=0;quizData.forEach((q,i)=>{const fb=$("qfb"+i),ok=quizAnswers[i]===q.correct;if(ok)score++;fb.className="feedback show "+(ok?"ok":"no");fb.innerHTML="<strong>"+(ok?"Correcto":"Revisa este concepto")+"</strong>"+q.why;});$("quizResult").hidden=false;$("quizResult").innerHTML="<span class='mini-label'>RESULTADO FINAL</span><h3 style='font-size:26px;margin:8px 0'>"+score+" / 5 correctas</h3><p style='font-size:12px;line-height:1.7;color:var(--muted)'>"+(score===5?"Excelente. Interpretas los conceptos fundamentales.":score>=3?"Buen avance. Repasa las explicaciones resaltadas antes de terminar.":"Vuelve a los fundamentos y prueba otra vez.")+"</p>";if(!saved.quizDone){saved.quizDone=true;saved.xp=(saved.xp||0)+score*5;persist()}});
 $("resetProgress").addEventListener("click",()=>{if(confirm("¿Reiniciar XP y ejercicios completados guardados en este navegador?")){saved={done:[],xp:0,simDone:false,quizDone:false};try{localStorage.removeItem(STORAGE_KEY)}catch(e){};buildExercises();updateProgress();$("summaryPanel").hidden=true;$("quizResult").hidden=true;$("quizGrid").querySelectorAll(".feedback").forEach(f=>f.className="feedback");}});
+
+const extraError=$("extraError"),extraLimit=$("extraLimit"),extraResult=$("extraDecisionResult");
+$("extraDecisionBtn").addEventListener("click",()=>{
+ const e=Number(extraError.value),lim=Number(extraLimit.value);
+ if(extraError.value===""||extraLimit.value===""||!Number.isFinite(e)||!Number.isFinite(lim)||lim<0){extraResult.className="result-box fail";extraResult.textContent="Revisa los datos: el error debe ser numérico y el límite debe ser cero o positivo.";return}
+ const pass=Math.abs(e)<=lim,cor=-e;
+ extraResult.className="result-box "+(pass?"pass":"fail");
+ extraResult.innerHTML="<strong>"+(pass?"DENTRO DEL LÍMITE":"SUPERA EL LÍMITE")+"</strong><br>Error: "+(e>0?"+":"")+e.toFixed(3)+" mm · Error absoluto: "+Math.abs(e).toFixed(3)+" mm<br>Corrección estimada: "+(cor>0?"+":"")+cor.toFixed(3)+" mm<br>Comparación: "+Math.abs(e).toFixed(3)+" mm "+(pass?"≤":" > ")+" "+lim.toFixed(3)+" mm.<br>"+(pass?"Este punto cumple el límite didáctico indicado.":"Este punto no cumple el límite didáctico indicado; documenta y revisa el criterio aplicable.");
+});
+const certChecks=[...document.querySelectorAll("#certificateChecklist input")];
+function updateCert(){const n=certChecks.filter(x=>x.checked).length;$("checkCount").textContent=n+" de "+certChecks.length+" revisados";$("checkBar").style.width=(n/certChecks.length*100)+"%"}
+certChecks.forEach(x=>x.addEventListener("change",updateCert));updateCert();
+
 buildExercises();updateProgress();calc();syncSim();
 })();
 </script>
