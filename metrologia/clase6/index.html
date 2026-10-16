@@ -17,6 +17,21 @@
 @media(max-width:850px){.grid-3{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}.flow-steps{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.grid-3{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr}.flow-steps{grid-template-columns:1fr 1fr}.info-card,.tool-card{padding:18px}}
 
+
+/* Modelos 3D didácticos añadidos: se pueden girar con arrastre */
+.model3d-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.model3d-card{padding:20px;min-width:0}
+.model3d-stage{height:210px;display:grid;place-items:center;perspective:800px;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:radial-gradient(ellipse,rgba(101,237,255,.10),rgba(3,13,22,.45))}
+.model3d-object{position:relative;transform-style:preserve-3d;transform:rotateX(-20deg) rotateY(-25deg);transition:transform .12s linear}
+.cube3d{width:100px;height:100px}
+.cube3d .face{position:absolute;width:100px;height:100px;border:2px solid rgba(101,237,255,.8);background:rgba(101,237,255,.15);display:grid;place-items:center;color:var(--cyan);font-weight:900;backface-visibility:visible}
+.cube3d .front{transform:translateZ(50px)}.cube3d .back{transform:rotateY(180deg) translateZ(50px)}.cube3d .right{transform:rotateY(90deg) translateZ(50px)}.cube3d .left{transform:rotateY(-90deg) translateZ(50px)}.cube3d .top{transform:rotateX(90deg) translateZ(50px)}.cube3d .bottom{transform:rotateX(-90deg) translateZ(50px)}
+.cyl3d{width:90px;height:120px;transform-style:preserve-3d}.cyl3d .side{position:absolute;left:0;top:0;width:90px;height:120px;border-left:2px solid var(--cyan);border-right:2px solid var(--cyan);background:linear-gradient(90deg,rgba(101,237,255,.3),rgba(101,237,255,.05),rgba(101,237,255,.28));transform:translateZ(0)}
+.cyl3d:before,.cyl3d:after{content:"";position:absolute;left:0;width:90px;height:30px;border:2px solid var(--cyan);border-radius:50%;background:rgba(101,237,255,.18)}.cyl3d:before{top:-1px;transform:translateZ(0)}.cyl3d:after{bottom:-1px;transform:translateZ(0)}
+.ring3d{width:120px;height:120px;border:22px solid rgba(242,161,255,.72);border-radius:50%;box-shadow:inset 0 0 0 2px var(--magenta),0 0 18px rgba(242,161,255,.15);transform:rotateX(65deg) rotateY(-20deg)}
+.model-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}.model-controls button{border:1px solid var(--line);border-radius:10px;background:rgba(15,35,49,.65);color:var(--text);padding:8px 10px;cursor:pointer;font-weight:800}.model-controls button:hover{border-color:var(--cyan);color:var(--cyan)}.model-controls label{font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:center}.model-controls input{width:100px}.model-result{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(2,14,22,.6);font-size:13px;line-height:1.65;margin-top:10px}.ref-note{font-size:12px;color:var(--muted);border-left:3px solid var(--magenta);padding:10px 12px;margin-top:16px;background:rgba(242,161,255,.06)}
+@media(max-width:850px){.model3d-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.model3d-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -181,6 +196,17 @@
  <div class="callout">Nota de honestidad técnica: los datos, desviaciones, límites ±0.030 mm y decisiones automáticas son simulados para aprender. No constituyen una especificación universal de los calibradores ni sustituyen una calibración acreditada.</div>
 </section>
 <footer class="footer"><div class="footer-inner"><div><strong style="color:var(--text);letter-spacing:.12em">METRO-LAB / CLASE 06</strong><br>Calibración por comparación con patrones · Unidad 3</div><div>HTML5 + CSS + JavaScript · Diseño Liquid Glass<br>Progreso almacenado solo en este navegador. <a href="../">Regresar a Clase 5</a></div></div></footer>
+
+<section class="section" id="modelos3d">
+ <div class="section-head"><div><div class="eyebrow">TALLER VISUAL · 3D</div><h2>Tres piezas para inspeccionar en 3D</h2><p>Arrastra sobre cada modelo para girarlo. Después mide la dimensión solicitada, compara la indicación con el patrón y escribe una conclusión. Las figuras son modelos didácticos, no patrones certificados.</p></div></div>
+ <div class="model3d-grid">
+  <article class="glass model3d-card"><div class="eyebrow">PRÁCTICA 01 · BLOQUE</div><h3>Bloque patrón / pieza prismática</h3><div class="model3d-stage" data-stage="cube"><div class="model3d-object cube3d"><div class="face front">30 mm</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div><div class="model-controls"><button data-reset="cube">Restablecer vista</button><label>Patrón (mm)<input id="cubeRef" type="number" step=".001" value="30.000"></label><label>Lectura (mm)<input id="cubeInd" type="number" step=".001" value="30.018"></label></div><div class="model-controls"><button data-calc="cube">Comparar medidas</button></div><div class="model-result" id="cubeResult">Reto: identifica largo, ancho y altura. Calcula el error de la dimensión seleccionada.</div><p class="small muted">Actividad: anota las tres dimensiones y explica por qué una sola medida no describe todo el bloque.</p></article>
+  <article class="glass model3d-card"><div class="eyebrow">PRÁCTICA 02 · EJE</div><h3>Eje cilíndrico</h3><div class="model3d-stage" data-stage="cyl"><div class="model3d-object cyl3d"><div class="side"></div></div></div><div class="model-controls"><button data-reset="cyl">Restablecer vista</button><label>Patrón Ø (mm)<input id="cylRef" type="number" step=".001" value="20.000"></label><label>Lectura Ø (mm)<input id="cylInd" type="number" step=".001" value="19.986"></label></div><div class="model-controls"><button data-calc="cyl">Comparar diámetros</button></div><div class="model-result" id="cylResult">Reto: mide el diámetro en dos orientaciones y revisa si las lecturas son consistentes.</div><p class="small muted">Actividad: registra dos lecturas de diámetro, calcula su promedio y comenta la posible ovalidad sin afirmarla con una sola lectura.</p></article>
+  <article class="glass model3d-card"><div class="eyebrow">PRÁCTICA 03 · ARO</div><h3>Aro / casquillo</h3><div class="model3d-stage" data-stage="ring"><div class="model3d-object ring3d"></div></div><div class="model-controls"><button data-reset="ring">Restablecer vista</button><label>Patrón Ø interior (mm)<input id="ringRef" type="number" step=".001" value="12.000"></label><label>Lectura Ø interior (mm)<input id="ringInd" type="number" step=".001" value="12.025"></label></div><div class="model-controls"><button data-calc="ring">Comparar diámetro interior</button></div><div class="model-result" id="ringResult">Reto: distingue diámetro interior, diámetro exterior y espesor de pared.</div><p class="small muted">Actividad: identifica qué instrumento conviene usar para el diámetro interior y explica por qué no debes medir el exterior por error.</p></article>
+ </div>
+ <div class="ref-note"><b>Referencia al librillo de estudio · Clase 6:</b> consultar los apartados sobre calibración por comparación con patrones, cálculo del error de indicación y corrección, repetibilidad, selección del patrón, incertidumbre y temperatura, así como la sección de práctica y ejercicios complementarios. Sigue la regla del librillo: <b>datos → incógnita → fórmula → sustitución → operación → unidad → interpretación</b>. Registra las mediciones reales en la práctica; usa estos valores solo como simulación.</div>
+</section>
+
 </main>
 <script>
 (function(){
@@ -348,6 +374,20 @@ $("extraDecisionBtn").addEventListener("click",()=>{
 const certChecks=[...document.querySelectorAll("#certificateChecklist input")];
 function updateCert(){const n=certChecks.filter(x=>x.checked).length;$("checkCount").textContent=n+" de "+certChecks.length+" revisados";$("checkBar").style.width=(n/certChecks.length*100)+"%"}
 certChecks.forEach(x=>x.addEventListener("change",updateCert));updateCert();
+
+
+document.querySelectorAll('.model3d-stage').forEach(stage=>{
+ const obj=stage.querySelector('.model3d-object');let rx=-20,ry=-25,down=false,px=0,py=0;
+ stage.addEventListener('pointerdown',e=>{down=true;px=e.clientX;py=e.clientY;stage.setPointerCapture(e.pointerId)});
+ stage.addEventListener('pointermove',e=>{if(!down)return;ry+=(e.clientX-px)*.7;rx-=(e.clientY-py)*.7;px=e.clientX;py=e.clientY;obj.style.transform='rotateX('+rx+'deg) rotateY('+ry+'deg)'});
+ stage.addEventListener('pointerup',()=>down=false);stage.addEventListener('pointercancel',()=>down=false);
+});
+document.querySelectorAll('[data-reset]').forEach(b=>b.addEventListener('click',()=>{const stage=document.querySelector('[data-stage="'+b.dataset.reset+'"]'),obj=stage.querySelector('.model3d-object');obj.style.transform=b.dataset.reset==='ring'?'rotateX(65deg) rotateY(-20deg)':'rotateX(-20deg) rotateY(-25deg)'}));
+document.querySelectorAll('[data-calc]').forEach(b=>b.addEventListener('click',()=>{
+ const k=b.dataset.calc,ref=Number(document.getElementById(k+'Ref').value),ind=Number(document.getElementById(k+'Ind').value),out=document.getElementById(k+'Result');
+ if(!Number.isFinite(ref)||!Number.isFinite(ind)||document.getElementById(k+'Ref').value===''||document.getElementById(k+'Ind').value===''){out.textContent='Introduce dos valores numéricos válidos.';return}
+ const e=ind-ref;out.innerHTML='<b>Error E = I − Xref = '+ind.toFixed(3)+' − '+ref.toFixed(3)+' = '+(e>0?'+':'')+e.toFixed(3)+' mm</b><br>Error absoluto: '+Math.abs(e).toFixed(3)+' mm.<br>Corrección estimada: '+(-e>0?'+':'')+(-e).toFixed(3)+' mm.<br>Interpreta el signo y compara el error absoluto con el límite indicado por tu docente; no declares aceptación sin ese criterio.';
+}));
 
 buildExercises();updateProgress();calc();syncSim();
 })();
