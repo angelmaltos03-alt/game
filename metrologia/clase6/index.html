@@ -32,6 +32,57 @@
 .model-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}.model-controls button{border:1px solid var(--line);border-radius:10px;background:rgba(15,35,49,.65);color:var(--text);padding:8px 10px;cursor:pointer;font-weight:800}.model-controls button:hover{border-color:var(--cyan);color:var(--cyan)}.model-controls label{font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:center}.model-controls input{width:100px}.model-result{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(2,14,22,.6);font-size:13px;line-height:1.65;margin-top:10px}.ref-note{font-size:12px;color:var(--muted);border-left:3px solid var(--magenta);padding:10px 12px;margin-top:16px;background:rgba(242,161,255,.06)}
 @media(max-width:850px){.model3d-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.model3d-grid{grid-template-columns:1fr}}
 
+
+/* ── MODO MISIÓN: color funcional, interacción y accesibilidad ── */
+:root{--electric:#5ef2ff;--berry:#ff83d2;--lime:#b7ff78;--sun:#ffd166;--ink:#07131d}
+.quick-mission{position:relative;isolation:isolate;overflow:hidden;margin:8px 0 34px;padding:clamp(22px,3.3vw,42px);border-radius:30px;border:1px solid rgba(130,230,255,.24);background:radial-gradient(ellipse at 0 0,rgba(42,220,255,.15),transparent 33%),radial-gradient(ellipse at 100% 100%,rgba(255,110,199,.14),transparent 37%),linear-gradient(135deg,rgba(13,37,54,.95),rgba(12,21,39,.96) 60%,rgba(32,20,48,.94));box-shadow:0 24px 75px rgba(0,0,0,.26)}
+.quick-mission:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.25;background-image:radial-gradient(rgba(157,242,255,.6) .8px,transparent .8px);background-size:19px 19px;mask-image:linear-gradient(110deg,black,transparent 72%)}
+.mission-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.mission-heading h2{font-size:clamp(29px,4vw,46px);line-height:1.04;letter-spacing:-.05em;margin:11px 0}
+.mission-heading h2 span{color:transparent;background:linear-gradient(90deg,var(--electric),#b8a4ff,var(--berry));background-clip:text;-webkit-background-clip:text}
+.mission-heading p{max-width:420px;font-size:13px;line-height:1.75;color:#bdd1df;margin:0 0 4px}
+.mission-label{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border-radius:999px;color:#071923;font-size:10px;font-weight:1000;letter-spacing:.11em;background:linear-gradient(90deg,var(--electric),#9ef8e0)}
+.mission-label:before{content:"";width:7px;height:7px;border-radius:50%;background:#0c6b62;box-shadow:0 0 0 4px rgba(8,103,95,.12)}
+.challenge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.challenge-card{position:relative;min-width:0;overflow:hidden;padding:20px;border-radius:21px;background:linear-gradient(145deg,rgba(20,44,61,.94),rgba(6,19,30,.9));border:1px solid rgba(183,226,244,.15);transition:transform .22s,border-color .22s,box-shadow .22s}
+.challenge-card:hover{transform:translateY(-3px);border-color:rgba(109,233,255,.42);box-shadow:0 16px 40px rgba(0,0,0,.18)}
+.challenge-card:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--electric),#b7a4ff,var(--berry))}
+.challenge-card.c-pink:before{background:linear-gradient(90deg,#ff83d2,#ffa47c)}
+.challenge-card.c-lime:before{background:linear-gradient(90deg,#b7ff78,#5de9b6)}
+.challenge-card.c-sun:before{background:linear-gradient(90deg,#ffd166,#ff9a76)}
+.challenge-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:3px 0 15px}
+.challenge-num{font-size:10px;font-weight:1000;letter-spacing:.13em;color:var(--electric)}
+.c-pink .challenge-num{color:#ff9bdc}.c-lime .challenge-num{color:#b7ff78}.c-sun .challenge-num{color:#ffd166}
+.challenge-tag{padding:5px 8px;border-radius:8px;background:rgba(115,216,239,.09);color:#c8e7f3;font-size:9px;font-weight:900;letter-spacing:.08em}
+.challenge-card h3{font-size:17px;line-height:1.4;letter-spacing:-.02em;margin:0 0 9px}
+.challenge-card .challenge-situation{font-size:12px;line-height:1.75;color:#aec6d4;margin:0 0 16px}
+.challenge-situation strong{color:#f5fdff}
+.challenge-options{display:grid;grid-template-columns:1fr;gap:8px}
+.challenge-options button{width:100%;text-align:left;padding:11px 12px;border:1px solid rgba(169,225,243,.17);border-radius:12px;background:rgba(2,14,23,.58);color:#eaf8ff;font-size:12px;line-height:1.5;font-weight:750;transition:background .18s,border-color .18s,transform .18s}
+.challenge-options button:before{content:"↳";color:var(--electric);font-weight:1000;margin-right:8px}
+.challenge-options button:hover{background:rgba(76,199,227,.12);border-color:rgba(94,242,255,.56);transform:translateX(2px)}
+.challenge-options button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.challenge-options button[aria-pressed="true"]{border-color:var(--electric);background:rgba(72,218,239,.13)}
+.challenge-options button.right-answer{border-color:#88f3ba;background:rgba(70,231,150,.12);color:#c5ffdd}
+.challenge-options button.wrong-answer{border-color:#ff8ba8;background:rgba(255,77,125,.1);color:#ffd9e3}
+.challenge-feedback{display:none;margin-top:13px;padding:13px 14px;border-radius:13px;font-size:12px;line-height:1.7}
+.challenge-feedback.show{display:block;animation:feedbackIn .25s ease-out}
+.challenge-feedback.ok{border:1px solid rgba(123,245,177,.35);background:rgba(48,204,126,.1);color:#d7ffea}
+.challenge-feedback.no{border:1px solid rgba(255,130,165,.35);background:rgba(255,88,131,.09);color:#ffe0e9}
+.challenge-feedback strong{display:block;margin-bottom:4px;font-size:12px}
+.challenge-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:17px;padding:15px 17px;border-radius:16px;background:rgba(2,14,23,.53);border:1px solid rgba(159,221,240,.13)}
+.challenge-foot p{font-size:11px;color:#a9c3d2;line-height:1.6;margin:0}
+.challenge-foot strong{color:var(--sun)}
+#missionScore{white-space:nowrap;font-size:12px;color:#07131d;background:linear-gradient(100deg,var(--sun),#ffb28a);padding:9px 12px;border-radius:11px;font-weight:1000}
+@keyframes feedbackIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.feedback.show{padding:12px 14px;border-radius:12px;line-height:1.7}
+.feedback.show.ok{background:rgba(48,204,126,.11);border:1px solid rgba(123,245,177,.32);color:#d7ffea}
+.feedback.show.no{background:rgba(255,88,131,.09);border:1px solid rgba(255,130,165,.32);color:#ffe0e9}
+.check-options button{transition:transform .18s,background .18s,border-color .18s}
+.check-options button:hover{transform:translateY(-1px)}
+@media(max-width:760px){.mission-heading{align-items:flex-start;flex-direction:column;gap:7px}.mission-heading p{max-width:none}.challenge-grid{grid-template-columns:1fr}.quick-mission{padding:20px;border-radius:22px}.challenge-card{padding:17px}.challenge-foot{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.challenge-feedback.show{animation:none}.challenge-card,.challenge-options button{transition:none}}
+
 </style>
 </head>
 <body>
@@ -61,6 +112,61 @@
   </div>
  </div>
 </section>
+
+<section class="quick-mission" id="desafio" aria-labelledby="missionTitle">
+ <div class="mission-heading">
+  <div><span class="mission-label">ENTRENAMIENTO EXPRESS · 4 RETOS</span><h2 id="missionTitle">Piensa como un <span>detective metrológico.</span></h2></div>
+  <p>Elige una respuesta en cada caso. Recibirás la explicación al instante: equivocarse aquí es parte de aprender, no un castigo. Puedes cambiar tu opción y volverlo a intentar.</p>
+ </div>
+ <div class="challenge-grid">
+  <article class="challenge-card" data-challenge="m1">
+   <div class="challenge-top"><span class="challenge-num">RETO 01 / ERROR</span><span class="challenge-tag">CALCULA</span></div>
+   <h3>¿Hacia dónde se fue la medida?</h3>
+   <p class="challenge-situation">El patrón indica <strong>20.000 mm</strong> y el calibrador marca <strong>20.018 mm</strong>. Usa E = I − Xref.</p>
+   <div class="challenge-options">
+    <button type="button" data-choice="1">E = +0.018 mm; la indicación está por encima.</button>
+    <button type="button" data-choice="2">E = −0.018 mm; la indicación está por debajo.</button>
+    <button type="button" data-choice="3">E = +40.018 mm; se suman los valores.</button>
+   </div>
+   <div class="challenge-feedback" aria-live="polite"></div>
+  </article>
+  <article class="challenge-card c-pink" data-challenge="m2">
+   <div class="challenge-top"><span class="challenge-num">RETO 02 / CORRECCIÓN</span><span class="challenge-tag">INTERPRETA</span></div>
+   <h3>El error salió negativo. ¿Y ahora?</h3>
+   <p class="challenge-situation">Calculaste <strong>E = −0.040 mm</strong>. La corrección estimada se obtiene con C = −E.</p>
+   <div class="challenge-options">
+    <button type="button" data-choice="1">C = −0.040 mm; la corrección repite el signo del error.</button>
+    <button type="button" data-choice="2">C = +0.040 mm; la corrección tiene signo contrario.</button>
+    <button type="button" data-choice="3">C = 0 mm; el error negativo se ignora.</button>
+   </div>
+   <div class="challenge-feedback" aria-live="polite"></div>
+  </article>
+  <article class="challenge-card c-lime" data-challenge="m3">
+   <div class="challenge-top"><span class="challenge-num">RETO 03 / DECISIÓN</span><span class="challenge-tag">COMPARA</span></div>
+   <h3>¿Cumple el criterio de este ejercicio?</h3>
+   <p class="challenge-situation">El error es <strong>+0.018 mm</strong> y el límite didáctico es <strong>±0.030 mm</strong>. Compara el error absoluto con el límite.</p>
+   <div class="challenge-options">
+    <button type="button" data-choice="1">Sí, porque |E| = 0.018 mm ≤ 0.030 mm; solo en este punto.</button>
+    <button type="button" data-choice="2">No, todo error positivo significa rechazo.</button>
+    <button type="button" data-choice="3">Sí, y eso certifica automáticamente todo el instrumento.</button>
+   </div>
+   <div class="challenge-feedback" aria-live="polite"></div>
+  </article>
+  <article class="challenge-card c-sun" data-challenge="m4">
+   <div class="challenge-top"><span class="challenge-num">RETO 04 / REPETIBILIDAD</span><span class="challenge-tag">RAZONA</span></div>
+   <h3>¡Tres lecturas casi iguales! ¿Ya está?</h3>
+   <p class="challenge-situation">Mides 20.018, 20.019 y 20.018 mm tres veces. El patrón vale 20.000 mm.</p>
+   <div class="challenge-options">
+    <button type="button" data-choice="1">El error es cero porque las lecturas se parecen.</button>
+    <button type="button" data-choice="2">Hay indicios de repetibilidad, pero todavía debo calcular el error frente al patrón.</button>
+    <button type="button" data-choice="3">La incertidumbre desaparece cuando repito tres veces.</button>
+   </div>
+   <div class="challenge-feedback" aria-live="polite"></div>
+  </article>
+ </div>
+ <div class="challenge-foot"><p><strong>Recuerda:</strong> fórmula → sustitución → operación → unidad → interpretación. Las cifras son simuladas; la decisión real depende del procedimiento y del criterio aplicable.</p><span id="missionScore" role="status">0 / 4 retos dominados</span></div>
+</section>
+
 <section class="progress-wrap glass" aria-label="Progreso del estudiante">
  <div class="progress-head"><span>RUTA DE APRENDIZAJE</span><b id="progressText">0% completado</b><button class="btn btn-soft btn-small" id="resetProgress">Reiniciar progreso</button></div>
  <div class="track"><span id="progressBar"></span></div>
@@ -359,7 +465,7 @@ const quizData=[
 {q:"La trazabilidad se apoya en…",options:["Una etiqueta que diga calibrado","Una cadena documentada hacia una referencia, con incertidumbres consideradas","Solo repetir muchas lecturas"],correct:1,why:"La trazabilidad metrológica requiere una cadena documentada e ininterrumpida de calibraciones con incertidumbres consideradas."}
 ];let quizAnswers={};
 $("quizGrid").innerHTML=quizData.map((q,i)=>'<article class="checkpoint glass" data-quiz="'+i+'"><div class="mini-label">PREGUNTA '+String(i+1).padStart(2,"0")+'</div><h3>'+q.q+'</h3><div class="check-options">'+q.options.map((o,j)=>'<button type="button" data-qi="'+i+'" data-ai="'+j+'">'+String.fromCharCode(65+j)+'. '+o+'</button>').join("")+'</div><div class="feedback" id="qfb'+i+'"></div></article>').join("");
-$("quizGrid").querySelectorAll("[data-ai]").forEach(b=>b.addEventListener("click",()=>{const i=+b.dataset.qi;quizAnswers[i]=+b.dataset.ai;document.querySelectorAll('[data-quiz="'+i+'"] button').forEach(x=>x.classList.toggle("selected",x===b));$("quizScore").textContent=Object.keys(quizAnswers).length+" / 5 respondidas"}));
+$("quizGrid").querySelectorAll("[data-ai]").forEach(b=>b.addEventListener("click",()=>{const i=+b.dataset.qi;quizAnswers[i]=+b.dataset.ai;document.querySelectorAll('[data-quiz="'+i+'"] button').forEach(x=>{x.classList.toggle("selected",x===b);x.setAttribute("aria-pressed",x===b?"true":"false")});const ok=quizAnswers[i]===quizData[i].correct,fb=$("qfb"+i);fb.className="feedback show "+(ok?"ok":"no");fb.innerHTML="<strong>"+(ok?"¡Bien hecho!":"Casi. Vamos a corregirlo.")+"</strong>"+quizData[i].why+" Puedes cambiar tu respuesta antes de evaluar el resultado final.";$("quizScore").textContent=Object.keys(quizAnswers).length+" / 5 respondidas"}));
 $("gradeQuiz").addEventListener("click",()=>{const n=Object.keys(quizAnswers).length;if(n<5){$("quizResult").hidden=false;$("quizResult").innerHTML="<b>Faltan respuestas.</b> Responde las cinco preguntas y vuelve a evaluar.";return}let score=0;quizData.forEach((q,i)=>{const fb=$("qfb"+i),ok=quizAnswers[i]===q.correct;if(ok)score++;fb.className="feedback show "+(ok?"ok":"no");fb.innerHTML="<strong>"+(ok?"Correcto":"Revisa este concepto")+"</strong>"+q.why;});$("quizResult").hidden=false;$("quizResult").innerHTML="<span class='mini-label'>RESULTADO FINAL</span><h3 style='font-size:26px;margin:8px 0'>"+score+" / 5 correctas</h3><p style='font-size:12px;line-height:1.7;color:var(--muted)'>"+(score===5?"Excelente. Interpretas los conceptos fundamentales.":score>=3?"Buen avance. Repasa las explicaciones resaltadas antes de terminar.":"Vuelve a los fundamentos y prueba otra vez.")+"</p>";if(!saved.quizDone){saved.quizDone=true;saved.xp=(saved.xp||0)+score*5;persist()}});
 $("resetProgress").addEventListener("click",()=>{if(confirm("¿Reiniciar XP y ejercicios completados guardados en este navegador?")){saved={done:[],xp:0,simDone:false,quizDone:false};try{localStorage.removeItem(STORAGE_KEY)}catch(e){};buildExercises();updateProgress();$("summaryPanel").hidden=true;$("quizResult").hidden=true;$("quizGrid").querySelectorAll(".feedback").forEach(f=>f.className="feedback");}});
 
@@ -388,6 +494,32 @@ document.querySelectorAll('[data-calc]').forEach(b=>b.addEventListener('click',(
  if(!Number.isFinite(ref)||!Number.isFinite(ind)||document.getElementById(k+'Ref').value===''||document.getElementById(k+'Ind').value===''){out.textContent='Introduce dos valores numéricos válidos.';return}
  const e=ind-ref;out.innerHTML='<b>Error E = I − Xref = '+ind.toFixed(3)+' − '+ref.toFixed(3)+' = '+(e>0?'+':'')+e.toFixed(3)+' mm</b><br>Error absoluto: '+Math.abs(e).toFixed(3)+' mm.<br>Corrección estimada: '+(-e>0?'+':'')+(-e).toFixed(3)+' mm.<br>Interpreta el signo y compara el error absoluto con el límite indicado por tu docente; no declares aceptación sin ese criterio.';
 }));
+
+
+const missionData={
+ m1:{correct:"1",why:"E = I − Xref = 20.018 − 20.000 = +0.018 mm. El signo positivo indica que el instrumento marcó un valor mayor que el patrón.",label:"RETO 01"},
+ m2:{correct:"2",why:"C = −E = −(−0.040) = +0.040 mm. La corrección estimada tiene signo contrario al error; documentarla no significa que el instrumento se ajuste solo.",label:"RETO 02"},
+ m3:{correct:"1",why:"|E| = |+0.018| = 0.018 mm y 0.018 ≤ 0.030 mm. Pasa el límite didáctico únicamente en este punto; no certifica el rango completo ni sustituye incertidumbre y regla de decisión.",label:"RETO 03"},
+ m4:{correct:"2",why:"Las lecturas cercanas sugieren repetibilidad, pero siguen alejadas del patrón de 20.000 mm. La repetibilidad describe la dispersión; el error se calcula por separado como indicación menos referencia.",label:"RETO 04"}
+};
+const missionRewarded=new Set();
+document.querySelectorAll("[data-challenge]").forEach(card=>{
+ const key=card.dataset.challenge,meta=missionData[key],feedback=card.querySelector(".challenge-feedback");
+ card.querySelectorAll("[data-choice]").forEach(btn=>btn.addEventListener("click",()=>{
+  const ok=btn.dataset.choice===meta.correct;
+  card.querySelectorAll("[data-choice]").forEach(option=>{option.classList.remove("right-answer","wrong-answer");option.setAttribute("aria-pressed",option===btn?"true":"false")});
+  btn.classList.add(ok?"right-answer":"wrong-answer");
+  feedback.className="challenge-feedback show "+(ok?"ok":"no");
+  feedback.innerHTML="<strong>"+(ok?"¡Correcto! +3 XP":"Todavía no. Vuelve a intentarlo.")+"</strong>"+(ok?meta.why:"Pista: revisa la fórmula y el significado del signo. "+meta.why);
+  if(ok&&!missionRewarded.has(key)){
+   missionRewarded.add(key);
+   saved.xp=(saved.xp||0)+3;
+   persist();
+   if(typeof updateProgress==="function")updateProgress();
+  }
+  document.getElementById("missionScore").textContent=missionRewarded.size+" / 4 retos dominados";
+ }));
+});
 
 buildExercises();updateProgress();calc();syncSim();
 })();
