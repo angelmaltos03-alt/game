@@ -87,7 +87,7 @@
 /* Entradas numéricas cómodas en móvil: botón visible para escribir valores negativos */
 .answer-input-wrap{display:flex;align-items:stretch;gap:8px;width:100%}
 .answer-input-wrap input{flex:1;min-width:0}
-.sign-toggle{flex:0 0 48px;min-height:44px;border:1px solid var(--line2);border-radius:12px;background:rgba(101,237,255,.12);color:var(--cyan);font-size:1.1rem;font-weight:900;cursor:pointer;touch-action:manipulation}
+.sign-toggle{flex:0 0 54px;min-height:48px;border:1px solid var(--line2);border-radius:12px;background:rgba(101,237,255,.12);color:var(--cyan);font-size:1.5rem;font-weight:900;cursor:pointer;touch-action:manipulation}
 .sign-toggle:active{transform:scale(.96);background:rgba(101,237,255,.24)}
 </style>
 </head>
@@ -251,7 +251,7 @@
  </div>
 </section>
 <section class="section" id="ejercicios">
- <div class="section-title"><div><span class="kicker">05 / RETOS DEL LIBRILLO</span><h2>12 ejercicios. Tú haces los cálculos.</h2></div><p>Los retos retoman los ejercicios 1–12 del librillo de la Clase 6. Escribe los resultados, comprueba tus respuestas y lee el procedimiento cuando falles. Tu avance se guarda en este navegador.</p></div>
+ <div class="section-title"><div><span class="kicker">05 / RETOS DEL LIBRILLO</span><h2>12 ejercicios. Tú haces los cálculos.</h2></div><p>Los retos retoman los ejercicios 1–12 del librillo de la Clase 6. Escribe los resultados, comprueba tus respuestas y lee el procedimiento cuando falles. Tu avance se guarda en este navegador.</p><p class="callout" style="margin-top:12px">¿Estás en celular y no aparece el menos en el teclado? Escribe primero el número y toca el botón <strong>−</strong> que está junto al campo para convertirlo en negativo.</p></div>
  <div class="exercise-grid" id="exerciseGrid"></div>
  <div class="actions" style="justify-content:center;margin-top:20px"><button class="btn btn-soft" id="checkAllBtn">Ver resumen de ejercicios</button><button class="btn btn-pink" id="downloadSummaryBtn">Descargar mi reporte CSV ↓</button></div>
  <div class="results glass" id="summaryPanel" hidden><div class="panel-head"><div><span class="mini-label">TU SESIÓN</span><h3>Resumen de respuestas</h3><p id="summaryText"></p></div></div><div id="summaryDetails" style="font-size:12px;line-height:1.8;color:var(--muted)"></div></div>
@@ -353,10 +353,10 @@ const exerciseData=[
 ];
 function buildExercises(){
  const grid=$("exerciseGrid");
- grid.innerHTML=exerciseData.map(ex=>'<article class="exercise glass" data-id="'+ex.id+'"><div class="exercise-top"><span class="exercise-number">RETO '+String(ex.id).padStart(2,"0")+'</span><span class="exercise-check">'+(saved.done.includes(ex.id)?"✓ RESUELTO":"PENDIENTE")+'</span></div><h3>'+ex.title+'</h3><p class="exercise-desc">'+ex.desc+'</p><div class="exercise-fields">'+ex.fields.map((f,i)=>'<div class="field"><label for="'+f[0]+'">'+f[1]+'</label>'+(ex.options&&i===0?'<select id="'+f[0]+'"><option value="">Elegir respuesta…</option>'+ex.options.map(o=>'<option value="'+o[0]+'">'+o[1]+'</option>').join("")+'</select>':'<div class="answer-input-wrap"><input id="'+f[0]+'" type="text" inputmode="decimal" autocomplete="off" placeholder="Escribe tu resultado" aria-label="'+f[1]+'"><button type="button" class="sign-toggle" data-sign="'+f[0]+'" aria-label="Cambiar signo del resultado" title="Poner o quitar signo negativo">±</button></div>')+'</div>').join("")+'</div><div class="actions"><button class="btn btn-primary btn-small" data-check="'+ex.id+'">Comprobar</button><button class="btn btn-soft btn-small" data-hint="'+ex.id+'">Ver pasos</button></div><div class="feedback" id="feedback'+ex.id+'"></div><div class="exercise-foot"><span>Recompensa</span><b>+'+ex.xp+' XP</b></div></article>').join("");
+ grid.innerHTML=exerciseData.map(ex=>'<article class="exercise glass" data-id="'+ex.id+'"><div class="exercise-top"><span class="exercise-number">RETO '+String(ex.id).padStart(2,"0")+'</span><span class="exercise-check">'+(saved.done.includes(ex.id)?"✓ RESUELTO":"PENDIENTE")+'</span></div><h3>'+ex.title+'</h3><p class="exercise-desc">'+ex.desc+'</p><div class="exercise-fields">'+ex.fields.map((f,i)=>'<div class="field"><label for="'+f[0]+'">'+f[1]+'</label>'+(ex.options&&i===0?'<select id="'+f[0]+'"><option value="">Elegir respuesta…</option>'+ex.options.map(o=>'<option value="'+o[0]+'">'+o[1]+'</option>').join("")+'</select>':'<div class="answer-input-wrap"><input id="'+f[0]+'" type="text" inputmode="decimal" autocomplete="off" placeholder="Escribe tu resultado" aria-label="'+f[1]+'"><button type="button" class="sign-toggle" data-sign="'+f[0]+'" aria-label="Cambiar signo del resultado" title="Agregar o quitar signo negativo">−</button></div>')+'</div>').join("")+'</div><div class="actions"><button class="btn btn-primary btn-small" data-check="'+ex.id+'">Comprobar</button><button class="btn btn-soft btn-small" data-hint="'+ex.id+'">Ver pasos</button></div><div class="feedback" id="feedback'+ex.id+'"></div><div class="exercise-foot"><span>Recompensa</span><b>+'+ex.xp+' XP</b></div></article>').join("");
  grid.querySelectorAll("[data-check]").forEach(b=>b.addEventListener("click",()=>checkExercise(+b.dataset.check)));
  grid.querySelectorAll("[data-hint]").forEach(b=>b.addEventListener("click",()=>showHint(+b.dataset.hint)));
-  grid.querySelectorAll("[data-sign]").forEach(b=>b.addEventListener("click",()=>{const input=$(b.dataset.sign);const raw=input.value.trim();if(raw.startsWith("-"))input.value=raw.slice(1);else if(raw.length)input.value="-"+raw;else input.value="-";input.focus();try{const p=input.value.startsWith("-")?1:input.value.length;input.setSelectionRange(p,p)}catch(e){}}));
+  grid.querySelectorAll("[data-sign]").forEach(b=>b.addEventListener("click",(ev)=>{ev.preventDefault();const input=$(b.dataset.sign);let raw=input.value.trim();if(raw.startsWith("-"))raw=raw.slice(1);else if(raw.length)raw="-"+raw;else raw="-";input.value=raw;input.dispatchEvent(new Event("input",{bubbles:true}));input.focus({preventScroll:true});}));
 }
 function checkExercise(id){
  const ex=exerciseData.find(x=>x.id===id), fb=$("feedback"+id);let values=[],correct=true;
