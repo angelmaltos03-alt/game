@@ -966,16 +966,6 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
     ,{id:15,title:"Error relativo",q:"Referencia: 4.000 V; indicación: 4.020 V. Calcula Er = |E| / |Xref|. Escribe el decimal.",a:0.005,tol:0.0005,u:"sin unidad",work:"|E| = 0.020 V. Er = 0.020 / 4.000 = 0.005."}
     ,{id:16,title:"Detecta el error de concepto",q:"Una balanza indica 99.80 g con referencia de 100.00 g. ¿El error es positivo o negativo? Escribe −1 para negativo y 1 para positivo.",a:-1,tol:0,u:"(−1 negativo / 1 positivo)",work:"E = 99.80 − 100.00 = −0.20 g. El error es negativo."}
   ];
-  var done=new Set(),host=document.getElementById("exercises");
-  exercises.forEach(function(ex){
-    var el=document.createElement("article");el.className="exercise";
-    el.innerHTML="<div class='eyebrow'>EJERCICIO "+String(ex.id).padStart(2,"0")+"</div><h3>"+ex.title+"</h3><p>"+ex.q+"</p><div class='answer'><input type='text' inputmode='decimal' autocomplete='off' aria-label='Respuesta del ejercicio "+ex.id+"' placeholder='Resultado numérico'><button class='sign' type='button' aria-label='Poner o quitar signo negativo'>−</button><span>"+ex.u+"</span><button class='btn check' type='button'>Comprobar</button></div><div class='feedback' aria-live='polite'></div>";
-    var input=el.querySelector("input"),sign=el.querySelector(".sign"),feedback=el.querySelector(".feedback");
-    sign.addEventListener("click",function(){var v=input.value.trim();if(!v){input.value="-";input.focus();return}if(v.charAt(0)==="-")input.value=v.slice(1);else input.value="-"+v;input.focus()});
-    el.querySelector(".check").addEventListener("click",function(){var raw=input.value.trim().replace(",",".");var value=Number(raw);if(raw===""||!Number.isFinite(value)){feedback.className="feedback show no";feedback.textContent="Escribe una respuesta numérica válida.";return}var ok=Math.abs(value-ex.a)<=ex.tol;if(ok)done.add(ex.id);else done.delete(ex.id);feedback.className="feedback show "+(ok?"ok":"no");feedback.textContent=(ok?"Correcto. ":"Revisa el resultado. ")+ex.work+" Respuesta esperada: "+fmt(ex.a)+" "+ex.u+".";document.getElementById("score").textContent=done.size+" de "+exercises.length+" ejercicios correctos";document.getElementById("bar").style.width=(done.size/exercises.length*100)+"%"});
-    host.appendChild(el);
-  });
-
   exercises.push(
     {id:17,title:"Error porcentual de masa",q:"Referencia 200.00 g, indicación 200.20 g. Calcula el error porcentual absoluto. Escribe el número sin %.",a:0.1,tol:0.01,u:"%",work:"E = 200.20 − 200.00 = +0.20 g. Error porcentual = (0.20 / 200.00) × 100 = 0.10 %."},
     {id:18,title:"Error relativo",q:"Referencia 50.00 g, error E = −0.05 g. Calcula |E| / |Xref|. Escribe el resultado decimal.",a:0.001,tol:0.0001,u:"adim.",work:"Error relativo = |−0.05| / 50.00 = 0.001. Es adimensional; multiplicado por 100 equivale a 0.10 %."},
@@ -992,6 +982,17 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
     {id:29,title:"Error relativo de voltaje",q:"Referencia 4.000 V y error E = +0.020 V. Calcula |E| / |Xref|. Escribe el decimal.",a:0.005,tol:0.0005,u:"adim.",work:"Error relativo = 0.020 / 4.000 = 0.005. Como porcentaje corresponde a 0.5 %."},
     {id:30,title:"Error absoluto de masa",q:"Referencia 500.00 g, indicación 499.85 g. Calcula el error absoluto.",a:0.15,tol:0.005,u:"g",work:"E = 499.85 − 500.00 = −0.15 g. Error absoluto = |E| = 0.15 g."}
   );
+
+  var done=new Set(),host=document.getElementById("exercises");
+  exercises.forEach(function(ex){
+    var el=document.createElement("article");el.className="exercise";
+    el.innerHTML="<div class='eyebrow'>EJERCICIO "+String(ex.id).padStart(2,"0")+"</div><h3>"+ex.title+"</h3><p>"+ex.q+"</p><div class='answer'><input type='text' inputmode='decimal' autocomplete='off' aria-label='Respuesta del ejercicio "+ex.id+"' placeholder='Resultado numérico'><button class='sign' type='button' aria-label='Poner o quitar signo negativo'>−</button><span>"+ex.u+"</span><button class='btn check' type='button'>Comprobar</button></div><div class='feedback' aria-live='polite'></div>";
+    var input=el.querySelector("input"),sign=el.querySelector(".sign"),feedback=el.querySelector(".feedback");
+    sign.addEventListener("click",function(){var v=input.value.trim();if(!v){input.value="-";input.focus();return}if(v.charAt(0)==="-")input.value=v.slice(1);else input.value="-"+v;input.focus()});
+    el.querySelector(".check").addEventListener("click",function(){var raw=input.value.trim().replace(",",".");var value=Number(raw);if(raw===""||!Number.isFinite(value)){feedback.className="feedback show no";feedback.textContent="Escribe una respuesta numérica válida.";return}var ok=Math.abs(value-ex.a)<=ex.tol;if(ok)done.add(ex.id);else done.delete(ex.id);feedback.className="feedback show "+(ok?"ok":"no");feedback.textContent=(ok?"Correcto. ":"Revisa el resultado. ")+ex.work+" Respuesta esperada: "+fmt(ex.a)+" "+ex.u+".";document.getElementById("score").textContent=done.size+" de "+exercises.length+" ejercicios correctos";document.getElementById("bar").style.width=(done.size/exercises.length*100)+"%"});
+    host.appendChild(el);
+  });
+
   document.getElementById("score").textContent="0 de "+exercises.length+" ejercicios correctos";
 
   var picks=new Map();
@@ -1027,7 +1028,7 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
       var q=document.createElement("div");q.className="mcq";q.dataset.answer=String(row[5]);q.dataset.explain=row[6];
       var b=document.createElement("b");b.textContent=(i+5)+". "+row[0];q.appendChild(b);
       var opts=document.createElement("div");opts.className="options";
-      row.slice(1,5).forEach(function(label){var btn=document.createElement("button");btn.className="opt";btn.type="button";btn.textContent=label;opts.appendChild(btn)});
+      row.slice(1,5).forEach(function(label,j){var btn=document.createElement("button");btn.className="opt";btn.type="button";btn.textContent=label;btn.addEventListener("click",function(){q.querySelectorAll(".opt").forEach(function(other){other.classList.remove("selected","correct","wrong")});btn.classList.add("selected");picks.set(i+4,j);q.querySelector(".feedback").className="feedback";q.querySelector(".feedback").textContent="";});opts.appendChild(btn)});
       var fb=document.createElement("div");fb.className="feedback";fb.setAttribute("aria-live","polite");q.append(opts,fb);quiz.insertBefore(q,check);
     });
     var qs=Array.from(quiz.querySelectorAll(".mcq"));
