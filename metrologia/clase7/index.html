@@ -425,6 +425,65 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
 @media(max-width:480px){.app-brand-copy b{font-size:.9rem}.app-version{font-size:.49rem}.app-logo{width:33px;height:33px}.side-nav{min-width:115px}.environment-chip{max-width:95px;white-space:normal;text-align:center;line-height:1.3}.topbar-home{display:none}.app-content .dashboard-stats{gap:8px}.app-content .console-heading h2{font-size:2rem}}
 @media(prefers-reduced-motion:reduce){body.app-mode .app-content>section:not([hidden]){animation:none!important}}
 
+
+/* VISUAL BOOST: paneles con jerarquía clara, acentos luminosos y microinteracciones controladas */
+:root{--attention-lime:#d7ff3f;--attention-cyan:#54e4ff;--attention-violet:#b59aff;--attention-orange:#ffb454}
+.app-content .eyebrow{color:var(--attention-cyan);text-shadow:0 0 14px #54e4ff24}
+.app-content .heading h2,.app-content .console-heading h2{letter-spacing:-.055em}
+.app-content .card,.app-content .graphic,.app-content .practice-exercise,.app-content .instrument-panel-intro{transition:border-color .22s,transform .22s,box-shadow .22s}
+.app-content .card:hover,.app-content .graphic:hover{border-color:#484b55;box-shadow:0 12px 35px #0003}
+.app-content .side-nav:focus-visible,.app-content button:focus-visible,.app-content input:focus-visible,.app-content select:focus-visible{outline:2px solid var(--attention-cyan);outline-offset:3px}
+.app-content .btn,.app-content .check-practice,.app-content .lesson-action{transition:transform .18s,box-shadow .18s,filter .18s}
+.app-content .btn:hover,.app-content .check-practice:hover,.app-content .lesson-action:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 7px 22px #d7ff3f17}
+.app-content .practice-exercise{position:relative;overflow:hidden}
+.app-content .practice-exercise:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(180deg,var(--attention-cyan),var(--attention-violet));opacity:.65}
+.app-content .practice-exercise:focus-within{border-color:#525a6a;box-shadow:0 0 0 1px #54e4ff14}
+.app-content .graphic{background:linear-gradient(150deg,#141519,#0d0e10)}
+.app-content .legend{gap:12px;flex-wrap:wrap}
+.app-content .caption{line-height:1.8;color:#a8aab4}
+.app-content .chart-explainer{border:1px solid #30333b;border-radius:12px;padding:14px 16px;background:linear-gradient(120deg,#14161b,#101114);margin:13px 0 4px}
+.app-content .chart-explainer h4{font-size:.83rem;margin:0 0 7px;color:#f1f2f5}
+.app-content .chart-explainer p,.app-content .chart-explainer li{font-size:.73rem;line-height:1.75;color:#a5a7b1}
+.app-content .chart-explainer ul{padding-left:18px;margin:7px 0}
+.app-content .meter-shell-pro{position:relative;isolation:isolate}
+.app-content .meter-shell-pro:after{content:"";position:absolute;inset:-3px;border-radius:23px;pointer-events:none;border:1px solid #f4d36b55;box-shadow:0 0 24px #e9bc3530;z-index:-1}
+.app-content .meter-dial-zone{position:relative;height:185px;max-width:240px;margin:10px auto 0}
+.app-content .meter-dial{position:absolute;top:45px;left:50%;transform:translateX(-50%);width:106px;height:106px;cursor:pointer;z-index:2}
+.app-content .meter-dial:before{top:auto;bottom:50%;left:50%;height:37px;width:5px;transform-origin:50% 100%;transform:translateX(-50%) rotate(var(--dial-angle,0deg));border-radius:4px;background:linear-gradient(180deg,#fffbe7,#f7f2d6);box-shadow:0 0 3px #fff}
+.app-content .meter-dial:after{content:"SELECTOR";top:calc(100% + 7px);font-size:.49rem;letter-spacing:.12em;color:#4c3c1e}
+.app-content .meter-scale-labels span{font-size:.53rem;min-width:25px;text-align:center;font-weight:1000;padding:4px 5px}
+.app-content .dial-off{left:calc(50% - 16px);top:3px}
+.app-content .dial-vdc{left:calc(50% + 45px);right:auto;top:38px}
+.app-content .dial-vac{left:calc(50% + 48px);right:auto;top:113px;bottom:auto}
+.app-content .dial-ohm{left:calc(50% - 12px);top:153px;bottom:auto}
+.app-content .dial-cont{left:calc(50% - 76px);top:113px;bottom:auto}
+.app-content .dial-amp{left:calc(50% - 74px);top:38px}
+.app-content .meter-scale-labels span{z-index:1}
+.app-content .meter-dial[data-mode="OFF"]{box-shadow:0 0 0 3px #fff2,0 0 18px #f4d36b55}
+.app-content .meter-function-caption{box-shadow:0 0 0 1px #f4d36b15,0 5px 18px #0002}
+.app-content #meterFaceMode{font-size:.62rem}
+.app-content .meter-jack{transition:box-shadow .2s,transform .2s}
+.app-content .meter-port:nth-child(2) .meter-jack{box-shadow:0 0 0 2px #805a21,0 0 0 5px #e43e4b22}
+.app-content .meter-port.active-port .meter-jack{transform:scale(1.12);box-shadow:0 0 0 3px #d7ff3f,0 0 14px #d7ff3f55}
+.app-content .meter-port.active-port small{color:#28391c}
+.app-content .meter-instrument-note{font-size:.66rem;line-height:1.65;color:#62512b;background:#f9e7a9;border:1px solid #d9b94d;border-radius:8px;padding:8px 10px;margin-top:9px}
+.app-content .chart-reading-key{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0}
+.app-content .chart-reading-key>div{padding:11px 12px;background:#111317;border:1px solid #2c3038;border-radius:10px}
+.app-content .chart-reading-key b{display:block;font-size:.68rem;color:#e8e9ee;margin-bottom:5px}
+.app-content .chart-reading-key span{font-size:.62rem;color:#9da0aa;line-height:1.55;display:block}
+.app-content .quiz-progress-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.app-content .quiz-progress-head strong{font:800 1.1rem ui-monospace,monospace;color:var(--attention-cyan)}
+.app-content .quiz-progress-track{height:5px;border-radius:99px;background:#262931;overflow:hidden;margin:10px 0 18px}
+.app-content .quiz-progress-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--attention-cyan),var(--attention-violet),var(--attention-lime));transition:width .3s}
+.app-content .mcq{padding:15px 0;border-bottom:1px solid #282a31}
+.app-content .mcq .opt{transition:background .16s,border-color .16s,transform .16s}
+.app-content .mcq .opt:hover{transform:translateX(2px)}
+.app-content .evaluation-intro{border:1px solid #31333a;background:linear-gradient(120deg,#17191e,#101114);padding:15px 17px;border-radius:12px;margin:12px 0 17px}
+.app-content .evaluation-intro p{font-size:.74rem;line-height:1.7;color:#a3a5af;margin:5px 0 0}
+.app-content .chart-explainer strong{color:#e8e9ee}
+@media(max-width:620px){.app-content .chart-reading-key{grid-template-columns:1fr}.app-content .meter-dial-zone{transform:scale(.95);transform-origin:top center;margin-bottom:-8px}}
+@media(prefers-reduced-motion:reduce){.app-content .card,.app-content .graphic,.app-content .practice-exercise,.app-content .btn,.app-content .check-practice,.app-content .lesson-action,.app-content .meter-jack{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -776,7 +835,7 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
   <div class="note">Regla de decisión de estas calculadoras: se compara |E| con el límite didáctico introducido. Esta simplificación no incluye incertidumbre ni sustituye una regla de decisión formal.</div>
 </section>
 <section class="section" id="graficas">
-  <div class="heading"><div><div class="eyebrow">06 / LECTURA DE GRÁFICAS</div><h2>Visualiza los errores</h2></div><p>La línea cero representa coincidencia numérica con la referencia. Las líneas punteadas son límites didácticos del ejemplo.</p></div>
+  <div class="heading"><div><div class="eyebrow">06 / LECTURA DE GRÁFICAS</div><h2>Centro de análisis gráfico</h2></div><p>Compara el error de indicación con la referencia y con el límite didáctico. Cada gráfica identifica sus ejes, unidades, líneas de referencia, puntos y la conclusión que puede obtenerse de los datos simulados.</p></div>
   <div class="grid two">
     <article class="graphic">
       <h3>Error de una balanza según la carga</h3>
@@ -794,7 +853,7 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
         <text x="75" y="30" fill="#16884b" font-size="12">Zona dentro de ±0.10 g</text>
       </svg>
       <div class="legend"><span><span class="key red"></span>Error de indicación (simulado)</span><span><span class="key green"></span>Límite ±0.10 g</span></div>
-      <p class="caption">En el ejemplo, el punto de 500 g queda fuera del límite didáctico porque |+0.12| g supera 0.10 g.</p>
+      <p class="caption">En el ejemplo, el punto de 500 g queda fuera del límite didáctico porque |+0.12| g supera 0.10 g.</p><div class="chart-explainer"><h4>Cómo leer la gráfica de error de la balanza</h4><p><strong>Eje horizontal (X):</strong> masa de referencia en gramos (50, 100, 200 y 500 g). <strong>Eje vertical (Y):</strong> error de indicación en gramos, calculado como E = indicación − referencia. Cada punto representa una lectura simulada para una carga.</p><ul><li>La línea horizontal en 0 g representa coincidencia numérica entre indicación y referencia.</li><li>Las líneas verdes punteadas marcan el intervalo didáctico de ±0.10 g. Los puntos dentro de ese intervalo cumplen el criterio simplificado del ejemplo; los que lo superan no lo cumplen.</li><li>La línea roja conecta puntos para facilitar la comparación; no representa mediciones continuas entre esas cargas.</li></ul><p><strong>Conclusión de los datos ilustrativos:</strong> +0.06 g, +0.03 g y −0.08 g están dentro de ±0.10 g; +0.12 g queda fuera. Son datos simulados, no especificaciones de una balanza real.</p></div>
     </article>
     <article class="graphic">
       <h3>Error del multímetro según el voltaje</h3>
@@ -812,7 +871,7 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
         <text x="75" y="30" fill="#16884b" font-size="12">Zona dentro de ±0.05 V</text>
       </svg>
       <div class="legend"><span><span class="key blue"></span>Error de indicación (simulado)</span><span><span class="key green"></span>Límite ±0.05 V</span></div>
-      <p class="caption">El punto de 12 V está en el límite inferior de este ejemplo. La aceptación real debe seguir el criterio aplicable y su regla de decisión.</p>
+      <p class="caption">El punto de 12 V está en el límite inferior de este ejemplo. La aceptación real debe seguir el criterio aplicable y su regla de decisión.</p><div class="chart-explainer"><h4>Cómo interpretar la gráfica del multímetro</h4><p><strong>Eje horizontal:</strong> puntos de prueba o valores de referencia indicados debajo de cada marca. <strong>Eje vertical:</strong> error de indicación en la unidad de la medición. Para cada punto se calcula E = I − Xref.</p><ul><li>Un punto por encima de cero indica error positivo: la lectura supera la referencia.</li><li>Un punto por debajo de cero indica error negativo: la lectura queda por debajo de la referencia.</li><li>La banda o las líneas de límite muestran el criterio didáctico configurado; comparar el valor absoluto del error con ese límite permite emitir el dictamen de este ejercicio.</li></ul><p><strong>Importante:</strong> los valores y límites de esta gráfica son didácticos. Un resultado dentro del límite mostrado no certifica un multímetro ni reemplaza la incertidumbre, las especificaciones del fabricante o el procedimiento de calibración aplicable.</p></div>
     </article>
   </div>
   <div class="card" style="margin-top:15px"><h3>Tabla que corresponde a las gráficas</h3><div class="table-wrap"><table><thead><tr><th>Instrumento</th><th>Referencia</th><th>Error</th><th>Límite didáctico</th><th>Lectura del resultado</th></tr></thead><tbody>
@@ -837,13 +896,13 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
   </div>
 </section>
 <section class="section" id="practica">
-  <div class="heading"><div><div class="eyebrow">08 / PRÁCTICA INTERACTIVA</div><h2>Resuelve y comprueba</h2></div><p>Introduce el resultado numérico. En celular, puedes pulsar el botón − para poner o quitar el signo negativo.</p></div>
-  <div class="card"><b id="score">0 de 16 ejercicios correctos</b><div class="progress"><div id="bar"></div></div><p class="muted small">Se acepta una pequeña diferencia por redondeo. Al revisar, se muestra la operación y la interpretación. Las respuestas se revisan en esta sesión de página.</p></div>
+  <div class="heading"><div><div class="eyebrow">08 / PRÁCTICA INTERACTIVA</div><h2>Evaluación práctica · 30 ejercicios</h2></div><p>Resuelve los 30 problemas de forma independiente. Introduce el resultado numérico con su signo cuando corresponda. Después de comprobar, recibirás el procedimiento y una explicación de la interpretación.</p></div>
+  <div class="card"><b id="score">0 de 30 ejercicios correctos</b><div class="progress"><div id="bar"></div></div><p class="muted small">Se acepta una pequeña diferencia por redondeo. Al revisar, se muestra la operación y la interpretación. Las respuestas se revisan en esta sesión de página.</p></div>
   <div class="exercise-list" id="exercises"></div>
 </section>
 <section class="section" id="conceptos">
-  <div class="heading"><div><div class="eyebrow">09 / COMPROBACIÓN CONCEPTUAL</div><h2>¿Entendiste las ideas clave?</h2></div><p>Selecciona la mejor respuesta. Lee la retroalimentación después de comprobar.</p></div>
-  <div class="card" id="quiz">
+  <div class="heading"><div><div class="eyebrow">09 / COMPROBACIÓN CONCEPTUAL</div><h2>Evaluación conceptual · 20 reactivos</h2></div><p>Responde las 20 preguntas de opción múltiple. Selecciona una respuesta por reactivo y pulsa Comprobar evaluación para ver tu calificación y la explicación de cada respuesta.</p></div>
+  <div class="evaluation-intro"><b>INSTRUCCIONES DE EVALUACIÓN</b><p>Esta evaluación contiene 20 reactivos de calibración, error, corrección, tolerancia, repetibilidad, balanza y multímetro. Cada pregunta vale un punto. Lee con cuidado las unidades y el signo antes de responder. Al finalizar podrás revisar las respuestas y la retroalimentación.</p><div class="quiz-progress-head"><span>Progreso de respuesta</span><strong id="quizProgressText">0 / 20</strong></div><div class="quiz-progress-track"><span id="quizProgressBar"></span></div></div><div class="card" id="quiz">
     <div class="mcq" data-answer="1" data-explain="Calibrar establece la relación entre indicación y referencia. El ajuste modifica el instrumento; la verificación comprueba requisitos.">
       <b>1. ¿Qué permite la calibración?</b><div class="options"><button class="opt">Reparar siempre el instrumento</button><button class="opt">Relacionar indicaciones con valores de referencia</button><button class="opt">Garantizar error cero</button><button class="opt">Eliminar la incertidumbre</button></div><div class="feedback"></div>
     </div>
@@ -856,7 +915,7 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
     <div class="mcq" data-answer="3" data-explain="Las lecturas agrupadas reflejan repetibilidad observada, pero todavía pueden estar separadas del valor de referencia.">
       <b>4. Si las lecturas son repetibles, entonces…</b><div class="options"><button class="opt">El error siempre es cero</button><button class="opt">No existe incertidumbre</button><button class="opt">El equipo está certificado</button><button class="opt">Hay poca variación observada, pero debe analizarse el error</button></div><div class="feedback"></div>
     </div>
-    <button class="btn" id="quizCheck">Comprobar respuestas conceptuales</button><p id="quizScore" class="muted" aria-live="polite"></p>
+    <button class="btn" id="quizCheck">Comprobar evaluación de 20 reactivos</button><p id="quizScore" class="muted" aria-live="polite"></p>
   </div>
 </section>
 <section class="section" id="registro">
@@ -916,9 +975,69 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
     el.querySelector(".check").addEventListener("click",function(){var raw=input.value.trim().replace(",",".");var value=Number(raw);if(raw===""||!Number.isFinite(value)){feedback.className="feedback show no";feedback.textContent="Escribe una respuesta numérica válida.";return}var ok=Math.abs(value-ex.a)<=ex.tol;if(ok)done.add(ex.id);else done.delete(ex.id);feedback.className="feedback show "+(ok?"ok":"no");feedback.textContent=(ok?"Correcto. ":"Revisa el resultado. ")+ex.work+" Respuesta esperada: "+fmt(ex.a)+" "+ex.u+".";document.getElementById("score").textContent=done.size+" de "+exercises.length+" ejercicios correctos";document.getElementById("bar").style.width=(done.size/exercises.length*100)+"%"});
     host.appendChild(el);
   });
+
+  exercises.push(
+    {id:17,title:"Error porcentual de masa",q:"Referencia 200.00 g, indicación 200.20 g. Calcula el error porcentual absoluto. Escribe el número sin %.",a:0.1,tol:0.01,u:"%",work:"E = 200.20 − 200.00 = +0.20 g. Error porcentual = (0.20 / 200.00) × 100 = 0.10 %."},
+    {id:18,title:"Error relativo",q:"Referencia 50.00 g, error E = −0.05 g. Calcula |E| / |Xref|. Escribe el resultado decimal.",a:0.001,tol:0.0001,u:"adim.",work:"Error relativo = |−0.05| / 50.00 = 0.001. Es adimensional; multiplicado por 100 equivale a 0.10 %."},
+    {id:19,title:"Decisión de tolerancia",q:"Una balanza presenta E = +0.07 g y el límite es ±0.05 g. ¿Cuál es |E|? Escribe el valor numérico.",a:0.07,tol:0.005,u:"g",work:"|E| = |+0.07| = 0.07 g. Como 0.07 g > 0.05 g, queda fuera del límite didáctico."},
+    {id:20,title:"Media de tres lecturas",q:"Las lecturas son 10.01 g, 10.02 g y 10.00 g. Calcula el promedio en gramos.",a:10.01,tol:0.005,u:"g",work:"Promedio = (10.01 + 10.02 + 10.00) / 3 = 10.01 g."},
+    {id:21,title:"Dispersión entre extremos",q:"Las lecturas repetidas son 5.02 V, 5.01 V y 5.05 V. Calcula máximo − mínimo.",a:0.04,tol:0.005,u:"V",work:"Rango observado = 5.05 − 5.01 = 0.04 V. Describe la dispersión de estas lecturas, no el error respecto a una referencia."},
+    {id:22,title:"Error con signo",q:"Referencia 24.000 V, indicación 24.015 V. Calcula E = I − Xref.",a:0.015,tol:0.001,u:"V",work:"E = 24.015 − 24.000 = +0.015 V. El signo positivo indica que la indicación supera la referencia."},
+    {id:23,title:"Corrección de una lectura",q:"El error calculado es E = −0.120 V. Calcula la corrección C = −E.",a:0.12,tol:0.005,u:"V",work:"C = −(−0.120) = +0.120 V. La corrección estimada tiene el signo contrario al error."},
+    {id:24,title:"Error porcentual de voltaje",q:"Referencia 20.000 V e indicación 19.900 V. Calcula el error porcentual absoluto. Escribe el número sin %.",a:0.5,tol:0.02,u:"%",work:"|E| = |19.900 − 20.000| = 0.100 V. Porcentaje = (0.100 / 20.000) × 100 = 0.50 %."},
+    {id:25,title:"Resistencia: error de indicación",q:"Referencia de resistencia 100.0 Ω, indicación 102.0 Ω. Calcula E.",a:2,tol:0.05,u:"Ω",work:"E = 102.0 − 100.0 = +2.0 Ω. La indicación supera la referencia en 2.0 Ω."},
+    {id:26,title:"Resistencia: corrección",q:"Un punto de resistencia tiene error E = +1.8 Ω. Calcula C = −E.",a:-1.8,tol:0.05,u:"Ω",work:"C = −(+1.8) = −1.8 Ω. Es una corrección estimada con signo opuesto al error."},
+    {id:27,title:"Criterio de aceptación",q:"El error es −0.04 V y el límite didáctico es ±0.05 V. Escribe |E|.",a:0.04,tol:0.005,u:"V",work:"|E| = 0.04 V. Como 0.04 V ≤ 0.05 V, cumple el criterio didáctico de este ejemplo."},
+    {id:28,title:"Promedio de mediciones eléctricas",q:"El multímetro registra 2.01 V, 2.03 V y 2.02 V. Calcula la media.",a:2.02,tol:0.005,u:"V",work:"Media = (2.01 + 2.03 + 2.02) / 3 = 2.02 V."},
+    {id:29,title:"Error relativo de voltaje",q:"Referencia 4.000 V y error E = +0.020 V. Calcula |E| / |Xref|. Escribe el decimal.",a:0.005,tol:0.0005,u:"adim.",work:"Error relativo = 0.020 / 4.000 = 0.005. Como porcentaje corresponde a 0.5 %."},
+    {id:30,title:"Error absoluto de masa",q:"Referencia 500.00 g, indicación 499.85 g. Calcula el error absoluto.",a:0.15,tol:0.005,u:"g",work:"E = 499.85 − 500.00 = −0.15 g. Error absoluto = |E| = 0.15 g."}
+  );
+  document.getElementById("score").textContent="0 de "+exercises.length+" ejercicios correctos";
+
   var picks=new Map();
   document.querySelectorAll(".mcq").forEach(function(q,qi){q.querySelectorAll(".opt").forEach(function(opt,i){opt.addEventListener("click",function(){q.querySelectorAll(".opt").forEach(function(b){b.classList.remove("selected","correct","wrong")});opt.classList.add("selected");picks.set(qi,i);q.querySelector(".feedback").className="feedback";q.querySelector(".feedback").textContent=""})})});
   document.getElementById("quizCheck").addEventListener("click",function(){var qs=Array.from(document.querySelectorAll(".mcq")),score=0;qs.forEach(function(q,i){var selected=picks.get(i),answer=Number(q.dataset.answer),f=q.querySelector(".feedback");q.querySelectorAll(".opt").forEach(function(b,j){if(j===answer)b.classList.add("correct");if(j===selected&&j!==answer)b.classList.add("wrong")});var ok=selected===answer;if(ok)score++;f.className="feedback show "+(ok?"ok":"no");f.textContent=(ok?"Correcto. ":"Respuesta incorrecta. ")+q.dataset.explain});document.getElementById("quizScore").textContent="Resultado: "+score+" de "+qs.length+" respuestas correctas."});
+
+  (function extendConceptQuiz(){
+    var quiz=document.getElementById("quiz"),check=document.getElementById("quizCheck");
+    var more=[
+      ["¿Qué expresa la corrección C?","La magnitud del instrumento","El valor con signo opuesto al error","El límite de tolerancia","La media de lecturas",1,"C = −E; es una corrección estimada de signo contrario al error."],
+      ["Si I = 9.98 g y Xref = 10.00 g, ¿cuál es el error?","+0.02 g","−0.02 g","−0.20 g","0.20 g",1,"E = I − Xref = 9.98 − 10.00 = −0.02 g."],
+      ["¿Qué representa |E|?","El error con signo","El error absoluto, sin signo","La corrección porcentual","La incertidumbre expandida",1,"El valor absoluto expresa la magnitud del error sin conservar su signo."],
+      ["¿Qué unidad tiene el error relativo?","Siempre gramos","Siempre voltios","Es adimensional","Ohmios",2,"El cociente |E|/|Xref| compara magnitudes con la misma unidad y es adimensional."],
+      ["¿Qué indica el error porcentual?","El error relativo multiplicado por 100","La incertidumbre del patrón","La resolución de pantalla","La media de la muestra",0,"Error porcentual = (|E|/|Xref|) × 100."],
+      ["¿Qué significa repetibilidad?","Que el error sea cero","Que el equipo sea nuevo","La cercanía entre resultados obtenidos bajo condiciones repetidas","Que no se necesita calibrar",2,"La repetibilidad describe la cercanía entre lecturas bajo condiciones especificadas; no garantiza exactitud."],
+      ["Antes de medir resistencia con un multímetro, el circuito debe estar…","Conectado a la red","Desenergizado y comprobado","En modo corriente","En el rango más alto de voltaje",1,"La resistencia se mide en circuitos desenergizados para evitar riesgos y daños al instrumento."],
+      ["¿Dónde va normalmente el cable negro?","En COM","En mA siempre","En VΩ siempre","En cualquier borne",0,"El cable negro normalmente se conecta a COM; el rojo va al borne adecuado para la magnitud."],
+      ["¿Qué función se usa para medir una tensión alterna?","Ω","V DC","V AC","Continuidad",2,"La función V AC mide tensión alterna dentro del rango y categoría adecuados."],
+      ["¿Qué función se usa para revisar continuidad?","Resistencia o continuidad en circuito desenergizado","Corriente en serie con la red","Voltaje AC siempre","Temperatura sin sonda",0,"La prueba de continuidad se realiza con el circuito desenergizado."],
+      ["Si |E| = 0.12 g y el límite es 0.10 g, el resultado…","Cumple porque E es positivo","Cumple siempre","No cumple el criterio didáctico","No se puede comparar",2,"0.12 g es mayor que 0.10 g, así que queda fuera del límite simplificado."],
+      ["Si |E| = 0.03 V y el límite es 0.05 V, el resultado…","Cumple el criterio didáctico","No cumple porque el error no es cero","Demuestra trazabilidad","Elimina incertidumbre",0,"0.03 V ≤ 0.05 V, por lo que cumple el criterio de este ejercicio."],
+      ["¿Qué significa un error positivo?","La indicación está por debajo de la referencia","La indicación supera la referencia","El instrumento está apagado","No hay lectura",1,"E = I − Xref: si E es positivo, I es mayor que Xref."],
+      ["¿Qué significa un error negativo?","La indicación es menor que la referencia","La indicación es mayor que la referencia","La corrección siempre es negativa","El equipo es exacto",0,"Un error negativo significa que la indicación está por debajo de la referencia."],
+      ["¿Qué debe anotarse en un registro de calibración?","Solo el nombre del operador","Solo el resultado final","Referencia, indicación, unidades, error, criterio y conclusión","Únicamente la fecha",2,"Un registro útil documenta los valores, unidades, método, criterio y conclusión."],
+      ["¿Calibrar garantiza que el error sea cero?","Sí, siempre","No; establece una relación entre indicación y referencia","Solo en instrumentos digitales","Solo si se promedia",1,"La calibración caracteriza la relación entre indicaciones y referencias; no implica error cero."],
+      ["¿Qué diferencia hay entre calibración y ajuste?","Son siempre idénticos","Ajustar registra; calibrar repara","Calibrar caracteriza; ajustar modifica la respuesta del instrumento","Ninguna",2,"El ajuste modifica el instrumento; después se debe volver a evaluar su desempeño."],
+      ["¿Qué describe el rango de un multímetro?","El intervalo de valores que puede medir en esa configuración","El color de la pantalla","La tolerancia de una balanza","La frecuencia de calibración",0,"El rango determina el intervalo medible; si se excede, se debe seleccionar otro rango adecuado."],
+      ["¿Una gráfica con puntos dentro del límite certifica el instrumento?","Sí, siempre","Solo si la línea es verde","No; solo muestra el criterio y datos representados","Sí, si es digital",2,"La gráfica didáctica no sustituye una calibración trazable, incertidumbre ni requisitos del fabricante."],
+      ["¿Por qué hay que conservar el signo del error?","Para que la pantalla se vea mejor","Porque indica si la lectura está por encima o por debajo de la referencia","Para calcular la media siempre","No importa",1,"El signo aporta la dirección del error; el valor absoluto se utiliza para comparar magnitudes con límites."]
+    ];
+    // Existing four questions plus 16 new ones = 20 total.
+    more.forEach(function(row,i){
+      var q=document.createElement("div");q.className="mcq";q.dataset.answer=String(row[5]);q.dataset.explain=row[6];
+      var b=document.createElement("b");b.textContent=(i+5)+". "+row[0];q.appendChild(b);
+      var opts=document.createElement("div");opts.className="options";
+      row.slice(1,5).forEach(function(label){var btn=document.createElement("button");btn.className="opt";btn.type="button";btn.textContent=label;opts.appendChild(btn)});
+      var fb=document.createElement("div");fb.className="feedback";fb.setAttribute("aria-live","polite");q.append(opts,fb);quiz.insertBefore(q,check);
+    });
+    var qs=Array.from(quiz.querySelectorAll(".mcq"));
+    var scoreText=document.getElementById("quizProgressText"),bar=document.getElementById("quizProgressBar");
+    function updateProgress(){var answered=qs.filter(function(q){return q.querySelector(".opt.selected")}).length;if(scoreText)scoreText.textContent=answered+" / 20";if(bar)bar.style.width=(answered/20*100)+"%"}
+    qs.forEach(function(q){q.querySelectorAll(".opt").forEach(function(opt){opt.addEventListener("click",updateProgress)})});
+    check.textContent="Comprobar evaluación de 20 reactivos";
+    check.addEventListener("click",function(){var answered=qs.filter(function(q){return q.querySelector(".opt.selected")}).length;updateProgress();if(answered<20){document.getElementById("quizScore").textContent="Has respondido "+answered+" de 20 reactivos. Completa los que faltan y vuelve a comprobar.";return;}});
+  })();
+
 
   // Interactividad del laboratorio de balanza: sesgo controlable y gráfico dinámico.
   var balanceRef=document.getElementById("balanceRef"),balanceBias=document.getElementById("balanceBias"),balanceTol=document.getElementById("balanceTol"),balanceResult=document.getElementById("balanceResult"),balanceScreen=document.getElementById("balanceScreen");
@@ -930,7 +1049,7 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
   // Multímetro virtual: selector de función, escala, lectura simulada y explicación.
   var meterMode=document.getElementById("meterMode"),meterRef=document.getElementById("meterRef"),meterBias=document.getElementById("meterBias"),meterTol=document.getElementById("meterTol"),meterRange=document.getElementById("meterRange"),meterResult=document.getElementById("meterResult"),meterDisplay=document.getElementById("meterDisplay"),meterUnit=document.getElementById("meterUnit"),meterDial=document.getElementById("meterDial");
   function meterUnits(){var m=meterMode.value;return m==="OHM"?"Ω":m==="CONT"?"Ω":m==="VAC"?"V AC":"V DC"}
-  function updateMeter(){var unit=meterUnits(),bias=nval(meterBias,-.03),ref=nval(meterRef,5),mode=meterMode.value;document.getElementById("meterRefUnit").textContent="("+unit+")";document.querySelectorAll(".meter-unit-inline").forEach(function(e){e.textContent=unit});document.getElementById("meterBiasLabel").textContent=signfmt(bias,3)+" "+unit;meterUnit.textContent=unit;meterDial.style.setProperty("--dial-angle",({"VDC":"-45deg","VAC":"0deg","OHM":"45deg","CONT":"90deg"})[mode]);var decimals=unit.indexOf("V")>=0?3:2;meterDisplay.textContent=(ref+bias).toFixed(decimals);meterResult.innerHTML="<strong>Instrumento preparado.</strong> Pulsa Medir para ver la operación y la interpretación."}
+  function updateMeter(){var unit=meterUnits(),bias=nval(meterBias,-.03),ref=nval(meterRef,5),mode=meterMode.value;document.getElementById("meterRefUnit").textContent="("+unit+")";document.querySelectorAll(".meter-unit-inline").forEach(function(e){e.textContent=unit});document.getElementById("meterBiasLabel").textContent=signfmt(bias,3)+" "+unit;meterUnit.textContent=unit;meterDial.style.setProperty("--dial-angle",({"VDC":"45deg","VAC":"90deg","OHM":"135deg","CONT":"180deg"})[mode]);meterDial.setAttribute("data-mode",mode);meterDial.setAttribute("aria-label","Selector en "+({"VDC":"voltaje continuo","VAC":"voltaje alterno","OHM":"resistencia","CONT":"continuidad"}[mode]));var faceMap={VDC:"VOLTAGE DC",VAC:"VOLTAGE AC",OHM:"RESISTANCE Ω",CONT:"CONTINUITY"};var face=document.getElementById("meterFaceMode");if(face)face.textContent=faceMap[mode];document.querySelectorAll(".meter-port").forEach(function(p,i){p.classList.toggle("active-port",mode==="OHM"||mode==="CONT"?i===1:i===0||i===1)});var decimals=unit.indexOf("V")>=0?3:2;meterDisplay.textContent=(ref+bias).toFixed(decimals);meterResult.innerHTML="<strong>Instrumento preparado.</strong> Pulsa Medir para ver la operación y la interpretación."}
   function measureMeter(){var mode=meterMode.value,unit=meterUnits(),ref=nval(meterRef,NaN),bias=nval(meterBias,NaN),tol=Math.abs(nval(meterTol,NaN)),range=nval(meterRange,20);if(!Number.isFinite(ref)||!Number.isFinite(bias)||!Number.isFinite(tol)){meterResult.innerHTML="<span class='flash-bad'>Completa los campos con números válidos.</span>";return}if(Math.abs(ref+bias)>range){meterResult.innerHTML="<span class='flash-bad'>La indicación excede el rango seleccionado. Selecciona un rango mayor.</span>";return}var decimals=unit.indexOf("V")>=0?3:2,ind=ref+bias,e=ind-ref,ok=Math.abs(e)<=tol;meterDisplay.textContent=ind.toFixed(decimals);var interpretation=e>0?"indica por encima de la referencia":e<0?"indica por debajo de la referencia":"coincide numéricamente con la referencia";meterResult.innerHTML="<div><strong>1 · Función/rango:</strong> "+meterMode.options[meterMode.selectedIndex].text+" · rango "+range+" "+unit+"</div><div><strong>2 · Referencia:</strong> "+ref.toFixed(decimals)+" "+unit+"</div><div><strong>3 · Indicación simulada:</strong> "+ind.toFixed(decimals)+" "+unit+"</div><div><strong>4 · Error:</strong> E = I − Xref = "+ind.toFixed(decimals)+" − "+ref.toFixed(decimals)+" = <span class='sim-big'>"+signfmt(e,decimals)+" "+unit+"</span></div><div><strong>5 · Interpretación:</strong> el instrumento "+interpretation+".</div><div><strong>6 · Criterio didáctico:</strong> |E| = "+Math.abs(e).toFixed(decimals)+" "+unit+" frente a "+tol.toFixed(decimals)+" "+unit+" → <b class='"+(ok?"flash-good":"flash-bad")+"'>"+(ok?"DENTRO":"FUERA")+" del límite</b>.</div><p>El sesgo se ha simulado para aprender a interpretar una lectura. En una calibración real, se usarían valores de referencia trazables, el procedimiento correspondiente y la incertidumbre aplicable.</p>"}
   meterMode.addEventListener("change",function(){if(meterMode.value==="OHM"||meterMode.value==="CONT"){meterRef.value=meterMode.value==="CONT"?"0.2":"100";meterBias.value="1.5";meterTol.value="2";meterRange.value="200"}else if(meterMode.value==="VAC"){meterRef.value="12";meterBias.value="0.03";meterTol.value="0.05";meterRange.value="20"}else{meterRef.value="5";meterBias.value="-0.030";meterTol.value="0.050";meterRange.value="20"}updateMeter()});meterRef.addEventListener("input",updateMeter);meterBias.addEventListener("input",updateMeter);meterRange.addEventListener("change",updateMeter);document.getElementById("meterMeasure").addEventListener("click",measureMeter);document.getElementById("meterSwap").addEventListener("click",function(){meterBias.value=String(-nval(meterBias,0));updateMeter()});document.getElementById("meterReset").addEventListener("click",function(){meterMode.value="VDC";meterRef.value="5";meterBias.value="-0.030";meterTol.value="0.050";meterRange.value="20";updateMeter()});function rotateMeter(){var opts=["VDC","VAC","OHM","CONT"],i=opts.indexOf(meterMode.value);meterMode.value=opts[(i+1)%opts.length];meterMode.dispatchEvent(new Event("change"))}meterDial.addEventListener("click",rotateMeter);meterDial.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();rotateMeter()}});updateMeter();
 
@@ -1060,6 +1179,7 @@ body.app-mode .app-content>section:not([hidden]){animation:appViewEnter .18s eas
     if($("meterMode"))$("meterMode").addEventListener("change",function(){
       var map={VDC:"VOLTAGE DC",VAC:"VOLTAGE AC",OHM:"RESISTANCE Ω",CONT:"CONTINUITY"};
       if($("meterFaceMode"))$("meterFaceMode").textContent=map[$("meterMode").value]||"MEASUREMENT";
+      var dial=$("meterDial"),angles={VDC:"45deg",VAC:"90deg",OHM:"135deg",CONT:"180deg"};if(dial){dial.style.setProperty("--dial-angle",angles[$("meterMode").value]||"0deg");dial.setAttribute("data-mode",$("meterMode").value);}
     });
     if($("meterMeasure"))$("meterMeasure").addEventListener("click",function(){
       var map={VDC:"VOLTAGE DC",VAC:"VOLTAGE AC",OHM:"RESISTANCE Ω",CONT:"CONTINUITY"};
