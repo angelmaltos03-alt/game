@@ -1301,6 +1301,57 @@ body:before{background:radial-gradient(ellipse at 50% -20%,rgba(255,255,255,.95)
 @media(max-width:760px){.app-sidebar{background:rgba(255,255,255,.88);border-color:#e5e5ea}.app-content .hero{padding:24px 18px}.liquid-orb{opacity:.07}}
 @media(prefers-reduced-motion:reduce){.liquid-orb{animation:none!important}.app-content .liquid-glass:before{filter:none}}
 
+
+/* TYPOGRAPHY PASS · high readability with restrained Apple-like hierarchy */
+html{font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;font-weight:400;letter-spacing:-.01em;font-feature-settings:"kern" 1,"liga" 1}
+.app-content{font-size:16px;line-height:1.65}
+.app-content h1,.app-content h2,.app-content h3,.app-content h4{letter-spacing:-.035em;line-height:1.16;font-weight:650}
+.app-content h1{font-size:clamp(2.35rem,4.2vw,4.2rem);line-height:1.05;letter-spacing:-.055em}
+.app-content h2{font-size:clamp(1.65rem,2.5vw,2.15rem)}
+.app-content h3{font-size:1.25rem;letter-spacing:-.025em}
+.app-content h4{font-size:1.08rem;letter-spacing:-.018em}
+.app-content p,.app-content li,.app-content label,.app-content input,.app-content select,.app-content textarea,.app-content button{font-size:1rem;line-height:1.6}
+.app-content .lead,.app-content .heading p,.app-content .console-heading p{font-size:1.08rem;line-height:1.75;color:#48484f}
+.app-content .muted,.app-content .caption,.app-content .legend,.app-content .chart-explainer p,.app-content .chart-explainer li,
+.app-content .measure-intro,.app-content .result-footnote,.app-content .entry-hint,.app-content .rail-step small,
+.app-content .rail-tip p,.app-content .instrument-tab small,.app-content .chart-reading-key span{font-size:.92rem;line-height:1.55;color:#62626a}
+.app-content .eyebrow,.app-content .console-topline,.app-content .toolbar-kicker,.app-content .step-kicker,
+.app-content .rail-label,.app-content .stat-label,.app-content .dash-stat .label,.app-content .panel-kicker{
+  font-size:.76rem;line-height:1.45;font-weight:700;letter-spacing:.105em
+}
+.app-content .tag,.app-content .tiny-state,.app-content .session-status,.app-content .environment-chip,
+.app-content .result-status,.app-content .logbook-count,.app-content .app-version{font-size:.78rem;font-weight:650;letter-spacing:.025em;line-height:1.45}
+.app-content .dash-stat strong,.app-content .dash-stat b{font-size:clamp(2rem,3vw,2.6rem);font-weight:650;letter-spacing:-.055em;line-height:1.1}
+.app-content .dash-stat small,.app-content .stat-label{font-size:.82rem;line-height:1.5}
+.app-content .nav-copy,.app-content .rail-step,.app-content .instrument-tab,.app-content .session-chip{font-size:.94rem;line-height:1.45}
+.app-content .value-input,.app-content .fieldrow input,.app-content .answer input,.app-content input:not([type="range"]),
+.app-content select,.app-content textarea{font-size:1rem;line-height:1.5;min-height:44px}
+.app-content .btn,.app-content button{font-weight:600;letter-spacing:-.01em}
+.app-content .formula-card,.app-content .result-metrics,.app-content .tolerance-block,.app-content table,.app-content .logbook-table{font-size:.96rem;line-height:1.55}
+.app-content td,.app-content th{padding:.8rem .9rem;line-height:1.5}
+.app-content .mcq .opt,.app-content .opt{font-size:.98rem;line-height:1.55;padding:.8rem 1rem}
+.app-content .feedback,.app-content .practice-feedback{font-size:.96rem;line-height:1.6}
+.app-content a{text-decoration-thickness:1px;text-underline-offset:3px}
+.app-content .liquid-glass{ -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.app-sidebar{font-size:14px}
+.app-sidebar .nav-copy b,.app-sidebar .workspace-choice b,.app-sidebar .sidebar-class b{font-size:.91rem;line-height:1.4;font-weight:650;letter-spacing:-.015em}
+.app-sidebar .nav-copy small,.app-sidebar .workspace-choice small,.app-sidebar .sidebar-class small,.app-sidebar .system-health small{font-size:.78rem;line-height:1.5;color:#68686e}
+.app-sidebar .side-label{font-size:.7rem;line-height:1.4;font-weight:750;letter-spacing:.16em;color:#77777f}
+.app-topbar{font-size:.84rem}
+.app-topbar .breadcrumbs,.app-topbar .topbar-title>small,.app-topbar .topbar-status{font-size:.8rem;line-height:1.5}
+@media(max-width:760px){
+ html{font-size:16px}
+ .app-content{font-size:16px}
+ .app-content h1{font-size:clamp(2.05rem,8.5vw,3rem);line-height:1.08}
+ .app-content h2{font-size:1.65rem}
+ .app-content h3{font-size:1.18rem}
+ .app-content p,.app-content li,.app-content label,.app-content input,.app-content select,.app-content textarea,.app-content button{font-size:1rem}
+ .app-content .muted,.app-content .caption,.app-content .legend,.app-content .measure-intro,.app-content .result-footnote,.app-content .entry-hint,.app-content .rail-step small,.app-content .instrument-tab small{font-size:.9rem}
+ .app-content .eyebrow,.app-content .console-topline,.app-content .toolbar-kicker,.app-content .step-kicker,.app-content .rail-label,.app-content .stat-label{font-size:.72rem}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body>
