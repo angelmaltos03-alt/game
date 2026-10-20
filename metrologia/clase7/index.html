@@ -1352,6 +1352,113 @@ body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Robot
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 
+
+/* READABILITY FIX v2: remove washed-out glass, enforce clear contrast and practical type sizes */
+body{font-size:17px;line-height:1.65;color:#242428;background:#f3f4f6}
+.app-content,.app-content.wrap{font-size:17px;line-height:1.68;color:#242428}
+.app-content h1,.app-content h2,.app-content h3,.app-content h4,
+.app-content .hero h1,.app-content .heading h2,.app-content .console-heading h2,
+.app-content .path-title h3{color:#1d1d1f!important;text-shadow:none!important}
+.app-content h1{font-size:clamp(2.4rem,4.3vw,4.1rem)!important;line-height:1.08!important;letter-spacing:-.045em!important;font-weight:700!important}
+.app-content h1 span,.app-content .console-heading h2 span{color:#075db5!important}
+.app-content h2{font-size:clamp(1.75rem,2.7vw,2.3rem)!important;line-height:1.2!important;font-weight:700!important}
+.app-content h3{font-size:1.3rem!important;line-height:1.3!important;font-weight:700!important}
+.app-content h4{font-size:1.12rem!important;line-height:1.35!important;font-weight:650!important}
+.app-content p,.app-content li,.app-content label,.app-content .lead,.app-content .heading p,
+.app-content .console-heading p,.app-content .measure-intro,.app-content .result-footnote,
+.app-content .entry-hint,.app-content .practice-feedback,.app-content .feedback,
+.app-content .chart-explainer p,.app-content .chart-explainer li{
+ color:#424249!important;font-size:1rem!important;line-height:1.7!important;text-shadow:none!important
+}
+.app-content .lead,.app-content .heading p,.app-content .console-heading p{font-size:1.08rem!important;color:#414149!important}
+.app-content .muted,.app-content .caption,.app-content .legend,.app-content .rail-step small,
+.app-content .rail-tip p,.app-content .instrument-tab small,.app-content .chart-reading-key span,
+.app-content .dash-stat small,.app-content .stat-label,.app-content .result-footnote{
+ color:#55555e!important;font-size:.92rem!important;line-height:1.6!important
+}
+.app-content .eyebrow,.app-content .console-topline,.app-content .toolbar-kicker,
+.app-content .step-kicker,.app-content .rail-label,.app-content .stat-label,
+.app-content .panel-kicker{color:#4b5563!important;font-size:.78rem!important;line-height:1.5!important;font-weight:750!important;letter-spacing:.075em!important;text-shadow:none!important}
+.app-content .tag,.app-content .tiny-state,.app-content .session-status,.app-content .environment-chip,
+.app-content .result-status,.app-content .logbook-count,.app-content .app-version{
+ color:#24476f!important;background:#edf4fc!important;border-color:#cfdef0!important;font-size:.82rem!important;line-height:1.45!important;font-weight:700!important
+}
+.app-content .liquid-glass{
+ background:rgba(255,255,255,.94)!important;border:1px solid #e0e2e7!important;
+ box-shadow:0 5px 18px rgba(30,41,59,.055),inset 0 1px 0 #fff!important;
+ -webkit-backdrop-filter:blur(12px) saturate(1.05)!important;backdrop-filter:blur(12px) saturate(1.05)!important
+}
+.app-content .liquid-glass:before{background:linear-gradient(135deg,rgba(255,255,255,.16),transparent 48%)!important;opacity:.35!important;filter:none!important}
+.app-content .liquid-glass:after{opacity:.25!important;filter:none!important}
+.app-content .liquid-glass>*{position:relative;z-index:1}
+.app-content .hero{background:rgba(255,255,255,.82)!important;border-color:#e0e2e7!important}
+.app-content .hero h1,.app-content .hero .lead{color:#242428!important}
+.app-content .hero h1 span{color:#075db5!important}
+.app-content .hero-art,.app-content .dash-stat,.app-content .workbench,
+.app-content .measure-console,.app-content .result-console,.app-content .logbook{
+ background:#fff!important;border-color:#e0e2e7!important
+}
+.app-content .workbench-rail{background:#f7f8fa!important;border-color:#e2e4e9!important}
+.app-content .rail-step{color:#303038!important;font-size:.98rem!important;line-height:1.5!important}
+.app-content .rail-step small{color:#55555e!important}
+.app-content .rail-step.active{background:#eaf2ff!important;border-color:#b9d5fa!important;color:#064f9e!important}
+.app-content .rail-step.active .rail-num{background:#0066cc!important;color:#fff!important}
+.app-content .dash-stat strong,.app-content .dash-stat b{color:#1d1d1f!important;font-size:clamp(2.1rem,3vw,2.7rem)!important}
+.app-content .dash-stat small{color:#55555e!important;font-size:.9rem!important}
+.app-content .instrument-tabs{background:#f0f2f5!important;border-color:#dfe2e8!important}
+.app-content .instrument-tab{font-size:1rem!important;color:#303038!important;line-height:1.5!important}
+.app-content .instrument-tab small{font-size:.9rem!important;color:#55555e!important}
+.app-content .instrument-tab[aria-selected="true"],.app-content .instrument-tab.selected{background:#fff!important;color:#075db5!important;border-color:#c5daf7!important}
+.app-content .value-input,.app-content .fieldrow input,.app-content .answer input,
+.app-content input:not([type="range"]),.app-content select,.app-content textarea,
+.app-content .sim-control input,.app-content .sim-control select{
+ background:#fff!important;color:#242428!important;border-color:#c9cdd5!important;font-size:1rem!important;min-height:46px!important
+}
+.app-content .measure-console label,.app-content .sim-control label{color:#34343b!important;font-size:1rem!important;font-weight:650!important}
+.app-content .result-metrics>div,.app-content .tolerance-block{background:#f8f9fb!important;border-color:#e1e4e9!important;color:#33333a!important}
+.app-content .error-number strong,.app-content .result-metrics b{color:#1d1d1f!important}
+.app-content .verdict{background:#edf8f0!important;border-color:#b9dfc3!important}
+.app-content .verdict p,.app-content .feedback.ok{color:#205d35!important}
+.app-content .feedback.no{color:#9d2424!important}
+.app-content .opt,.app-content .mcq .opt{background:#f7f8fa!important;color:#303038!important;border-color:#d9dde4!important;font-size:1rem!important;line-height:1.6!important}
+.app-content .opt.selected,.app-content .mcq .opt.selected{background:#eaf2ff!important;border-color:#78a9e8!important;color:#084f9b!important}
+.app-content .opt.correct,.app-content .mcq .opt.correct{background:#eaf7ee!important;border-color:#a5d8b5!important;color:#21643a!important}
+.app-content .opt.wrong,.app-content .mcq .opt.wrong{background:#fff0f0!important;border-color:#efb8b8!important;color:#a12828!important}
+.app-content .formula-card,.app-content .card,.app-content .exercise,.app-content .panel,
+.app-content .lab-sim,.app-content .sim-control,.app-content .mcq{
+ background:#fff!important;border-color:#e0e2e7!important;color:#242428!important
+}
+.app-content .formula-card b,.app-content .formula-card strong{color:#075db5!important}
+.app-content .formula-card .formula,.app-content .formula{background:#f3f7fc!important;border-color:#dce6f2!important;color:#174f8b!important}
+.app-content .sim-readout,.app-content .calc-result{background:#f3f7fc!important;border-color:#dce6f2!important;color:#303944!important}
+.app-content .sim-readout strong,.app-content .calc-result .big{color:#075db5!important}
+.app-content .sim-control label{color:#303038!important}
+.app-content .meter-screen{color:#194a31!important}
+.app-content table,.app-content .logbook-table{background:#fff!important;color:#303038!important}
+.app-content th{background:#f0f3f7!important;color:#334a67!important;font-size:.84rem!important}
+.app-content td{color:#36363d!important;font-size:.95rem!important}
+.app-content .table-wrap,.app-content .logbook-table-wrap{border-color:#dfe2e8!important}
+.app-content a{color:#005fbd!important;text-decoration-thickness:1px;text-underline-offset:3px}
+.app-content .btn,.app-content .check-practice,.app-content .lesson-action,.app-content .console-run{
+ background:#0066cc!important;color:#fff!important;border-color:#0066cc!important;font-size:1rem!important;font-weight:650!important
+}
+.app-content .btn.secondary,.app-content .console-reset,.app-content .log-result-btn,.app-content .export-log-btn,.app-content .sim-btn.alt{
+ background:#fff!important;color:#303038!important;border-color:#cfd3dc!important
+}
+.app-content .sim-btn{background:#0066cc!important;color:#fff!important}
+.app-sidebar .nav-copy b,.app-sidebar .workspace-choice b,.app-sidebar .sidebar-class b{font-size:.94rem!important;color:#303038!important}
+.app-sidebar .nav-copy small,.app-sidebar .workspace-choice small,.app-sidebar .sidebar-class small,.app-sidebar .system-health small{font-size:.82rem!important;color:#55555e!important}
+.app-sidebar .side-label{font-size:.74rem!important;color:#62626a!important}
+.app-topbar .breadcrumbs,.app-topbar .topbar-title>small,.app-topbar .topbar-status{font-size:.84rem!important;color:#55555e!important}
+@media(max-width:760px){
+ .app-content{font-size:16px!important}
+ .app-content h1{font-size:clamp(2.2rem,8.2vw,3.1rem)!important}
+ .app-content h2{font-size:1.8rem!important}
+ .app-content h3{font-size:1.25rem!important}
+ .app-content p,.app-content li,.app-content label,.app-content input,.app-content select,.app-content textarea,.app-content button{font-size:1rem!important}
+ .app-content .muted,.app-content .caption,.app-content .rail-step small,.app-content .instrument-tab small{font-size:.9rem!important}
+}
+
 </style>
 </head>
 <body>
