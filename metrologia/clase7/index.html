@@ -107,13 +107,101 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
 @media(max-width:580px){.hero{padding-top:42px}.top{padding-top:12px;padding-bottom:12px}.hero-art{border-radius:20px}.section{padding:36px 0}.btn{margin-bottom:6px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
+
+/* METRO-LAB PRO WORKSPACE — consola didáctica interactiva */
+.console-section{position:relative;padding-top:42px}
+.console-section:before{content:"";position:absolute;left:-15vw;right:-15vw;top:0;height:100%;z-index:-1;background:radial-gradient(ellipse at 52% 12%,#1b1d14 0,transparent 58%)}
+.console-topline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#85858d;font-size:.68rem;letter-spacing:.15em;font-weight:800}
+.live-dot,.session-chip span{width:7px;height:7px;border-radius:50%;background:#d7ff3f;display:inline-block;box-shadow:0 0 12px #d7ff3f77}
+.console-separator{color:#4c4c51}.console-live{margin-left:auto;color:#d7ff3f;border:1px solid #3c4321;background:#16180e;border-radius:999px;padding:6px 10px;font-size:.61rem}
+.console-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin:22px 0 28px}
+.console-heading h2{margin:.35rem 0 .7rem;font-size:clamp(2.2rem,5vw,4.2rem);max-width:760px}
+.console-heading h2 span{color:#d7ff3f}.console-heading p{max-width:650px;color:#a4a4ad}
+.console-session{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid #2e2e33;background:#0d0d0f;border-radius:16px;min-width:260px}
+.session-icon{width:42px;height:42px;display:grid;place-items:center;background:#d7ff3f;color:#090909;border-radius:12px;font-weight:1000;font-size:1.2rem}.session-icon span{color:#4a5124}
+.console-session b,.console-session small{display:block}.console-session b{font-size:.83rem}.console-session small{font-size:.69rem;color:#92929a;margin-top:4px}
+.session-status{margin-left:auto;font-size:.59rem;letter-spacing:.12em;color:#d7ff3f;background:#17190f;border:1px solid #343922;border-radius:7px;padding:5px 7px}
+.dashboard-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:17px}
+.dash-stat{position:relative;overflow:hidden;background:linear-gradient(130deg,#111113,#09090a);border:1px solid #28282d;border-radius:17px;padding:18px 20px;min-height:132px}
+.stat-label{font-size:.65rem;color:#8e8e96;letter-spacing:.12em;font-weight:850;display:block}
+.dash-stat strong{display:block;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.06em;line-height:1.25;margin:10px 0 2px;font-weight:650}
+.dash-stat strong em{font-size:.9rem;font-style:normal;color:#9a9aa2;font-weight:500}
+.dash-stat small{color:#8d8d95;font-size:.77rem}.stat-glyph{position:absolute;right:19px;top:39px;font-size:2.4rem;color:#42442e}
+.subscript{font-size:.7em;vertical-align:sub}
+.workbench{display:grid;grid-template-columns:220px minmax(0,1fr);background:#0b0b0d;border:1px solid #303035;border-radius:24px;overflow:hidden;box-shadow:0 35px 100px #0005}
+.workbench-rail{padding:23px 14px;background:#09090a;border-right:1px solid #28282d}
+.rail-label{font-size:.64rem;letter-spacing:.15em;font-weight:900;color:#75757d;padding:0 8px 16px}
+.rail-step{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid transparent;border-radius:12px;padding:12px 9px;margin:3px 0;background:transparent;color:#dddde2;cursor:pointer;transition:background .2s,border-color .2s}
+.rail-step.active{background:#17190f;border-color:#3a4024}.rail-step.complete .rail-num{background:#d7ff3f;color:#080808}
+.rail-num{width:32px;height:32px;flex-shrink:0;border:1px solid #38383e;background:#141416;border-radius:9px;display:grid;place-items:center;color:#a0a0a7;font-size:.69rem;font-weight:900}
+.rail-step.active .rail-num{background:#d7ff3f;border-color:#d7ff3f;color:#080808}
+.rail-step b,.rail-step small{display:block}.rail-step b{font-size:.79rem}.rail-step small{font-size:.65rem;color:#888890;margin-top:3px}.rail-step i{font-style:normal;margin-left:auto;color:#6b6b73;font-size:1.2rem}
+.rail-tip{display:flex;gap:9px;margin:25px 4px 0;padding:13px 10px;border-top:1px solid #29292d}
+.tip-mark{width:20px;height:20px;display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:#272516;color:#d7ff3f;font-size:.72rem;font-weight:900}
+.rail-tip b{font-size:.72rem;color:#d7d7dc}.rail-tip p{font-size:.68rem;color:#898991;line-height:1.55;margin-top:5px}
+.workbench-main{padding:clamp(17px,2.6vw,30px);min-width:0}
+.workbench-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:20px}
+.toolbar-kicker,.step-kicker{font-size:.63rem;letter-spacing:.14em;font-weight:900;color:#8f8f97}
+.workbench-toolbar h3{font-size:1.36rem;margin:.3rem 0 0;letter-spacing:-.04em}
+.session-chip{display:flex;align-items:center;gap:8px;color:#b2b2b9;border:1px solid #303035;border-radius:999px;padding:7px 10px;font-size:.61rem;font-weight:800;letter-spacing:.06em;white-space:nowrap}
+.instrument-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.instrument-tab{display:flex;align-items:center;gap:11px;position:relative;text-align:left;background:#101012;color:#f2f2f5;border:1px solid #29292e;border-radius:14px;padding:13px;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
+.instrument-tab:hover{transform:translateY(-2px);border-color:#54545a}
+.instrument-tab.selected{border-color:#b7d532;background:linear-gradient(130deg,#1b1d13,#101012);box-shadow:inset 0 0 0 1px #d7ff3f12}
+.instrument-tab-icon{width:39px;height:39px;display:grid;place-items:center;background:#202116;border-radius:11px;color:#d7ff3f;font-size:1.25rem}
+.instrument-tab b,.instrument-tab small{display:block}.instrument-tab b{font-size:.81rem}.instrument-tab small{font-size:.68rem;color:#92929b;margin-top:4px}.tab-check{margin-left:auto;color:#d7ff3f;opacity:0}.instrument-tab.selected .tab-check{opacity:1}
+.workbench-grid{display:grid;grid-template-columns:minmax(240px,.82fr) minmax(0,1.18fr);gap:13px}
+.measure-console,.result-console{border:1px solid #2c2c31;background:#0f0f11;border-radius:16px;padding:18px;min-width:0}
+.panel-head{display:flex;align-items:center;justify-content:space-between}.tiny-state{font-size:.59rem;color:#d7ff3f;letter-spacing:.1em;border:1px solid #343922;background:#17190f;border-radius:6px;padding:5px 7px}
+.measure-intro{font-size:.77rem;line-height:1.6;color:#a1a1a9;margin:12px 0 17px}
+.measure-console label{display:flex;justify-content:space-between;gap:7px;color:#c4c4cb;font-size:.73rem;font-weight:750;margin:14px 0 6px}
+.measure-console label span{color:#77777f;font-weight:500}
+.value-input{display:flex;align-items:center;background:#080809;border:1px solid #34343a;border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.value-input:focus-within{border-color:#b8d635;box-shadow:0 0 0 3px #d7ff3f12}
+.value-input input{width:100%;min-width:0;border:0!important;outline:0;background:transparent!important;color:#f5f5f7;padding:12px 12px;font:600 1rem ui-monospace,SFMono-Regular,Menlo,monospace}
+.value-input>span{padding:0 12px;color:#9a9a7a;font-size:.76rem;font-weight:800}
+.entry-hint{display:flex;gap:8px;color:#77777f;font-size:.66rem;line-height:1.5;margin:12px 0}.entry-hint span{color:#d7ff3f}
+.console-run{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:12px;padding:13px 15px;border:0;border-radius:10px;background:#d7ff3f;color:#070707;font-size:.79rem;font-weight:950;cursor:pointer;transition:box-shadow .25s,transform .25s}
+.console-run b{font-size:1.1rem}.console-run:hover{transform:translateY(-2px);box-shadow:0 5px 28px #d7ff3f25}
+.console-reset{width:100%;margin-top:8px;padding:9px;border:1px solid #2e2e33;border-radius:10px;background:#151517;color:#b1b1b8;font-size:.72rem;cursor:pointer}.console-reset:hover{border-color:#5a5a61;color:white}
+.result-console{background:radial-gradient(ellipse at 100% 0,#1a1b13 0,transparent 45%),#0a0a0c}
+.result-head{display:flex;align-items:center;justify-content:space-between}.result-head h4{font-size:1.2rem;letter-spacing:-.035em;margin:6px 0 0}.result-icon{width:36px;height:36px;display:grid;place-items:center;background:#1b1d12;color:#d7ff3f;border:1px solid #3b4024;border-radius:10px;font-size:1.4rem}
+.result-status{display:inline-flex;align-items:center;gap:7px;border:1px solid #333338;background:#151517;color:#9d9da5;border-radius:999px;font-size:.59rem;font-weight:950;letter-spacing:.1em;padding:7px 10px;margin:17px 0 7px}
+.status-dot{width:6px;height:6px;background:#8a8a91;border-radius:50%}.result-status.good{color:#d7ff3f;border-color:#414a23;background:#1a1d10}.result-status.good .status-dot{background:#d7ff3f;box-shadow:0 0 8px #d7ff3f77}.result-status.bad{color:#ff929d;border-color:#522b31;background:#211114}.result-status.bad .status-dot{background:#ff6979}
+.error-number{padding:11px 0 15px;border-bottom:1px solid #29292d}.error-number>span{font-size:.74rem;color:#a0a0a7;display:block}.error-number strong{font:650 clamp(2rem,4vw,3.1rem)/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.07em;display:block;margin:5px 0;color:#d7ff3f}.error-number strong small{font-size:.42em;letter-spacing:0;color:#b4b4bc}.error-number p{font-size:.74rem;color:#94949d;margin:4px 0 0}
+.result-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:14px 0}
+.result-metrics>div{padding:10px 8px;background:#111113;border:1px solid #27272b;border-radius:9px;min-width:0}.result-metrics span,.result-metrics b{display:block}.result-metrics span{font-size:.6rem;line-height:1.4;color:#898991;min-height:27px}.result-metrics b{font:700 .78rem ui-monospace,SFMono-Regular,Menlo,monospace;color:#e5e5e8;overflow-wrap:anywhere;margin-top:6px}
+.tolerance-block{padding:12px 0}.tolerance-labels,.tolerance-caption{display:flex;justify-content:space-between;gap:9px;align-items:center}.tolerance-labels span{font-size:.69rem;color:#a3a3ab}.tolerance-labels b{font:650 .67rem ui-monospace,SFMono-Regular,Menlo,monospace;color:#e3e3e6}
+.tolerance-track{height:8px;background:#29292d;border-radius:99px;position:relative;overflow:visible;margin:11px 0 7px}.tolerance-track>div{height:100%;width:0;border-radius:99px;background:#d7ff3f;transition:width .4s,background .3s}.tolerance-track>div.outside{background:#ff6979}.tolerance-mid{position:absolute;left:100%;top:-4px;height:16px;width:2px;background:#fff;opacity:.75}
+.tolerance-caption{font-size:.61rem;color:#7d7d85}
+.verdict{display:flex;align-items:start;gap:10px;background:#17190f;border:1px solid #3b4124;border-radius:12px;padding:12px;margin-top:8px}.verdict.outside{background:#211114;border-color:#512b32}
+.verdict-symbol{width:25px;height:25px;flex-shrink:0;border-radius:8px;display:grid;place-items:center;background:#d7ff3f;color:#090909;font-weight:1000}.verdict.outside .verdict-symbol{background:#ff6979}
+.verdict b{display:block;font-size:.78rem;color:#d7ff3f}.verdict.outside b{color:#ff9ca5}.verdict p{font-size:.69rem;line-height:1.5;color:#b0b0b6;margin:4px 0 0}
+.result-footnote{margin-top:12px;color:#717179;font-size:.62rem;line-height:1.5}
+.lab-workflow-footer{display:flex;align-items:center;justify-content:space-between;gap:17px;padding:18px 1px 3px}
+.workflow-progress{flex:1;min-width:0}.workflow-progress-label{display:flex;justify-content:space-between;gap:10px;font-size:.69rem}.workflow-progress-label b{color:#dddde2}.workflow-progress-label span{color:#9a9aa1}
+.workflow-track{height:5px;background:#29292d;border-radius:99px;margin-top:10px;overflow:hidden}.workflow-track span{display:block;height:100%;background:#d7ff3f;border-radius:99px;transition:width .35s}
+.log-result-btn,.export-log-btn{border:1px solid #41452b;background:#17190f;color:#d7ff3f;border-radius:10px;padding:10px 14px;font-size:.72rem;font-weight:850;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s}
+.log-result-btn:hover,.export-log-btn:hover{background:#242719;border-color:#7f8d36}
+.logbook{margin-top:17px;padding:clamp(17px,2.6vw,27px);border:1px solid #2c2c31;border-radius:19px;background:#0b0b0d}
+.logbook-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.logbook-head h3{margin:.3rem 0;font-size:1.4rem;letter-spacing:-.045em}.logbook-head p{margin:0;color:#909098;font-size:.78rem}.logbook-count{border:1px solid #333338;background:#151517;border-radius:999px;padding:7px 10px;color:#d7ff3f;font-size:.7rem;white-space:nowrap}
+.logbook-table-wrap{overflow-x:auto;border:1px solid #28282d;border-radius:11px}.logbook-table{min-width:650px;font-size:.73rem}.logbook-table th{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;background:#141416;color:#aaaab1}.logbook-table td{color:#d5d5da}.logbook-table .empty-log td{text-align:center;padding:25px;color:#7f7f87}
+.log-good{color:#d7ff3f!important;font-weight:850}.log-bad{color:#ff929d!important;font-weight:850}
+.logbook-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}.logbook-actions>span{color:#73737b;font-size:.67rem}.export-log-btn{border-color:#333338;background:#151517;color:#dedee3}
+.learning-path{margin-top:58px}.path-title{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:19px}.path-title h3{font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.05em;margin:.3rem 0}.path-title>p{max-width:440px;color:#92929a;font-size:.78rem}
+.path-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.path-card{position:relative;overflow:hidden;min-height:210px;background:linear-gradient(145deg,#111113,#080809);border:1px solid #29292e;border-radius:15px;padding:19px;transition:transform .28s,border-color .28s}.path-card:hover{transform:translateY(-4px);border-color:#5b6332}.path-card>span{position:absolute;right:17px;top:15px;font:700 .7rem ui-monospace,monospace;color:#77775d}.path-symbol{font-size:1.8rem;color:#d7ff3f;margin:20px 0 12px}.path-card h4{font-size:.94rem;margin:0 0 7px}.path-card p{font-size:.75rem;color:#909098;line-height:1.6;min-height:60px}.path-card small{display:inline-block;font:700 .66rem ui-monospace,monospace;background:#17190f;border:1px solid #333821;border-radius:6px;padding:6px 8px;color:#d7ff3f}
+@media(max-width:1000px){.console-heading{align-items:start;flex-direction:column}.console-session{min-width:0}.workbench{grid-template-columns:180px minmax(0,1fr)}.workbench-grid{grid-template-columns:1fr}.path-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:730px){.workbench{grid-template-columns:1fr}.workbench-rail{border-right:0;border-bottom:1px solid #28282d;padding:13px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.rail-label,.rail-tip{grid-column:1/-1}.rail-label{padding-bottom:5px}.rail-tip{margin:8px 3px 0}.rail-step{padding:9px 6px}.dashboard-stats{grid-template-columns:1fr}.dash-stat{min-height:100px}.dash-stat strong{margin:4px 0}.stat-glyph{top:31px}.instrument-tabs{grid-template-columns:1fr}.console-live{margin-left:0}.result-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.path-title{display:block}.path-title>p{margin-top:10px}}
+@media(max-width:480px){.console-topline{font-size:.58rem;gap:6px}.console-heading h2{font-size:2.2rem}.workbench-main{padding:12px}.measure-console,.result-console{padding:13px}.workbench-toolbar{align-items:start;flex-direction:column}.result-metrics span{font-size:.56rem}.result-metrics b{font-size:.68rem}.path-cards{grid-template-columns:1fr}.path-card{min-height:0}.path-card p{min-height:0}.lab-workflow-footer{align-items:stretch;flex-direction:column}.log-result-btn{width:100%}.logbook-actions{align-items:start;flex-direction:column}.logbook-head{align-items:start;flex-direction:column}.workbench-rail{grid-template-columns:1fr 1fr}.rail-step{gap:6px}.rail-step small{font-size:.6rem}.session-chip{white-space:normal}}
+@media(prefers-reduced-motion:reduce){.instrument-tab,.path-card,.console-run,.tolerance-track>div{transition:none!important}}
+
 </style>
 </head>
 <body>
 <header class="top">
   <div class="brand">METRO<span class="dot">·</span>LAB <small>METROLOGÍA INTERACTIVA · CLASE 7</small></div>
   <nav aria-label="Navegación principal">
-    <a href="#fundamentos">Fundamentos</a><a href="#masa">Masa</a><a href="#electronica">Electrónica</a><a href="#graficas">Gráficas</a><a href="#practica">Práctica</a>
+    <a href="#console">Consola</a><a href="#fundamentos">Fundamentos</a><a href="#masa">Balanza</a><a href="#electronica">Multímetro</a><a href="#practica">Evaluación</a>
   </nav>
 </header>
 <main class="wrap">
@@ -121,7 +209,7 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
   <div>
     <div class="pillrow"><span class="tag">UNIDAD 3</span><span class="tag gold">CLASE TEÓRICO-PRÁCTICA</span></div>
     <h1>Calibración instrumental: <span>comparar con evidencia.</span></h1>
-    <p class="lead">Aprende a evaluar una balanza y un multímetro, calcular sus errores e interpretar resultados. La página combina explicación visual, tablas, gráficas simuladas y ejercicios con retroalimentación.</p>
+    <p class="lead">Tu laboratorio virtual de metrología. Experimenta con instrumentos, modifica lecturas, observa errores y toma decisiones técnicas con retroalimentación paso a paso.</p>
     <p><a class="btn" href="#practica">Ir a los ejercicios ↓</a> <a class="btn secondary" href="#calculadoras">Probar calculadoras</a></p>
   </div>
   <div class="hero-art">
@@ -158,6 +246,76 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
   </svg>
   </div>
 </section>
+
+<section class="section console-section" id="console" aria-labelledby="console-title">
+  <div class="console-topline"><span class="live-dot"></span><span>METRO-LAB WORKSPACE</span><span class="console-separator">/</span><span>CALIBRACIÓN · SESIÓN PRÁCTICA</span><span class="console-live">ENTORNO INTERACTIVO</span></div>
+  <div class="console-heading">
+    <div><div class="eyebrow">LABORATORIO DIGITAL / 07</div><h2 id="console-title">De la lectura al <span>dictamen.</span></h2><p>Un entorno de práctica para que aprendas haciendo. Cambia datos, ejecuta mediciones y documenta lo que observas.</p></div>
+    <div class="console-session"><div class="session-icon">M<span>·</span></div><div><b>Sesión de calibración</b><small>Modo de aprendizaje · Datos simulados</small></div><span class="session-status">LISTO</span></div>
+  </div>
+  <div class="dashboard-stats" aria-label="Resumen de la experiencia">
+    <article class="dash-stat"><span class="stat-label">INSTRUMENTOS VIRTUALES</span><strong>02</strong><small>Balanza + multímetro</small><span class="stat-glyph">⌁</span></article>
+    <article class="dash-stat"><span class="stat-label">OPERACIÓN CENTRAL</span><strong>E = I − X<span class="subscript">ref</span></strong><small>Error de indicación</small><span class="stat-glyph">∑</span></article>
+    <article class="dash-stat"><span class="stat-label">META DE LA SESIÓN</span><strong>4 <em>pasos</em></strong><small>Medir · calcular · comparar · concluir</small><span class="stat-glyph">↗</span></article>
+  </div>
+  <div class="workbench">
+    <aside class="workbench-rail">
+      <div class="rail-label">TU RECORRIDO</div>
+      <button class="rail-step active" type="button" data-stage="0"><span class="rail-num">01</span><span><b>Configura</b><small>Elige instrumento</small></span><i>›</i></button>
+      <button class="rail-step" type="button" data-stage="1"><span class="rail-num">02</span><span><b>Introduce datos</b><small>Referencia y lectura</small></span><i>›</i></button>
+      <button class="rail-step" type="button" data-stage="2"><span class="rail-num">03</span><span><b>Analiza el error</b><small>Ejecuta el cálculo</small></span><i>›</i></button>
+      <button class="rail-step" type="button" data-stage="3"><span class="rail-num">04</span><span><b>Emite conclusión</b><small>Justifica el resultado</small></span><i>›</i></button>
+      <div class="rail-tip"><div class="tip-mark">i</div><div><b>Tip de laboratorio</b><p>Un valor fuera del límite no autoriza a ajustar el instrumento por cuenta propia. Primero documenta e investiga.</p></div></div>
+    </aside>
+    <div class="workbench-main">
+      <div class="workbench-toolbar"><div><span class="toolbar-kicker">ÁREA DE TRABAJO</span><h3 id="benchTitle">Configura tu medición</h3></div><div class="session-chip"><span></span> SIMULACIÓN ACTIVA</div></div>
+      <div class="instrument-tabs" role="tablist" aria-label="Seleccionar instrumento de práctica">
+        <button type="button" class="instrument-tab selected" role="tab" aria-selected="true" data-instrument="mass"><span class="instrument-tab-icon">⚖</span><span><b>Balanza digital</b><small>Magnitud: masa · g</small></span><span class="tab-check">✓</span></button>
+        <button type="button" class="instrument-tab" role="tab" aria-selected="false" data-instrument="voltage"><span class="instrument-tab-icon">ϟ</span><span><b>Multímetro</b><small>Magnitud: voltaje · V DC</small></span><span class="tab-check">✓</span></button>
+      </div>
+      <div class="workbench-grid">
+        <div class="measure-console">
+          <div class="panel-head"><span class="step-kicker">01 — ENTRADAS</span><span class="tiny-state">EDITABLE</span></div>
+          <p class="measure-intro">Introduce el valor de referencia y la indicación que registraste en el instrumento.</p>
+          <label for="consoleRef">Valor de referencia <span id="consoleUnitRef">(g)</span></label>
+          <div class="value-input"><input id="consoleRef" inputmode="decimal" type="number" step="any" value="100.00"><span id="consoleRefUnit">g</span></div>
+          <label for="consoleInd">Indicación observada <span id="consoleUnitInd">(g)</span></label>
+          <div class="value-input"><input id="consoleInd" inputmode="decimal" type="number" step="any" value="100.08"><span id="consoleIndUnit">g</span></div>
+          <label for="consoleTol">Límite didáctico permitido</label>
+          <div class="value-input"><input id="consoleTol" inputmode="decimal" type="number" min="0" step="any" value="0.10"><span id="consoleTolUnit">g</span></div>
+          <div class="entry-hint"><span>ⓘ</span> Usa punto o coma decimal. El límite es configurable para este ejercicio.</div>
+          <button class="console-run" id="consoleRun" type="button"><span>Ejecutar análisis</span><b>↗</b></button>
+          <button class="console-reset" id="consoleReset" type="button">Restablecer ejemplo</button>
+        </div>
+        <div class="result-console" aria-live="polite">
+          <div class="result-head"><div><span class="step-kicker">02 — RESULTADO EN TIEMPO REAL</span><h4>Informe de medición</h4></div><span class="result-icon">⌁</span></div>
+          <div class="result-status" id="consoleStatus"><span class="status-dot"></span><span>ANÁLISIS PENDIENTE</span></div>
+          <div class="error-number"><span>Error de indicación (E)</span><strong id="consoleError">+0.080 <small>g</small></strong><p id="consoleDirection">La indicación se encuentra por encima de la referencia.</p></div>
+          <div class="result-metrics">
+            <div><span>Error absoluto</span><b id="consoleAbs">0.080 g</b></div>
+            <div><span>Corrección estimada</span><b id="consoleCorrection">−0.080 g</b></div>
+            <div><span>Error porcentual</span><b id="consolePercent">0.080 %</b></div>
+          </div>
+          <div class="tolerance-block"><div class="tolerance-labels"><span>Magnitud del error vs. límite</span><b id="consoleComparison">0.080 / 0.100 g</b></div><div class="tolerance-track"><div id="consoleToleranceFill" style="width:80%"></div><span class="tolerance-mid"></span></div><div class="tolerance-caption"><span>0</span><span id="consoleLimitCaption">Límite: 0.100 g</span></div></div>
+          <div class="verdict" id="consoleVerdict"><span class="verdict-symbol">✓</span><div><b>Dentro del límite de este ejercicio</b><p>El valor absoluto del error no supera el criterio que se configuró.</p></div></div>
+          <div class="result-footnote">Este informe es educativo y usa datos simulados. No constituye un certificado ni una calibración trazable.</div>
+        </div>
+      </div>
+      <div class="lab-workflow-footer"><div class="workflow-progress"><div class="workflow-progress-label"><b>Tu progreso de práctica</b><span id="consoleProgressText">1 de 4 pasos completados</span></div><div class="workflow-track"><span id="consoleProgressBar" style="width:25%"></span></div></div><button type="button" class="log-result-btn" id="consoleLog">＋ Guardar en bitácora</button></div>
+    </div>
+  </div>
+  <div class="logbook" id="consoleLogbook"><div class="logbook-head"><div><div class="eyebrow">REGISTRO DE SESIÓN</div><h3>Bitácora de resultados</h3><p>Guarda las mediciones de tu sesión y compara los resultados.</p></div><span class="logbook-count" id="consoleLogCount">0 registros</span></div><div class="logbook-table-wrap"><table class="logbook-table"><thead><tr><th>#</th><th>Instrumento</th><th>Referencia</th><th>Indicación</th><th>Error</th><th>Dictamen</th></tr></thead><tbody id="consoleLogRows"><tr class="empty-log"><td colspan="6">Aún no hay registros. Ejecuta un análisis y pulsa “Guardar en bitácora”.</td></tr></tbody></table></div><div class="logbook-actions"><span id="consoleLogNote">Las mediciones se mantienen en esta sesión del navegador.</span><button type="button" id="consoleExport" class="export-log-btn">Descargar bitácora CSV ↗</button></div></div>
+  <div class="learning-path">
+    <div class="path-title"><div><div class="eyebrow">APRENDIZAJE POR ACCIÓN</div><h3>El método detrás de cada resultado</h3></div><p>La herramienta no solo te da el número: te ayuda a comprender de dónde sale y cómo defender tu conclusión.</p></div>
+    <div class="path-cards">
+      <article class="path-card"><span>01</span><div class="path-symbol">◎</div><h4>Comparar</h4><p>Contrasta la indicación con un valor de referencia conocido.</p><small>I − Xref</small></article>
+      <article class="path-card"><span>02</span><div class="path-symbol">±</div><h4>Cuantificar</h4><p>Conserva el signo, calcula la magnitud del error y sus unidades.</p><small>Error + corrección</small></article>
+      <article class="path-card"><span>03</span><div class="path-symbol">⌁</div><h4>Evaluar</h4><p>Compara el error absoluto contra el límite definido para la actividad.</p><small>|E| ≤ límite</small></article>
+      <article class="path-card"><span>04</span><div class="path-symbol">↗</div><h4>Documentar</h4><p>Guarda el dato y redacta una conclusión que la evidencia sostenga.</p><small>Registro trazable</small></article>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="objetivos">
   <div class="heading"><div><div class="eyebrow">OBJETIVO DE APRENDIZAJE</div><h2>¿Qué sabrás hacer al terminar?</h2></div><p>La meta no es memorizar fórmulas: es interpretar una medición y justificar la conclusión.</p></div>
   <div class="grid">
@@ -433,6 +591,51 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
   var heroArt=document.querySelector(".hero-art"),rafLock=false;
   function updateParallax(){if(!heroArt)return;var y=window.scrollY||0;heroArt.style.transform="translateY("+Math.min(y*.10,70)+"px) scale("+Math.max(.94,1-y*.00008)+")";rafLock=false}
   window.addEventListener("scroll",function(){if(!rafLock){window.requestAnimationFrame(updateParallax);rafLock=true}},{passive:true});updateParallax();
+
+
+  // Consola de práctica: cálculo en vivo, recorrido guiado, bitácora y exportación CSV.
+  (function initProConsole(){
+    var byId=function(id){return document.getElementById(id)};
+    var mode="mass", completed=new Set([0]), logRows=[], lastResult=null;
+    var configs={mass:{title:"Configura tu medición",ref:"100.00",ind:"100.08",tol:"0.10",unit:"g",label:"Balanza digital",precision:3},voltage:{title:"Configura tu medición electrónica",ref:"5.000",ind:"4.970",tol:"0.050",unit:"V",label:"Multímetro · V DC",precision:3}};
+    var ref=byId("consoleRef"), ind=byId("consoleInd"), tol=byId("consoleTol");
+    function num(el){var v=String(el.value).trim().replace(",",".");return v===""?NaN:Number(v)}
+    function fmt(v,d){return Number(v).toLocaleString("es-MX",{minimumFractionDigits:d,maximumFractionDigits:d})}
+    function signed(v,d){return (v>0?"+":v<0?"−":"")+fmt(Math.abs(v),d)}
+    function setUnit(unit){["consoleUnitRef","consoleUnitInd","consoleRefUnit","consoleIndUnit","consoleTolUnit"].forEach(function(id){byId(id).textContent=id.indexOf("Unit")>-1?"("+unit+")":unit});byId("consoleTolUnit").textContent=unit}
+    function setMode(next,resetInputs){mode=next;var c=configs[mode];document.querySelectorAll(".instrument-tab").forEach(function(b){var active=b.dataset.instrument===mode;b.classList.toggle("selected",active);b.setAttribute("aria-selected",active?"true":"false")});byId("benchTitle").textContent=c.title;ref.setAttribute("aria-label","Valor de referencia en "+c.unit);ind.setAttribute("aria-label","Indicación observada en "+c.unit);setUnit(c.unit);if(resetInputs){ref.value=c.ref;ind.value=c.ind;tol.value=c.tol}runAnalysis(false)}
+    function markStage(stage){completed.add(stage);document.querySelectorAll(".rail-step").forEach(function(b){var s=Number(b.dataset.stage);b.classList.toggle("active",s===stage);b.classList.toggle("complete",completed.has(s));});byId("consoleProgressText").textContent=completed.size+" de 4 pasos completados";byId("consoleProgressBar").style.width=(completed.size/4*100)+"%"}
+    function paintResult(r){
+      var c=configs[mode],abs=Math.abs(r.e),ratio=r.t>0?abs/r.t:(abs===0?0:1),within=abs<=r.t;
+      byId("consoleError").innerHTML=signed(r.e,c.precision)+" <small>"+c.unit+"</small>";
+      byId("consoleAbs").textContent=fmt(abs,c.precision)+" "+c.unit;
+      byId("consoleCorrection").textContent=signed(-r.e,c.precision)+" "+c.unit;
+      byId("consolePercent").textContent=r.ref!==0?fmt(abs/Math.abs(r.ref)*100,4)+" %":"No definido (referencia = 0)";
+      byId("consoleDirection").textContent=r.e>0?"La indicación se encuentra por encima de la referencia.":r.e<0?"La indicación se encuentra por debajo de la referencia.":"La indicación coincide numéricamente con la referencia.";
+      byId("consoleStatus").className="result-status "+(within?"good":"bad");
+      byId("consoleStatus").innerHTML='<span class="status-dot"></span><span>'+(within?"CRITERIO CUMPLIDO":"REVISAR RESULTADO")+"</span>";
+      byId("consoleComparison").textContent=fmt(abs,c.precision)+" / "+fmt(r.t,c.precision)+" "+c.unit;
+      byId("consoleLimitCaption").textContent="Límite: "+fmt(r.t,c.precision)+" "+c.unit;
+      var fill=byId("consoleToleranceFill");fill.style.width=(ratio>=1?100:Math.max(0,ratio*100))+"%";fill.classList.toggle("outside",!within);
+      byId("consoleVerdict").className="verdict"+(within?"":" outside");
+      byId("consoleVerdict").innerHTML='<span class="verdict-symbol">'+(within?"✓":"!")+'</span><div><b>'+(within?"Dentro del límite de este ejercicio":"Fuera del límite de este ejercicio")+'</b><p>'+(within?"|E| = "+fmt(abs,c.precision)+" "+c.unit+" no supera el límite configurado de "+fmt(r.t,c.precision)+" "+c.unit+".":"|E| = "+fmt(abs,c.precision)+" "+c.unit+" supera el límite configurado de "+fmt(r.t,c.precision)+" "+c.unit+". Documenta el hallazgo y revisa el procedimiento antes de decidir acciones.")+"</p></div>";
+    }
+    function runAnalysis(countProgress){
+      var a=num(ref),b=num(ind),t=num(tol),c=configs[mode];
+      if(!Number.isFinite(a)||!Number.isFinite(b)||!Number.isFinite(t)||t<0){byId("consoleStatus").className="result-status bad";byId("consoleStatus").innerHTML='<span class="status-dot"></span><span>DATOS INVÁLIDOS</span>';byId("consoleVerdict").className="verdict outside";byId("consoleVerdict").innerHTML='<span class="verdict-symbol">!</span><div><b>Revisa los campos</b><p>Introduce valores numéricos válidos y un límite igual o mayor que cero.</p></div>';return false}
+      lastResult={mode:mode,ref:a,ind:b,t:t,e:b-a,unit:c.unit,label:c.label,within:Math.abs(b-a)<=t,time:new Date().toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"})};
+      paintResult(lastResult);if(countProgress){markStage(2);markStage(3)}return true;
+    }
+    document.querySelectorAll(".instrument-tab").forEach(function(b){b.addEventListener("click",function(){setMode(b.dataset.instrument,true);markStage(0)})});
+    document.querySelectorAll(".rail-step").forEach(function(b){b.addEventListener("click",function(){var stage=Number(b.dataset.stage);markStage(stage);if(stage===0){byId("consoleRef").focus()}else if(stage===1){byId("consoleRef").focus()}else if(stage===2){runAnalysis(true);byId("consoleRun").focus()}else{if(runAnalysis(true))byId("consoleLog").focus()}})});
+    [ref,ind,tol].forEach(function(el){el.addEventListener("input",function(){runAnalysis(false);markStage(1)})});
+    byId("consoleRun").addEventListener("click",function(){if(runAnalysis(true)){byId("consoleStatus").animate&&byId("consoleStatus").animate([{transform:"scale(.98)",opacity:.7},{transform:"scale(1)",opacity:1}],{duration:240});}});
+    byId("consoleReset").addEventListener("click",function(){var c=configs[mode];ref.value=c.ref;ind.value=c.ind;tol.value=c.tol;completed=new Set([0]);markStage(0);runAnalysis(false)});
+    function renderLogs(){var tbody=byId("consoleLogRows");tbody.innerHTML="";if(!logRows.length){tbody.innerHTML='<tr class="empty-log"><td colspan="6">Aún no hay registros. Ejecuta un análisis y pulsa “Guardar en bitácora”.</td></tr>'}else{logRows.forEach(function(r,i){var tr=document.createElement("tr");var cells=[String(i+1).padStart(2,"0"),r.label,fmt(r.ref,3)+" "+r.unit,fmt(r.ind,3)+" "+r.unit,signed(r.e,3)+" "+r.unit,r.within?"DENTRO DEL LÍMITE":"FUERA DEL LÍMITE"];cells.forEach(function(val,j){var td=document.createElement("td");td.textContent=val;if(j===5)td.className=r.within?"log-good":"log-bad";tr.appendChild(td)});tbody.appendChild(tr)})}byId("consoleLogCount").textContent=logRows.length+" "+(logRows.length===1?"registro":"registros")}
+    byId("consoleLog").addEventListener("click",function(){if(!runAnalysis(true))return;logRows.push(Object.assign({},lastResult));renderLogs();byId("consoleLogbook").scrollIntoView({behavior:"smooth",block:"nearest"})});
+    byId("consoleExport").addEventListener("click",function(){if(!logRows.length){byId("consoleLogNote").textContent="Primero guarda al menos una medición en la bitácora.";return}var rows=[["No.","Hora","Instrumento","Referencia","Indicación","Error","Error absoluto","Límite","Dictamen","Unidad"]].concat(logRows.map(function(r,i){return [i+1,r.time,r.label,r.ref,r.ind,r.e,Math.abs(r.e),r.t,r.within?"Dentro del límite didáctico":"Fuera del límite didáctico",r.unit]}));var csv=rows.map(function(row){return row.map(function(v){var s=String(v);return /[",\n;]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}).join(",")}).join("\r\n");var blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="METRO-LAB-bitacora-calibracion.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);byId("consoleLogNote").textContent="Bitácora descargada en formato CSV."});
+    setMode("mass",false);runAnalysis(false);renderLogs();
+  })();
 
 </script>
 </body>
