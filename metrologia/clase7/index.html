@@ -743,6 +743,240 @@ body:before{
 }
 @media(prefers-reduced-motion:reduce){body:before{background-size:auto}}
 
+
+/* APPLE LIGHT MODE · macOS-style porcelain, silver and system blue */
+:root{
+  color-scheme:light;
+  --bg:#f5f5f7;--panel:#ffffff;--panel2:#f9fafc;--line:#dfe3ea;
+  --text:#1d1d1f;--muted:#6e7180;--cyan:#007aff;--blue:#5856d6;
+  --green:#248a3d;--amber:#9a6700;--red:#c62828;--pink:#bf5af2;
+  --hot1:#5856d6;--hot2:#007aff;--hot3:#64d2ff;--hot4:#ff9f0a;
+  --attention-lime:#007aff;--attention-cyan:#007aff;--attention-violet:#8e8cd8;
+}
+html{background:#f5f5f7}
+body{
+  background:
+    radial-gradient(ellipse at 8% 0%,#e5efff 0,transparent 38%),
+    radial-gradient(ellipse at 92% 10%,#eee9ff 0,transparent 32%),
+    linear-gradient(145deg,#f5f5f7 0%,#f2f4f8 55%,#f7f7f9 100%);
+  color:#1d1d1f;
+}
+body:before{
+  background:
+    linear-gradient(#64748b08 1px,transparent 1px),
+    linear-gradient(90deg,#64748b08 1px,transparent 1px),
+    radial-gradient(ellipse at 50% -15%,#d7e5ff 0,transparent 58%);
+  background-size:32px 32px,32px 32px,auto;
+  opacity:.56;
+}
+.app-shell,.app-main{background:transparent}
+.app-sidebar{
+  color:#1d1d1f;
+  background:rgba(255,255,255,.88);
+  border-color:#e1e4ea;
+  box-shadow:1px 0 0 #ffffffb3 inset;
+}
+.app-brand{border-color:#e5e7eb}
+.app-logo,.app-brand-copy b span,.app-content .eyebrow{color:#007aff;text-shadow:none}
+.app-brand-copy b{color:#1d1d1f}
+.app-brand-copy small,.workspace-choice small,.nav-copy small,.side-label,
+.sidebar-class small,.system-health small{color:#7b7f8a}
+.app-version{background:#eaf2ff;border-color:#c9dcff;color:#0066cc}
+.workspace-choice{background:linear-gradient(135deg,#fff,#f6f8fb);border-color:#e1e5ec}
+.workspace-choice b,.sidebar-class b{color:#24262b}
+.workspace-symbol,.side-nav.active .nav-icon{background:#007aff;border-color:#007aff;color:#fff}
+.side-nav{color:#50535b}
+.side-nav:hover{background:#f1f4f9;color:#1d1d1f}
+.side-nav.active,.app-content .side-nav[aria-current="page"],.app-content .side-nav.active{
+  background:#eaf2ff;border-color:#d0e2ff;color:#064ea6;
+  box-shadow:inset 3px 0 #007aff;
+}
+.side-nav.active .nav-copy small{color:#4c6c9b}
+.nav-icon{background:#f4f6f9;border-color:#e1e5ec;color:#5f6570}
+.nav-arrow,.side-nav.active .nav-arrow{color:#007aff}
+.system-health{background:#f3fbf5;border-color:#d9efdf}
+.system-health b{color:#226b36}
+.health-light{background:#30a46c;box-shadow:0 0 8px #30a46c30}
+.class-avatar{background:#eaf2ff;color:#0066cc}
+.app-topbar,.top{
+  background:rgba(255,255,255,.86);
+  border-color:#e1e4ea;
+  box-shadow:0 1px 0 #ffffffb8 inset;
+}
+.breadcrumbs{color:#777b86}
+.breadcrumbs i{color:#b8bdc7}
+.breadcrumbs b{color:#1d1d1f}
+.topbar-title>small,.topbar-status{color:#6e7180}
+.environment-chip{background:#eef5ff;border-color:#d3e4ff;color:#0758b7}
+.environment-chip i,.topbar-status i{background:#30a46c}
+.topbar-divider{background:#e1e4ea}
+.topbar-home{background:#fff;border-color:#dfe3ea;color:#3c4048}
+.topbar-home:hover{border-color:#007aff;color:#007aff}
+.app-footer{background:#f5f5f7;border-color:#e1e4ea;color:#777b86}
+.app-footer b{color:#434650}
+.app-footer p{color:#777b86}
+.app-content{color:#1d1d1f}
+.app-content h1,.app-content h2,.app-content h3,.app-content h4,
+.app-content .heading h2,.app-content .console-heading h2,
+.app-content .path-title h3,.app-content .logbook h3{color:#1d1d1f}
+.app-content h1 span,.app-content .console-heading h2 span{color:#007aff}
+.app-content p,.app-content li{color:#565b66}
+.app-content .lead{color:#5d6370}
+.app-content .muted,.app-content .caption,.app-content .legend{color:#6e7180}
+.app-content .console-topline{color:#6e7180;border-color:#dfe3ea}
+.app-content .console-heading p,.app-content .heading p{color:#626875}
+.app-content .tag{background:#f0f3f8;border-color:#dfe3ea;color:#4d5564}
+.app-content .tag.gold{background:#fff5df;border-color:#f4dfad;color:#8b5a00}
+.app-content .btn,.app-content .check-practice,.app-content .lesson-action{
+  background:#007aff;color:#fff;border-color:#007aff;
+  box-shadow:0 2px 5px #007aff1c;
+}
+.app-content .btn:hover,.app-content .check-practice:hover,.app-content .lesson-action:hover{
+  background:#006be6;color:#fff;box-shadow:0 6px 18px #007aff24;
+}
+.app-content .btn.secondary{background:#fff;border-color:#d9dee8;color:#252830}
+.app-content .btn.secondary:hover{background:#f4f7fb;border-color:#b8c9e6}
+.app-content .card,.app-content .panel,.app-content .stat,.app-content .exercise,
+.app-content .practice-exercise,.app-content .formula-card,.app-content .step,
+.app-content .illu,.app-content .hero-art,.app-content .graphic,
+.app-content .lab-sim,.app-content .chart-explainer,.app-content .evaluation-intro,
+.app-content .logbook,.app-content .path-card,.app-content .instrument-panel-intro,
+.app-content .mcq,.app-content .workbench,.app-content .workbench-rail,
+.app-content .workbench-main,.app-content .measure-console,.app-content .result-console,
+.app-content .learning-path,.app-content .instrument-learning{
+  color:#1d1d1f;
+  background:#fff;
+  border-color:#e1e4ea;
+  box-shadow:0 4px 18px #24344d0a,0 1px 2px #24344d08;
+}
+.app-content .card:hover,.app-content .graphic:hover,.app-content .practice-exercise:hover{
+  border-color:#c5d8f7;box-shadow:0 9px 26px #24344d12;
+}
+.app-content .hero-art{background:linear-gradient(145deg,#fff,#f2f5fa);border-color:#e1e4ea}
+.app-content .formula{background:#f0f6ff;border-color:#d6e6ff;color:#005fc7}
+.app-content .formula-card .formula{background:#f0f6ff;border-color:#d6e6ff;color:#005fc7}
+.app-content .formula-card .steps-explain{background:#f7f8fb;border-left-color:#007aff;color:#414650}
+.app-content .step:before{background:#eaf2ff;color:#0066cc}
+.app-content .note{background:#fff8e7;border-left-color:#ff9f0a;color:#75500b}
+.app-content .successnote{background:#ecf9f0;border-left-color:#30a46c;color:#216437}
+.app-content .console-session,.app-content .session-icon{background:#f4f7fb;border-color:#e1e4ea;color:#252830}
+.app-content .session-status,.app-content .tiny-state,.app-content .session-chip{
+  background:#eef7f0;border-color:#d6eadb;color:#24713d;
+}
+.app-content .dashboard-stats .dash-stat{
+  background:linear-gradient(145deg,#fff,#f7f9fc);
+  border-color:#e1e5ed;color:#1d1d1f;box-shadow:0 4px 16px #24344d08;
+}
+.app-content .dash-stat strong,.app-content .dash-stat b{color:#1d1d1f}
+.app-content .stat-label,.app-content .dash-stat small{color:#707582}
+.app-content .stat-glyph,.app-content .icon{color:#007aff}
+.app-content .workbench{background:#fff;border-color:#e0e4eb}
+.app-content .workbench-rail{background:#f8f9fc;border-color:#e1e4ea}
+.app-content .rail-label,.app-content .toolbar-kicker{color:#7a8190}
+.app-content .rail-step{color:#4b505b;border-color:transparent}
+.app-content .rail-step:hover{background:#f0f4fa}
+.app-content .rail-step.active{background:#eaf2ff;border-color:#d5e5ff;color:#174c92}
+.app-content .rail-num{background:#fff;border-color:#dfe5ed;color:#697180}
+.app-content .rail-step.active .rail-num{background:#007aff;color:#fff;border-color:#007aff}
+.app-content .rail-step small,.app-content .rail-tip p{color:#727886}
+.app-content .rail-tip{background:#fff8e7;border-color:#f3e2b8;color:#765b21}
+.app-content .workbench-toolbar,.app-content .panel-head,.app-content .result-head,
+.app-content .logbook-head{border-color:#e4e7ed}
+.app-content .measure-intro,.app-content .result-footnote,.app-content .entry-hint{color:#6b7280}
+.app-content .measure-console label,.app-content .sim-control label{color:#4b505b}
+.app-content .value-input,.app-content .fieldrow input,.app-content .answer input,
+.app-content .sim-control input,.app-content .sim-control select,
+.app-content input:not([type="range"]),.app-content select,.app-content textarea{
+  background:#fff;color:#1d1d1f;border-color:#d5dbe5;
+}
+.app-content input::placeholder,.app-content textarea::placeholder{color:#8b909b}
+.app-content .console-run{background:#007aff;color:#fff;border-color:#007aff}
+.app-content .console-reset,.app-content .log-result-btn,.app-content .export-log-btn{
+  background:#f3f6fb;color:#2e3440;border-color:#dce2eb;
+}
+.app-content .console-reset:hover,.app-content .log-result-btn:hover,.app-content .export-log-btn:hover{background:#e9eff8}
+.app-content .result-console{background:#f8faff;border-color:#e0e7f1}
+.app-content .result-status{background:#edf7f0;color:#24713d;border-color:#d5ebda}
+.app-content .error-number strong,.app-content .result-metrics b{color:#1d1d1f}
+.app-content .result-metrics>div,.app-content .tolerance-block,.app-content .verdict{
+  background:#fff;border-color:#e1e5ed;color:#353a43;
+}
+.app-content .verdict{background:#edf7f0;border-color:#d6ebdc}
+.app-content .verdict p{color:#46604d}
+.app-content .tolerance-track,.app-content .workflow-track,.app-content .quiz-progress-track{background:#e8ecf3}
+.app-content .tolerance-track>div,.app-content .workflow-track span{background:linear-gradient(90deg,#007aff,#64d2ff)}
+.app-content .workflow-progress-label,.app-content .tolerance-labels,.app-content .tolerance-caption{color:#5b626e}
+.app-content .instrument-tabs{background:#f1f3f7;border-color:#e1e5ed}
+.app-content .instrument-tab{background:transparent;color:#545b68;border-color:transparent}
+.app-content .instrument-tab[aria-selected="true"],.app-content .instrument-tab.selected{
+  background:#fff;border-color:#d8e5f8;color:#005fc7;box-shadow:0 1px 3px #25385810;
+}
+.app-content .instrument-tab b{color:inherit}
+.app-content .instrument-tab small{color:#7b8190}
+.app-content .sim-control{background:#f8f9fc;border-color:#e1e5ed;color:#1d1d1f}
+.app-content .sim-readout,.app-content .calc-result{background:#f1f6fd;border-color:#dbe7f7;color:#313945}
+.app-content .sim-readout strong,.app-content .calc-result .big{color:#0066cc}
+.app-content .sim-btn{background:#007aff;color:#fff}
+.app-content .sim-btn.alt{background:#fff;color:#323844;border-color:#d7dde7}
+.app-content .balance-device{background:linear-gradient(145deg,#f7f9fc,#cbd5e1);box-shadow:inset 0 0 0 2px #fff}
+.app-content .balance-base{background:linear-gradient(#c7d2df,#8a9bb0)}
+.app-content .balance-screen{background:#102a30;color:#8fffd3}
+.app-content .meter-shell,.app-content .meter-shell-pro{
+  background:linear-gradient(145deg,#e9edf2,#c6cfda);
+  border-color:#b9c4d2;box-shadow:0 16px 30px #1e293b18;
+}
+.app-content .meter-shell-pro:after{border-color:#b7cced;box-shadow:0 0 18px #007aff0c}
+.app-content .meter-screen{background:#dff8e9;border-color:#5a6a70;color:#173d31;box-shadow:inset 0 0 12px #405d491c}
+.app-content .meter-unit{color:#2f6554}
+.app-content .meter-dial{border-color:#91a0b3}
+.app-content .meter-dial:before{background:linear-gradient(180deg,#ffffff,#007aff);box-shadow:0 0 4px #007aff44}
+.app-content .meter-dial:after{color:#535e6f}
+.app-content .meter-scale-labels span{background:#fff;border-color:#cbd5e1;color:#273143}
+.app-content .meter-function-caption{background:linear-gradient(100deg,#eef4ff,#dce9fa);border-color:#c4d5ee;color:#273143}
+.app-content .meter-port-label,.app-content .meter-port,.app-content .probe-lines{color:#545d6b}
+.app-content .meter-jack{background:#313c4b;border-color:#f7f9fc}
+.app-content .meter-jack.red{border-color:#e85a67}
+.app-content .meter-port.active-port .meter-jack{box-shadow:0 0 0 3px #007aff,0 0 12px #007aff26}
+.app-content .meter-port.active-port small{color:#005fc7}
+.app-content .meter-caption-pro,.app-content .meter-instrument-note{color:#636b78}
+.app-content .meter-instrument-note{background:#fff8e7;border-color:#f0dfb3}
+.app-content .chart-reading-key>div{background:#f8f9fc;border-color:#e1e5ed}
+.app-content .chart-reading-key b{color:#313844}
+.app-content .chart-reading-key span{color:#6a7180}
+.app-content .mcq .opt,.app-content .opt{background:#f5f7fb;color:#343a45;border-color:#dfe4ed}
+.app-content .mcq .opt:hover,.app-content .opt:hover{background:#eaf2ff;border-color:#bcd5fb}
+.app-content .mcq .opt.selected,.app-content .opt.selected{background:#eaf2ff;border-color:#7db2ff;color:#064ea6}
+.app-content .mcq .opt.correct,.app-content .opt.correct{background:#eaf8ef;border-color:#98d4aa;color:#216437}
+.app-content .mcq .opt.wrong,.app-content .opt.wrong{background:#fff0f0;border-color:#f1b6b6;color:#a12828}
+.app-content .feedback.ok{background:#eaf8ef;color:#216437}
+.app-content .feedback.no{background:#fff0f0;color:#a12828}
+.app-content .feedback.hint{background:#fff8e7;color:#765b21}
+.app-content .practice-feedback,.app-content .practice-exercise .practice-feedback{color:#3d4654}
+.app-content .table-wrap,.app-content .logbook-table-wrap{border-color:#dfe4ec}
+.app-content table,.app-content .logbook-table{background:#fff;color:#2c3038}
+.app-content td,.app-content th{border-color:#e5e8ee;color:#3f4652}
+.app-content th{background:#f0f4fa;color:#3b4f6f}
+.app-content tr:nth-child(even) td{background:#fafbfc}
+.app-content .formula-card b,.app-content .formula-card strong{color:#0066cc}
+.app-content .progress{background:#e6eaf0}
+.app-content .progress div{background:linear-gradient(90deg,#007aff,#64d2ff)}
+.app-content .successnote,.app-content .feedback.ok{color:#216437}
+.app-content .app-empty-state{background:#fff;border-color:#e1e5ed;color:#6b7280}
+#meterBias{accent-color:#007aff}
+#meterBias::-webkit-slider-runnable-track{background:linear-gradient(90deg,#a9cfff 0%,#007aff 50%,#9b9af0 100%);border-color:#c2d5ef}
+#meterBias::-moz-range-track{background:linear-gradient(90deg,#a9cfff 0%,#007aff 50%,#9b9af0 100%);border-color:#c2d5ef}
+#meterBias::-webkit-slider-thumb{border-color:#fff;background:#007aff;box-shadow:0 0 0 3px #007aff1b,0 2px 7px #17255426}
+#meterBias::-moz-range-thumb{border-color:#fff;background:#007aff;box-shadow:0 0 0 3px #007aff1b,0 2px 7px #17255426}
+#meterBias:focus-visible{outline-color:#007aff}
+.app-content a{color:#0066cc}
+.app-content button:focus-visible,.app-content a:focus-visible,
+.app-content input:focus-visible,.app-content select:focus-visible{outline-color:#007aff}
+@media(max-width:760px){
+  .app-sidebar{background:#fff;border-color:#e1e4ea;box-shadow:0 1px 8px #1f29370a}
+  .app-content .instrument-tabs{background:rgba(245,246,249,.96);border-color:#e1e4ea}
+}
+@media(prefers-reduced-motion:reduce){body:before{opacity:.25}}
+
 </style>
 </head>
 <body>
