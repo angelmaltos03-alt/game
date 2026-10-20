@@ -305,6 +305,60 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
 @media(max-width:620px){.instrument-learning-head{flex-direction:column}.learning-number{width:75px;height:75px}.practice-exercises,.meter-mode-guides{grid-template-columns:1fr}.practice-answer-row{grid-template-columns:auto minmax(55px,1fr) auto}.meter-mode-guide{grid-template-columns:40px minmax(0,1fr) auto}.meter-shell-pro{padding-left:12px;padding-right:12px}.balance-glass{height:145px}.scale-model{font-size:.47rem}.practice-zone-head h4{font-size:1.4rem}}
 @media(prefers-reduced-motion:reduce){.balance-weight{animation:none}.lesson-step,.meter-mode-guide,.check-practice{transition:none}}
 
+
+/* REFINAMIENTO VISUAL: conservar la interfaz METRO-LAB original y dar prioridad a los instrumentos */
+.balance-device-pro{border-radius:17px;padding:13px 13px 17px;background:linear-gradient(145deg,#d8dfe4 0%,#a9b4bd 25%,#6c7882 68%,#3b444d 100%);box-shadow:inset 0 1px 2px #fff, inset 0 -5px 12px #1b242b55,0 12px 26px #0003;color:#18232c}
+.scale-instrument-top{height:28px}
+.balance-glass{height:150px;background:linear-gradient(140deg,#dce8eeaa,#94b2c133 45%,#e7f0f633);border:3px solid #e5edf1;box-shadow:inset 0 0 0 1px #60758266,inset 0 0 22px #c4e7ff30}
+.scale-glass-rail{width:5px;background:linear-gradient(90deg,#8395a1,#f6fbff,#8a9ca8)}
+.balance-weight{width:67px;height:48px;bottom:47px;border-radius:7px 7px 4px 4px;background:linear-gradient(90deg,#8d9aa3,#e9edf0 22%,#b9c3ca 50%,#f5f7f8 60%,#84919a);border:1px solid #6e7d87;box-shadow:0 4px 6px #0003;color:#26323a;font-size:.65rem;animation:none}
+.balance-pan{height:7px;bottom:37px;width:78%;background:linear-gradient(#f5f7f9,#9baab5);box-shadow:0 2px 0 #536774,0 5px 7px #0002}
+.scale-chamber-caption{color:#eaf4f9;font-size:.45rem;text-shadow:0 1px 2px #334b5b}
+.balance-base{background:linear-gradient(180deg,#c6d0d6,#87959f 40%,#56636d);box-shadow:inset 0 1px #fff9,inset 0 -4px 8px #0002}
+.scale-lcd-bezel{border:2px solid #4b5a64;background:#27343d}
+.balance-screen{font-size:clamp(1.7rem,4vw,2.15rem);background:linear-gradient(100deg,#b9d7ca,#d4e9df,#b6d3c5);color:#15382d}
+.scale-front-controls span{background:linear-gradient(#68747c,#37424a);border-color:#313a41;font-size:.48rem}
+.scale-front-controls .scale-tare-key{background:linear-gradient(#50616d,#35434d);border-color:#3d4c56}
+.scale-front-controls i{color:#dbe8ee}
+.scale-base-label{color:#25313a}
+.meter-shell-pro{max-width:330px;transform:none;border:3px solid #8f9aa0;border-radius:20px 20px 25px 25px;padding:13px 14px 0;background:linear-gradient(125deg,#f1c84f 0%,#e7b633 45%,#c99a26 100%);box-shadow:inset 0 0 0 1px #fff9,inset 0 -7px 12px #70511635,0 13px 28px #0004}
+.meter-topline{color:#27313a;padding-bottom:9px}.meter-topline>span:last-child{color:#5e502c}
+.meter-screen-frame{border-color:#3d4a50;border-radius:6px;background:linear-gradient(#39464b,#1d2a30);padding:6px}
+.meter-screen{border:2px solid #8a9b94;border-radius:3px;padding:8px 8px 5px;background:linear-gradient(100deg,#b9d5c5,#d8eadc,#b5d2c1);font-size:clamp(1.75rem,4vw,2.2rem);text-align:right;color:#1b382e}
+.meter-screen-status{font-size:.4rem}
+.meter-dial-zone{height:158px}
+.meter-dial{top:27px;width:92px;height:92px;border:4px solid #d8b349;background:radial-gradient(circle,#9ca6aa 0 13%,#4d5a60 14% 22%,#2d3b42 23% 27%,#17232a 28% 100%);box-shadow:inset 0 1px 3px #fff5,0 4px 8px #65481255}
+.meter-dial:before{top:8px;height:32px;transform-origin:50% 33px;background:linear-gradient(#edf0e6,#c9d3d3);width:4px}
+.meter-scale-labels span{background:#f4d46c;border-color:#a68739;font-size:.49rem;padding:2px 4px}
+.dial-off{top:2px}.dial-vdc{right:11px;top:35px}.dial-vac{right:10px;bottom:36px}.dial-ohm{bottom:1px}.dial-cont{left:9px;bottom:36px}.dial-amp{left:10px;top:35px}
+.meter-function-caption{background:#e7c65e;border-color:#b08c30;padding:6px 8px}
+.meter-port-label{margin:9px 0 6px}
+.meter-jacks{gap:14px}.meter-jack{width:21px;height:21px;border-width:4px}
+.meter-lead-art{height:38px}
+.meter-caption-pro{margin-top:22px}
+.instrument-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 18px;padding:6px;background:#101114;border:1px solid #2e3035;border-radius:13px}
+.instrument-tab{appearance:none;border:1px solid transparent;background:transparent;color:#a6a7ae;border-radius:9px;padding:11px 15px;font-size:.78rem;font-weight:850;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.instrument-tab:hover{color:#f6f6f7;background:#1a1b1e}
+.instrument-tab[aria-selected="true"]{background:#d7ff3f;color:#171a10;border-color:#d7ff3f;box-shadow:0 3px 12px #d7ff3f18}
+.instrument-tab-panel[hidden]{display:none!important}
+.instrument-tab-panel{animation:tabEnter .25s ease-out}
+@keyframes tabEnter{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.instrument-panel-intro{padding:15px 17px;border:1px solid #303138;border-radius:13px;background:linear-gradient(120deg,#141519,#0d0e10);margin:8px 0 14px}
+.instrument-panel-intro h4{font-size:1.05rem;margin:0 0 6px}.instrument-panel-intro p{font-size:.78rem;line-height:1.65;color:#a1a2aa;margin:0}
+.instrument-learning{margin-top:20px}
+.instrument-learning-head{margin-bottom:17px}
+.instrument-learning-head h3{font-size:clamp(1.55rem,3vw,2.2rem)}
+.meter-learning .lesson-step-icon{background:#201c10;border-color:#514326;color:#f1cc59}
+.meter-learning .lesson-action{background:#211d12;border-color:#584622;color:#f1cc59}
+.meter-learning .lesson-action:hover{border-color:#a88a3b;background:#2a2415}
+.meter-learning .worked-example-label,.meter-learning .calc-answer b,.meter-learning .practice-score strong,.meter-learning .practice-score-track span,.meter-learning .exercise-topline,.meter-learning .op-screen-label,.meter-learning .op-screen-formula{color:#f1cc59}
+.meter-learning .practice-score-track span{background:#f1cc59}
+.meter-learning .instrument-tabs .instrument-tab[aria-selected="true"]{background:#f1cc59;border-color:#f1cc59;color:#211b0b}
+.meter-learning .mode-symbol{background:#211d12;border-color:#514326;color:#f1cc59}
+.meter-learning .meter-mode-guide.selected{border-color:#8b7135;background:#1c190f}
+@media(max-width:600px){.instrument-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.instrument-tab{padding:10px 7px;font-size:.72rem}.balance-glass{height:135px}}
+@media(prefers-reduced-motion:reduce){.instrument-tab-panel{animation:none}}
+
 </style>
 </head>
 <body>
@@ -486,6 +540,13 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
   <div class="lab-sim" id="balanceLab" style="margin-top:20px">
     <span class="lab-label">SIMULADOR 01 · BALANZA</span><h3>Laboratorio virtual: coloca una masa y observa el error</h3>
     <p class="muted">Modifica el valor de referencia o el sesgo simulado del instrumento. Pulsa “Pesar” y observa la lectura, el error y el criterio didáctico. Es un modelo educativo, no una calibración real.</p>
+    <div class="instrument-tabs" role="tablist" aria-label="Secciones de práctica de la balanza">
+      <button class="instrument-tab" id="scaleTabOperate" role="tab" aria-selected="true" aria-controls="scalePanelOperate" data-instrument-tab="scale:operate">⚖ Usar balanza</button>
+      <button class="instrument-tab" id="scaleTabLearn" role="tab" aria-selected="false" aria-controls="scalePanelLearn" data-instrument-tab="scale:learn">Cómo se utiliza</button>
+      <button class="instrument-tab" id="scaleTabPractice" role="tab" aria-selected="false" aria-controls="scalePanelPractice" data-instrument-tab="scale:practice">Ejercicios</button>
+    </div>
+    <div id="scalePanelOperate" class="instrument-tab-panel" role="tabpanel" aria-labelledby="scaleTabOperate">
+      <div class="instrument-panel-intro"><h4>Laboratorio de pesaje</h4><p>Selecciona una masa patrón, ajusta el sesgo simulado y pulsa <b>Pesar</b>. Después interpreta la lectura y el error calculado.</p></div>
     <div class="sim-grid">
       <div class="balance-device balance-device-pro" role="img" aria-label="Balanza digital de precisión virtual con cámara de pesaje, platillo, pantalla LCD y controles">
         <div class="scale-instrument-top"><span class="scale-logo">METRO<span>·</span>LAB</span><span class="scale-model">PRECISION / CAL-01</span><span class="scale-level"><i></i></span></div>
@@ -499,6 +560,10 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
       <div class="sim-buttons"><button class="sim-btn" id="weighBtn" type="button">⚖ Pesar</button><button class="sim-btn alt" id="balanceZero" type="button">Tarar / cero</button><button class="sim-btn alt" id="balanceReset" type="button">Restablecer ejemplo</button></div>
       <div class="sim-readout" id="balanceResult" aria-live="polite"><strong>Antes de empezar:</strong> pulsa Pesar para comparar la indicación simulada con la referencia.</div></div>
     </div>
+    </div>
+    <div id="scalePanelLearn" class="instrument-tab-panel" role="tabpanel" aria-labelledby="scaleTabLearn" hidden></div>
+    <div id="scalePanelPractice" class="instrument-tab-panel" role="tabpanel" aria-labelledby="scaleTabPractice" hidden></div>
+
     <div class="live-chart"><b>Barra visual del error</b><svg id="balanceBar" viewBox="0 0 600 100" role="img" aria-label="Visualización del error de la balanza"><rect x="40" y="38" width="520" height="20" rx="10" fill="#dce5ee"/><rect x="40" y="38" width="260" height="20" rx="10" fill="#1d4ed8"/><line x1="300" y1="27" x2="300" y2="70" stroke="#14283d" stroke-width="3"/><text x="300" y="18" text-anchor="middle" font-size="13" fill="#14283d">0 g</text><text x="40" y="83" font-size="12" fill="#14283d">Error negativo</text><text x="560" y="83" text-anchor="end" font-size="12" fill="#14283d">Error positivo</text></svg><p class="caption">El centro representa error cero; izquierda significa que indica de menos y derecha que indica de más.</p></div>
   </div>
   
@@ -542,6 +607,13 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
   <div class="lab-sim" id="meterLab" style="margin-top:20px">
     <span class="lab-label">SIMULADOR 02 · MULTÍMETRO</span><h3>Opera un multímetro virtual</h3>
     <p class="muted">Elige la función, el rango y el voltaje de referencia. El multímetro simulado genera una indicación con un pequeño sesgo y calcula el error. No conectes un equipo físico para esta actividad digital.</p>
+    <div class="instrument-tabs" role="tablist" aria-label="Secciones de práctica del multímetro">
+      <button class="instrument-tab" id="meterTabOperate" role="tab" aria-selected="true" aria-controls="meterPanelOperate" data-instrument-tab="meter:operate">▣ Usar multímetro</button>
+      <button class="instrument-tab" id="meterTabLearn" role="tab" aria-selected="false" aria-controls="meterPanelLearn" data-instrument-tab="meter:learn">Cómo se utiliza</button>
+      <button class="instrument-tab" id="meterTabPractice" role="tab" aria-selected="false" aria-controls="meterPanelPractice" data-instrument-tab="meter:practice">Ejercicios</button>
+    </div>
+    <div id="meterPanelOperate" class="instrument-tab-panel" role="tabpanel" aria-labelledby="meterTabOperate">
+      <div class="instrument-panel-intro"><h4>Banco de medición eléctrica</h4><p>Selecciona la función en el control del simulador. La lectura y el error se actualizan con datos ficticios de práctica; no representan mediciones de un circuito real.</p></div>
     <div class="sim-grid">
       <div><div class="meter-shell meter-shell-pro" aria-label="Multímetro digital virtual con pantalla, selector de función, bornes y puntas de prueba">
         <div class="meter-topline"><span>METRO<span>·</span>LAB</span><span>DM-07 / DIGITAL MULTIMETER</span></div>
@@ -561,6 +633,10 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
       <div class="sim-buttons"><button class="sim-btn" id="meterMeasure" type="button">⚡ Medir</button><button class="sim-btn alt" id="meterSwap" type="button">Invertir sesgo</button><button class="sim-btn alt" id="meterReset" type="button">Restablecer</button></div>
       <div class="sim-readout" id="meterResult" aria-live="polite"><strong>Selecciona la función</strong> y pulsa Medir para comparar la indicación con la referencia.</div>
     </div></div>
+    </div>
+    <div id="meterPanelLearn" class="instrument-tab-panel" role="tabpanel" aria-labelledby="meterTabLearn" hidden></div>
+    <div id="meterPanelPractice" class="instrument-tab-panel" role="tabpanel" aria-labelledby="meterTabPractice" hidden></div>
+
     <div class="note"><b>Seguridad real:</b> no midas resistencia en un circuito energizado; para medir corriente, el método y los bornes son distintos de los usados para medir voltaje. Esta simulación no sustituye el manual del equipo ni la supervisión docente.</div>
   </div>
   <section class="instrument-learning meter-learning" id="meterPractice" aria-labelledby="meterPracticeTitle">
@@ -896,6 +972,55 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
     });
     updateScore("mass");updateScore("voltage");
   })();
+
+
+(function initInstrumentTabs(){
+  function setup(kind,labId,practiceId,panels){
+    var lab=document.getElementById(labId),learn=document.getElementById(practiceId);
+    if(!lab||!learn)return;
+    var operate=lab.querySelector(".sim-grid");
+    var charts=lab.querySelectorAll(".live-chart");
+    var safety=lab.querySelector(".note");
+    var head=learn.querySelector(".instrument-learning-head");
+    var steps=learn.querySelector(".lesson-steps");
+    var guides=learn.querySelector(".meter-mode-guides");
+    var opGuide=learn.querySelector(".meter-operation-guide");
+    var examples=learn.querySelectorAll(".worked-example");
+    var practice=learn.querySelector(".practice-zone");
+    var learnPanel=document.getElementById(panels.learn);
+    var practicePanel=document.getElementById(panels.practice);
+    if(!operate||!learnPanel||!practicePanel)return;
+    // Create tab content from the already-authored learning sequence.
+    var guideIntro=document.createElement("div");guideIntro.className="instrument-panel-intro";
+    var guideTitle=document.createElement("h4");guideTitle.textContent=kind==="scale"?"Cómo utilizar la balanza, paso a paso":"Cómo utilizar el multímetro, paso a paso";
+    var guideText=document.createElement("p");guideText.textContent=kind==="scale"?"Sigue esta secuencia cada vez que peses: verifica el cero, coloca la masa sin tocar el platillo y registra la indicación estable.":"Identifica la magnitud, selecciona la función adecuada y verifica los bornes antes de medir. Usa resistencia y continuidad solo en circuitos desenergizados.";
+    guideIntro.append(guideTitle,guideText);learnPanel.appendChild(guideIntro);
+    if(head)learnPanel.appendChild(head);
+    if(steps)learnPanel.appendChild(steps);
+    if(guides)learnPanel.appendChild(guides);
+    if(opGuide)learnPanel.appendChild(opGuide);
+    if(examples[0])learnPanel.appendChild(examples[0]);
+    if(practice)practicePanel.appendChild(practice);
+    // Hide the old section shell, but keep all existing interactive elements in their tab panels.
+    learn.hidden=true;
+    function select(tab){
+      var tabButtons=lab.querySelectorAll("[data-instrument-tab]");
+      tabButtons.forEach(function(btn){var active=btn.getAttribute("data-instrument-tab")===kind+":"+tab;btn.setAttribute("aria-selected",active?"true":"false");btn.tabIndex=active?0:-1});
+      document.getElementById(panels.operate).hidden=tab!=="operate";
+      learnPanel.hidden=tab!=="learn";
+      practicePanel.hidden=tab!=="practice";
+      if(tab==="operate"){operate.hidden=false;charts.forEach(function(el){el.hidden=false});if(safety)safety.hidden=false}
+      if(tab!=="operate"){operate.hidden=true;charts.forEach(function(el){el.hidden=true});if(safety)safety.hidden=true}
+    }
+    lab.querySelectorAll("[data-instrument-tab]").forEach(function(btn){
+      btn.addEventListener("click",function(){select(btn.getAttribute("data-instrument-tab").split(":")[1])});
+      btn.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();var all=Array.from(lab.querySelectorAll("[data-instrument-tab]"));var i=all.indexOf(btn),n=e.key==="ArrowRight"?(i+1)%all.length:(i+all.length-1)%all.length;all[n].focus();all[n].click()}});
+    });
+    select("operate");
+  }
+  setup("scale","balanceLab","balancePractice",{operate:"scalePanelOperate",learn:"scalePanelLearn",practice:"scalePanelPractice"});
+  setup("meter","meterLab","meterPractice",{operate:"meterPanelOperate",learn:"meterPanelLearn",practice:"meterPanelPractice"});
+})();
 
 </script>
 </body>
