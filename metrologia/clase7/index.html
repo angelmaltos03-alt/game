@@ -552,7 +552,7 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
         <div class="meter-jacks"><div class="meter-port"><span class="meter-jack"></span><small>COM</small></div><div class="meter-port"><span class="meter-jack red"></span><small>VΩ</small></div><div class="meter-port"><span class="meter-jack amp"></span><small>mA</small></div></div>
         <div class="probe-lines"><span>NEGRO · COM</span><span>ROJO · VΩ</span></div>
         <svg class="meter-lead-art" viewBox="0 0 300 70" aria-hidden="true"><path d="M95 4 C35 10 15 28 37 60" fill="none" stroke="#101214" stroke-width="7" stroke-linecap="round"/><path d="M203 4 C265 10 285 29 263 60" fill="none" stroke="#e43e4b" stroke-width="7" stroke-linecap="round"/><path d="M37 60 l-5 5 M263 60 l5 5" stroke="#c7cdd3" stroke-width="3" stroke-linecap="round"/></svg>
-      </div><div class="small muted meter-caption-pro">Ilustración funcional · el selector cambia de modo y la pantalla muestra lecturas simuladas.</div>
+      </div><div class="small muted meter-caption-pro">Ilustración funcional · el selector cambia de modo y la pantalla muestra lecturas simuladas.</div></div>
       <div class="sim-control"><label for="meterMode">Función de medición</label><select id="meterMode"><option value="VDC">Voltaje continuo (V DC)</option><option value="VAC">Voltaje alterno (V AC)</option><option value="OHM">Resistencia (Ω)</option><option value="CONT">Continuidad (simulada)</option></select>
       <label for="meterRef">Valor de referencia <span id="meterRefUnit">(V)</span></label><input id="meterRef" type="number" step="0.001" value="5">
       <label for="meterBias">Sesgo simulado: <strong id="meterBiasLabel">−0.030 V</strong></label><input id="meterBias" type="range" min="-0.20" max="0.20" step="0.001" value="-0.030">
@@ -856,7 +856,7 @@ footer{border-color:#242427;color:#85858d;margin-top:60px}
           feedback.innerHTML="<b>¡Correcto!</b> "+item.solution+" <br><b>Resultado esperado:</b> "+item.expected;
           btn.textContent="Respuesta correcta ✓";updateScore(id.indexOf("mass-")===0?"mass":"voltage");return;
         }
-        card.classList.remove("solved");card.classList.add("needs-work");attempts[id]=(attempts[id]||0)+1;
+        card.classList.remove("solved");card.classList.add("needs-work");solved.delete(id);attempts[id]=(attempts[id]||0)+1;
         if(attempts[id]===1){
           feedback.className="practice-feedback show hint";feedback.innerHTML="<b>Vas cerca; revisa este paso.</b> "+item.hint+" <br>Inténtalo otra vez. No te damos todavía el resultado para que puedas descubrirlo.";
         }else{
