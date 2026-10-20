@@ -977,9 +977,232 @@ body:before{
 }
 @media(prefers-reduced-motion:reduce){body:before{opacity:.25}}
 
+
+/* LIQUID GLASS UI · slate midnight, violet haze, refractive surfaces */
+:root{
+  color-scheme:dark;
+  --bg:#020617;--panel:#0f172a;--panel2:#131a30;--line:rgba(255,255,255,.16);
+  --text:#f7f8ff;--muted:#b5bdd3;--cyan:#8be9ff;--blue:#a5b4fc;
+  --green:#86efcf;--amber:#f8d38b;--red:#fda4af;--pink:#f0abfc;
+  --attention-lime:#8be9ff;--attention-cyan:#8be9ff;--attention-violet:#c4b5fd;
+}
+html{background:#020617;color-scheme:dark}
+body{
+  position:relative;isolation:isolate;overflow-x:hidden;min-height:100vh;color:#f7f8ff;
+  background:linear-gradient(135deg,#020617 0%,#0a1027 42%,#1e1242 76%,#2e1065 100%);
+}
+body:before{
+  background:
+    linear-gradient(rgba(194,205,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(194,205,255,.035) 1px,transparent 1px),
+    radial-gradient(ellipse at 50% -20%,rgba(139,92,246,.2),transparent 58%);
+  background-size:38px 38px,38px 38px,auto;opacity:.72;
+}
+.liquid-svg-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.liquid-ambient{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;contain:strict}
+.liquid-orb{position:absolute;display:block;width:42vw;height:42vw;min-width:300px;min-height:300px;max-width:780px;max-height:780px;border-radius:50%;filter:blur(78px);opacity:.42;mix-blend-mode:screen;will-change:transform}
+.liquid-orb-a{left:-12vw;top:-18vh;background:radial-gradient(circle at 38% 40%,#3b82f6 0%,#2563eb66 34%,transparent 69%);animation:liquidFloatA 25s ease-in-out infinite alternate}
+.liquid-orb-b{right:-12vw;top:5vh;background:radial-gradient(circle at 50% 50%,#a855f7 0%,#7c3aed77 38%,transparent 72%);animation:liquidFloatB 29s ease-in-out infinite alternate}
+.liquid-orb-c{left:34vw;bottom:-32vh;width:48vw;height:48vw;background:radial-gradient(circle at 50% 45%,#06b6d4 0%,#4338ca55 38%,transparent 72%);animation:liquidFloatC 32s ease-in-out infinite alternate}
+@keyframes liquidFloatA{0%{transform:translate3d(0,0,0) scale(.92)}100%{transform:translate3d(12vw,17vh,0) scale(1.18)}}
+@keyframes liquidFloatB{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-15vw,12vh,0) scale(.88)}}
+@keyframes liquidFloatC{0%{transform:translate3d(-8vw,-3vh,0) scale(.9)}100%{transform:translate3d(9vw,-16vh,0) scale(1.14)}}
+.app-shell{position:relative;z-index:1;isolation:isolate;background:transparent}
+.app-main{position:relative;z-index:1;background:transparent}
+.app-content.wrap{color:#f7f8ff}
+.app-content h1,.app-content h2,.app-content h3,.app-content h4,
+.app-content .heading h2,.app-content .console-heading h2,.app-content .path-title h3,
+.app-content .logbook h3{color:#f7f8ff}
+.app-content h1 span,.app-content .console-heading h2 span{color:#b9a5ff}
+.app-content p,.app-content li,.app-content .lead,.app-content .heading p,
+.app-content .console-heading p,.app-content .muted,.app-content .caption,
+.app-content .legend,.app-content .chart-explainer p,.app-content .chart-explainer li{color:rgba(235,240,255,.72)}
+.app-content .eyebrow{color:#8be9ff;text-shadow:0 0 18px #8be9ff30}
+.app-content .tag{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#e7eafe}
+.app-content .tag.gold{background:rgba(196,181,253,.12);border-color:rgba(196,181,253,.25);color:#dfd6ff}
+.app-content .btn,.app-content .check-practice,.app-content .lesson-action,
+.app-content .console-run{
+  background:linear-gradient(135deg,#8be9ff,#b9a5ff);color:#081024;border-color:rgba(255,255,255,.4);
+  box-shadow:0 8px 24px rgba(75,125,255,.2),inset 0 1px rgba(255,255,255,.55);
+}
+.app-content .btn:hover,.app-content .check-practice:hover,.app-content .lesson-action:hover,
+.app-content .console-run:hover{filter:brightness(1.08);box-shadow:0 10px 28px #7c83ff35}
+.app-content .btn.secondary,.app-content .console-reset,.app-content .log-result-btn,
+.app-content .export-log-btn,.app-content .sim-btn.alt{
+  background:rgba(255,255,255,.07);color:#f1f4ff;border-color:rgba(255,255,255,.17);
+}
+.app-content .btn.secondary:hover,.app-content .console-reset:hover,
+.app-content .log-result-btn:hover,.app-content .export-log-btn:hover{background:rgba(255,255,255,.13)}
+.app-content .liquid-glass{
+  position:relative;isolation:isolate;
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035))!important;
+  border:1px solid rgba(255,255,255,.19)!important;
+  box-shadow:0 18px 54px rgba(0,0,0,.19),inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -1px 0 rgba(255,255,255,.045),0 0 0 1px rgba(139,233,255,.035);
+  -webkit-backdrop-filter:blur(26px) saturate(1.55);
+  backdrop-filter:blur(26px) saturate(1.55);
+  color:#f4f6ff;
+  overflow:hidden;
+}
+.app-content .liquid-glass:before{
+  content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 0% 0%,rgba(255,255,255,.19),transparent 48%),
+    linear-gradient(120deg,rgba(255,255,255,.09),rgba(99,102,241,.045) 42%,rgba(6,182,212,.055));
+  -webkit-backdrop-filter:blur(22px) saturate(1.7);
+  backdrop-filter:blur(22px) saturate(1.7);
+  filter:url(#liquidDisplacement);opacity:.92;
+}
+.app-content .liquid-glass:after{
+  content:"";position:absolute;inset:0;padding:1px;border-radius:inherit;pointer-events:none;z-index:4;
+  background:linear-gradient(128deg,rgba(255,255,255,.58),rgba(103,232,249,.28) 24%,rgba(167,139,250,.28) 53%,rgba(244,114,182,.16) 78%,rgba(255,255,255,.36));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:.53;
+  filter:url(#liquidChromaticRim);
+}
+.app-content .liquid-glass:hover{border-color:rgba(255,255,255,.28)!important;box-shadow:0 22px 64px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.25),0 0 30px rgba(139,92,246,.08)}
+.app-content .hero{position:relative;min-height:0;margin:12px auto 26px;padding:clamp(25px,4vw,54px);gap:clamp(28px,4vw,60px);border-radius:32px}
+.app-content .hero-art{background:rgba(255,255,255,.055)!important;border-color:rgba(255,255,255,.18)!important}
+.app-content .hero-art svg{filter:saturate(.85) contrast(1.03)}
+.app-content .console-topline{color:#bec6df;border-color:rgba(255,255,255,.12)}
+.app-content .console-session,.app-content .session-icon,.app-content .session-status,
+.app-content .tiny-state,.app-content .session-chip,.app-content .environment-chip,
+.app-content .result-status,.app-content .logbook-count{
+  background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.17);color:#eaf0ff;
+}
+.app-content .dashboard-stats{gap:14px}
+.app-content .dash-stat{color:#f7f8ff}
+.app-content .dash-stat strong,.app-content .dash-stat b{color:#f7f8ff}
+.app-content .stat-label,.app-content .dash-stat small,.app-content .nav-copy small,
+.app-content .instrument-tab small,.app-content .session-status{color:rgba(231,237,255,.64)}
+.app-content .stat-glyph,.app-content .icon{color:#8be9ff}
+.app-content .workbench{background:transparent!important;border-color:rgba(255,255,255,.17)!important}
+.app-content .workbench-rail{background:rgba(4,8,22,.16)!important;border-color:rgba(255,255,255,.11)!important}
+.app-content .workbench-toolbar,.app-content .panel-head,.app-content .result-head,
+.app-content .logbook-head{border-color:rgba(255,255,255,.12)}
+.app-content .rail-label,.app-content .toolbar-kicker,.app-content .step-kicker{color:#a8b4d2}
+.app-content .rail-step{color:#e3e9fa}
+.app-content .rail-step:hover{background:rgba(255,255,255,.06)}
+.app-content .rail-step.active{background:rgba(167,139,250,.15);border-color:rgba(196,181,253,.32);color:#fff}
+.app-content .rail-num{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#e5eafe}
+.app-content .rail-step.active .rail-num{background:#b9a5ff;border-color:#b9a5ff;color:#17132c}
+.app-content .rail-step small,.app-content .rail-tip p{color:rgba(231,237,255,.66)}
+.app-content .rail-tip{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.19);color:#ffe7b4}
+.app-content .measure-intro,.app-content .result-footnote,.app-content .entry-hint{color:rgba(231,237,255,.63)}
+.app-content .measure-console label,.app-content .sim-control label{color:#e2e8fa}
+.app-content .value-input,.app-content .fieldrow input,.app-content .answer input,
+.app-content .sim-control input,.app-content .sim-control select,
+.app-content input:not([type="range"]),.app-content select,.app-content textarea{
+  background:rgba(5,9,24,.52)!important;color:#f5f7ff!important;border-color:rgba(255,255,255,.19)!important;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.12);
+}
+.app-content input::placeholder,.app-content textarea::placeholder{color:rgba(228,234,255,.42)}
+.app-content .result-console{background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035))!important;border-color:rgba(255,255,255,.18)!important}
+.app-content .result-status{color:#baf7db}
+.app-content .error-number strong,.app-content .result-metrics b{color:#f7f8ff}
+.app-content .result-metrics>div,.app-content .tolerance-block,.app-content .verdict{
+  background:rgba(6,11,28,.24);border-color:rgba(255,255,255,.12);color:#eef2ff;
+}
+.app-content .verdict{background:rgba(52,211,153,.09);border-color:rgba(52,211,153,.22)}
+.app-content .verdict p{color:#bcebd5}
+.app-content .tolerance-track,.app-content .workflow-track,.app-content .quiz-progress-track{background:rgba(255,255,255,.12)}
+.app-content .tolerance-track>div,.app-content .workflow-track span{background:linear-gradient(90deg,#67e8f9,#a78bfa)}
+.app-content .workflow-progress-label,.app-content .tolerance-labels,.app-content .tolerance-caption{color:#c4cce2}
+.app-content .instrument-tabs{background:rgba(255,255,255,.055)!important;border-color:rgba(255,255,255,.15)!important}
+.app-content .instrument-tab{background:transparent;color:#d5dcf1;border-color:transparent}
+.app-content .instrument-tab[aria-selected="true"],.app-content .instrument-tab.selected{
+  background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.23);color:#a5f3fc;
+  box-shadow:inset 0 1px rgba(255,255,255,.16),0 4px 12px #02061726;
+}
+.app-content .instrument-tab b{color:inherit}
+.app-content .instrument-tab small{color:rgba(228,234,255,.6)}
+.app-content .sim-control{background:rgba(5,9,24,.24)!important;border-color:rgba(255,255,255,.15)!important;color:#f4f6ff}
+.app-content .sim-readout,.app-content .calc-result{background:rgba(5,9,24,.45)!important;border-color:rgba(255,255,255,.15)!important;color:#edf2ff}
+.app-content .sim-readout strong,.app-content .calc-result .big{color:#8be9ff}
+.app-content .sim-btn{background:linear-gradient(135deg,#8be9ff,#b9a5ff);color:#081024}
+.app-content .meter-shell,.app-content .meter-shell-pro{
+  background:linear-gradient(145deg,#343f56,#151f35);border-color:rgba(255,255,255,.28);
+  box-shadow:0 18px 36px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.34);
+}
+.app-content .meter-screen{background:#dff8e9;border-color:#5a6a70;color:#173d31;box-shadow:inset 0 0 12px #405d491c}
+.app-content .meter-unit{color:#2f6554}
+.app-content .meter-dial{border-color:#9cacc8}
+.app-content .meter-dial:before{background:linear-gradient(180deg,#fff,#8be9ff);box-shadow:0 0 5px #8be9ff66}
+.app-content .meter-dial:after{color:#d8e3ff}
+.app-content .meter-scale-labels span{background:#e7edff;border-color:#aebfe3;color:#17223b}
+.app-content .meter-function-caption{background:linear-gradient(100deg,#d7e7ff,#a9c9ed);border-color:#7e9bc8;color:#17233b}
+.app-content .meter-port-label,.app-content .meter-port,.app-content .probe-lines{color:#d8e0f4}
+.app-content .meter-jack{background:#18212e;border-color:#f7f9fc}
+.app-content .meter-jack.red{border-color:#fca5a5}
+.app-content .meter-port.active-port .meter-jack{box-shadow:0 0 0 3px #8be9ff,0 0 14px #8be9ff55}
+.app-content .meter-port.active-port small{color:#8be9ff}
+.app-content .meter-caption-pro{color:#c3cce3}
+.app-content .meter-instrument-note{color:#4b3c1b;background:#ffedba;border-color:#f5d57b}
+.app-content .chart-reading-key>div{background:rgba(4,8,22,.25);border-color:rgba(255,255,255,.12)}
+.app-content .chart-reading-key b{color:#eaf0ff}
+.app-content .chart-reading-key span{color:rgba(231,237,255,.65)}
+.app-content .mcq .opt,.app-content .opt{background:rgba(255,255,255,.065);color:#e7ecfb;border-color:rgba(255,255,255,.15)}
+.app-content .mcq .opt:hover,.app-content .opt:hover{background:rgba(255,255,255,.12);border-color:rgba(139,233,255,.42)}
+.app-content .mcq .opt.selected,.app-content .opt.selected{background:rgba(139,233,255,.12);border-color:#8be9ff;color:#d9faff}
+.app-content .mcq .opt.correct,.app-content .opt.correct{background:rgba(52,211,153,.12);border-color:#6ee7b7;color:#b9f8db}
+.app-content .mcq .opt.wrong,.app-content .opt.wrong{background:rgba(251,113,133,.11);border-color:#fda4af;color:#ffd7de}
+.app-content .feedback.ok{background:rgba(52,211,153,.12);color:#b9f8db}
+.app-content .feedback.no{background:rgba(251,113,133,.12);color:#ffd4dc}
+.app-content .feedback.hint{background:rgba(251,191,36,.11);color:#ffe8b5}
+.app-content .practice-feedback,.app-content .practice-exercise .practice-feedback{color:#edf2ff}
+.app-content .table-wrap,.app-content .logbook-table-wrap{border-color:rgba(255,255,255,.17)}
+.app-content table,.app-content .logbook-table{background:rgba(5,9,24,.28)!important;color:#edf2ff}
+.app-content td,.app-content th{border-color:rgba(255,255,255,.1);color:#e2e8f8}
+.app-content th{background:rgba(255,255,255,.09);color:#a5f3fc}
+.app-content tr:nth-child(even) td{background:rgba(255,255,255,.035)}
+.app-content .formula-card b,.app-content .formula-card strong{color:#8be9ff}
+.app-content .progress{background:rgba(255,255,255,.12)}
+.app-content .progress div{background:linear-gradient(90deg,#67e8f9,#a78bfa)}
+.app-content .successnote,.app-content .feedback.ok{color:#b9f8db}
+.app-content .app-empty-state{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#c3cce3}
+.app-content a{color:#9fe8ff}
+.app-content button:focus-visible,.app-content a:focus-visible,
+.app-content input:focus-visible,.app-content select:focus-visible{outline-color:#8be9ff}
+#meterBias{accent-color:#8be9ff}
+#meterBias::-webkit-slider-runnable-track{background:linear-gradient(90deg,#60a5fa 0%,#8be9ff 50%,#c4b5fd 100%);border-color:rgba(255,255,255,.2)}
+#meterBias::-moz-range-track{background:linear-gradient(90deg,#60a5fa 0%,#8be9ff 50%,#c4b5fd 100%);border-color:rgba(255,255,255,.2)}
+#meterBias::-webkit-slider-thumb{border-color:#eafaff;background:#7c8cff;box-shadow:0 0 0 3px #8be9ff22,0 2px 9px #0008}
+#meterBias::-moz-range-thumb{border-color:#eafaff;background:#7c8cff;box-shadow:0 0 0 3px #8be9ff22,0 2px 9px #0008}
+#meterBias:focus-visible{outline-color:#8be9ff}
+@media(max-width:760px){
+  .app-sidebar{background:rgba(10,15,34,.72);border-color:rgba(255,255,255,.14);box-shadow:0 1px 20px #02061755}
+  .app-content .instrument-tabs{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.16)}
+  .liquid-orb{filter:blur(58px);opacity:.36}
+  .app-content .hero{padding:24px 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .liquid-orb{animation:none!important}
+  body:before{opacity:.25}
+  .app-content .liquid-glass:before{filter:none}
+}
+
 </style>
 </head>
 <body>
+
+<div class="liquid-ambient" aria-hidden="true">
+  <span class="liquid-orb liquid-orb-a"></span>
+  <span class="liquid-orb liquid-orb-b"></span>
+  <span class="liquid-orb liquid-orb-c"></span>
+</div>
+<svg class="liquid-svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="0" height="0">
+  <filter id="liquidDisplacement" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.018 0.028" numOctaves="2" seed="11" result="liquidNoise">
+      <animate attributeName="baseFrequency" dur="18s" values="0.018 0.028;0.025 0.018;0.014 0.024;0.018 0.028" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="liquidNoise" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="liquidChromaticRim" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" seed="5" result="rimNoise"/>
+    <feDisplacementMap in="SourceGraphic" in2="rimNoise" scale="3" xChannelSelector="R" yChannelSelector="B"/>
+  </filter>
+</svg>
+
 
 <div class="app-shell">
   <aside class="app-sidebar" aria-label="Navegación del software">
@@ -1766,5 +1989,27 @@ body:before{
 })();
 
 </script>
+
+<script>
+(function applyLiquidGlass(){
+  var selector=[
+    ".app-sidebar",".app-topbar",".app-content .hero",
+    ".app-content .hero-art",".app-content .dash-stat",
+    ".app-content .console-session",".app-content .workbench",
+    ".app-content .workbench-rail",".app-content .workbench-main",
+    ".app-content .measure-console",".app-content .result-console",
+    ".app-content .instrument-tabs",".app-content .card",
+    ".app-content .graphic",".app-content .lab-sim",
+    ".app-content .formula-card",".app-content .path-card",
+    ".app-content .logbook",".app-content .instrument-panel-intro",
+    ".app-content .exercise",".app-content .mcq",
+    ".app-content .learning-path",".app-content .instrument-learning"
+  ].join(",");
+  document.querySelectorAll(selector).forEach(function(el){
+    if(!el.classList.contains("liquid-glass")) el.classList.add("liquid-glass");
+  });
+})();
+</script>
+
 </body>
 </html>
