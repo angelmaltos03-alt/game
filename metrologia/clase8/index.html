@@ -101,6 +101,66 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 @media(max-width:600px){.journey-head{display:block}.rank-chip{margin-top:14px;width:max-content}.journey-track{grid-template-columns:1fr}.journey-stage{min-height:0}.hero:before{display:none}.journey{padding:16px}.journey-foot{display:block}.journey-foot span{display:block;margin:5px 0}}
 @media(prefers-reduced-motion:reduce){.journey-stage,.rank-progress span{transition:none}}
 
+
+/* OPTIMIZACIÓN DE USO REAL: móvil, accesibilidad, lectura y navegación */
+html{scroll-padding-top:calc(78px + env(safe-area-inset-top));-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden;overflow-x:clip;min-width:320px;padding-bottom:env(safe-area-inset-bottom)}
+img,svg,video,canvas{max-width:100%;height:auto}
+button,a,input,select,textarea{touch-action:manipulation}
+button,.btn,.side a,.choice{min-height:44px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.next-mission-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 15px;min-height:42px;border:1px solid #4c899f;border-radius:999px;background:linear-gradient(100deg,#164457,#10273a);color:#a8f3ff;text-decoration:none;font-size:.68rem;font-weight:950;letter-spacing:.1em;white-space:nowrap;transition:transform .2s,border-color .2s}
+.next-mission-link:hover{transform:translateY(-2px);border-color:var(--cyan)}
+.journey-foot{align-items:center}
+/* Tablas: desplazamiento horizontal intencional, sin romper el ancho del móvil */
+.tablewrap{position:relative;max-width:100%;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#47728c #081827}
+.tablewrap table{width:max-content;min-width:100%}
+.tablewrap:focus-within{outline:2px solid #70e5ff66;outline-offset:2px}
+.tablewrap td,.tablewrap th{white-space:normal;min-width:74px}
+.tablewrap td:first-child,.tablewrap th:first-child{position:sticky;left:0;z-index:1;background:#10263a}
+.tablewrap th:first-child{background:#17334c}
+/* Formularios y respuestas: evitar zoom automático de Safari y mejorar pulsación */
+.field input,.field select,.field textarea,.sim-control input,.sim-control select,.fieldrow input,.answer input{font-size:16px;min-height:46px;max-width:100%}
+.choice{align-items:center;line-height:1.45}
+.choice input{width:20px;height:20px;flex:0 0 20px}
+.field textarea{min-height:110px}
+/* Navegación móvil compacta y desplazable con el pulgar */
+@media(max-width:900px){
+ html{scroll-padding-top:24px}
+ .layout{display:block}
+ .side{position:sticky;top:0;z-index:25;display:flex;align-items:center;gap:7px;margin:0 -4vw 16px;padding:9px 4vw;border:0;border-bottom:1px solid #35516a;border-radius:0;background:#07111ff2;backdrop-filter:blur(18px);overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+ .side::-webkit-scrollbar{display:none}
+ .side a{flex:0 0 auto;scroll-snap-align:start;white-space:nowrap;padding:8px 11px;border:1px solid #2b465f;border-radius:999px;font-size:.77rem;min-height:40px}
+ .side a:after{display:none}
+ .side a.active{border-color:#5aa4bd;background:#164258}
+ .side .num{width:21px;height:21px;font-size:.64rem}
+ .content{min-width:0}
+ .section{scroll-margin-top:68px}
+ .tablewrap{margin-right:0}
+}
+@media(max-width:600px){
+ .wrap{width:calc(100% - 28px)}
+ .top{position:sticky;top:0;min-height:58px;padding:8px 14px;gap:8px;flex-direction:row;align-items:center}
+ .brand{font-size:.82rem;letter-spacing:.08em;gap:8px}.mark{width:33px;height:33px;border-radius:10px;font-size:17px}.brand small{font-size:.55rem}
+ .topright{gap:5px}.topright .pill{padding:6px 8px;font-size:.67rem}.topright .pill:nth-child(2){display:inline-flex}.topright .btn{min-height:34px;padding:6px 9px;font-size:.68rem}
+ .hero{padding:32px 0 18px;gap:18px}.hero h1{font-size:clamp(2.25rem,11vw,3.2rem);line-height:1.01}.lead{font-size:1rem;line-height:1.55}.hero-actions{display:grid;grid-template-columns:1fr;gap:8px}.hero-actions .btn{width:100%}
+ .hero-art{max-width:none}.hero-art svg{width:100%}
+ .progressbox{margin:10px 0 16px;padding:12px}.progressline{font-size:.69rem;align-items:center}
+ .stats{gap:8px;margin-bottom:20px}.stat{padding:12px}.stat b{font-size:1.25rem}.stat small{font-size:.68rem}
+ .journey{margin-bottom:20px}.journey-head h2{font-size:1.65rem}.journey-head p{font-size:.82rem}.journey-track{gap:8px}.journey-stage{padding:12px;gap:10px}.stage-node{width:32px;height:32px;flex-basis:32px;border-radius:10px}.journey-stage p{font-size:.75rem}.journey-foot{display:grid;grid-template-columns:1fr;gap:8px}.next-mission-link{width:100%;white-space:normal}
+ .side{margin:0 -14px 14px;padding:8px 14px;gap:6px}
+ .side a{font-size:.72rem;padding:7px 10px;min-height:38px}
+ .section{padding:23px 0 32px;scroll-margin-top:62px}.heading{display:block;margin-bottom:13px}.heading h2{font-size:1.7rem}.heading p{font-size:.84rem;margin-top:6px}
+ .card,.panel,.task{padding:14px;border-radius:16px}.grid,.grid.three,.fields{grid-template-columns:minmax(0,1fr);gap:10px}
+ .book-ref{gap:8px;padding:10px}.book-ref p{font-size:.75rem}.book-ref-tag{display:none}
+ .step-lab{padding:13px}.step-lab h3{font-size:1.2rem}.step-detail summary{align-items:flex-start}.step-body{padding:0 12px 13px}.step-detail>button{margin:0 12px 12px;width:calc(100% - 24px)}
+ .tablewrap{border-radius:10px}.tablewrap table{font-size:.76rem;min-width:560px}.tablewrap th,.tablewrap td{padding:8px 9px;min-width:68px}
+ .field input,.field select,.field textarea,.sim-control input,.sim-control select,.fieldrow input,.answer input{font-size:16px}
+ .fields .btn,.task .btn,.panel .btn{width:100%}
+ .footer{padding-bottom:28px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.next-mission-link{transition:none}}
+
 </style>
 </head>
 <body>
@@ -160,7 +220,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   <article class="journey-stage" data-stage="2"><span class="stage-node">03</span><div><small>FASE 03</small><h3>Investiga</h3><p>Analiza el caso completo y construye la tabla ANOVA.</p><b class="stage-count" id="stage2">0/2</b></div></article>
   <article class="journey-stage" data-stage="3"><span class="stage-node">04</span><div><small>FASE 04</small><h3>Certifica</h3><p>Audita, integra, evalúa y defiende tus decisiones.</p><b class="stage-count" id="stage3">0/4</b></div></article>
  </div>
- <div class="journey-foot"><span id="nextMission">Siguiente objetivo: completa tu diagnóstico.</span><span id="xpNext">40 XP para Técnico</span></div>
+ <div class="journey-foot"><span id="nextMission">Siguiente objetivo: completa tu diagnóstico.</span><a class="next-mission-link" id="nextMissionLink" href="#diagnostico">IR A MI SIGUIENTE RETO <span aria-hidden="true">→</span></a><span id="xpNext">40 XP para Técnico</span></div>
  <div class="rank-progress"><span id="rankProgressFill"></span></div>
 </section>
 
@@ -826,6 +886,7 @@ function renderProgress(){
  const nextTasks=[["warmup","diagnostico","Completa tu diagnóstico inicial."],["calc","herramientas","Practica el cálculo de promedios y rangos."],["e1","ejercicio1","Resuelve el ejercicio de comparación de operadores."],["e1diag","ejercicio1","Justifica tu diagnóstico del ejercicio 1."],["e2","ejercicio2","Descompón las fuentes de variación."],["e3","ejercicio3","Calcula los indicadores del estudio R&R."],["e3read","ejercicio3","Interpreta el resultado del estudio."],["case","caso60","Analiza las 60 lecturas del caso."],["anova","anovaProfundo","Construye e interpreta la tabla ANOVA."],["audit","auditoria","Completa la auditoría del sistema."],["integr","integradora","Resuelve la actividad integradora."],["exam","evaluacion","Demuestra lo aprendido en la evaluación."],["deep","profundizacion","Supera los retos de profundización."]];
  const upcoming=nextTasks.find(t=>!state.done[t[0]]);
  document.getElementById("nextMission").textContent=upcoming?"Siguiente objetivo: "+upcoming[2]:"¡Ruta completada! Ya dominas el laboratorio.";
+ const nextLink=document.getElementById("nextMissionLink");nextLink.href=upcoming?"#"+upcoming[1]:"#reporte";nextLink.textContent=upcoming?"IR A MI SIGUIENTE RETO →":"VER MI REPORTE FINAL →";
  document.getElementById("reportXP").textContent=state.xp+" XP";document.getElementById("reportDone").textContent=done+" / "+total;
 }
 function val(id){return document.getElementById(id).value.trim().replace(",",".");}
