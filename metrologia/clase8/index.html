@@ -146,11 +146,12 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 <a href="#ejercicio2"><span class="num">04</span> Ejercicio 2</a>
 <a href="#ejercicio3"><span class="num">05</span> Ejercicio 3</a>
 <a href="#caso60"><span class="num">06</span> Caso 60 lecturas</a>
-<a href="#auditoria"><span class="num">07</span> Auditoría</a>
-<a href="#integradora"><span class="num">08</span> Integradora</a>
-<a href="#evaluacion"><span class="num">09</span> Evaluación</a>
-<a href="#profundizacion"><span class="num">10</span> Profundización</a>
-<a href="#reporte"><span class="num">10</span> Mi reporte</a>
+<a href="#anovaProfundo"><span class="num">07</span> ANOVA a fondo</a>
+<a href="#auditoria"><span class="num">08</span> Auditoría</a>
+<a href="#integradora"><span class="num">09</span> Integradora</a>
+<a href="#evaluacion"><span class="num">10</span> Evaluación</a>
+<a href="#profundizacion"><span class="num">11</span> Profundización</a>
+<a href="#reporte"><span class="num">12</span> Mi reporte</a>
 </aside>
 
 <div class="content">
@@ -451,7 +452,200 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
     </div>
     <button class="btn" type="button" id="checkCase">Comprobar caso de 60 lecturas</button><div class="feedback" id="fb-case"></div>
   </div>
+  <div class="note good"><b>AMPLIACIÓN ANOVA:</b> para ver cómo se construye cada columna de la tabla, resuelve el ejemplo pequeño y compara las dos tablas del cuadernillo en las páginas 58–67. <a href="#anovaProfundo">Ir a ANOVA a fondo ↓</a></div>
   <div class="note warn"><b>Lectura técnica de los resultados del cuadernillo:</b> σ²EV = 0.000005 mm²; σ²AV = 0.000036500 mm²; σ²GRR = 0.000041500 mm²; σ²PV = 0.002058056 mm². El % contribución R&amp;R = 1.98%; %SV = 14.06%; %Tolerancia = 19.33%; ndc = 9.93, reportado como 9 categorías completas. No confundas el ejemplo didáctico de 60 lecturas con el caso manual reducido de cinco piezas que también aparece en el cuadernillo.</div>
+</section>
+
+
+<section class="section" id="anovaProfundo">
+ <div class="heading"><div><div class="kicker">ANEXO DIDÁCTICO · CUADERNILLO PP. 58–67</div><h2>ANOVA a fondo: construye la tabla, no la memorices</h2></div><span class="tag gold">Explicación ampliada</span></div>
+ <div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · PP. 58–67</b><p>Lee el anexo completo. Allí se desarrolla un ejemplo pequeño, el caso de 30 lecturas y el caso de 60 lecturas. Esta sección reproduce la secuencia y te permite comprobar tus cálculos.</p></div><span class="book-ref-tag">LEE → CALCULA</span></div>
+
+ <div class="grid three">
+  <div class="stat"><b>SS</b><small>Suma de cuadrados: variación atribuida a cada fuente.</small></div>
+  <div class="stat"><b>gl</b><small>Grados de libertad: información independiente.</small></div>
+  <div class="stat"><b>MS · F · p</b><small>Ajuste, comparación y decisión estadística.</small></div>
+ </div>
+
+ <div class="card">
+  <h3>1. ¿Qué está tratando de separar ANOVA?</h3>
+  <p>En un estudio cruzado, cada lectura se explica por la pieza, el operador, la combinación pieza–operador y el residuo entre repeticiones. ANOVA compara el comportamiento observado con lo que se esperaría si no existiera el efecto evaluado.</p>
+  <div class="formula">Pieza + Operador + Interacción pieza × operador + Error residual</div>
+  <div class="note"><b>Importante:</b> esta ruta F corresponde al modelo cruzado equilibrado con piezas y operadores como fuentes aleatorias y la interacción dentro del modelo. Una ANOVA de factores fijos o un diseño anidado puede tener denominadores y grados de libertad distintos.</div>
+ </div>
+
+ <div class="card" id="anovaMini">
+  <div class="task-head"><div><div class="kicker">EJEMPLO NUEVO · CUADERNILLO P. 59</div><h3>Primero practica con 12 lecturas</h3><p>3 piezas × 2 operadores × 2 repeticiones. Es un ejemplo didáctico para entender las operaciones antes de usar 30 o 60 lecturas.</p></div><span class="tag">Ejemplo pequeño</span></div>
+  <div class="tablewrap"><table><thead><tr><th>Pieza</th><th>A · T1</th><th>A · T2</th><th>B · T1</th><th>B · T2</th></tr></thead><tbody>
+   <tr><td>P1</td><td>9.900</td><td>10.100</td><td>10.400</td><td>10.600</td></tr>
+   <tr><td>P2</td><td>12.000</td><td>12.200</td><td>11.800</td><td>12.000</td></tr>
+   <tr><td>P3</td><td>13.800</td><td>14.000</td><td>14.500</td><td>14.700</td></tr>
+  </tbody></table></div>
+  <h3>Paso 1. Promediar cada combinación</h3>
+  <p>La celda P1–A promedia 9.900 y 10.100 = 10.000 mm. P1–B promedia 10.400 y 10.600 = 10.500 mm. Se repite para todas las combinaciones.</p>
+  <div class="tablewrap"><table><thead><tr><th>Pieza</th><th>Media A</th><th>Media B</th><th>Media de pieza</th></tr></thead><tbody>
+   <tr><td>P1</td><td>10.000</td><td>10.500</td><td>10.250</td></tr>
+   <tr><td>P2</td><td>12.100</td><td>11.900</td><td>12.000</td></tr>
+   <tr><td>P3</td><td>13.900</td><td>14.600</td><td>14.250</td></tr>
+  </tbody></table></div>
+  <div class="grid two">
+   <div class="note"><b>Promedio del operador A</b><br>(10.000 + 12.100 + 13.900) / 3 = <b>12.0000 mm</b></div>
+   <div class="note"><b>Promedio del operador B</b><br>(10.500 + 11.900 + 14.600) / 3 = <b>12.3333 mm</b></div>
+  </div>
+  <p>La media general de las 12 lecturas es 12.1667 mm. La diferencia entre A y B cambia por pieza: +0.50 mm en P1, −0.20 mm en P2 y +0.70 mm en P3. Este patrón es una señal de interacción; no es simplemente que B mida siempre más alto.</p>
+ </div>
+
+ <div class="card" id="anovaSS">
+  <div class="kicker">CUADERNILLO · P. 60</div><h3>2. ¿De dónde sale cada suma de cuadrados?</h3>
+  <p>Una suma de cuadrados añade las desviaciones elevadas al cuadrado. Se hace así para que desviaciones positivas y negativas no se cancelen.</p>
+  <details class="step-detail" open>
+   <summary><span class="step-no">A</span><span><b>SS de piezas (SSP)</b><small>Variación entre las medias de pieza</small></span><span class="step-type">PIEZA</span></summary>
+   <div class="step-body">
+    <div class="formula">SSP = o × r × Σ(media de pieza − media general)²</div>
+    <p>En el ejemplo hay o = 2 operadores y r = 2 repeticiones. Las medias de pieza son 10.25, 12.00 y 14.25; la media general es 12.1667.</p>
+    <div class="formula">SSP = 2 × 2 × [(10.25−12.1667)² + (12−12.1667)² + (14.25−12.1667)²] = 32.1667 mm²</div>
+    <p>Se multiplica por o × r porque cada media de pieza representa cuatro observaciones.</p>
+   </div>
+  </details>
+  <details class="step-detail">
+   <summary><span class="step-no">B</span><span><b>SS de operadores (SSO)</b><small>Variación entre las medias de operador</small></span><span class="step-type">OPERADOR</span></summary>
+   <div class="step-body">
+    <div class="formula">SSO = p × r × Σ(media de operador − media general)²</div>
+    <p>p = 3 piezas, r = 2. Medias A = 12.0000, B = 12.3333; media general = 12.1667.</p>
+    <div class="formula">SSO = 3 × 2 × [(12.0000−12.1667)² + (12.3333−12.1667)²] = 0.3333 mm²</div>
+    <p>Se multiplica por p × r porque cada operador mide todas las piezas y repite cada combinación.</p>
+   </div>
+  </details>
+  <details class="step-detail">
+   <summary><span class="step-no">C</span><span><b>SS de interacción (SSPO)</b><small>La diferencia del operador cambia según la pieza</small></span><span class="step-type">INTERACCIÓN</span></summary>
+   <div class="step-body">
+    <div class="formula">SSPO = r × ΣΣ(media de celda − media de pieza − media de operador + media general)²</div>
+    <p>Ejemplo P1–B: 10.5000 − 10.2500 − 12.3333 + 12.1667 = +0.0833 mm. P1–A deja −0.0833 mm. Se calculan las seis celdas, se elevan al cuadrado, se suman y se multiplica por r = 2.</p>
+    <div class="formula">SSPO = 0.4467 mm²</div>
+   </div>
+  </details>
+  <details class="step-detail">
+   <summary><span class="step-no">D</span><span><b>SS del error o repetibilidad (SSE)</b><small>Variación entre las repeticiones dentro de una celda</small></span><span class="step-type">ERROR</span></summary>
+   <div class="step-body">
+    <div class="formula">SSE = ΣΣΣ(lectura individual − media de su celda)²</div>
+    <p>P1–A: (9.900−10.000)² + (10.100−10.000)² = 0.0200 mm². Se repite para las seis celdas.</p>
+    <div class="formula">SSE = 0.1200 mm²</div>
+   </div>
+  </details>
+  <div class="note good"><b>Comprobación:</b> SS total = SSP + SSO + SSPO + SSE = 32.1667 + 0.3333 + 0.4467 + 0.1200 = <b>33.0667 mm²</b>. Si no coincide, revisa los promedios y las celdas.</div>
+ </div>
+
+ <div class="card" id="anovaDF">
+  <div class="kicker">CUADERNILLO · P. 61</div><h3>3. Grados de libertad (gl): de dónde salen</h3>
+  <p>Los grados de libertad cuentan la información independiente disponible para estimar cada fuente. En una media de p valores, una vez fijada la media, solo p−1 desviaciones pueden variar libremente.</p>
+  <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>Fórmula</th><th>Sustitución</th><th>gl</th></tr></thead><tbody>
+   <tr><td>Pieza</td><td>p−1</td><td>3−1</td><td>2</td></tr><tr><td>Operador</td><td>o−1</td><td>2−1</td><td>1</td></tr><tr><td>Pieza × operador</td><td>(p−1)(o−1)</td><td>2×1</td><td>2</td></tr><tr><td>Error</td><td>p·o·(r−1)</td><td>3×2×1</td><td>6</td></tr><tr><td>Total</td><td>p·o·r−1</td><td>3×2×2−1</td><td>11</td></tr>
+  </tbody></table></div>
+  <div class="note good">Verifica: 2 + 1 + 2 + 6 = 11. Los gl de todas las fuentes deben sumar los gl totales.</div>
+  <h3>4. Cuadrado medio (MS)</h3>
+  <div class="formula">MS = SS / gl</div>
+  <p>El MS ajusta cada suma de cuadrados por los grados de libertad. Sigue en mm² porque gl es un conteo sin unidad.</p>
+  <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>SS (mm²)</th><th>gl</th><th>MS (mm²)</th></tr></thead><tbody>
+   <tr><td>Pieza</td><td>32.1667</td><td>2</td><td>16.0833</td></tr><tr><td>Operador</td><td>0.3333</td><td>1</td><td>0.3333</td></tr><tr><td>Pieza × operador</td><td>0.4467</td><td>2</td><td>0.2233</td></tr><tr><td>Error</td><td>0.1200</td><td>6</td><td>0.0200</td>
+  </tbody></table></div>
+ </div>
+
+ <div class="card">
+  <div class="kicker">CUADERNILLO · P. 62</div><h3>5. F y p: la comparación estadística</h3>
+  <p>Para el modelo cruzado equilibrado con efectos aleatorios e interacción, piezas y operadores se comparan con MS de interacción; la interacción se compara con MS de error.</p>
+  <div class="formula">Fpieza = 16.0833 / 0.2233 = 72.0149</div>
+  <div class="formula">Foperador = 0.3333 / 0.2233 = 1.4925</div>
+  <div class="formula">Finteracción = 0.2233 / 0.0200 = 11.1667</div>
+  <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>F</th><th>p</th><th>Decisión con α = 0.05</th></tr></thead><tbody>
+   <tr><td>Pieza</td><td>72.0149</td><td>0.0137</td><td>Significativa</td></tr><tr><td>Operador</td><td>1.4925</td><td>0.3463</td><td>No significativa</td></tr><tr><td>Pieza × operador</td><td>11.1667</td><td>0.0095</td><td>Significativa</td></tr>
+  </tbody></table></div>
+  <p>La interacción es significativa aunque el efecto principal de operador no lo sea. Esto sucede porque B no está siempre por encima de A: cambia de posición relativa según la pieza.</p>
+  <div class="note warn"><b>El valor p no es</b> la probabilidad de que H₀ sea verdadera. Es la probabilidad de observar un F igual o más extremo, suponiendo H₀ cierta y que se cumplen los supuestos del modelo.</div>
+ </div>
+
+ <div class="card" id="anova5x3">
+  <div class="kicker">CUADERNILLO · P. 63</div><h3>6. Tabla ANOVA completa: caso original de 30 lecturas</h3>
+  <p>Datos del cuadernillo: 5 piezas × 3 operadores × 2 repeticiones. La media general es 20.0000 mm; medias de A, B y C: 19.9960, 20.0108 y 19.9932 mm.</p>
+  <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>gl</th><th>SS (mm²)</th><th>MS (mm²)</th><th>F</th><th>p</th></tr></thead><tbody>
+   <tr><td>Piezas</td><td>4</td><td>0.6000000</td><td>0.1500000</td><td>17857.14</td><td>7.86×10⁻¹⁶</td></tr>
+   <tr><td>Operadores</td><td>2</td><td>0.0017888</td><td>0.0008944</td><td>106.48</td><td>1.72×10⁻⁶</td></tr>
+   <tr><td>Pieza × operador</td><td>8</td><td>0.0000672</td><td>0.0000084</td><td>1.91</td><td>0.1335</td></tr>
+   <tr><td>Error</td><td>15</td><td>0.0000660</td><td>0.0000044</td><td>—</td><td>—</td></tr>
+   <tr><td>Total</td><td>29</td><td>0.6019220</td><td>—</td><td>—</td><td>—</td></tr>
+  </tbody></table></div>
+  <p>Piezas y operadores son significativos. La interacción no lo es a α = 0.05 porque p = 0.1335.</p>
+ </div>
+
+ <div class="card">
+  <div class="kicker">CUADERNILLO · P. 64</div><h3>7. ¿Qué ocurre cuando la interacción no es significativa?</h3>
+  <p>En el flujo habitual de Minitab, si p de interacción es ≥ 0.05, el programa puede retirar el término y volver a calcular la tabla. No significa que la interacción sea exactamente cero: significa que no se obtuvo evidencia suficiente para conservarla con el α seleccionado.</p>
+  <div class="tablewrap"><table><thead><tr><th>Fuente (modelo reducido)</th><th>gl</th><th>SS (mm²)</th><th>MS (mm²)</th><th>F</th><th>p</th></tr></thead><tbody>
+   <tr><td>Piezas</td><td>4</td><td>0.6000000</td><td>0.1500000</td><td>25900.90</td><td>1.20×10⁻⁴¹</td></tr>
+   <tr><td>Operadores</td><td>2</td><td>0.0017888</td><td>0.0008944</td><td>154.44</td><td>4.66×10⁻¹⁴</td></tr>
+   <tr><td>Error combinado</td><td>23</td><td>0.0001332</td><td>0.0000057913</td><td>—</td><td>—</td></tr>
+   <tr><td>Total</td><td>29</td><td>0.6019220</td><td>—</td><td>—</td><td>—</td>
+  </tbody></table></div>
+  <div class="note warn"><b>No mezcles modelos:</b> no combines el MS de interacción de la tabla completa con el error combinado de la tabla reducida.</div>
+ </div>
+
+ <div class="card" id="anova60">
+  <div class="kicker">CUADERNILLO · PP. 64–65</div><h3>8. Caso avanzado: 60 lecturas</h3>
+  <p>10 piezas × 3 operadores × 2 repeticiones. En este caso, p de interacción = 2.940×10⁻⁵, menor que 0.05; por eso se mantiene la interacción en el modelo.</p>
+  <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>gl</th><th>SS (mm²)</th><th>MS (mm²)</th><th>F</th><th>p</th></tr></thead><tbody>
+   <tr><td>Pieza</td><td>9</td><td>0.111375000</td><td>0.012375000</td><td>464.06</td><td>1.973×10⁻¹⁹</td></tr>
+   <tr><td>Operador</td><td>2</td><td>0.001080000</td><td>0.000540000</td><td>20.25</td><td>2.472×10⁻⁵</td></tr>
+   <tr><td>Pieza × operador</td><td>18</td><td>0.000480000</td><td>0.000026667</td><td>5.33</td><td>2.940×10⁻⁵</td></tr>
+   <tr><td>Error / repetibilidad</td><td>30</td><td>0.000150000</td><td>0.000005000</td><td>—</td><td>—</td></tr>
+   <tr><td>Total</td><td>59</td><td>0.113085000</td><td>—</td><td>—</td><td>—</td>
+  </tbody></table></div>
+  <p>Las tres fuentes son estadísticamente significativas. La interacción señala que la diferencia entre operadores cambia con la pieza; hay que investigar accesibilidad, geometría, punto de contacto, alineación y fuerza.</p>
+ </div>
+
+ <div class="card">
+  <div class="kicker">CUADERNILLO · PP. 65–67</div><h3>9. De ANOVA a los componentes R&R</h3>
+  <p>Las sumas de cuadrados y cuadrados medios ayudan a estimar los componentes de varianza. Se suman varianzas, no desviaciones estándar.</p>
+  <div class="formula">σ²EV = MSerror = 0.000005000 mm²</div>
+  <div class="formula">σ²PO = (MSPO − MSerror) / r = 0.000010833 mm²</div>
+  <div class="formula">σ²O = (MSO − MSPO) / (p × r) = 0.000025667 mm²</div>
+  <div class="formula">σ²AV = σ²O + σ²PO = 0.000036500 mm²</div>
+  <div class="formula">σ²GRR = σ²EV + σ²AV = 0.000041500 mm²</div>
+  <div class="formula">σ²P = (MSP − MSPO) / (o × r) = 0.002058056 mm²</div>
+  <div class="formula">σ²TV = σ²GRR + σ²P = 0.002099556 mm²</div>
+  <div class="note good">El anexo del cuadernillo incluye las tablas de componentes, las desviaciones estándar, % contribución, %SV y % tolerancia, además de la clave de autocontrol.</div>
+ </div>
+
+ <div class="task" id="anovaPractice">
+  <div class="task-head"><div><div class="kicker">PRÁCTICA AUTOCORREGIBLE · CUADERNILLO PP. 63–64</div><h3>Construye la tabla del caso de 30 lecturas</h3><p>Utiliza p = 5 piezas, o = 3 operadores, r = 2 repeticiones y la tabla del cuadernillo. Introduce los resultados redondeados.</p></div><span class="tag">8 cálculos</span></div>
+  <div class="fields">
+   <div class="field"><label for="anDfTotal">Grados de libertad totales</label><input id="anDfTotal" inputmode="numeric" placeholder="gl total"></div>
+   <div class="field"><label for="anMsP">MS de piezas (mm²)</label><input id="anMsP" inputmode="decimal" placeholder="SS / gl"></div>
+   <div class="field"><label for="anMsO">MS de operadores (mm²)</label><input id="anMsO" inputmode="decimal" placeholder="SS / gl"></div>
+   <div class="field"><label for="anMsPO">MS de interacción (mm²)</label><input id="anMsPO" inputmode="decimal" placeholder="SS / gl"></div>
+   <div class="field"><label for="anMsE">MS del error (mm²)</label><input id="anMsE" inputmode="decimal" placeholder="SS / gl"></div>
+   <div class="field"><label for="anFP">F de piezas</label><input id="anFP" inputmode="decimal" placeholder="MSP / MSPO"></div>
+   <div class="field"><label for="anFO">F de operadores</label><input id="anFO" inputmode="decimal" placeholder="MSO / MSPO"></div>
+   <div class="field"><label for="anFPO">F de interacción</label><input id="anFPO" inputmode="decimal" placeholder="MSPO / MSE"></div>
+  </div>
+  <div class="field"><label for="anIntDecision">Con p de interacción = 0.1335 y α = 0.05, ¿qué decisión corresponde?</label><select id="anIntDecision"><option value="">Selecciona…</option><option value="keep">Mantener la interacción porque p es menor que α.</option><option value="reduce">No hay evidencia suficiente para mantenerla; Minitab puede generar una tabla reducida.</option><option value="zero">Se demuestra que la interacción es exactamente cero.</option></select></div>
+  <button class="btn" type="button" id="checkAnovaTable">Comprobar tabla ANOVA</button><div class="feedback" id="fb-anova"></div>
+ </div>
+
+ <div class="card">
+  <h3>Preguntas de interpretación</h3>
+  <p><b>1.</b> ¿Por qué no dividimos SS de piezas entre MS del error en el modelo cruzado aleatorio con interacción?</p>
+  <p><b>Respuesta:</b> porque el denominador de la prueba F se deriva de los cuadrados medios esperados del modelo; para piezas y operadores se usa MS de interacción. En un modelo de factores fijos la estructura del contraste puede ser distinta.</p>
+  <p><b>2.</b> ¿Un p = 0.1335 demuestra que no hay interacción?</p>
+  <p><b>Respuesta:</b> no. Indica que no hay evidencia suficiente para rechazar H₀ al nivel α = 0.05; no prueba que el efecto sea exactamente cero.</p>
+  <p><b>3.</b> ¿Por qué el caso de 60 lecturas sí conserva la interacción?</p>
+  <p><b>Respuesta:</b> porque su p = 2.940×10⁻⁵ es menor que 0.05; hay evidencia estadística de que el comportamiento de los operadores depende de la pieza.</p>
+ </div>
+
+ <div class="card">
+  <h3>Fuentes técnicas para esta ampliación</h3>
+  <p>Las fórmulas y la interpretación se contrastaron con la documentación oficial de Minitab sobre ANOVA para estudios R&amp;R cruzados. Revisa especialmente SS, gl, MS, F y p-value; además, la explicación de cómo se retira una interacción no significativa y se genera una segunda tabla.</p>
+  <p><a href="https://support.minitab.com/en-us/minitab/help-and-how-to/quality-and-process-improvement/measurement-system-analysis/how-to/gage-study/crossed-gage-r-r-study/methods-and-formulas/anova-table/" target="_blank" rel="noopener">Minitab · Methods and formulas for ANOVA table</a></p>
+  <p><a href="https://support.minitab.com/en-us/minitab/help-and-how-to/quality-and-process-improvement/measurement-system-analysis/how-to/gage-study/crossed-gage-r-r-study/interpret-the-results/key-results/" target="_blank" rel="noopener">Minitab · Interpret the key results</a></p>
+ </div>
 </section>
 
 <section class="section" id="auditoria">
@@ -552,7 +746,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}r
 function finished(id,points){if(!state.done[id]){state.done[id]=true;state.xp+=points;}save();}
 function attempt(){state.attempts++;save();}
 function renderProgress(){
- const ids=["warmup","calc","e1","e1diag","e2","e3","e3read","case","audit","integr","exam","deep"];
+ const ids=["warmup","calc","e1","e1diag","e2","e3","e3read","case","anova","audit","integr","exam","deep"];
  const total=ids.length,done=ids.filter(k=>state.done[k]).length,pct=Math.round(done/total*100);
  document.getElementById("xpTop").textContent=state.xp;document.getElementById("pctTop").textContent=pct+"%";
  document.getElementById("xpStat").textContent=state.xp;document.getElementById("attemptStat").textContent=state.attempts;
@@ -617,6 +811,31 @@ document.getElementById("checkAudit").addEventListener("click",()=>{
  feedback("fb-audit",score===6,score+"/6 situaciones identificadas",score===6?"Detectaste todos los problemas de diseño.":"Revisa las explicaciones por situación. Puedes corregir y volver a comprobar.");
  if(score===6)finished("audit",25);
 });
+
+document.getElementById("checkAnovaTable").addEventListener("click",()=>{
+ attempt();
+ const fields=[
+  {id:"anDfTotal",expected:29,tol:0,label:"gl total",hint:"5×3×2−1 = 29."},
+  {id:"anMsP",expected:.15,tol:.00002,label:"MS de piezas",hint:"SS/gl = 0.6000000/4 = 0.1500000 mm²."},
+  {id:"anMsO",expected:.0008944,tol:.000002,label:"MS de operadores",hint:"0.0017888/2 = 0.0008944 mm²."},
+  {id:"anMsPO",expected:.0000084,tol:.0000002,label:"MS de interacción",hint:"0.0000672/8 = 0.0000084 mm²."},
+  {id:"anMsE",expected:.0000044,tol:.0000001,label:"MS de error",hint:"0.0000660/15 = 0.0000044 mm²."},
+  {id:"anFP",expected:17857.14,tol:15,label:"F de piezas",hint:"0.1500000/0.0000084 = 17857.14."},
+  {id:"anFO",expected:106.48,tol:.3,label:"F de operadores",hint:"0.0008944/0.0000084 = 106.48."},
+  {id:"anFPO",expected:1.91,tol:.03,label:"F de interacción",hint:"0.0000084/0.0000044 = 1.91."}
+ ];
+ const misses=fields.filter(f=>!near(f.id,f.expected,f.tol));
+ const decision=val("anIntDecision")==="reduce";
+ if(!misses.length&&decision){
+  feedback("fb-anova",true,"¡Tabla correctamente construida!","Tus MS se calcularon dividiendo SS entre gl; los estadísticos F usan los denominadores del modelo cruzado con interacción. Como p = 0.1335 > 0.05, no hay evidencia suficiente para conservar la interacción en el flujo habitual de Minitab. La tabla reducida agrupa SS_PO con SS_Error y vuelve a estimar MS y F.");
+  finished("anova",30);
+ }else{
+  const hints=misses.map(m=>"<br><b>"+m.label+":</b> "+m.hint);
+  if(!decision)hints.push("<br><b>Decisión:</b> compara 0.1335 con α = 0.05. Como p es mayor, no se rechaza H₀ de interacción; esto no demuestra que sea exactamente cero.");
+  feedback("fb-anova",false,"Revisa la secuencia de la tabla",hints.join(" "));
+ }
+});
+
 document.getElementById("checkCase").addEventListener("click",()=>{
  checkGroup([{id:"cN",expected:60,tol:0,label:"Número de lecturas",hint:"10 piezas × 3 operadores × 2 repeticiones = 60."},{id:"cB",expected:20.0035,tol:.0005,label:"Promedio B",hint:"El promedio de las 20 lecturas de B es 20.0035 mm."},{id:"cPO",expected:18,tol:0,label:"gl interacción",hint:"(p − 1)(o − 1) = (10 − 1)(3 − 1) = 18."},{id:"cE",expected:30,tol:0,label:"gl error",hint:"p × o × (r − 1) = 10 × 3 × 1 = 30."}],"fb-case","case",25,"Hay 60 lecturas. El promedio de B es 20.0035 mm. gl de interacción = 18 y gl de error = 30. Los grados de libertad dependen de piezas, operadores y repeticiones.","Revisa las fórmulas de diseño cruzado. Recuerda: gl interacción = (p−1)(o−1); gl error = p·o·(r−1).");
 });
