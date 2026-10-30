@@ -9,6 +9,80 @@
 <style>
 :root{color-scheme:dark;--bg:#07111f;--panel:#10243a;--panel2:#0b1c2e;--line:#294660;--text:#f4f8ff;--muted:#afc2d7;--cyan:#70e5ff;--blue:#83adff;--green:#8ae6b1;--amber:#ffd37e;--red:#ff9ba6;--purple:#c4a5ff;--radius:20px;--shadow:0 18px 46px #0003}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:radial-gradient(ellipse at 8% 0%,#113a53 0,transparent 34%),radial-gradient(ellipse at 92% 22%,#202b62 0,transparent 30%),linear-gradient(160deg,#07111f,#0a1b2b 52%,#06101b);color:var(--text);font:15.5px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--cyan)}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:30;background:#07111fee;backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:10px max(4vw,calc((100vw - 1240px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:.1em}.mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121e;font-weight:1000;font-size:21px;box-shadow:0 0 24px #70e5ff33}.brand small{display:block;font-size:.62rem;letter-spacing:.2em;color:var(--muted);font-weight:750}.topright{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:#10243acc;border-radius:999px;padding:7px 12px;color:var(--muted);font-size:.78rem;font-weight:800}.pill b{color:var(--amber)}.wrap{width:min(1240px,92vw);margin:auto}.hero{padding:56px 0 25px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}.eyebrow,.kicker{font-size:.72rem;color:var(--cyan);font-weight:950;letter-spacing:.17em;text-transform:uppercase}.hero h1{font-size:clamp(2.5rem,6vw,5.3rem);line-height:.98;letter-spacing:-.06em;margin:.7rem 0 1rem;max-width:850px}.hero h1 em{font-style:normal;color:var(--cyan)}.lead{font-size:1.1rem;color:var(--muted);max-width:730px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:10px 15px;min-height:43px;background:var(--cyan);color:#06121e;font-weight:900;text-decoration:none;transition:.18s}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn.secondary{background:#17334c;color:var(--text);border:1px solid var(--line)}.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}.btn.small{min-height:35px;padding:7px 11px;font-size:.82rem}.hero-art,.card,.panel,.task,.stat{background:linear-gradient(145deg,#142d45ee,#091b2bee);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero-art{padding:17px;overflow:hidden}.hero-art svg{display:block;width:100%;height:auto}.progressbox{border:1px solid var(--line);border-radius:17px;background:#0d1d30d9;padding:14px 17px;margin:10px 0 28px}.progressline{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;font-weight:900;color:var(--muted)}.bar{height:9px;background:#06111e;border-radius:99px;overflow:hidden;margin-top:9px}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--cyan));transition:.35s}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:38px}.stat{padding:15px 17px}.stat b{display:block;font-size:1.6rem;line-height:1.2}.stat small{color:var(--muted);font-size:.76rem}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:23px;align-items:start}.side{position:sticky;top:78px;padding:13px;border:1px solid var(--line);border-radius:18px;background:#0b1b2ddd}.side strong{font-size:.72rem;letter-spacing:.13em;color:var(--muted);padding:9px 10px;display:block}.side a{display:flex;align-items:center;gap:10px;text-decoration:none;color:#d9eafb;padding:9px 10px;border-radius:10px;font-size:.86rem}.side a:hover,.side a.active{background:#17344d;color:var(--cyan)}.side .num{font-size:.68rem;color:var(--cyan);font-weight:900;width:20px}.content{min-width:0}.section{padding:22px 0 38px;scroll-margin-top:85px}.heading{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:17px}.heading h2{font-size:clamp(1.7rem,3.3vw,2.55rem);letter-spacing:-.04em;line-height:1.1;margin:5px 0}.heading p{color:var(--muted);max-width:590px;margin:0;font-size:.94rem}.card,.panel,.task{padding:20px;margin-bottom:14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card h3,.task h3{margin:.2rem 0 .45rem}.card p,.card li{color:var(--muted)}.tag{display:inline-flex;align-items:center;border:1px solid #3d7897;background:#123249;padding:4px 9px;border-radius:999px;color:#bbf4ff;font-size:.7rem;font-weight:900;letter-spacing:.05em}.tag.gold{background:#3c301a;border-color:#7a5c23;color:#ffe4a4}.tag.green{background:#13372e;border-color:#2a785d;color:#a9f4c8}.formula{font:1.18rem Georgia,serif;text-align:center;color:var(--cyan);background:#061321;border:1px solid #24465d;border-radius:12px;padding:13px;margin:12px 0;overflow-wrap:anywhere}.muted{color:var(--muted)}.note{border-left:3px solid var(--cyan);background:#102b40;padding:12px 14px;border-radius:0 12px 12px 0;color:#d9effc;margin:13px 0}.warn{border-left-color:var(--amber);background:#302719}.good{border-left-color:var(--green);background:#102b26}.bad{border-left-color:var(--red);background:#301923}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:13px;margin:13px 0}table{width:100%;border-collapse:collapse;min-width:520px;font-size:.86rem}th,td{padding:9px 11px;border-bottom:1px solid #29425d;text-align:center;white-space:nowrap}th{background:#17334c;color:#d8f5ff;font-weight:900}td:first-child,th:first-child{text-align:left}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#ffffff06}.task{border-color:#31516e}.task-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.task-head p{color:var(--muted);margin:.2rem 0}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:15px 0}.field label{display:block;color:#d8e8f6;font-weight:800;font-size:.82rem;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;border:1px solid #35516d;background:#071625;color:var(--text);border-radius:10px;padding:10px 11px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #70e5ff18}.field textarea{min-height:85px;resize:vertical}.field small{display:block;color:var(--muted);font-size:.72rem;margin-top:4px}.feedback{display:none;margin:12px 0;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0a1828}.feedback.show{display:block}.feedback.ok{border-color:#2c8762;background:#102e26}.feedback.no{border-color:#884657;background:#301923}.feedback b{display:block;margin-bottom:4px}.choice-list{display:grid;gap:8px;margin:13px 0}.choice{display:flex;gap:10px;align-items:start;border:1px solid #2b4562;background:#0b1b2c;border-radius:11px;padding:11px;cursor:pointer}.choice:hover{border-color:#5083aa}.choice input{margin-top:5px;accent-color:var(--cyan)}.choice span{font-size:.9rem}.meter{height:9px;background:#06111e;border-radius:99px;overflow:hidden}.meter span{height:100%;display:block;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0}.smalltext{font-size:.8rem;color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tab{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#10243a;color:#d9eafb;font-weight:800}.tab.active{background:#1b5064;border-color:var(--cyan);color:#eaffff}.chartbox{background:#081827;border:1px solid var(--line);border-radius:14px;padding:12px;margin:13px 0}.chartbox svg{width:100%;height:auto;display:block}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.76rem;color:var(--muted)}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.scenario{border:1px solid var(--line);border-radius:14px;background:#0b1b2c;padding:15px;margin:11px 0}.scenario p{margin:.25rem 0 .7rem}.scenario .field{max-width:490px}.scorebig{font-size:2rem;color:var(--green);font-weight:950}.hide{display:none!important}.footer{border-top:1px solid var(--line);padding:27px 0 45px;color:var(--muted);font-size:.82rem;margin-top:30px}.kbd{font:700 .75rem ui-monospace,monospace;background:#071321;border:1px solid var(--line);padding:3px 6px;border-radius:6px;color:var(--cyan)}
+
+/* METRO-LAB visual refinement — visual stimulation is directional, not noisy. */
+:root{--cyan:#75e8ff;--blue:#82b5ff;--green:#86efb3;--amber:#ffd27f;--purple:#c5a2ff}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 14% 34%,#0c8aa915,transparent 28%),radial-gradient(circle at 88% 76%,#7559d417,transparent 30%)}
+.top{box-shadow:0 8px 28px #0002}
+.brand .mark{position:relative;isolation:isolate}.brand .mark:after{content:"";position:absolute;inset:-4px;border:1px solid #70e5ff66;border-radius:16px;z-index:-1;animation:markPulse 3.6s ease-in-out infinite}
+@keyframes markPulse{50%{transform:scale(1.08);opacity:.35}}
+.side{border-color:#31516e;background:linear-gradient(180deg,#10253bdd,#081827ee);box-shadow:0 18px 42px #0003;backdrop-filter:blur(14px)}
+.side strong{color:#75e8ff;padding:12px 11px 8px;display:flex;align-items:center;gap:8px}
+.side strong:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+.side a{position:relative;border:1px solid transparent;transition:background .2s,border-color .2s,transform .2s}
+.side a:before{content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:3px;border-radius:4px;background:transparent}
+.side a:hover{transform:translateX(2px);background:#173a52}
+.side a.active{background:linear-gradient(90deg,#1a5268aa,#15324c);border-color:#34708b;color:#a8f4ff}
+.side a.active:before{background:var(--cyan);box-shadow:0 0 12px #70e5ff77}
+.side .num{display:grid;place-items:center;width:24px;height:24px;border-radius:8px;background:#0a1c2b;border:1px solid #2d4b66}
+.section{position:relative}
+.heading{position:relative;padding-bottom:12px;border-bottom:1px solid #284861}
+.heading:after{content:"";position:absolute;left:0;bottom:-1px;width:74px;height:2px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.heading h2{background:linear-gradient(100deg,#f4f8ff 15%,#9beeff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card,.panel,.task,.stat,.hero-art{backdrop-filter:blur(14px);box-shadow:0 18px 46px #00025,inset 0 1px #ffffff08;transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:hover,.task:hover{border-color:#47718f;box-shadow:0 20px 50px #0004,inset 0 1px #ffffff10}
+.task{border-left:3px solid #448aa3;background:linear-gradient(140deg,#142d45f5,#0a1b2bf5)}
+.task-head .tag{box-shadow:0 0 0 3px #70e5ff0a}
+.stat{position:relative;overflow:hidden}
+.stat:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),#82b5ff,transparent)}
+.btn{box-shadow:0 9px 24px #70e5ff1b}
+.btn:focus-visible,.choice:focus-within,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.book-ref{display:flex;align-items:center;gap:12px;padding:11px 14px;margin:14px 0 18px;border:1px solid #34708a;border-left:4px solid var(--cyan);border-radius:13px;background:linear-gradient(100deg,#123347dd,#10243ad9);box-shadow:inset 0 1px #ffffff08}
+.book-ref-icon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:10px;background:#1a5268;color:#9ef1ff;font-size:18px}
+.book-ref b{display:block;color:#8beaff;font-size:.7rem;letter-spacing:.12em}
+.book-ref p{margin:2px 0 0;color:#c6d7e8;font-size:.83rem;line-height:1.45}
+.book-ref-tag{margin-left:auto;color:#a7eec6;border:1px solid #35775b;border-radius:999px;padding:4px 8px;font-size:.64rem;font-weight:900;white-space:nowrap}
+.step-lab{padding:22px;margin:18px 0;border:1px solid #3b6682;border-radius:21px;background:radial-gradient(circle at 95% 0%,#22546e55,transparent 34%),linear-gradient(145deg,#102a42,#091a2b);box-shadow:0 22px 55px #0004}
+.step-lab-top{display:flex;justify-content:space-between;gap:18px;align-items:start}
+.step-lab h3{font-size:1.45rem;margin:5px 0}
+.step-lab-top p{max-width:740px;color:var(--muted);margin:7px 0}
+.walk-score{min-width:94px;text-align:center;border:1px solid #3b6b83;border-radius:14px;padding:9px;background:#071827}
+.walk-score b{display:block;color:var(--green);font-size:1.35rem}
+.walk-score small{font-size:.66rem;color:var(--muted)}
+.walk-track{height:7px;background:#06121f;border-radius:99px;overflow:hidden;margin:12px 0 16px}
+.walk-track span{height:100%;display:block;width:0;background:linear-gradient(90deg,var(--green),var(--cyan));transition:width .3s}
+.step-grid{display:grid;gap:10px}
+.step-detail{border:1px solid #2e4d69;border-radius:14px;background:#0b1d2e;overflow:hidden}
+.step-detail[open]{border-color:#4d90a6;box-shadow:inset 3px 0 var(--cyan)}
+.step-detail summary{list-style:none;display:flex;align-items:center;gap:12px;padding:13px 15px;cursor:pointer}
+.step-detail summary::-webkit-details-marker{display:none}
+.step-detail summary:after{content:"＋";margin-left:auto;color:var(--cyan);font-size:1.1rem;font-weight:900}
+.step-detail[open] summary:after{content:"−"}
+.step-no{display:grid;place-items:center;width:36px;height:36px;flex:0 0 36px;border-radius:11px;background:#173d54;color:#8feeff;font-weight:950}
+.step-detail summary b{display:block;color:#eef8ff;font-size:.95rem}
+.step-detail summary small{display:block;color:#9eb4c9;font-size:.73rem}
+.step-type{margin-left:auto;color:#9be9ff;font-size:.62rem;letter-spacing:.12em;font-weight:950}
+.step-body{padding:0 18px 15px 63px;color:#c4d5e6}
+.step-body p{line-height:1.65}
+.step-body .formula{font-size:1.03rem;text-align:left;padding:10px 13px;margin:9px 0;background:#071726;border-color:#2c5c75}
+.step-body .tablewrap{margin:9px 0}
+.step-detail>button{margin:0 18px 15px 63px}
+.step-detail.done .step-no{background:#1c5a45;color:#b8ffda}
+.step-detail.done summary b:after{content:"  ✓";color:var(--green)}
+.walk-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:.8rem}
+.walk-foot a{font-weight:900;text-decoration:none}
+#profundizacion .task{border-left-color:#a987e8}
+#profundizacion .task:nth-of-type(2){border-left-color:var(--amber)}
+#profundizacion .task:nth-of-type(3){border-left-color:var(--blue)}
+#profundizacion .task:nth-of-type(4){border-left-color:var(--purple)}
+.choice:hover{border-color:#6ca9bf;background:#10283c}
+.feedback{line-height:1.58}
+.feedback.ok{box-shadow:inset 3px 0 var(--green)}
+.feedback.no{box-shadow:inset 3px 0 var(--red)}
+@media(max-width:900px){.book-ref-tag{display:none}.step-body{padding-left:17px}.step-detail>button{margin-left:17px}}
+@media(max-width:600px){.step-lab{padding:15px}.step-lab-top{display:block}.walk-score{display:inline-block;margin-top:7px}.step-detail summary{gap:8px;padding:11px}.step-type{display:none}.book-ref{align-items:start}.book-ref-icon{width:28px;height:28px;flex-basis:28px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
 @media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;gap:3px}.side strong{display:none}.side a{white-space:nowrap}.hero{grid-template-columns:1fr}.hero-art{max-width:600px}.grid.three{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.grid,.grid.three,.fields{grid-template-columns:1fr}.top{padding:9px 4vw}.topright .pill:nth-child(2){display:none}.hero{padding-top:37px}.hero h1{font-size:2.8rem}.heading{display:block}.side{top:65px}.card,.panel,.task{padding:16px}}
 </style>
@@ -75,12 +149,14 @@
 <a href="#auditoria"><span class="num">07</span> Auditoría</a>
 <a href="#integradora"><span class="num">08</span> Integradora</a>
 <a href="#evaluacion"><span class="num">09</span> Evaluación</a>
+<a href="#profundizacion"><span class="num">10</span> Profundización</a>
 <a href="#reporte"><span class="num">10</span> Mi reporte</a>
 </aside>
 
 <div class="content">
 <section class="section" id="diagnostico">
-  <div class="heading"><div><div class="kicker">MISIÓN 01 · COMPRENDER ANTES DE CALCULAR</div><h2>Diagnóstico: ¿dónde aparece la variación?</h2></div><span class="tag">2 preguntas</span></div>
+  <div class="heading"><div><div class="kicker">MISIÓN 01 · COMPRENDER ANTES DE CALCULAR</div><h2>Diagnóstico: ¿dónde aparece la variación?</h2></div><span class="tag">2 preguntas</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · pp. 3–11</b><p>Lee el problema de producción y los fundamentos del sistema de medición. Después completa el diagnóstico: identifica qué se mantiene constante y qué cambia.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="grid">
     <div class="card"><span class="tag">REPETIBILIDAD · EV</span><h3>La misma persona, la misma pieza</h3><p>Se mantienen operador, instrumento, método, ubicación y condiciones durante un intervalo corto. Se observa qué tanto cambian las lecturas al repetir.</p><div class="formula">EV = variación dentro de la misma combinación pieza–operador</div><p class="smalltext">Piensa: si una persona obtiene 20.001, 20.003 y 20.002 mm, ¿qué estás observando?</p></div>
     <div class="card"><span class="tag gold">REPRODUCIBILIDAD · AV</span><h3>Cambian las personas</h3><p>En un diseño cruzado, diferentes operadores miden las mismas piezas. Se revisa si los promedios cambian por técnica, posicionamiento, fuerza o interpretación del método.</p><div class="formula">AV = operador + interacción pieza–operador</div><p class="smalltext">Piensa: si A mide cerca de 20.00 mm y B mide sistemáticamente más alto, ¿qué sospechas?</p></div>
@@ -102,7 +178,8 @@
 </section>
 
 <section class="section" id="herramientas">
-  <div class="heading"><div><div class="kicker">MISIÓN 02 · CAJA DE HERRAMIENTAS</div><h2>Calcula antes de interpretar</h2></div><span class="tag">Práctica guiada</span></div>
+  <div class="heading"><div><div class="kicker">MISIÓN 02 · CAJA DE HERRAMIENTAS</div><h2>Calcula antes de interpretar</h2></div><span class="tag">Práctica guiada</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · pp. 12–19</b><p>Ten a la vista las definiciones de media, rango, varianza, desviación estándar y ANOVA. Usa esta sección para comprobar cada cálculo, no para sustituir el procedimiento escrito.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="card">
     <h3>Media aritmética y rango</h3>
     <p>La <b>media</b> resume el centro de las lecturas. El <b>rango</b> mide la distancia entre el valor máximo y el mínimo. La media no muestra por sí sola cuánta dispersión existe; por eso conviene acompañarla con una medida de variación.</p>
@@ -125,7 +202,8 @@
 </section>
 
 <section class="section" id="ejercicio1">
-  <div class="heading"><div><div class="kicker">MISIÓN 03 · CUADERNILLO · EJERCICIO 1</div><h2>Repetibilidad o reproducibilidad</h2></div><span class="tag">Ana vs. Bruno</span></div>
+  <div class="heading"><div><div class="kicker">MISIÓN 03 · CUADERNILLO · EJERCICIO 1</div><h2>Repetibilidad o reproducibilidad</h2></div><span class="tag">Ana vs. Bruno</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · p. 27</b><p>Resuelve primero los promedios y rangos de Ana y Bruno en tu librillo. Después introduce tus resultados aquí; la retroalimentación señala qué operación revisar.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="card">
     <p>Una característica se mide dos veces por cada uno de dos operadores. Los datos son los mismos que aparecen en el ejercicio 1 del cuadernillo. Enfócate primero en P1; después compara el patrón en P2 y P3.</p>
     <div class="tablewrap"><table><thead><tr><th>Pieza</th><th>Ana T1</th><th>Ana T2</th><th>Bruno T1</th><th>Bruno T2</th></tr></thead><tbody>
@@ -157,7 +235,8 @@
 </section>
 
 <section class="section" id="ejercicio2">
-  <div class="heading"><div><div class="kicker">MISIÓN 04 · CUADERNILLO · EJERCICIO 2</div><h2>Interpreta los componentes</h2></div><span class="tag">Varianzas en mm²</span></div>
+  <div class="heading"><div><div class="kicker">MISIÓN 04 · CUADERNILLO · EJERCICIO 2</div><h2>Interpreta los componentes</h2></div><span class="tag">Varianzas en mm²</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · p. 28</b><p>Calcula las varianzas combinadas en el cuadernillo. Recuerda: primero se suman varianzas; después se aplica raíz cuadrada para regresar a milímetros.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="card">
     <p>Un software estadístico entrega estos componentes estimados. Tu tarea es combinar primero las <b>varianzas</b>. Después aplicarás raíz cuadrada para obtener desviaciones estándar.</p>
     <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>Varianza estimada</th></tr></thead><tbody><tr><td>Repetibilidad EV</td><td>0.0004 mm²</td></tr><tr><td>Reproducibilidad AV</td><td>0.0005 mm²</td></tr><tr><td>Pieza a pieza PV</td><td>0.0091 mm²</td></tr></tbody></table></div>
@@ -184,7 +263,8 @@
 </section>
 
 <section class="section" id="ejercicio3">
-  <div class="heading"><div><div class="kicker">MISIÓN 05 · CUADERNILLO · EJERCICIO 3</div><h2>%SV, %Tolerancia y ndc</h2></div><span class="tag">Interpretación técnica</span></div>
+  <div class="heading"><div><div class="kicker">MISIÓN 05 · CUADERNILLO · EJERCICIO 3</div><h2>%SV, %Tolerancia y ndc</h2></div><span class="tag">Interpretación técnica</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · p. 29</b><p>Calcula por separado %SV, %Tolerancia y ndc. Antes de comprobar, escribe qué magnitudes compara cada denominador.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="card">
     <p>Para otro sistema se reportan: σGRR = 0.030 mm; σP = 0.120 mm; σTV = 0.1237 mm. La tolerancia de la característica es 0.50 mm.</p>
     <div class="formula">%SV = (σGRR / σTV) × 100</div>
@@ -213,7 +293,8 @@
 </section>
 
 <section class="section" id="caso60">
-  <div class="heading"><div><div class="kicker">MISIÓN 06 · CASO INTEGRADOR DEL CUADERNILLO</div><h2>60 lecturas: diámetro de ejes</h2></div><span class="tag gold">10 piezas × 3 operadores × 2 repeticiones</span></div>
+  <div class="heading"><div><div class="kicker">MISIÓN 06 · CASO INTEGRADOR DEL CUADERNILLO</div><h2>60 lecturas: diámetro de ejes</h2></div><span class="tag gold">10 piezas × 3 operadores × 2 repeticiones</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · pp. 44–52</b><p>Este es el mismo caso de 10 piezas × 3 operadores × 2 repeticiones. Consulta los datos originales en pp. 44–45 y sigue el ANOVA, los componentes y las gráficas en pp. 46–52.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="card">
     <p>La planta mecaniza ejes y quiere evaluar su sistema. Cada pieza es medida por A, B y C dos veces. Los resultados están expresados en milímetros. El caso del cuadernillo contiene 60 observaciones: no alteres ni elimines lecturas sin documentar una causa.</p>
     <div class="tablewrap"><table id="data60"><thead><tr><th>Pieza</th><th>A · T1</th><th>A · T2</th><th>B · T1</th><th>B · T2</th><th>C · T1</th><th>C · T2</th></tr></thead><tbody>
@@ -247,6 +328,119 @@
     </tbody></table></div>
     <p class="smalltext">gl = grados de libertad; SS = suma de cuadrados; MS = cuadrado medio = SS ÷ gl.</p>
   </div>
+  
+<div class="step-lab" id="caseWalkthrough">
+ <div class="step-lab-top">
+  <div><span class="kicker">RUTA DE SOLUCIÓN · CUADERNILLO PP. 45–50</span><h3>Del dato a la conclusión: paso a paso</h3><p>No memorices el resultado final. Abre cada etapa, identifica qué se calcula, por qué se calcula y cómo se interpreta. Marca cada paso cuando puedas explicarlo sin mirar.</p></div>
+  <div class="walk-score"><b id="walkCount">0/8</b><small>pasos comprendidos</small></div>
+ </div>
+ <div class="walk-track"><span id="walkFill"></span></div>
+ <div class="step-grid">
+  <details class="step-detail" id="caso60-step-design" open>
+   <summary><span class="step-no">01</span><span><b>Entender el diseño y contar las lecturas</b><small>Cuadernillo · pp. 44–45</small></span><span class="step-type">DISEÑO</span></summary>
+   <div class="step-body">
+    <p>El estudio tiene <b>10 piezas</b>, <b>3 operadores</b> y <b>2 repeticiones</b>. Todos los operadores miden las mismas piezas; por eso el diseño es cruzado. Cada combinación pieza–operador se mide dos veces.</p>
+    <div class="formula">N = p × o × r = 10 × 3 × 2 = 60 lecturas</div>
+    <p><b>¿Por qué multiplicamos?</b> Cada una de las 10 piezas aparece para los 3 operadores y cada combinación genera 2 registros. Hay 30 combinaciones pieza–operador y 60 lecturas individuales.</p>
+    <div class="note warn">No confundas 30 combinaciones con 60 mediciones. Una combinación no es una lectura: contiene dos repeticiones.</div>
+   </div>
+   <button class="btn small secondary" data-step-done="design" type="button">Marcar paso comprendido</button>
+  </details>
+  <details class="step-detail" id="caso60-step-means">
+   <summary><span class="step-no">02</span><span><b>Encontrar la media general y los promedios</b><small>Cuadernillo · p. 45</small></span><span class="step-type">PROMEDIOS</span></summary>
+   <div class="step-body">
+    <p>La media general resume el centro de todas las 60 observaciones. No es automáticamente el valor nominal ni una referencia de calibración: es el promedio del conjunto medido.</p>
+    <div class="formula">x̄... = suma de las 60 lecturas / 60 = 19.997500 mm</div>
+    <p>Después se calcula el promedio de las 20 lecturas que corresponden a cada operador:</p>
+    <div class="tablewrap"><table><thead><tr><th>Operador</th><th>Promedio</th><th>Lectura inicial</th></tr></thead><tbody><tr><td>A</td><td>19.994500 mm</td><td>3 milésimas por debajo de la media general</td></tr><tr><td>B</td><td>20.003500 mm</td><td>6 milésimas por encima de la media general</td></tr><tr><td>C</td><td>19.994500 mm</td><td>3 milésimas por debajo de la media general</td></tr></tbody></table></div>
+    <p>El promedio B es más alto. Es una señal para investigar reproducibilidad, pero todavía se necesita evaluar la variación estadística y la interacción.</p>
+   </div>
+   <button class="btn small secondary" data-step-done="means" type="button">Marcar paso comprendido</button>
+  </details>
+  <details class="step-detail" id="caso60-step-anova">
+   <summary><span class="step-no">03</span><span><b>Separar las fuentes con sumas de cuadrados</b><small>Cuadernillo · pp. 45–46</small></span><span class="step-type">ANOVA</span></summary>
+   <div class="step-body">
+    <p>ANOVA no empieza sumando porcentajes. Primero compara promedios de piezas, operadores y celdas; luego calcula cuánto se aparta cada lectura del promedio de su propia celda.</p>
+    <div class="formula">SS<sub>P</sub> = o·r · Σ(x̄<sub>i..</sub> − x̄<sub>...</sub>)² = 0.111375 mm²</div>
+    <p><b>Piezas:</b> pregunta cuánto se separan los promedios de cada pieza del promedio general. Se multiplica por o·r porque cada pieza participa en todas las combinaciones de operadores y repeticiones.</p>
+    <div class="formula">SS<sub>O</sub> = p·r · Σ(x̄<sub>.j.</sub> − x̄<sub>...</sub>)² = 0.001080 mm²</div>
+    <p><b>Operadores:</b> mide cuánto se separan los promedios de A, B y C del promedio general. Se multiplica por p·r porque cada operador mide todas las piezas y repite cada combinación.</p>
+    <div class="formula">SS<sub>PO</sub> = r · ΣΣ(x̄<sub>ij.</sub> − x̄<sub>i..</sub> − x̄<sub>.j.</sub> + x̄<sub>...</sub>)² = 0.000480 mm²</div>
+    <p><b>Interacción:</b> verifica si la diferencia entre operadores cambia según la pieza. Líneas que se cruzan o divergen en la gráfica pueden ser una señal visual de interacción.</p>
+    <div class="formula">SS<sub>E</sub> = ΣΣΣ(y<sub>ijk</sub> − x̄<sub>ij.</sub>)² = 0.000150 mm²</div>
+    <p><b>Error / repetibilidad:</b> compara cada lectura con el promedio de las dos repeticiones de su combinación pieza–operador. En P1 medida por A: (19.930−19.931)² + (19.932−19.931)² = 0.000002 mm².</p>
+   </div>
+   <button class="btn small secondary" data-step-done="anova" type="button">Marcar paso comprendido</button>
+  </details>
+  <details class="step-detail">
+   <summary><span class="step-no">04</span><span><b>Calcular los grados de libertad</b><small>Cuadernillo · p. 46</small></span><span class="step-type">GL</span></summary>
+   <div class="step-body">
+    <p>Los grados de libertad reflejan cuánta información independiente queda para estimar cada fuente. En el diseño equilibrado, p = 10, o = 3 y r = 2.</p>
+    <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>Fórmula</th><th>Resultado</th></tr></thead><tbody><tr><td>Pieza</td><td>p−1</td><td>9</td></tr><tr><td>Operador</td><td>o−1</td><td>2</td></tr><tr><td>Pieza × operador</td><td>(p−1)(o−1)</td><td>18</td></tr><tr><td>Error</td><td>p·o·(r−1)</td><td>30</td></tr><tr><td>Total</td><td>p·o·r−1</td><td>59</td></tr></tbody></table></div>
+    <p>Comprueba: 9 + 2 + 18 + 30 = 59. Si no coincide, revisa el diseño o el conteo de observaciones.</p>
+   </div>
+   <button class="btn small secondary" data-step-done="df" type="button">Marcar paso comprendido</button>
+  </details>
+  <details class="step-detail">
+   <summary><span class="step-no">05</span><span><b>Pasar de SS a cuadrados medios y F</b><small>Cuadernillo · pp. 46–47</small></span><span class="step-type">MS / F</span></summary>
+   <div class="step-body">
+    <div class="formula">MS = SS / gl</div>
+    <p>El cuadrado medio divide la suma de cuadrados entre sus grados de libertad. Se expresa todavía en mm².</p>
+    <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>SS (mm²)</th><th>gl</th><th>MS (mm²)</th></tr></thead><tbody><tr><td>Pieza</td><td>0.111375000</td><td>9</td><td>0.012375000</td></tr><tr><td>Operador</td><td>0.001080000</td><td>2</td><td>0.000540000</td></tr><tr><td>Pieza × operador</td><td>0.000480000</td><td>18</td><td>0.000026667</td></tr><tr><td>Error</td><td>0.000150000</td><td>30</td><td>0.000005000</td></tr></tbody></table></div>
+    <p>El estadístico F compara el cuadrado medio de una fuente con el denominador que corresponde al modelo. En este caso, piezas y operadores se comparan con MS<sub>PO</sub>; interacción se compara con MS<sub>E</sub>.</p>
+    <div class="formula">F<sub>Pieza</sub> = 0.012375 / 0.000026667 = 464.06</div>
+    <div class="formula">F<sub>Operador</sub> = 0.000540 / 0.000026667 = 20.25</div>
+    <div class="formula">F<sub>Interacción</sub> = 0.000026667 / 0.000005 = 5.33</div>
+    <p>Los valores p del cuadernillo son menores que 0.05 para las tres fuentes. Bajo el modelo y sus supuestos, hay evidencia de diferencias entre piezas, entre operadores y de interacción pieza–operador.</p>
+   </div>
+   <button class="btn small secondary" data-step-done="msf" type="button">Marcar paso comprendido</button>
+  </details>
+  <details class="step-detail" id="caso60-step-variance">
+   <summary><span class="step-no">06</span><span><b>Convertir ANOVA en componentes de varianza</b><small>Cuadernillo · pp. 47–48</small></span><span class="step-type">EV / AV</span></summary>
+   <div class="step-body">
+    <p>Los componentes deben estimarse a partir de los cuadrados medios. Las cantidades de esta sección son <b>varianzas en mm²</b>; no las compares directamente con medidas de longitud.</p>
+    <div class="formula">σ²<sub>EV</sub> = MS<sub>E</sub> = 0.000005000 mm²</div>
+    <div class="formula">σ²<sub>PO</sub> = (MS<sub>PO</sub> − MS<sub>E</sub>) / r = 0.000010833 mm²</div>
+    <div class="formula">σ²<sub>O</sub> = (MS<sub>O</sub> − MS<sub>PO</sub>) / (p·r) = 0.000025667 mm²</div>
+    <div class="formula">σ²<sub>AV</sub> = σ²<sub>O</sub> + σ²<sub>PO</sub> = 0.000036500 mm²</div>
+    <div class="formula">σ²<sub>GRR</sub> = σ²<sub>EV</sub> + σ²<sub>AV</sub> = 0.000041500 mm²</div>
+    <div class="formula">σ²<sub>P</sub> = (MS<sub>P</sub> − MS<sub>PO</sub>) / (o·r) = 0.002058056 mm²</div>
+    <p>La reproducibilidad incluye el efecto de operador y la interacción. La variación total combina R&amp;R y pieza a pieza.</p>
+    <div class="formula">σ²<sub>TV</sub> = σ²<sub>GRR</sub> + σ²<sub>P</sub> = 0.002099556 mm²</div>
+    <div class="note warn">Regla: se suman varianzas. Si necesitas desviación estándar en mm, aplica raíz cuadrada al final.</div>
+   </div>
+   <button class="btn small secondary" data-step-done="variance" type="button">Marcar paso comprendido</button>
+  </details>
+  <details class="step-detail" id="caso60-step-results">
+   <summary><span class="step-no">07</span><span><b>Obtener desviaciones estándar y leer los resultados</b><small>Cuadernillo · pp. 48–49</small></span><span class="step-type">LECTURA</span></summary>
+   <div class="step-body">
+    <p>Aplica raíz cuadrada para pasar de mm² a mm:</p>
+    <div class="formula">σ<sub>GRR</sub> = √0.000041500 = 0.006442 mm</div>
+    <div class="formula">σ<sub>P</sub> = √0.002058056 = 0.045366 mm</div>
+    <div class="formula">σ<sub>TV</sub> = √0.002099556 = 0.045821 mm</div>
+    <p>La variación pieza a pieza domina el conjunto, pero eso no significa que la variación del sistema de medición sea irrelevante. También se detectó un promedio más alto para B y una interacción significativa.</p>
+   </div>
+   <button class="btn small secondary" data-step-done="results" type="button">Marcar paso comprendido</button>
+  </details>
+  <details class="step-detail" id="caso60-step-metrics">
+   <summary><span class="step-no">08</span><span><b>Calcular indicadores y emitir una conclusión</b><small>Cuadernillo · pp. 49–50</small></span><span class="step-type">DECISIÓN</span></summary>
+   <div class="step-body">
+    <div class="formula">% Contribución = (σ²<sub>GRR</sub> / σ²<sub>TV</sub>) × 100 = 1.98%</div>
+    <p>Compara <b>varianzas</b>: qué proporción de la varianza total se atribuye al sistema.</p>
+    <div class="formula">%SV = (σ<sub>GRR</sub> / σ<sub>TV</sub>) × 100 = 14.06%</div>
+    <p>Compara <b>desviaciones estándar</b> o anchos de variación del estudio; el factor 6 se cancela en el cociente.</p>
+    <div class="formula">6σ<sub>GRR</sub> = 6 × 0.006442 = 0.038652 mm</div>
+    <div class="formula">%Tolerancia = (0.038652 / 0.20) × 100 = 19.33%</div>
+    <p>Compara el ancho estimado del sistema con la tolerancia de ingeniería (20.10 − 19.90 = 0.20 mm).</p>
+    <div class="formula">ndc = 1.41 × (σ<sub>P</sub> / σ<sub>GRR</sub>) = 9.93 → 9 categorías</div>
+    <p><b>Conclusión:</b> %SV de 14.06% cae en una zona condicional; % tolerancia de 19.33% consume cerca de una quinta parte del ancho especificado; ndc ≈ 9 indica capacidad de distinguir varias categorías de piezas. No se debe aceptar automáticamente: hay que investigar la interacción y la diferencia entre operadores, estandarizar el método y repetir el estudio.</p>
+    <div class="note warn">Un R&amp;R bajo no demuestra ausencia de sesgo, linealidad o deriva, ni sustituye una calibración trazable.</div>
+   </div>
+   <button class="btn small secondary" data-step-done="metrics" type="button">Marcar paso comprendido</button>
+  </details>
+ </div>
+ <div class="walk-foot"><span id="walkMessage">Avanza a tu ritmo: abre los pasos y márcalos después de poder explicar la operación.</span><a href="#ejercicio2">Practicar componentes →</a></div>
+</div>
   <div class="task">
     <h3>Comprueba que entiendes el diseño y el ANOVA</h3>
     <div class="fields">
@@ -268,11 +462,13 @@
 </section>
 
 <section class="section" id="integradora">
-  <div class="heading"><div><div class="kicker">MISIÓN 08 · ACTIVIDAD INTEGRADORA</div><h2>El equipo de calidad</h2></div><span class="tag gold">Trabajo por equipos</span></div>
+  <div class="heading"><div><div class="kicker">MISIÓN 08 · ACTIVIDAD INTEGRADORA</div><h2>El equipo de calidad</h2></div><span class="tag gold">Trabajo por equipos</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · p. 30</b><p>Lee las seis situaciones de auditoría y escribe el riesgo y la corrección. Después compara tu diagnóstico con las pistas de la web.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="card">
     <p><b>Contexto:</b> una planta produce bujes para un ensamble mecánico. El cliente reporta rechazos por diámetros fuera de especificación, pero producción sospecha que los resultados cambian según quién mide. El equipo de calidad debe elaborar un plan de estudio R&amp;R y una recomendación técnica.</p>
     <p class="muted">Completa una propuesta mínima. Las respuestas abiertas se guardan localmente y pueden descargarse como reporte. Las preguntas de selección sí reciben validación automática.</p>
-  </div>
+  </div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · p. 31</b><p>Desarrolla el plan del equipo de calidad en el cuadernillo. Usa la validación digital para revisar diseño, selección de piezas, aleatorización e indicadores.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="task">
     <h3>Diseña el estudio</h3>
     <div class="fields">
@@ -293,8 +489,38 @@
   <button class="btn" type="button" id="gradeExam">Calificar evaluación</button><div class="feedback" id="fb-exam"></div>
 </section>
 
+
+<section class="section" id="profundizacion">
+ <div class="heading"><div><div class="kicker">MISIÓN 10 · CUADERNILLO · PROFUNDIZACIÓN</div><h2>Transfiere lo aprendido a otro problema</h2></div><span class="tag gold">pp. 54–55</span></div>
+ <div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · pp. 54–55</b><p>Estos cuatro ejercicios corresponden a la sección de profundización. Resuelve primero en tu cuadernillo y después usa la verificación digital para localizar tus errores.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+ <div class="task">
+  <div class="task-head"><div><div class="kicker">EJERCICIO A · PÁGINA 54</div><h3>Dos operadores, una misma pieza</h3><p>Calcula media y rango para cada persona. Después compara los promedios.</p></div><span class="tag">5 lecturas por operador</span></div>
+  <div class="tablewrap"><table><thead><tr><th>Operador</th><th>Lecturas (mm)</th></tr></thead><tbody><tr><td>A</td><td>12.001 · 12.002 · 12.001 · 12.003 · 12.002</td></tr><tr><td>B</td><td>12.011 · 12.012 · 12.011 · 12.012 · 12.013</td></tr></tbody></table></div>
+  <div class="fields"><div class="field"><label for="paMean">Media A (mm)</label><input id="paMean" inputmode="decimal" placeholder="mm"></div><div class="field"><label for="paRange">Rango A (mm)</label><input id="paRange" inputmode="decimal" placeholder="mm"></div><div class="field"><label for="pbMean">Media B (mm)</label><input id="pbMean" inputmode="decimal" placeholder="mm"></div><div class="field"><label for="pbRange">Rango B (mm)</label><input id="pbRange" inputmode="decimal" placeholder="mm"></div></div>
+  <button class="btn" type="button" id="checkDeepA">Comprobar ejercicio A</button><div class="feedback" id="fb-deepA"></div>
+ </div>
+ <div class="task">
+  <div class="task-head"><div><div class="kicker">EJERCICIO B · PÁGINA 54</div><h3>Construye un diseño experimental</h3><p>La prueba de espesor no es destructiva y las mismas piezas pueden pasar por distintos inspectores. Propón piezas, operadores y repeticiones.</p></div><span class="tag">Diseño</span></div>
+  <div class="note">En un diseño cruzado, todos los operadores miden las mismas piezas. El número de lecturas es p × o × r. Puedes elegir un subconjunto de operadores representativo o incluir a los 12; justifica tu decisión.</div>
+  <div class="fields"><div class="field"><label for="deepParts">Número de piezas (p)</label><input id="deepParts" type="number" min="2" placeholder="Ej. 10"></div><div class="field"><label for="deepOps">Número de operadores (o)</label><input id="deepOps" type="number" min="2" max="12" placeholder="Ej. 3 o 12"></div><div class="field"><label for="deepReps">Repeticiones (r)</label><input id="deepReps" type="number" min="2" placeholder="Ej. 2"></div><div class="field"><label for="deepTotal">Lecturas calculadas (p × o × r)</label><input id="deepTotal" inputmode="numeric" placeholder="Resultado"></div></div>
+  <div class="field"><label for="deepRandom">¿Cómo evitarías confundir el orden con deriva o aprendizaje?</label><select id="deepRandom"><option value="">Selecciona…</option><option value="random">Aleatorizar el orden por operador y repetición; ocultar lecturas previas.</option><option value="fixed">Medir siempre las piezas en el mismo orden.</option><option value="visible">Mostrar resultados previos para que el operador los iguale.</option></select></div>
+  <button class="btn" type="button" id="checkDeepB">Validar diseño</button><div class="feedback" id="fb-deepB"></div>
+ </div>
+ <div class="task">
+  <div class="task-head"><div><div class="kicker">EJERCICIO C · PÁGINA 55</div><h3>Calcula un conjunto nuevo de métricas</h3><p>Componentes estimados: σ²EV = 0.000006 mm²; σ²AV = 0.000034 mm²; σ²P = 0.001960 mm². Tolerancia = 0.18 mm.</p></div><span class="tag">Cálculo</span></div>
+  <div class="fields"><div class="field"><label for="deepCgrr">σ²GRR (mm²)</label><input id="deepCgrr" inputmode="decimal" placeholder="mm²"></div><div class="field"><label for="deepCtv">σ²TV (mm²)</label><input id="deepCtv" inputmode="decimal" placeholder="mm²"></div><div class="field"><label for="deepCsv">%SV</label><input id="deepCsv" inputmode="decimal" placeholder="%"></div><div class="field"><label for="deepCtol">%Tolerancia</label><input id="deepCtol" inputmode="decimal" placeholder="%"></div><div class="field"><label for="deepCndc">ndc</label><input id="deepCndc" inputmode="decimal" placeholder="categorías"></div></div>
+  <button class="btn" type="button" id="checkDeepC">Comprobar métricas</button><div class="feedback" id="fb-deepC"></div>
+ </div>
+ <div class="task">
+  <div class="task-head"><div><div class="kicker">EJERCICIO D · PÁGINA 55</div><h3>Diagnostica la interacción</h3><p>La línea de B sube en P1–P5 y baja en P6–P10. La línea de C cruza dos veces la de A.</p></div><span class="tag">Interpretación</span></div>
+  <div class="choice-list"><label class="choice"><input type="radio" name="deepD" value="interaction"><span>El efecto del operador depende de la pieza; existe un patrón compatible con interacción pieza–operador.</span></label><label class="choice"><input type="radio" name="deepD" value="ev"><span>Solo hay repetibilidad alta; el operador no interviene.</span></label><label class="choice"><input type="radio" name="deepD" value="bias"><span>La gráfica demuestra por sí sola que el instrumento tiene sesgo de calibración.</span></label></div>
+  <div class="field"><label for="deepDtest">Propón una prueba para confirmar tu hipótesis.</label><textarea id="deepDtest" placeholder="Ej. observar cada operador en una pieza difícil, estandarizar punto de contacto y comparar..."></textarea></div>
+  <button class="btn" type="button" id="checkDeepD">Comprobar diagnóstico</button><div class="feedback" id="fb-deepD"></div>
+ </div>
+</section>
 <section class="section" id="reporte">
-  <div class="heading"><div><div class="kicker">CIERRE · EVIDENCIA DE APRENDIZAJE</div><h2>Mi reporte de laboratorio</h2></div><span class="tag green">Tu progreso</span></div>
+  <div class="heading"><div><div class="kicker">CIERRE · EVIDENCIA DE APRENDIZAJE</div><h2>Mi reporte de laboratorio</h2></div><span class="tag green">Tu progreso</span></div><div class="book-ref"><span class="book-ref-icon">▤</span><div><b>CUADERNILLO · p. 32</b><p>Contesta primero la evaluación impresa sin consultar las respuestas. Luego utiliza la evaluación digital para contrastar conceptos y revisar tus errores.</p></div><span class="book-ref-tag">LEE → APLICA</span></div>
+  
   <div class="card">
     <div class="grid">
       <div><div class="smalltext">PUNTOS ACUMULADOS</div><div class="scorebig" id="reportXP">0 XP</div></div>
@@ -326,7 +552,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}r
 function finished(id,points){if(!state.done[id]){state.done[id]=true;state.xp+=points;}save();}
 function attempt(){state.attempts++;save();}
 function renderProgress(){
- const ids=["warmup","calc","e1","e1diag","e2","e3","e3read","case","audit","integr","exam"];
+ const ids=["warmup","calc","e1","e1diag","e2","e3","e3read","case","audit","integr","exam","deep"];
  const total=ids.length,done=ids.filter(k=>state.done[k]).length,pct=Math.round(done/total*100);
  document.getElementById("xpTop").textContent=state.xp;document.getElementById("pctTop").textContent=pct+"%";
  document.getElementById("xpStat").textContent=state.xp;document.getElementById("attemptStat").textContent=state.attempts;
@@ -440,6 +666,20 @@ document.getElementById("downloadReport").addEventListener("click",()=>{
 document.getElementById("resetBtn").addEventListener("click",()=>{if(confirm("¿Reiniciar puntos y avance guardado de esta clase en este navegador?")){localStorage.removeItem(KEY);location.reload();}});
 document.querySelectorAll(".side a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".side a").forEach(x=>x.classList.remove("active"));a.classList.add("active");}));
 load();chart();renderProgress();
+ const walkKey=KEY+"_walkSteps";
+ let walkDone=[];try{walkDone=JSON.parse(localStorage.getItem(walkKey)||"[]")}catch(e){}
+ function renderWalk(){const all=["design","means","anova","df","msf","variance","results","metrics"];const n=all.filter(x=>walkDone.includes(x)).length;const el=document.getElementById("walkCount"),fill=document.getElementById("walkFill");if(el)el.textContent=n+"/8";if(fill)fill.style.width=(n/8*100)+"%";document.querySelectorAll("[data-step-done]").forEach(b=>{const done=walkDone.includes(b.dataset.stepDone);b.textContent=done?"Paso comprendido ✓":"Marcar paso comprendido";b.classList.toggle("success",done);const d=b.closest(".step-detail");if(d)d.classList.toggle("done",done)});}
+ document.querySelectorAll("[data-step-done]").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.stepDone;if(!walkDone.includes(id))walkDone.push(id);else walkDone=walkDone.filter(x=>x!==id);try{localStorage.setItem(walkKey,JSON.stringify(walkDone))}catch(e){}renderWalk();const msg=document.getElementById("walkMessage");if(msg)msg.textContent=walkDone.length===8?"¡Ruta completa! Ahora resuelve el caso sin mirar la explicación.":"Buen avance. Antes de marcar el siguiente, explica el porqué de la fórmula.";}));
+ renderWalk();
+ function deepCheck(id,fields,success,fail){attempt();const misses=fields.filter(f=>!near(f.id,f.expected,f.tol));if(!misses.length){feedback("fb-"+id,true,"¡Correcto!",success);state.answers[id]=true;save();const all=["deepA","deepB","deepC","deepD"].every(k=>state.answers[k]);if(all)finished("deep",35);}else{feedback("fb-"+id,false,"Revisa estos puntos:",misses.map(m=>"<br><b>"+m.label+":</b> "+m.hint).join(" "));}}
+ document.getElementById("checkDeepA").addEventListener("click",()=>deepCheck("deepA",[{id:"paMean",expected:12.0018,tol:.0002,label:"Media A",hint:"Suma las cinco lecturas y divide entre 5: 12.0018 mm."},{id:"paRange",expected:.002,tol:.0002,label:"Rango A",hint:"12.003 − 12.001 = 0.002 mm."},{id:"pbMean",expected:12.0118,tol:.0002,label:"Media B",hint:"La suma de las cinco lecturas de B dividida entre 5 = 12.0118 mm."},{id:"pbRange",expected:.002,tol:.0002,label:"Rango B",hint:"12.013 − 12.011 = 0.002 mm."}],"Ambos rangos son 0.002 mm, pero las medias se separan 0.0100 mm. El indicio más claro es reproducibilidad entre operadores.","Compara primero los rangos dentro de cada operador; después compara los promedios entre A y B."));
+ document.getElementById("checkDeepB").addEventListener("click",()=>{attempt();const p=num("deepParts"),o=num("deepOps"),r=num("deepReps"),total=num("deepTotal"),random=val("deepRandom");const expected=p*o*r;let errors=[];if(!(p>=5))errors.push("Selecciona suficientes piezas para representar el rango del proceso; una propuesta didáctica común es 10.");if(!(o>=2&&o<=12))errors.push("El número de operadores debe estar entre 2 y 12; explica si eliges una muestra representativa o a los 12 inspectores.");if(!(r>=2))errors.push("Necesitas al menos dos repeticiones por combinación para estimar la variación dentro de celda.");if(!Number.isFinite(total)||Math.abs(total-expected)>.001)errors.push("El total de lecturas es p × o × r = "+(Number.isFinite(expected)?expected:"—")+".");if(random!=="random")errors.push("Aleatoriza el orden por operador y repetición, y evita mostrar lecturas anteriores.");if(!errors.length){feedback("fb-deepB",true,"Diseño coherente","Propones "+p+" piezas × "+o+" operadores × "+r+" repeticiones = "+expected+" lecturas. Las mismas piezas pasan por todos los operadores y el orden se aleatoriza.");state.answers.deepB=true;save();if(["deepA","deepB","deepC","deepD"].every(k=>state.answers[k]))finished("deep",35);}else feedback("fb-deepB",false,"Ajusta la propuesta",errors.join("<br>"));});
+ document.getElementById("checkDeepC").addEventListener("click",()=>deepCheck("deepC",[{id:"deepCgrr",expected:.00004,tol:.000001,label:"σ²GRR",hint:"0.000006 + 0.000034 = 0.000040 mm²."},{id:"deepCtv",expected:.002,tol:.00002,label:"σ²TV",hint:"0.000040 + 0.001960 = 0.002000 mm²."},{id:"deepCsv",expected:14.142,tol:.15,label:"%SV",hint:"√0.000040 / √0.002000 × 100 ≈ 14.14%."},{id:"deepCtol",expected:21.082,tol:.2,label:"%Tolerancia",hint:"6×√0.000040 / 0.18 × 100 ≈ 21.08%."},{id:"deepCndc",expected:9.87,tol:.1,label:"ndc",hint:"1.41×(√0.001960 / √0.000040) = 1.41×7 = 9.87."}],"Correcto. Primero sumaste varianzas, luego transformaste a desviaciones estándar y finalmente calculaste los tres indicadores con su denominador correspondiente.","Revisa unidades y denominadores. %SV utiliza desviaciones estándar; % de contribución utiliza varianzas; %Tolerancia utiliza 6σGRR dividido entre el ancho de tolerancia."));
+ document.getElementById("checkDeepD").addEventListener("click",()=>{attempt();const ok=picked("deepD")==="interaction";const note=val("deepDtest").toLowerCase();const specific=["marc","punto","geometr","sujec","aline","observ","repet","estandar","medir"].some(x=>note.includes(x));if(ok&&specific){feedback("fb-deepD",true,"Diagnóstico fundamentado","Las líneas que se cruzan son compatibles con interacción: el efecto del operador cambia según la pieza. Tu prueba debe observar una condición concreta y comparar antes/después con el mismo diseño.");state.answers.deepD=true;save();if(["deepA","deepB","deepC","deepD"].every(k=>state.answers[k]))finished("deep",35);}else{let msg=[];if(!ok)msg.push("Selecciona interacción pieza–operador, no repetibilidad ni sesgo de calibración.");if(!specific)msg.push("La prueba debe ser concreta: observar y marcar el punto de contacto, revisar sujeción/geometría o estandarizar alineación y repetir.");feedback("fb-deepD",false,"Completa el razonamiento",msg.join("<br>"));}});
+ // Highlight the sidebar item for the section currently in view.
+ const navLinks=[...document.querySelectorAll(".side a[href^='#']")];const targets=navLinks.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+ if("IntersectionObserver" in window){const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));}})},{rootMargin:"-22% 0px -66% 0px",threshold:0});targets.forEach(t=>observer.observe(t));}
+
 })();
 </script>
 </body>
