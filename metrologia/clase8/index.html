@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="METRO-LAB Clase 8: laboratorio interactivo de repetibilidad y reproducibilidad. Ejercicios autocorregibles con retroalimentación paso a paso.">
+<title>METRO-LAB | Clase 8 · Estudios R&amp;R</title>
+<style>
+:root{color-scheme:dark;--bg:#07111f;--panel:#10243a;--panel2:#0b1c2e;--line:#294660;--text:#f4f8ff;--muted:#afc2d7;--cyan:#70e5ff;--blue:#83adff;--green:#8ae6b1;--amber:#ffd37e;--red:#ff9ba6;--purple:#c4a5ff;--radius:20px;--shadow:0 18px 46px #0003}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:radial-gradient(ellipse at 8% 0%,#113a53 0,transparent 34%),radial-gradient(ellipse at 92% 22%,#202b62 0,transparent 30%),linear-gradient(160deg,#07111f,#0a1b2b 52%,#06101b);color:var(--text);font:15.5px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--cyan)}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:30;background:#07111fee;backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:10px max(4vw,calc((100vw - 1240px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:.1em}.mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121e;font-weight:1000;font-size:21px;box-shadow:0 0 24px #70e5ff33}.brand small{display:block;font-size:.62rem;letter-spacing:.2em;color:var(--muted);font-weight:750}.topright{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:#10243acc;border-radius:999px;padding:7px 12px;color:var(--muted);font-size:.78rem;font-weight:800}.pill b{color:var(--amber)}.wrap{width:min(1240px,92vw);margin:auto}.hero{padding:56px 0 25px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}.eyebrow,.kicker{font-size:.72rem;color:var(--cyan);font-weight:950;letter-spacing:.17em;text-transform:uppercase}.hero h1{font-size:clamp(2.5rem,6vw,5.3rem);line-height:.98;letter-spacing:-.06em;margin:.7rem 0 1rem;max-width:850px}.hero h1 em{font-style:normal;color:var(--cyan)}.lead{font-size:1.1rem;color:var(--muted);max-width:730px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:10px 15px;min-height:43px;background:var(--cyan);color:#06121e;font-weight:900;text-decoration:none;transition:.18s}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn.secondary{background:#17334c;color:var(--text);border:1px solid var(--line)}.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}.btn.small{min-height:35px;padding:7px 11px;font-size:.82rem}.hero-art,.card,.panel,.task,.stat{background:linear-gradient(145deg,#142d45ee,#091b2bee);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.hero-art{padding:17px;overflow:hidden}.hero-art svg{display:block;width:100%;height:auto}.progressbox{border:1px solid var(--line);border-radius:17px;background:#0d1d30d9;padding:14px 17px;margin:10px 0 28px}.progressline{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;font-weight:900;color:var(--muted)}.bar{height:9px;background:#06111e;border-radius:99px;overflow:hidden;margin-top:9px}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--cyan));transition:.35s}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:38px}.stat{padding:15px 17px}.stat b{display:block;font-size:1.6rem;line-height:1.2}.stat small{color:var(--muted);font-size:.76rem}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:23px;align-items:start}.side{position:sticky;top:78px;padding:13px;border:1px solid var(--line);border-radius:18px;background:#0b1b2ddd}.side strong{font-size:.72rem;letter-spacing:.13em;color:var(--muted);padding:9px 10px;display:block}.side a{display:flex;align-items:center;gap:10px;text-decoration:none;color:#d9eafb;padding:9px 10px;border-radius:10px;font-size:.86rem}.side a:hover,.side a.active{background:#17344d;color:var(--cyan)}.side .num{font-size:.68rem;color:var(--cyan);font-weight:900;width:20px}.content{min-width:0}.section{padding:22px 0 38px;scroll-margin-top:85px}.heading{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:17px}.heading h2{font-size:clamp(1.7rem,3.3vw,2.55rem);letter-spacing:-.04em;line-height:1.1;margin:5px 0}.heading p{color:var(--muted);max-width:590px;margin:0;font-size:.94rem}.card,.panel,.task{padding:20px;margin-bottom:14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card h3,.task h3{margin:.2rem 0 .45rem}.card p,.card li{color:var(--muted)}.tag{display:inline-flex;align-items:center;border:1px solid #3d7897;background:#123249;padding:4px 9px;border-radius:999px;color:#bbf4ff;font-size:.7rem;font-weight:900;letter-spacing:.05em}.tag.gold{background:#3c301a;border-color:#7a5c23;color:#ffe4a4}.tag.green{background:#13372e;border-color:#2a785d;color:#a9f4c8}.formula{font:1.18rem Georgia,serif;text-align:center;color:var(--cyan);background:#061321;border:1px solid #24465d;border-radius:12px;padding:13px;margin:12px 0;overflow-wrap:anywhere}.muted{color:var(--muted)}.note{border-left:3px solid var(--cyan);background:#102b40;padding:12px 14px;border-radius:0 12px 12px 0;color:#d9effc;margin:13px 0}.warn{border-left-color:var(--amber);background:#302719}.good{border-left-color:var(--green);background:#102b26}.bad{border-left-color:var(--red);background:#301923}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:13px;margin:13px 0}table{width:100%;border-collapse:collapse;min-width:520px;font-size:.86rem}th,td{padding:9px 11px;border-bottom:1px solid #29425d;text-align:center;white-space:nowrap}th{background:#17334c;color:#d8f5ff;font-weight:900}td:first-child,th:first-child{text-align:left}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#ffffff06}.task{border-color:#31516e}.task-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.task-head p{color:var(--muted);margin:.2rem 0}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:15px 0}.field label{display:block;color:#d8e8f6;font-weight:800;font-size:.82rem;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;border:1px solid #35516d;background:#071625;color:var(--text);border-radius:10px;padding:10px 11px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #70e5ff18}.field textarea{min-height:85px;resize:vertical}.field small{display:block;color:var(--muted);font-size:.72rem;margin-top:4px}.feedback{display:none;margin:12px 0;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0a1828}.feedback.show{display:block}.feedback.ok{border-color:#2c8762;background:#102e26}.feedback.no{border-color:#884657;background:#301923}.feedback b{display:block;margin-bottom:4px}.choice-list{display:grid;gap:8px;margin:13px 0}.choice{display:flex;gap:10px;align-items:start;border:1px solid #2b4562;background:#0b1b2c;border-radius:11px;padding:11px;cursor:pointer}.choice:hover{border-color:#5083aa}.choice input{margin-top:5px;accent-color:var(--cyan)}.choice span{font-size:.9rem}.meter{height:9px;background:#06111e;border-radius:99px;overflow:hidden}.meter span{height:100%;display:block;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0}.smalltext{font-size:.8rem;color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tab{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#10243a;color:#d9eafb;font-weight:800}.tab.active{background:#1b5064;border-color:var(--cyan);color:#eaffff}.chartbox{background:#081827;border:1px solid var(--line);border-radius:14px;padding:12px;margin:13px 0}.chartbox svg{width:100%;height:auto;display:block}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.76rem;color:var(--muted)}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.scenario{border:1px solid var(--line);border-radius:14px;background:#0b1b2c;padding:15px;margin:11px 0}.scenario p{margin:.25rem 0 .7rem}.scenario .field{max-width:490px}.scorebig{font-size:2rem;color:var(--green);font-weight:950}.hide{display:none!important}.footer{border-top:1px solid var(--line);padding:27px 0 45px;color:var(--muted);font-size:.82rem;margin-top:30px}.kbd{font:700 .75rem ui-monospace,monospace;background:#071321;border:1px solid var(--line);padding:3px 6px;border-radius:6px;color:var(--cyan)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;gap:3px}.side strong{display:none}.side a{white-space:nowrap}.hero{grid-template-columns:1fr}.hero-art{max-width:600px}.grid.three{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.grid,.grid.three,.fields{grid-template-columns:1fr}.top{padding:9px 4vw}.topright .pill:nth-child(2){display:none}.hero{padding-top:37px}.hero h1{font-size:2.8rem}.heading{display:block}.side{top:65px}.card,.panel,.task{padding:16px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="mark">M</div><div>METRO-LAB<small>METROLOGÍA · CLASE 08</small></div></div>
+  <div class="topright"><span class="pill">XP <b id="xpTop">0</b></span><span class="pill">AVANCE <b id="pctTop">0%</b></span><button class="btn ghost small" id="resetBtn" type="button">Reiniciar</button></div>
+</header>
+
+<main class="wrap">
+<section class="hero" id="inicio">
+  <div>
+    <div class="eyebrow">UNIDAD 4 · SISTEMAS DE MEDICIÓN</div>
+    <h1>¿Podemos confiar en lo que <em>medimos</em>?</h1>
+    <p class="lead">En esta misión de calidad vas a investigar si la variación viene del instrumento, del operador o de las piezas. Resuelve los mismos problemas del cuadernillo, recibe pistas al equivocarte y justifica tus decisiones como parte de un equipo de metrología.</p>
+    <div class="hero-actions"><a class="btn" href="#diagnostico">Comenzar laboratorio ↓</a><a class="btn secondary" href="#caso60">Ir al caso de 60 lecturas</a></div>
+    <div class="note"><b>Cómo trabajar:</b> lee la explicación corta, resuelve en los campos y pulsa <em>Comprobar</em>. Un error no te quita puntos: te muestra qué revisar y por qué.</div>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 520 330" role="img" aria-label="Micrómetro digital midiendo un eje">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#70e5ff"/><stop offset="1" stop-color="#83adff"/></linearGradient></defs>
+      <rect x="16" y="18" width="488" height="294" rx="22" fill="#0a1a2b" stroke="#294660"/>
+      <circle cx="260" cy="160" r="118" fill="none" stroke="#234c64" stroke-width="1.5"/>
+      <circle cx="260" cy="160" r="90" fill="none" stroke="#234c64" stroke-dasharray="4 8"/>
+      <path d="M135 92 Q75 92 75 160 Q75 228 135 228 L178 228 L178 197 L137 197 Q111 197 111 160 Q111 123 137 123 L178 123 L178 92Z" fill="url(#g)" opacity=".9"/>
+      <rect x="174" y="116" width="184" height="88" rx="13" fill="#254664" stroke="#70e5ff" stroke-width="2"/>
+      <rect x="202" y="132" width="126" height="54" rx="6" fill="#07111f" stroke="#4e8cab"/>
+      <text x="265" y="166" text-anchor="middle" fill="#8ae6b1" font-size="27" font-family="monospace" font-weight="bold">20.003</text>
+      <text x="265" y="180" text-anchor="middle" fill="#afc2d7" font-size="8">mm</text>
+      <path d="M357 137 L425 137 L425 183 L357 183" fill="none" stroke="#83adff" stroke-width="12" stroke-linejoin="round"/>
+      <path d="M356 160 L393 160" stroke="#ffd37e" stroke-width="7" stroke-linecap="round"/>
+      <rect x="386" y="151" width="78" height="18" rx="9" fill="#9db7cc"/>
+      <path d="M75 254 H445" stroke="#294660" stroke-width="1"/>
+      <text x="260" y="280" text-anchor="middle" fill="#70e5ff" font-size="13" font-weight="bold" letter-spacing="3">SISTEMA DE MEDICIÓN</text>
+      <circle cx="75" cy="56" r="4" fill="#8ae6b1"/><circle cx="445" cy="56" r="4" fill="#ffd37e"/>
+    </svg>
+    <div class="grid three" style="margin-top:11px">
+      <div class="stat"><b>3</b><small>operadores</small></div><div class="stat"><b>10</b><small>piezas</small></div><div class="stat"><b>2</b><small>repeticiones</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="progressbox">
+  <div class="progressline"><span>PROGRESO DE LA CLASE</span><span id="progressLabel">0 de 7 actividades completas</span></div>
+  <div class="bar"><span id="progressFill"></span></div>
+</div>
+<div class="stats">
+  <div class="stat"><b id="doneStat">0/7</b><small>actividades completas</small></div>
+  <div class="stat"><b id="xpStat">0</b><small>puntos de experiencia</small></div>
+  <div class="stat"><b id="attemptStat">0</b><small>intentos registrados</small></div>
+  <div class="stat"><b id="levelStat">Aprendiz</b><small>rango METRO-LAB</small></div>
+</div>
+
+<div class="layout">
+<aside class="side">
+<strong>RUTA DE APRENDIZAJE</strong>
+<a href="#diagnostico"><span class="num">01</span> Diagnóstico</a>
+<a href="#herramientas"><span class="num">02</span> Herramientas</a>
+<a href="#ejercicio1"><span class="num">03</span> Ejercicio 1</a>
+<a href="#ejercicio2"><span class="num">04</span> Ejercicio 2</a>
+<a href="#ejercicio3"><span class="num">05</span> Ejercicio 3</a>
+<a href="#caso60"><span class="num">06</span> Caso 60 lecturas</a>
+<a href="#auditoria"><span class="num">07</span> Auditoría</a>
+<a href="#integradora"><span class="num">08</span> Integradora</a>
+<a href="#evaluacion"><span class="num">09</span> Evaluación</a>
+<a href="#reporte"><span class="num">10</span> Mi reporte</a>
+</aside>
+
+<div class="content">
+<section class="section" id="diagnostico">
+  <div class="heading"><div><div class="kicker">MISIÓN 01 · COMPRENDER ANTES DE CALCULAR</div><h2>Diagnóstico: ¿dónde aparece la variación?</h2></div><span class="tag">2 preguntas</span></div>
+  <div class="grid">
+    <div class="card"><span class="tag">REPETIBILIDAD · EV</span><h3>La misma persona, la misma pieza</h3><p>Se mantienen operador, instrumento, método, ubicación y condiciones durante un intervalo corto. Se observa qué tanto cambian las lecturas al repetir.</p><div class="formula">EV = variación dentro de la misma combinación pieza–operador</div><p class="smalltext">Piensa: si una persona obtiene 20.001, 20.003 y 20.002 mm, ¿qué estás observando?</p></div>
+    <div class="card"><span class="tag gold">REPRODUCIBILIDAD · AV</span><h3>Cambian las personas</h3><p>En un diseño cruzado, diferentes operadores miden las mismas piezas. Se revisa si los promedios cambian por técnica, posicionamiento, fuerza o interpretación del método.</p><div class="formula">AV = operador + interacción pieza–operador</div><p class="smalltext">Piensa: si A mide cerca de 20.00 mm y B mide sistemáticamente más alto, ¿qué sospechas?</p></div>
+  </div>
+  <div class="task" id="warmup">
+    <div class="task-head"><div><div class="kicker">COMPRUEBA TU COMPRENSIÓN</div><h3>Dos decisiones rápidas</h3><p>Selecciona una respuesta por pregunta.</p></div><span class="tag">Diagnóstico</span></div>
+    <div class="scenario"><b>1. Una persona mide diez veces la misma pieza con el mismo micrómetro. Las lecturas están muy dispersas. ¿Qué componente investigarías primero?</b><div class="choice-list">
+      <label class="choice"><input type="radio" name="w1" value="a"><span>Reproducibilidad entre operadores.</span></label>
+      <label class="choice"><input type="radio" name="w1" value="b"><span>Repetibilidad del sistema.</span></label>
+      <label class="choice"><input type="radio" name="w1" value="c"><span>Variación entre piezas.</span></label>
+    </div><div class="feedback" id="fb-w1"></div></div>
+    <div class="scenario"><b>2. Tres operadores miden las mismas piezas. Cada quien obtiene resultados muy agrupados, pero el promedio de B es mayor. ¿Qué revisarías?</b><div class="choice-list">
+      <label class="choice"><input type="radio" name="w2" value="a"><span>Reproducibilidad: técnica, fuerza, alineación y procedimiento.</span></label>
+      <label class="choice"><input type="radio" name="w2" value="b"><span>Solo resolución; los operadores no influyen.</span></label>
+      <label class="choice"><input type="radio" name="w2" value="c"><span>La tolerancia, porque reemplaza el estudio R&amp;R.</span></label>
+    </div><div class="feedback" id="fb-w2"></div></div>
+    <button class="btn" type="button" id="checkWarmup">Comprobar diagnóstico</button>
+  </div>
+</section>
+
+<section class="section" id="herramientas">
+  <div class="heading"><div><div class="kicker">MISIÓN 02 · CAJA DE HERRAMIENTAS</div><h2>Calcula antes de interpretar</h2></div><span class="tag">Práctica guiada</span></div>
+  <div class="card">
+    <h3>Media aritmética y rango</h3>
+    <p>La <b>media</b> resume el centro de las lecturas. El <b>rango</b> mide la distancia entre el valor máximo y el mínimo. La media no muestra por sí sola cuánta dispersión existe; por eso conviene acompañarla con una medida de variación.</p>
+    <div class="formula">x̄ = (x₁ + x₂ + … + xₙ) / n</div>
+    <div class="formula">R = x<sub>máx</sub> − x<sub>mín</sub></div>
+    <p class="smalltext">Datos del ejercicio guiado del cuadernillo: 15.004, 15.006, 15.005, 15.007 y 15.003 mm.</p>
+    <div class="tablewrap"><table><thead><tr><th>Lectura</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody><tr><td>Valor (mm)</td><td>15.004</td><td>15.006</td><td>15.005</td><td>15.007</td><td>15.003</td></tr></tbody></table></div>
+    <div class="fields">
+      <div class="field"><label for="calcMean">Promedio (mm)</label><input id="calcMean" inputmode="decimal" placeholder="Ej. 15.005"></div>
+      <div class="field"><label for="calcRange">Rango (mm)</label><input id="calcRange" inputmode="decimal" placeholder="Ej. 0.004"></div>
+    </div>
+    <button class="btn" type="button" id="checkCalc">Comprobar cálculos</button>
+    <div class="feedback" id="fb-calc"></div>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>Varianza muestral</h3><div class="formula">s² = Σ(xᵢ − x̄)² / (n − 1)</div><p>Se elevan al cuadrado las desviaciones para evitar que signos positivos y negativos se cancelen. Se divide entre n−1 porque se estima la variación a partir de una muestra. Si la medición está en mm, la varianza queda en mm².</p></div>
+    <div class="card"><h3>Desviación estándar</h3><div class="formula">s = √s²</div><p>Es la raíz cuadrada de la varianza. Regresa a la unidad original, mm. En el ejemplo de dos lecturas 19.930 y 19.932 mm, la varianza es 0.000002 mm² y s ≈ 0.001414 mm.</p></div>
+  </div>
+  <div class="note warn"><b>Trampa frecuente:</b> no compares una varianza en mm² directamente con una tolerancia en mm. Primero calcula la raíz cuadrada para regresar a la unidad de la medición.</div>
+</section>
+
+<section class="section" id="ejercicio1">
+  <div class="heading"><div><div class="kicker">MISIÓN 03 · CUADERNILLO · EJERCICIO 1</div><h2>Repetibilidad o reproducibilidad</h2></div><span class="tag">Ana vs. Bruno</span></div>
+  <div class="card">
+    <p>Una característica se mide dos veces por cada uno de dos operadores. Los datos son los mismos que aparecen en el ejercicio 1 del cuadernillo. Enfócate primero en P1; después compara el patrón en P2 y P3.</p>
+    <div class="tablewrap"><table><thead><tr><th>Pieza</th><th>Ana T1</th><th>Ana T2</th><th>Bruno T1</th><th>Bruno T2</th></tr></thead><tbody>
+      <tr><td>P1</td><td>9.997</td><td>9.999</td><td>10.006</td><td>10.008</td></tr>
+      <tr><td>P2</td><td>10.198</td><td>10.200</td><td>10.207</td><td>10.209</td></tr>
+      <tr><td>P3</td><td>10.398</td><td>10.400</td><td>10.405</td><td>10.407</td></tr>
+    </tbody></table></div>
+    <div class="note">Recuerda: promedio = suma de las dos lecturas ÷ 2. Rango = lectura mayor − lectura menor. La diferencia entre promedios de operadores es un indicio de reproducibilidad; el rango de cada operador es un indicio de repetibilidad.</div>
+  </div>
+  <div class="task">
+    <div class="task-head"><div><div class="kicker">RESUELVE · P1</div><h3>Calcula promedio y rango</h3><p>Introduce los cuatro resultados en milímetros.</p></div><span class="tag gold">4 resultados</span></div>
+    <div class="fields">
+      <div class="field"><label for="e1aMean">Promedio de Ana</label><input id="e1aMean" inputmode="decimal" placeholder="mm"></div>
+      <div class="field"><label for="e1aRange">Rango de Ana</label><input id="e1aRange" inputmode="decimal" placeholder="mm"></div>
+      <div class="field"><label for="e1bMean">Promedio de Bruno</label><input id="e1bMean" inputmode="decimal" placeholder="mm"></div>
+      <div class="field"><label for="e1bRange">Rango de Bruno</label><input id="e1bRange" inputmode="decimal" placeholder="mm"></div>
+    </div>
+    <button class="btn" type="button" id="checkE1">Comprobar ejercicio 1</button><div class="feedback" id="fb-e1"></div>
+  </div>
+  <div class="task">
+    <h3>Interpreta: ¿qué variación parece dominar?</h3>
+    <div class="choice-list">
+      <label class="choice"><input type="radio" name="e1diag" value="rep"><span>La repetibilidad: los rangos dentro de cada operador son mucho mayores que la diferencia entre promedios.</span></label>
+      <label class="choice"><input type="radio" name="e1diag" value="repr"><span>La reproducibilidad: cada operador repite con poca dispersión, pero sus promedios están desplazados.</span></label>
+      <label class="choice"><input type="radio" name="e1diag" value="pv"><span>La variación entre piezas: no hay diferencia entre operadores.</span></label>
+    </div>
+    <button class="btn secondary" type="button" id="checkE1diag">Comprobar diagnóstico</button><div class="feedback" id="fb-e1diag"></div>
+  </div>
+</section>
+
+<section class="section" id="ejercicio2">
+  <div class="heading"><div><div class="kicker">MISIÓN 04 · CUADERNILLO · EJERCICIO 2</div><h2>Interpreta los componentes</h2></div><span class="tag">Varianzas en mm²</span></div>
+  <div class="card">
+    <p>Un software estadístico entrega estos componentes estimados. Tu tarea es combinar primero las <b>varianzas</b>. Después aplicarás raíz cuadrada para obtener desviaciones estándar.</p>
+    <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>Varianza estimada</th></tr></thead><tbody><tr><td>Repetibilidad EV</td><td>0.0004 mm²</td></tr><tr><td>Reproducibilidad AV</td><td>0.0005 mm²</td></tr><tr><td>Pieza a pieza PV</td><td>0.0091 mm²</td></tr></tbody></table></div>
+    <div class="formula">σ²<sub>GRR</sub> = σ²<sub>EV</sub> + σ²<sub>AV</sub></div>
+    <div class="formula">σ²<sub>TV</sub> = σ²<sub>GRR</sub> + σ²<sub>PV</sub></div>
+    <div class="note warn">No sumes directamente desviaciones estándar. Los componentes se suman como varianzas, y después se aplica la raíz cuadrada.</div>
+  </div>
+  <div class="task">
+    <h3>Completa el procedimiento</h3>
+    <div class="fields">
+      <div class="field"><label for="e2grr">Varianza R&amp;R (mm²)</label><input id="e2grr" inputmode="decimal" placeholder="σ² GRR"></div>
+      <div class="field"><label for="e2tv">Varianza total (mm²)</label><input id="e2tv" inputmode="decimal" placeholder="σ² TV"></div>
+      <div class="field"><label for="e2contrib">% contribución R&amp;R</label><input id="e2contrib" inputmode="decimal" placeholder="%"></div>
+      <div class="field"><label for="e2sgrr">Desviación estándar R&amp;R (mm)</label><input id="e2sgrr" inputmode="decimal" placeholder="σ GRR"></div>
+      <div class="field"><label for="e2stv">Desviación estándar total (mm)</label><input id="e2stv" inputmode="decimal" placeholder="σ TV"></div>
+      <div class="field"><label for="e2sv">%SV R&amp;R</label><input id="e2sv" inputmode="decimal" placeholder="%"></div>
+    </div>
+    <button class="btn" type="button" id="checkE2">Comprobar ejercicio 2</button><div class="feedback" id="fb-e2"></div>
+  </div>
+  <div class="card">
+    <h3>¿Por qué no se usa la varianza directamente en %SV?</h3>
+    <p>%SV compara desviaciones estándar (o anchos Study Variation, donde el factor 6 se cancela), no varianzas. Si se usaran directamente las varianzas, se calcularía otro cociente: % contribución. No son el mismo indicador.</p>
+  </div>
+</section>
+
+<section class="section" id="ejercicio3">
+  <div class="heading"><div><div class="kicker">MISIÓN 05 · CUADERNILLO · EJERCICIO 3</div><h2>%SV, %Tolerancia y ndc</h2></div><span class="tag">Interpretación técnica</span></div>
+  <div class="card">
+    <p>Para otro sistema se reportan: σGRR = 0.030 mm; σP = 0.120 mm; σTV = 0.1237 mm. La tolerancia de la característica es 0.50 mm.</p>
+    <div class="formula">%SV = (σGRR / σTV) × 100</div>
+    <div class="formula">%Tolerancia = (6 × σGRR / ancho de tolerancia) × 100</div>
+    <div class="formula">ndc ≈ 1.41 × (σP / σGRR)</div>
+    <p class="smalltext">El ndc estima el número de categorías distinguibles entre piezas; no representa piezas buenas, defectuosas ni aprobadas.</p>
+  </div>
+  <div class="task">
+    <h3>Calcula los tres indicadores</h3>
+    <div class="fields">
+      <div class="field"><label for="e3sv">%SV</label><input id="e3sv" inputmode="decimal" placeholder="porcentaje"></div>
+      <div class="field"><label for="e3tol">%Tolerancia</label><input id="e3tol" inputmode="decimal" placeholder="porcentaje"></div>
+      <div class="field"><label for="e3ndc">ndc aproximado (2 decimales)</label><input id="e3ndc" inputmode="decimal" placeholder="categorías"></div>
+    </div>
+    <button class="btn" type="button" id="checkE3">Comprobar ejercicio 3</button><div class="feedback" id="fb-e3"></div>
+  </div>
+  <div class="task">
+    <h3>Ahora interpreta, no solo calcules</h3>
+    <div class="fields">
+      <div class="field"><label for="e3svRead">El %SV obtenido se interpreta como...</label><select id="e3svRead"><option value="">Selecciona…</option><option value="good">Generalmente favorable, menor a 30%.</option><option value="bad">Generalmente no aceptable, mayor a 30%.</option><option value="zero">El sistema no tiene variación.</option></select></div>
+      <div class="field"><label for="e3tolRead">El %Tolerancia se interpreta como...</label><select id="e3tolRead"><option value="">Selecciona…</option><option value="bad">Supera 30%; requiere atención antes de usarlo para decisiones críticas.</option><option value="good">Es menor a 10%; se acepta automáticamente.</option><option value="zero">No es relevante para el proceso.</option></select></div>
+      <div class="field"><label for="e3ndcRead">El ndc se interpreta como...</label><select id="e3ndcRead"><option value="">Selecciona…</option><option value="good">Aproximadamente 5 categorías completas; supera la guía de cinco.</option><option value="bad">5.64 piezas conformes.</option><option value="zero">Número de repeticiones del estudio.</option></select></div>
+    </div>
+    <button class="btn secondary" type="button" id="checkE3read">Comprobar interpretación</button><div class="feedback" id="fb-e3read"></div>
+  </div>
+</section>
+
+<section class="section" id="caso60">
+  <div class="heading"><div><div class="kicker">MISIÓN 06 · CASO INTEGRADOR DEL CUADERNILLO</div><h2>60 lecturas: diámetro de ejes</h2></div><span class="tag gold">10 piezas × 3 operadores × 2 repeticiones</span></div>
+  <div class="card">
+    <p>La planta mecaniza ejes y quiere evaluar su sistema. Cada pieza es medida por A, B y C dos veces. Los resultados están expresados en milímetros. El caso del cuadernillo contiene 60 observaciones: no alteres ni elimines lecturas sin documentar una causa.</p>
+    <div class="tablewrap"><table id="data60"><thead><tr><th>Pieza</th><th>A · T1</th><th>A · T2</th><th>B · T1</th><th>B · T2</th><th>C · T1</th><th>C · T2</th></tr></thead><tbody>
+    <tr><td>P1</td><td>19.930</td><td>19.932</td><td>19.932</td><td>19.936</td><td>19.924</td><td>19.926</td></tr>
+    <tr><td>P2</td><td>19.936</td><td>19.940</td><td>19.952</td><td>19.954</td><td>19.942</td><td>19.946</td></tr>
+    <tr><td>P3</td><td>19.960</td><td>19.962</td><td>19.962</td><td>19.966</td><td>19.953</td><td>19.957</td></tr>
+    <tr><td>P4</td><td>19.966</td><td>19.970</td><td>19.982</td><td>19.984</td><td>19.973</td><td>19.975</td></tr>
+    <tr><td>P5</td><td>19.990</td><td>19.992</td><td>19.993</td><td>19.995</td><td>19.983</td><td>19.987</td></tr>
+    <tr><td>P6</td><td>19.996</td><td>20.000</td><td>20.011</td><td>20.015</td><td>20.003</td><td>20.005</td></tr>
+    <tr><td>P7</td><td>20.020</td><td>20.022</td><td>20.022</td><td>20.026</td><td>20.014</td><td>20.016</td></tr>
+    <tr><td>P8</td><td>20.026</td><td>20.030</td><td>20.042</td><td>20.044</td><td>20.032</td><td>20.036</td></tr>
+    <tr><td>P9</td><td>20.050</td><td>20.052</td><td>20.052</td><td>20.056</td><td>20.043</td><td>20.047</td></tr>
+    <tr><td>P10</td><td>20.056</td><td>20.060</td><td>20.072</td><td>20.074</td><td>20.063</td><td>20.065</td></tr>
+    </tbody></table></div>
+    <div class="note"><b>Control del diseño:</b> p = 10 piezas; o = 3 operadores; r = 2 repeticiones. Número de lecturas: N = p × o × r = 60. Cada operador mide las mismas piezas: es un diseño cruzado.</div>
+  </div>
+  <div class="card">
+    <h3>Comparación visual de promedios por pieza</h3>
+    <p>El gráfico muestra el promedio de las dos repeticiones de cada operador en cada pieza. Observa si las líneas se mantienen cercanas, si una permanece más alta o si cambian su separación según la pieza.</p>
+    <div class="chartbox"><svg id="operatorChart" viewBox="0 0 760 310" role="img" aria-label="Gráfica de promedios por operador"></svg><div class="legend"><span><i class="dot" style="background:#70e5ff"></i>Operador A</span><span><i class="dot" style="background:#ffd37e"></i>Operador B</span><span><i class="dot" style="background:#c4a5ff"></i>Operador C</span></div></div>
+    <p class="smalltext">La línea más alta de B sugiere un desplazamiento entre operadores. Si las líneas se cruzan o cambian su separación según la pieza, investiga interacción pieza–operador. La gráfica orienta; no reemplaza el análisis ANOVA.</p>
+  </div>
+  <div class="card">
+    <h3>Resumen ANOVA del cuadernillo</h3>
+    <div class="tablewrap"><table><thead><tr><th>Fuente</th><th>gl</th><th>SS (mm²)</th><th>MS (mm²)</th></tr></thead><tbody>
+      <tr><td>Pieza</td><td>9</td><td>0.111375000</td><td>0.012375000</td></tr>
+      <tr><td>Operador</td><td>2</td><td>0.001080000</td><td>0.000540000</td></tr>
+      <tr><td>Pieza × operador</td><td>18</td><td>0.000480000</td><td>0.000026667</td></tr>
+      <tr><td>Error / repetibilidad</td><td>30</td><td>0.000150000</td><td>0.000005000</td></tr>
+      <tr><td>Total</td><td>59</td><td>0.113085000</td><td>—</td></tr>
+    </tbody></table></div>
+    <p class="smalltext">gl = grados de libertad; SS = suma de cuadrados; MS = cuadrado medio = SS ÷ gl.</p>
+  </div>
+  <div class="task">
+    <h3>Comprueba que entiendes el diseño y el ANOVA</h3>
+    <div class="fields">
+      <div class="field"><label for="cN">¿Cuántas lecturas existen?</label><input id="cN" inputmode="numeric" placeholder="N"></div>
+      <div class="field"><label for="cB">Promedio global del operador B (mm)</label><input id="cB" inputmode="decimal" placeholder="mm"></div>
+      <div class="field"><label for="cPO">gl de interacción pieza × operador</label><input id="cPO" inputmode="numeric" placeholder="gl"></div>
+      <div class="field"><label for="cE">gl del error / repetibilidad</label><input id="cE" inputmode="numeric" placeholder="gl"></div>
+    </div>
+    <button class="btn" type="button" id="checkCase">Comprobar caso de 60 lecturas</button><div class="feedback" id="fb-case"></div>
+  </div>
+  <div class="note warn"><b>Lectura técnica de los resultados del cuadernillo:</b> σ²EV = 0.000005 mm²; σ²AV = 0.000036500 mm²; σ²GRR = 0.000041500 mm²; σ²PV = 0.002058056 mm². El % contribución R&amp;R = 1.98%; %SV = 14.06%; %Tolerancia = 19.33%; ndc = 9.93, reportado como 9 categorías completas. No confundas el ejemplo didáctico de 60 lecturas con el caso manual reducido de cinco piezas que también aparece en el cuadernillo.</div>
+</section>
+
+<section class="section" id="auditoria">
+  <div class="heading"><div><div class="kicker">MISIÓN 07 · CUADERNILLO · EJERCICIO 4</div><h2>Auditoría del diseño</h2></div><span class="tag">Detecta los errores</span></div>
+  <p class="muted">Lee cada situación. Selecciona el problema principal. Después de comprobar, recibirás una explicación y una corrección propuesta.</p>
+  <div id="auditList"></div>
+  <button class="btn" type="button" id="checkAudit">Calificar auditoría</button><div class="feedback" id="fb-audit"></div>
+</section>
+
+<section class="section" id="integradora">
+  <div class="heading"><div><div class="kicker">MISIÓN 08 · ACTIVIDAD INTEGRADORA</div><h2>El equipo de calidad</h2></div><span class="tag gold">Trabajo por equipos</span></div>
+  <div class="card">
+    <p><b>Contexto:</b> una planta produce bujes para un ensamble mecánico. El cliente reporta rechazos por diámetros fuera de especificación, pero producción sospecha que los resultados cambian según quién mide. El equipo de calidad debe elaborar un plan de estudio R&amp;R y una recomendación técnica.</p>
+    <p class="muted">Completa una propuesta mínima. Las respuestas abiertas se guardan localmente y pueden descargarse como reporte. Las preguntas de selección sí reciben validación automática.</p>
+  </div>
+  <div class="task">
+    <h3>Diseña el estudio</h3>
+    <div class="fields">
+      <div class="field"><label for="intDesign">Tipo de diseño</label><select id="intDesign"><option value="">Selecciona…</option><option value="crossed">Cruzado: las mismas piezas las miden todos.</option><option value="nested">Anidado: cada operador mide piezas distintas porque la prueba destruye o altera la muestra.</option></select></div>
+      <div class="field"><label for="intPieces">¿Qué selección de piezas es más útil?</label><select id="intPieces"><option value="">Selecciona…</option><option value="range">Piezas que representen la variación real del proceso.</option><option value="identical">Piezas casi idénticas para facilitar el cálculo.</option><option value="convenience">Solo las piezas más fáciles de sujetar.</option></select></div>
+      <div class="field"><label for="intOrder">¿Cómo organizas las mediciones?</label><select id="intOrder"><option value="">Selecciona…</option><option value="random">Aleatorizar el orden y ocultar lecturas anteriores.</option><option value="fixed">Siempre P1 a P10 en el mismo orden y mostrar lecturas previas.</option><option value="operator">Dejar que cada operador cambie el procedimiento.</option></select></div>
+      <div class="field"><label for="intReport">¿Qué indicadores reportarías?</label><select id="intReport"><option value="">Selecciona…</option><option value="all">EV, AV, GRR, PV, % contribución, %SV, % tolerancia y ndc.</option><option value="only">Solo promedio general.</option><option value="tol">Solo % contribución.</option></select></div>
+    </div>
+    <div class="field"><label for="intAction">Propón dos acciones si la variación entre operadores (AV) es alta.</label><textarea id="intAction" placeholder="Ej. observar técnica, estandarizar punto de contacto, capacitar y repetir el estudio..."></textarea></div>
+    <button class="btn" type="button" id="checkIntegr">Validar diseño</button><div class="feedback" id="fb-integr"></div>
+  </div>
+</section>
+
+<section class="section" id="evaluacion">
+  <div class="heading"><div><div class="kicker">MISIÓN 09 · EVALUACIÓN RÁPIDA</div><h2>Demuestra lo aprendido</h2></div><span class="tag">10 reactivos</span></div>
+  <p class="muted">Responde sin consultar el apartado anterior. Al finalizar, revisa las explicaciones de las respuestas incorrectas.</p>
+  <div id="examList"></div>
+  <button class="btn" type="button" id="gradeExam">Calificar evaluación</button><div class="feedback" id="fb-exam"></div>
+</section>
+
+<section class="section" id="reporte">
+  <div class="heading"><div><div class="kicker">CIERRE · EVIDENCIA DE APRENDIZAJE</div><h2>Mi reporte de laboratorio</h2></div><span class="tag green">Tu progreso</span></div>
+  <div class="card">
+    <div class="grid">
+      <div><div class="smalltext">PUNTOS ACUMULADOS</div><div class="scorebig" id="reportXP">0 XP</div></div>
+      <div><div class="smalltext">ACTIVIDADES COMPLETAS</div><div class="scorebig" id="reportDone">0 / 7</div></div>
+    </div>
+    <div class="note">Tu avance se guarda en este navegador mediante almacenamiento local. No se transmite automáticamente al docente ni se sincroniza entre dispositivos.</div>
+    <div class="fields">
+      <div class="field"><label for="studentName">Nombre del estudiante</label><input id="studentName" placeholder="Nombre completo"></div>
+      <div class="field"><label for="studentGroup">Grupo</label><input id="studentGroup" placeholder="Grupo"></div>
+    </div>
+    <button class="btn" type="button" id="downloadReport">Descargar reporte de avance</button>
+    <a class="btn secondary" href="../">Volver al laboratorio de Metrología ↗</a>
+  </div>
+</section>
+
+</div>
+</div>
+
+<footer class="footer"><b>METRO-LAB · CLASE 8 · UNIDAD 4</b><p>Estudios de repetibilidad y reproducibilidad. Material formativo vinculado al cuadernillo de estudio y trabajo. Los datos y resultados indicados son ejemplos didácticos del material de clase; las decisiones industriales deben considerar el método aprobado, los requisitos del cliente y la criticidad de la característica.</p><p>Fuentes de consulta indicadas en el cuadernillo: JCGM 200:2012 (VIM); NIST/SEMATECH e-Handbook, sección Gauge R&amp;R; Minitab Support, Crossed Gage R&amp;R; AIAG, Measurement Systems Analysis, 4.ª edición.</p></footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+const KEY="metrolab_clase8_rr_v1";
+const state={xp:0,attempts:0,done:{},answers:{}};
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||"{}");state.xp=s.xp||0;state.attempts=s.attempts||0;state.done=s.done||{};state.answers=s.answers||{};}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}renderProgress();}
+function finished(id,points){if(!state.done[id]){state.done[id]=true;state.xp+=points;}save();}
+function attempt(){state.attempts++;save();}
+function renderProgress(){
+ const ids=["warmup","calc","e1","e2","e3","case","audit","integr","exam"];
+ const total=ids.length,done=ids.filter(k=>state.done[k]).length,pct=Math.round(done/total*100);
+ document.getElementById("xpTop").textContent=state.xp;document.getElementById("pctTop").textContent=pct+"%";
+ document.getElementById("xpStat").textContent=state.xp;document.getElementById("attemptStat").textContent=state.attempts;
+ document.getElementById("doneStat").textContent=done+"/"+total;document.getElementById("progressLabel").textContent=done+" de "+total+" actividades completas";
+ document.getElementById("progressFill").style.width=pct+"%";document.getElementById("levelStat").textContent=state.xp>=180?"Analista":state.xp>=100?"Inspector":state.xp>=40?"Técnico":"Aprendiz";
+ document.getElementById("reportXP").textContent=state.xp+" XP";document.getElementById("reportDone").textContent=done+" / "+total;
+}
+function val(id){return document.getElementById(id).value.trim().replace(",",".");}
+function num(id){const n=Number(val(id));return val(id)===""?NaN:n;}
+function near(id,expected,tol){const x=num(id);return Number.isFinite(x)&&Math.abs(x-expected)<=tol;}
+function feedback(id,ok,title,msg){const el=document.getElementById(id);el.className="feedback show "+(ok?"ok":"no");el.innerHTML="<b>"+title+"</b><span>"+msg+"</span>";}
+function checkGroup(fields,fbId,taskId,points,success,fail){
+ attempt();const misses=fields.filter(f=>!near(f.id,f.expected,f.tol));
+ if(!misses.length){feedback(fbId,true,"¡Correcto!",success);finished(taskId,points);}
+ else{feedback(fbId,false,"Todavía hay algo que revisar:",misses.map(m=>"<br><b>"+m.label+":</b> "+m.hint).join(" "));}
+}
+function picked(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:"";}
+const quizInfo={
+ w1:{answer:"b",why:"Las lecturas dispersas aparecen al repetir con el mismo operador, pieza e instrumento. Primero investiga la repetibilidad: contacto, fuerza, resolución, fijación, vibración y condición del equipo."},
+ w2:{answer:"a",why:"Si cada operador repite de forma consistente pero B tiene un promedio desplazado, la señal apunta a reproducibilidad. Observa técnica, posicionamiento, fuerza, lectura y aplicación del procedimiento."}
+};
+document.getElementById("checkWarmup").addEventListener("click",()=>{
+ attempt();let all=true;
+ ["w1","w2"].forEach((q,i)=>{const a=picked(q),ok=a===quizInfo[q].answer;all=all&&ok;feedback("fb-"+q,ok,ok?"Respuesta correcta":"Revisa este concepto",ok?quizInfo[q].why:"No estás identificando qué condición cambia. "+quizInfo[q].why);});
+ if(all)finished("warmup",15);
+});
+document.getElementById("checkCalc").addEventListener("click",()=>{
+ checkGroup([{id:"calcMean",expected:15.005,tol:.0005,label:"Promedio",hint:"Suma las cinco lecturas y divide entre 5. El resultado es 15.005 mm."},{id:"calcRange",expected:.004,tol:.0002,label:"Rango",hint:"Resta el mínimo 15.003 al máximo 15.007. No dividas entre n."}],"fb-calc","calc",10,"Media = 15.005 mm y rango = 0.004 mm. La media localiza el centro; el rango muestra la amplitud de la serie.","Revisa la operación indicada. No confundas rango con promedio ni con desviación estándar.");
+});
+document.getElementById("checkE1").addEventListener("click",()=>{
+ checkGroup([{id:"e1aMean",expected:9.998,tol:.0005,label:"Promedio Ana",hint:"(9.997 + 9.999) / 2 = 9.998 mm."},{id:"e1aRange",expected:.002,tol:.0002,label:"Rango Ana",hint:"9.999 − 9.997 = 0.002 mm."},{id:"e1bMean",expected:10.007,tol:.0005,label:"Promedio Bruno",hint:"(10.006 + 10.008) / 2 = 10.007 mm."},{id:"e1bRange",expected:.002,tol:.0002,label:"Rango Bruno",hint:"10.008 − 10.006 = 0.002 mm."}],"fb-e1","e1",20,"Ana: promedio 9.998 mm, rango 0.002 mm. Bruno: promedio 10.007 mm, rango 0.002 mm. La diferencia entre promedios es 0.009 mm.","Los rangos se calculan máximo menos mínimo. Los promedios se calculan suma entre número de lecturas.");
+});
+document.getElementById("checkE1diag").addEventListener("click",()=>{
+ attempt();const ok=picked("e1diag")==="repr";
+ feedback("fb-e1diag",ok,ok?"Diagnóstico correcto":"La pista está en los rangos",ok?"Ambos operadores tienen el mismo rango pequeño (0.002 mm), pero sus promedios difieren 0.009 mm. El indicio es de reproducibilidad entre operadores.":"Compara primero los rangos dentro de cada persona y después los promedios entre personas. Los rangos son pequeños e iguales; la diferencia entre promedios es mucho mayor.");if(ok)finished("e1",0);
+});
+document.getElementById("checkE2").addEventListener("click",()=>{
+ checkGroup([{id:"e2grr",expected:.0009,tol:.00005,label:"Varianza R&R",hint:"0.0004 + 0.0005 = 0.0009 mm²."},{id:"e2tv",expected:.0100,tol:.0002,label:"Varianza total",hint:"0.0009 + 0.0091 = 0.0100 mm²."},{id:"e2contrib",expected:9,tol:.3,label:"% contribución",hint:"(0.0009 / 0.0100) × 100 = 9.0%. Compara varianzas."},{id:"e2sgrr",expected:.03,tol:.0005,label:"Desviación estándar R&R",hint:"Raíz cuadrada de 0.0009 = 0.030 mm."},{id:"e2stv",expected:.1,tol:.001,label:"Desviación estándar total",hint:"Raíz cuadrada de 0.0100 = 0.100 mm."},{id:"e2sv",expected:30,tol:.5,label:"%SV",hint:"(0.030 / 0.100) × 100 = 30%. Compara desviaciones estándar, no varianzas."}],"fb-e2","e2",25,"El procedimiento completo está correcto. Primero sumaste varianzas (mm²), luego aplicaste raíz cuadrada (mm), y finalmente calculaste indicadores con sus denominadores adecuados.","Haz el cálculo de izquierda a derecha. Verifica unidades: varianza en mm², desviación estándar en mm. % contribución usa varianzas; %SV usa desviaciones estándar.");
+});
+document.getElementById("checkE3").addEventListener("click",()=>{
+ checkGroup([{id:"e3sv",expected:24.25,tol:.35,label:"%SV",hint:"0.030 / 0.1237 × 100 ≈ 24.25%."},{id:"e3tol",expected:36,tol:.3,label:"%Tolerancia",hint:"(6 × 0.030 / 0.50) × 100 = 36%."},{id:"e3ndc",expected:5.64,tol:.05,label:"ndc",hint:"1.41 × (0.120 / 0.030) = 5.64."}],"fb-e3","e3",25,"%SV ≈ 24.25%; %Tolerancia = 36%; ndc ≈ 5.64, es decir, aproximadamente cinco categorías completas en este ejercicio.","Revisa qué compara cada indicador. %SV divide σGRR entre σTV. %Tolerancia divide 6σGRR entre el ancho de tolerancia. ndc compara σP con σGRR.");
+});
+document.getElementById("checkE3read").addEventListener("click",()=>{
+ attempt();const items=[["e3svRead","good","%SV de 24.25% cae en el intervalo condicional (10% a 30%) de la guía orientativa."],["e3tolRead","bad","%Tolerancia = 36% supera 30%; necesita atención y justificación frente al propósito y al cliente."],["e3ndcRead","good","5.64 se interpreta como unas cinco categorías completas; ndc no cuenta piezas conformes."]];
+ const misses=items.filter(x=>document.getElementById(x[0]).value!==x[1]);
+ if(!misses.length){feedback("fb-e3read",true,"Buena interpretación","El resultado es mixto: %SV condicional, %Tolerancia preocupante y ndc alrededor del mínimo recomendado. No emitas una aprobación automática.");finished("e3",15);}
+ else{feedback("fb-e3read",false,"Vuelve a los denominadores",misses.map(x=>x[2]).join("<br>"));}
+});
+const audit=[
+ ["Cada operador mide un grupo diferente de piezas, pero el reporte lo llama diseño cruzado.","wrong","Un diseño cruzado requiere que cada operador mida las mismas piezas. Si cada quien recibe piezas distintas, el efecto de operador queda mezclado con diferencias entre piezas.","Haz que todos los operadores midan las mismas unidades físicas, si el ensayo lo permite. Si no es posible, plantea un diseño anidado y analízalo como tal."],
+ ["Los tres operadores conocen y consultan las lecturas anteriores.","blind","Conocer lecturas previas puede inducir a repetir el número esperado y reducir artificialmente la variación observada.","Oculta las lecturas anteriores y registra cada resultado sin mostrar el dato previo."],
+ ["Las piezas seleccionadas tienen dimensiones casi idénticas.","range","Una muestra sin rango representativo no permite estimar adecuadamente la variación pieza a pieza; puede distorsionar el %SV y el ndc.","Selecciona piezas que representen la variación real del proceso y el intervalo de interés."],
+ ["El orden de medición siempre va de P1 a P10 y luego se reinicia.","random","El orden fijo puede confundir pieza con calentamiento, fatiga, deriva o aprendizaje del operador.","Aleatoriza el orden de medición para cada operador y repetición."],
+ ["Se elimina una lectura porque no coincide con las demás, sin documentar la razón.","delete","Borrar una lectura por parecer extraña sesga el análisis y destruye trazabilidad.","Conserva la lectura original, documenta la incidencia y sigue un procedimiento aprobado para investigar o repetir."],
+ ["Se usa el resultado R&R para afirmar que el instrumento no tiene sesgo ni deriva.","scope","R&R evalúa precisión bajo condiciones estudiadas; no sustituye estudios de sesgo, linealidad, estabilidad o calibración.","Evalúa sesgo, linealidad, estabilidad y trazabilidad por separado cuando apliquen."]
+];
+const auditWrap=document.getElementById("auditList");
+audit.forEach((a,i)=>{const d=document.createElement("div");d.className="scenario";d.innerHTML="<b>"+(i+1)+". "+a[0]+"</b><div class='field'><label for='audit"+i+"'>¿Cuál es el problema principal?</label><select id='audit"+i+"'><option value=''>Selecciona…</option><option value='wrong'>Se declaró cruzado un diseño que no cruza las mismas piezas.</option><option value='blind'>No se evita el sesgo por conocer lecturas previas.</option><option value='range'>La muestra de piezas no representa la variación.</option><option value='random'>No se aleatoriza el orden de medición.</option><option value='delete'>Se eliminan datos sin evidencia ni documentación.</option><option value='scope'>Se atribuyen al R&amp;R conclusiones que no evalúa.</option></select></div><div class='feedback' id='auditfb"+i+"'></div>";auditWrap.appendChild(d);});
+document.getElementById("checkAudit").addEventListener("click",()=>{
+ attempt();let score=0;
+ audit.forEach((a,i)=>{const ok=document.getElementById("audit"+i).value===a[1];if(ok)score++;feedback("auditfb"+i,ok,ok?"Hallazgo correcto":"Pista de auditoría",a[2]+"<br><b>Corrección:</b> "+a[3]);});
+ feedback("fb-audit",score===6,score+"/6 situaciones identificadas",score===6?"Detectaste todos los problemas de diseño.":"Revisa las explicaciones por situación. Puedes corregir y volver a comprobar.");
+ if(score===6)finished("audit",25);
+});
+document.getElementById("checkCase").addEventListener("click",()=>{
+ checkGroup([{id:"cN",expected:60,tol:0,label:"Número de lecturas",hint:"10 piezas × 3 operadores × 2 repeticiones = 60."},{id:"cB",expected:20.0035,tol:.0005,label:"Promedio B",hint:"El promedio de las 20 lecturas de B es 20.0035 mm."},{id:"cPO",expected:18,tol:0,label:"gl interacción",hint:"(p − 1)(o − 1) = (10 − 1)(3 − 1) = 18."},{id:"cE",expected:30,tol:0,label:"gl error",hint:"p × o × (r − 1) = 10 × 3 × 1 = 30."}],"fb-case","case",25,"Hay 60 lecturas. El promedio de B es 20.0035 mm. gl de interacción = 18 y gl de error = 30. Los grados de libertad dependen de piezas, operadores y repeticiones.","Revisa las fórmulas de diseño cruzado. Recuerda: gl interacción = (p−1)(o−1); gl error = p·o·(r−1).");
+});
+document.getElementById("checkIntegr").addEventListener("click",()=>{
+ attempt();const good=val("intDesign")==="crossed"&&val("intPieces")==="range"&&val("intOrder")==="random"&&val("intReport")==="all";
+ const actions=val("intAction").toLowerCase();const actionGood=["estandar","capac","entren","proced","punto de contacto","técnica","tecnica","aline","fuerza","observar"].some(x=>actions.includes(x));
+ if(good&&actionGood){feedback("fb-integr",true,"Plan base validado","Elegiste un diseño cruzado si las mismas piezas pueden medirse sin alterarse, una muestra representativa, orden aleatorizado, lecturas anteriores ocultas e indicadores complementarios. Tu acción aborda el método o la técnica: documenta cómo comprobarías su eficacia y repite el estudio después de mejorar.");finished("integr",30);}
+ else{let msg=[];if(val("intDesign")!=="crossed")msg.push("El caso de bujes no indica que la prueba sea destructiva. Si las mismas piezas pueden medirse, el diseño usual es cruzado.");if(val("intPieces")!=="range")msg.push("Selecciona piezas que representen la variación del proceso; piezas casi idénticas limitan el análisis.");if(val("intOrder")!=="random")msg.push("Aleatoriza el orden y oculta las lecturas anteriores para evitar aprendizaje, deriva o sesgo.");if(val("intReport")!=="all")msg.push("Un diagnóstico completo considera EV, AV, GRR, PV, % contribución, %SV, % tolerancia y ndc.");if(!actionGood)msg.push("Agrega al menos dos acciones concretas: observar técnica, estandarizar punto de contacto, capacitar, fijar la pieza o verificar fuerza de medición.");feedback("fb-integr",false,"Tu propuesta necesita ajustes",msg.join("<br>"));}
+});
+const exam=[
+ ["¿Qué describe la repetibilidad? ",["Diferencias entre lotes","Precisión al repetir en condiciones definidas","Sesgo respecto a un patrón"],1,"Repetibilidad estudia la dispersión cuando se mantienen operador, equipo, método y condiciones."],
+ ["En un diseño cruzado, ¿qué permite estudiar la reproducibilidad? ",["Que operadores distintos midan las mismas piezas","Que cada operador mida piezas diferentes","Que se cambie de instrumento en cada lectura"],0,"El diseño cruzado compara operadores midiendo las mismas piezas."],
+ ["¿Qué unidad tiene la varianza si las lecturas están en mm? ",["mm","mm²","Sin unidad"],1,"La varianza eleva al cuadrado las desviaciones, por eso queda en mm²."],
+ ["¿Cómo se combinan los componentes de varianza EV y AV? ",["Sumando desviaciones estándar","Multiplicando los porcentajes","Sumando varianzas"],2,"σ²GRR = σ²EV + σ²AV. Después se calcula raíz cuadrada para obtener σGRR."],
+ ["¿Qué representa la interacción pieza–operador? ",["La diferencia entre turnos","Que el efecto del operador cambia según la pieza","La variación entre repeticiones idénticas"],1,"La interacción significa que la diferencia entre operadores depende de cuál pieza se mida."],
+ ["¿Qué compara el % contribución? ",["La varianza de un componente con la varianza total","La desviación estándar con la tolerancia","El número de operadores con piezas"],0,"% contribución usa varianzas: σ²componente / σ²total × 100."],
+ ["¿Qué compara el %SV? ",["El rango con el promedio","La desviación estándar del componente con la desviación estándar total","La varianza con la tolerancia"],1,"%SV compara desviaciones estándar (el factor 6 se cancela)." ],
+ ["¿Qué compara el % de tolerancia? ",["El ancho 6σGRR con el ancho de tolerancia","La media con el límite superior","El rango con número de operadores"],0,"%Tolerancia = 6σGRR / (LSE − LIE) × 100."],
+ ["¿Por qué se aleatoriza el orden? ",["Para reducir cantidad de datos","Para que las piezas se midan más rápido","Para evitar confundir efectos con tiempo, calentamiento, fatiga o deriva"],2,"Aleatorizar reduce la posibilidad de que el orden sistemático se mezcle con otra fuente de variación."],
+ ["¿Qué NO demuestra por sí solo un R&R bajo? ",["Que la calibración está correcta y no hay sesgo o deriva","Que el sistema repite con poca variación","Que el ruido es pequeño bajo las condiciones estudiadas"],0,"R&R se enfoca en precisión bajo las condiciones estudiadas; sesgo, linealidad, estabilidad y calibración se evalúan por separado."]
+];
+const examWrap=document.getElementById("examList");
+exam.forEach((q,i)=>{const d=document.createElement("div");d.className="scenario";let opts="";q[1].forEach((o,j)=>{opts+="<label class='choice'><input type='radio' name='ex"+i+"' value='"+j+"'><span>"+o+"</span></label>";});d.innerHTML="<b>"+(i+1)+". "+q[0]+"</b><div class='choice-list'>"+opts+"</div><div class='feedback' id='exfb"+i+"'></div>";examWrap.appendChild(d);});
+document.getElementById("gradeExam").addEventListener("click",()=>{
+ attempt();let score=0,answered=0;exam.forEach((q,i)=>{const a=picked("ex"+i),ok=a!==""&&Number(a)===q[2];if(a!=="")answered++;if(ok)score++;feedback("exfb"+i,ok,ok?"Correcto":"Repasa este punto",q[3]);});
+ feedback("fb-exam",score===10,score+" / 10 respuestas correctas",answered<10?"Contestaste "+answered+" de 10. Completa los reactivos faltantes y vuelve a revisar.":score>=8?"Buen dominio conceptual. Explica los resultados con sus unidades y su propósito.":"Repasa las explicaciones y vuelve a contestar. La idea es comprender la fuente de variación, no memorizar etiquetas.");
+ if(score===10)finished("exam",40);
+});
+function chart(){
+ const svg=document.getElementById("operatorChart"),data=[
+ [19.931,19.938,19.961,19.968,19.991,19.998,20.021,20.028,20.051,20.058],
+ [19.934,19.953,19.964,19.983,19.994,20.013,20.024,20.043,20.054,20.073],
+ [19.925,19.944,19.955,19.974,19.985,20.004,20.015,20.034,20.045,20.064]
+ ];
+ const colors=["#70e5ff","#ffd37e","#c4a5ff"],w=760,h=310,L=58,R=20,T=20,B=48,min=19.92,max=20.08;
+ const x=i=>L+i*(w-L-R)/9,y=v=>T+(max-v)*(h-T-B)/(max-min);
+ let s="";for(let k=0;k<=4;k++){const v=min+(max-min)*k/4,yy=y(v);s+="<line x1='"+L+"' y1='"+yy+"' x2='"+(w-R)+"' y2='"+yy+"' stroke='#294660'/><text x='"+(L-9)+"' y='"+(yy+4)+"' fill='#afc2d7' font-size='10' text-anchor='end'>"+v.toFixed(3)+"</text>";}
+ for(let i=0;i<10;i++){s+="<text x='"+x(i)+"' y='"+(h-18)+"' fill='#afc2d7' font-size='10' text-anchor='middle'>P"+(i+1)+"</text>";}
+ data.forEach((arr,j)=>{let pts=arr.map((v,i)=>x(i)+","+y(v)).join(" ");s+="<polyline points='"+pts+"' fill='none' stroke='"+colors[j]+"' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'/>";arr.forEach((v,i)=>{s+="<circle cx='"+x(i)+"' cy='"+y(v)+"' r='4' fill='"+colors[j]+"' stroke='#07111f' stroke-width='1.5'/>";});});
+ s+="<text x='15' y='16' fill='#afc2d7' font-size='10'>Promedio (mm)</text>";svg.innerHTML=s;
+}
+document.getElementById("downloadReport").addEventListener("click",()=>{
+ const name=val("studentName")||"Estudiante sin nombre",group=val("studentGroup")||"Sin grupo";
+ const lines=["METRO-LAB · CLASE 8 · REPORTE DE AVANCE","Estudiante: "+name,"Grupo: "+group,"XP: "+state.xp,"Intentos: "+state.attempts,"Actividades completadas: "+Object.keys(state.done).filter(k=>state.done[k]).length,"Completadas: "+Object.keys(state.done).filter(k=>state.done[k]).join(", "),"","Las respuestas abiertas deben ser revisadas por el docente. Este reporte se genera localmente en el navegador."];
+ const blob=new Blob([lines.join("\\n")],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="METRO-LAB-reporte-clase8.txt";a.click();URL.revokeObjectURL(url);
+});
+document.getElementById("resetBtn").addEventListener("click",()=>{if(confirm("¿Reiniciar puntos y avance guardado de esta clase en este navegador?")){localStorage.removeItem(KEY);location.reload();}});
+document.querySelectorAll(".side a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".side a").forEach(x=>x.classList.remove("active"));a.classList.add("active");}));
+load();chart();renderProgress();
+})();
+</script>
+</body>
+</html>
