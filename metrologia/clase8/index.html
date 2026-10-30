@@ -127,11 +127,11 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 </section>
 
 <div class="progressbox">
-  <div class="progressline"><span>PROGRESO DE LA CLASE</span><span id="progressLabel">0 de 11 actividades completas</span></div>
+  <div class="progressline"><span>PROGRESO DE LA CLASE</span><span id="progressLabel">0 de 13 actividades completas</span></div>
   <div class="bar"><span id="progressFill"></span></div>
 </div>
 <div class="stats">
-  <div class="stat"><b id="doneStat">0/11</b><small>actividades completas</small></div>
+  <div class="stat"><b id="doneStat">0/13</b><small>actividades completas</small></div>
   <div class="stat"><b id="xpStat">0</b><small>puntos de experiencia</small></div>
   <div class="stat"><b id="attemptStat">0</b><small>intentos registrados</small></div>
   <div class="stat"><b id="levelStat">Aprendiz</b><small>rango METRO-LAB</small></div>
@@ -638,6 +638,39 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   <p><b>Respuesta:</b> no. Indica que no hay evidencia suficiente para rechazar H₀ al nivel α = 0.05; no prueba que el efecto sea exactamente cero.</p>
   <p><b>3.</b> ¿Por qué el caso de 60 lecturas sí conserva la interacción?</p>
   <p><b>Respuesta:</b> porque su p = 2.940×10⁻⁵ es menor que 0.05; hay evidencia estadística de que el comportamiento de los operadores depende de la pieza.</p>
+ </div>
+
+ 
+ <div class="card" id="anovaAssumptions">
+  <div class="kicker">CUADERNILLO · PÁGINA 66</div><h3>10. Antes de creer en la tabla: revisa el diseño</h3>
+  <p>ANOVA no puede reparar un estudio mal planteado. Antes de interpretar F y p, confirma que:</p>
+  <div class="tablewrap"><table><thead><tr><th>Control</th><th>Qué se debe verificar</th><th>Riesgo si no se cumple</th></tr></thead><tbody>
+   <tr><td>Diseño cruzado</td><td>Todos los operadores miden las mismas piezas.</td><td>Se mezcla operador con variación real entre piezas.</td></tr>
+   <tr><td>Balance</td><td>Cada combinación pieza–operador tiene el mismo número de repeticiones.</td><td>La tabla y los gl calculados para un diseño balanceado dejan de corresponder.</td></tr>
+   <tr><td>Orden aleatorizado</td><td>Se evita medir siempre en el mismo orden y se ocultan lecturas anteriores.</td><td>Deriva, calentamiento, fatiga o aprendizaje se mezclan con los factores.</td></tr>
+   <tr><td>Independencia</td><td>Las lecturas se registran sin copiar ni ajustar números anteriores.</td><td>La variación residual queda artificialmente reducida.</td></tr>
+   <tr><td>Residuos</td><td>Revisar normalidad aproximada y dispersión comparable entre celdas.</td><td>Las pruebas F y p pueden ser poco fiables.</td></tr>
+   <tr><td>Selección de piezas</td><td>Las piezas representan el rango de uso real.</td><td>Se puede subestimar la variación pieza a pieza y el ndc.</td></tr>
+  </tbody></table></div>
+  <div class="note warn"><b>Alcance:</b> un R&amp;R no reemplaza estudios de sesgo, linealidad, estabilidad, calibración ni trazabilidad. La conclusión estadística siempre debe relacionarse con el uso previsto y el riesgo del proceso.</div>
+  <a href="#anovaPractice">Ir a la práctica de construcción de la tabla ↓</a>
+ </div>
+ <div class="card" id="anovaAnswerKey">
+  <div class="kicker">CUADERNILLO · PÁGINA 67</div><h3>11. Clave para comprobar tus resultados</h3>
+  <p>Utiliza la clave después de resolver los ejercicios en papel. No la tomes como sustituto del procedimiento.</p>
+  <div class="tablewrap"><table><thead><tr><th>Resultado</th><th>Ejemplo pequeño 3×2×2</th><th>Caso 5×3×2</th></tr></thead><tbody>
+   <tr><td>Media general</td><td>12.1667 mm</td><td>20.0000 mm</td></tr>
+   <tr><td>SS pieza</td><td>32.1667 mm²</td><td>0.6000000 mm²</td></tr>
+   <tr><td>SS operador</td><td>0.3333 mm²</td><td>0.0017888 mm²</td></tr>
+   <tr><td>SS interacción</td><td>0.4467 mm²</td><td>0.0000672 mm²</td></tr>
+   <tr><td>SS error</td><td>0.1200 mm²</td><td>0.0000660 mm²</td></tr>
+   <tr><td>gl total</td><td>11</td><td>29</td></tr>
+   <tr><td>F interacción</td><td>11.1667</td><td>1.9091</td></tr>
+   <tr><td>p interacción</td><td>0.0095</td><td>0.1335</td></tr>
+   <tr><td>Decisión α=.05</td><td>Interacción significativa</td><td>No significativa; se puede ajustar modelo reducido</td></tr>
+  </tbody></table></div>
+  <p class="smalltext">En el caso de 60 lecturas, los resultados ANOVA y los componentes se muestran en las tablas anteriores. La interacción sí resulta significativa (p = 2.940×10⁻⁵).</p>
+  <a href="#reporte">Descargar mi reporte de laboratorio ↗</a>
  </div>
 
  <div class="card">
