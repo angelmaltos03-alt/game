@@ -53,11 +53,11 @@
 </section>
 
 <div class="progressbox">
-  <div class="progressline"><span>PROGRESO DE LA CLASE</span><span id="progressLabel">0 de 7 actividades completas</span></div>
+  <div class="progressline"><span>PROGRESO DE LA CLASE</span><span id="progressLabel">0 de 11 actividades completas</span></div>
   <div class="bar"><span id="progressFill"></span></div>
 </div>
 <div class="stats">
-  <div class="stat"><b id="doneStat">0/7</b><small>actividades completas</small></div>
+  <div class="stat"><b id="doneStat">0/11</b><small>actividades completas</small></div>
   <div class="stat"><b id="xpStat">0</b><small>puntos de experiencia</small></div>
   <div class="stat"><b id="attemptStat">0</b><small>intentos registrados</small></div>
   <div class="stat"><b id="levelStat">Aprendiz</b><small>rango METRO-LAB</small></div>
@@ -326,7 +326,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}r
 function finished(id,points){if(!state.done[id]){state.done[id]=true;state.xp+=points;}save();}
 function attempt(){state.attempts++;save();}
 function renderProgress(){
- const ids=["warmup","calc","e1","e2","e3","case","audit","integr","exam"];
+ const ids=["warmup","calc","e1","e1diag","e2","e3","e3read","case","audit","integr","exam"];
  const total=ids.length,done=ids.filter(k=>state.done[k]).length,pct=Math.round(done/total*100);
  document.getElementById("xpTop").textContent=state.xp;document.getElementById("pctTop").textContent=pct+"%";
  document.getElementById("xpStat").textContent=state.xp;document.getElementById("attemptStat").textContent=state.attempts;
@@ -361,7 +361,7 @@ document.getElementById("checkE1").addEventListener("click",()=>{
 });
 document.getElementById("checkE1diag").addEventListener("click",()=>{
  attempt();const ok=picked("e1diag")==="repr";
- feedback("fb-e1diag",ok,ok?"Diagnóstico correcto":"La pista está en los rangos",ok?"Ambos operadores tienen el mismo rango pequeño (0.002 mm), pero sus promedios difieren 0.009 mm. El indicio es de reproducibilidad entre operadores.":"Compara primero los rangos dentro de cada persona y después los promedios entre personas. Los rangos son pequeños e iguales; la diferencia entre promedios es mucho mayor.");if(ok)finished("e1",0);
+ feedback("fb-e1diag",ok,ok?"Diagnóstico correcto":"La pista está en los rangos",ok?"Ambos operadores tienen el mismo rango pequeño (0.002 mm), pero sus promedios difieren 0.009 mm. El indicio es de reproducibilidad entre operadores.":"Compara primero los rangos dentro de cada persona y después los promedios entre personas. Los rangos son pequeños e iguales; la diferencia entre promedios es mucho mayor.");if(ok)finished("e1diag",5);
 });
 document.getElementById("checkE2").addEventListener("click",()=>{
  checkGroup([{id:"e2grr",expected:.0009,tol:.00005,label:"Varianza R&R",hint:"0.0004 + 0.0005 = 0.0009 mm²."},{id:"e2tv",expected:.0100,tol:.0002,label:"Varianza total",hint:"0.0009 + 0.0091 = 0.0100 mm²."},{id:"e2contrib",expected:9,tol:.3,label:"% contribución",hint:"(0.0009 / 0.0100) × 100 = 9.0%. Compara varianzas."},{id:"e2sgrr",expected:.03,tol:.0005,label:"Desviación estándar R&R",hint:"Raíz cuadrada de 0.0009 = 0.030 mm."},{id:"e2stv",expected:.1,tol:.001,label:"Desviación estándar total",hint:"Raíz cuadrada de 0.0100 = 0.100 mm."},{id:"e2sv",expected:30,tol:.5,label:"%SV",hint:"(0.030 / 0.100) × 100 = 30%. Compara desviaciones estándar, no varianzas."}],"fb-e2","e2",25,"El procedimiento completo está correcto. Primero sumaste varianzas (mm²), luego aplicaste raíz cuadrada (mm), y finalmente calculaste indicadores con sus denominadores adecuados.","Haz el cálculo de izquierda a derecha. Verifica unidades: varianza en mm², desviación estándar en mm. % contribución usa varianzas; %SV usa desviaciones estándar.");
@@ -372,7 +372,7 @@ document.getElementById("checkE3").addEventListener("click",()=>{
 document.getElementById("checkE3read").addEventListener("click",()=>{
  attempt();const items=[["e3svRead","good","%SV de 24.25% cae en el intervalo condicional (10% a 30%) de la guía orientativa."],["e3tolRead","bad","%Tolerancia = 36% supera 30%; necesita atención y justificación frente al propósito y al cliente."],["e3ndcRead","good","5.64 se interpreta como unas cinco categorías completas; ndc no cuenta piezas conformes."]];
  const misses=items.filter(x=>document.getElementById(x[0]).value!==x[1]);
- if(!misses.length){feedback("fb-e3read",true,"Buena interpretación","El resultado es mixto: %SV condicional, %Tolerancia preocupante y ndc alrededor del mínimo recomendado. No emitas una aprobación automática.");finished("e3",15);}
+ if(!misses.length){feedback("fb-e3read",true,"Buena interpretación","El resultado es mixto: %SV condicional, %Tolerancia preocupante y ndc alrededor del mínimo recomendado. No emitas una aprobación automática.");finished("e3read",15);}
  else{feedback("fb-e3read",false,"Vuelve a los denominadores",misses.map(x=>x[2]).join("<br>"));}
 });
 const audit=[
@@ -435,7 +435,7 @@ function chart(){
 document.getElementById("downloadReport").addEventListener("click",()=>{
  const name=val("studentName")||"Estudiante sin nombre",group=val("studentGroup")||"Sin grupo";
  const lines=["METRO-LAB · CLASE 8 · REPORTE DE AVANCE","Estudiante: "+name,"Grupo: "+group,"XP: "+state.xp,"Intentos: "+state.attempts,"Actividades completadas: "+Object.keys(state.done).filter(k=>state.done[k]).length,"Completadas: "+Object.keys(state.done).filter(k=>state.done[k]).join(", "),"","Las respuestas abiertas deben ser revisadas por el docente. Este reporte se genera localmente en el navegador."];
- const blob=new Blob([lines.join("\\n")],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="METRO-LAB-reporte-clase8.txt";a.click();URL.revokeObjectURL(url);
+ const blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="METRO-LAB-reporte-clase8.txt";a.click();URL.revokeObjectURL(url);
 });
 document.getElementById("resetBtn").addEventListener("click",()=>{if(confirm("¿Reiniciar puntos y avance guardado de esta clase en este navegador?")){localStorage.removeItem(KEY);location.reload();}});
 document.querySelectorAll(".side a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".side a").forEach(x=>x.classList.remove("active"));a.classList.add("active");}));
